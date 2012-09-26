@@ -21,8 +21,8 @@ Ball::Ball(sf::Color color, float x, float y)
 	);
 	add_component(
 		new CVelocity2D(
-			((float)rand() / (float)RAND_MAX) - 0.5f,
-			((float)rand() / (float)RAND_MAX) - 0.5f
+			(((float)rand() / (float)RAND_MAX) - 0.5f) * 10,
+			(((float)rand() / (float)RAND_MAX) - 0.5f) * 10
 		)
 	);
 	add_component(

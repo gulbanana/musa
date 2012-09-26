@@ -28,8 +28,6 @@ Game::Game()
 	add_entity(make_shared<Ball>(sf::Color::Yellow, 300.f, 200.f));
 }
 
-#define FRAMES_PER_SEC   60
-#define CLOCKS_PER_FRAME (CLOCKS_PER_SEC/FRAMES_PER_SEC)
 void Game::play()
 {
 	clock_t frames_per_sec = 60;
