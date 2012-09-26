@@ -14,7 +14,7 @@ vector<string> MotionSystem::required_components()
 
 void MotionSystem::on_entity(shared_ptr<IEntity> entity)
 {
-	auto position = (Position2D*)entity->get_component("Position2D").get();
+	auto position = static_cast<Position2D*>(entity->get_component("Position2D"));
 		
 	position->x += ((float)rand() / (float)RAND_MAX) - 0.5f;
 	position->y += ((float)rand() / (float)RAND_MAX) - 0.5f;

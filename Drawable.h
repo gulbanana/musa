@@ -2,7 +2,7 @@
 #include "IComponent.h"
 #include <SFML/Graphics.hpp>
 
-class Drawable : IComponent
+class Drawable : public IComponent
 {
 public:
 	enum class Shape {SQUARE, CIRCLE};

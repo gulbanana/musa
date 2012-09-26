@@ -1,7 +1,7 @@
 #pragma once
 #include "IComponent.h"
 
-class Position2D : IComponent
+class Position2D : public IComponent
 {
 public:
 	float x;
