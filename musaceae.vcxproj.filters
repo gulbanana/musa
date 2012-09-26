@@ -20,13 +20,13 @@
     <ClCompile Include="InputSystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
-    <ClCompile Include="GreenBall.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
     <ClCompile Include="MotionSystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
     <ClCompile Include="IEntity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,11 +54,11 @@
     <ClInclude Include="Drawable.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="GreenBall.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
     <ClInclude Include="MotionSystem.h">
       <Filter>Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

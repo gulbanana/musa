@@ -8,8 +8,13 @@ using namespace std;
 
 vector<string> RenderSystem::required_components()
 {
-	array<string,2> compTypes = {typeid(Position2D).raw_name(), typeid(Drawable).raw_name()};
+	array<string,2> compTypes = {"Position2D", "Drawable"};
 	return vector<string>(compTypes.begin(), compTypes.end());
+}
+
+RenderSystem::RenderSystem(sf::RenderTarget* s) : surface(s)
+{
+	font.loadFromFile("C:\\Windows\\Fonts\\Arial.ttf");
 }
 
 void RenderSystem::frame()
@@ -23,17 +28,19 @@ void RenderSystem::frame()
 
 	for_each(begin(entities), end(entities), [=](weak_ptr<IEntity> entity)
 	{
-		entity.lock();
-			sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+		auto view = entity.lock();
+		auto position = (Position2D*)view->get_component("Position2D").get();
+		auto content = (Drawable*)view->get_component("Drawable").get();
 
-	sf::Font font;
-	font.loadFromFile("C:\\Windows\\Fonts\\Arial.ttf");
-	sf::Text greeting("hello! hello", font);
+		auto entityTranslation = sf::Transform();
+		
+		sf::CircleShape shape(100.f);
+		shape.setFillColor(content->color);
+		entityTranslation.translate(position->x, position->y);
+		surface->draw(shape, sf::RenderStates(entityTranslation));
 
-	
-	surface->draw(shape);
-	surface->draw(greeting);
+		sf::Text greeting(content->text, font);
+		entityTranslation.translate(75.f, 75.f);
+		surface->draw(greeting, sf::RenderStates(entityTranslation));
 	});
-
 }

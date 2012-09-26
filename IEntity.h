@@ -6,11 +6,11 @@
 class IEntity
 {
 protected:
-	IEntity() {}
 	std::vector<std::shared_ptr<IComponent>> components;
+	IEntity() {}
 
 public:
 	bool has_component(std::string name);
-	template<typename TComponent> std::shared_ptr<TComponent> get_component();
+	std::shared_ptr<IComponent> get_component(std::string name);
 };
 

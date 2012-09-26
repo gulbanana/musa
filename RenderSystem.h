@@ -4,10 +4,11 @@
 
 class RenderSystem : public ISystem
 {
+	sf::Font font;
 	sf::RenderTarget* surface;
 
 public:
-	RenderSystem(sf::RenderTarget* s) : surface(s) {}
+	RenderSystem(sf::RenderTarget* s);
 
 	void frame() override;
 	std::vector<std::string> required_components() override;

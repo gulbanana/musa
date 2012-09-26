@@ -4,9 +4,10 @@
 class Position2D : IComponent
 {
 public:
-	double x;
-	double y;
+	float x;
+	float y;
 
-	Position2D(double posX, double posY) : x(posX), y(posY) {}
+	Position2D(float posX, float posY) : x(posX), y(posY) {}
+	std::string Name() { return "Position2D"; }
 };
 

@@ -3,20 +3,23 @@
 #include "InputSystem.h"
 #include "RenderSystem.h"
 #include "MotionSystem.h"
-#include "GreenBall.h"
+#include "Ball.h"
 #include <functional>
 #include <typeinfo>
+#include <random>
 using namespace std;
 
 Game::Game()
 {
-	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(800, 600), "Musa Musaceae - engine test");
+	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(700, 700), "Musa Musaceae - engine test");
 
 	add_system(make_unique<InputSystem>(mainWindow.get()));
 	add_system(make_unique<MotionSystem>());
 	add_system(make_unique<RenderSystem>(mainWindow.get()));
 
-	add_entity(make_shared<GreenBall>());
+	add_entity(make_shared<Ball>(sf::Color::Green, 100.f));
+	add_entity(make_shared<Ball>(sf::Color::Blue, 250.f));
+	add_entity(make_shared<Ball>(sf::Color::Magenta, 400.f));
 }
 
 void Game::play()
@@ -44,6 +47,7 @@ void Game::add_entity(shared_ptr<IEntity> entity)
 	for_each(systems.begin(), systems.end(), [&](unique_ptr<ISystem>& system)
 	{
 		auto comps = system->required_components();
+		if (comps.size() == 0) return;
 
 		int matches = count_if(comps.begin(), comps.end(), [&](string requirementName)
 		{
