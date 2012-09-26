@@ -88,6 +88,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Backdrop.cpp" />
+    <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="IEntity.cpp" />
@@ -95,10 +97,16 @@
     <ClCompile Include="ISystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MotionSystem.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Backdrop.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="CCollision.h" />
+    <ClInclude Include="CollisionSystem.h" />
+    <ClInclude Include="CVelocity2D.h" />
+    <ClInclude Include="CLabel.h" />
     <ClInclude Include="IEntity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InputSystem.h" />
@@ -106,9 +114,10 @@
     <ClInclude Include="misc.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="MotionSystem.h" />
-    <ClInclude Include="Position2D.h" />
+    <ClInclude Include="CPosition2D.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="RenderSystem.h" />
-    <ClInclude Include="Drawable.h" />
+    <ClInclude Include="CShapeGeometry.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

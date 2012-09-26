@@ -10,6 +10,7 @@ class IEntity
 protected:
 	std::vector<std::unique_ptr<IComponent>> components;
 	IEntity() {}
+	void add_component(IComponent* component);
 
 public:
 	bool has_component(std::string name);

@@ -2,9 +2,9 @@
 #include "IEntity.h"
 #include <SFML/Graphics.hpp>
 
-class Ball : public IEntity
+class Backdrop : public IEntity
 {
 public:
-	Ball(sf::Color color, float x, float y);
+	Backdrop(sf::Color color, float x, float y);
 };
 

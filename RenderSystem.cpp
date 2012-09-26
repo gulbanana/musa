@@ -1,6 +1,8 @@
 #include "RenderSystem.h"
-#include "Position2D.h"
-#include "Drawable.h"
+#include "CPosition2D.h"
+#include "CShapeGeometry.h"
+#include "CLabel.h"
+#include "CCollision.h"
 #include <array>
 #include <iterator>
 #include <typeinfo>
@@ -8,7 +10,7 @@ using namespace std;
 
 vector<string> RenderSystem::required_components()
 {
-	array<string,2> compTypes = {"Position2D", "Drawable"};
+	array<string,3> compTypes = {"Position2D", "ShapeGeometry", "Label"};
 	return vector<string>(compTypes.begin(), compTypes.end());
 }
 
@@ -24,17 +26,31 @@ void RenderSystem::on_frame()
 
 void RenderSystem::on_entity(shared_ptr<IEntity> entity)
 {
-	auto position = static_cast<Position2D*>(entity->get_component("Position2D"));
-	auto content = static_cast<Drawable*>(entity->get_component("Drawable"));
+	auto position = static_cast<CPosition2D*>(entity->get_component("Position2D"));
+	auto geometry = static_cast<CShapeGeometry*>(entity->get_component("ShapeGeometry"));
+	auto label = static_cast<CLabel*>(entity->get_component("Label"));
 
 	auto entityTranslation = sf::Transform();
-		
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(content->color);
 	entityTranslation.translate(position->x, position->y);
-	surface->draw(shape, sf::RenderStates(entityTranslation));
+		
+	sf::Shape* shape;
+	sf::CircleShape circle(geometry->radius);
+	sf::RectangleShape square(sf::Vector2f(geometry->radius*2, geometry->radius*2));
+	switch (geometry->shape)
+	{
+		case CShapeGeometry::Shape::CIRCLE:
+			shape = &circle;
+			break;
+		case CShapeGeometry::Shape::SQUARE:
+			shape = &square;
+			break;
+	}
 
-	sf::Text greeting(content->text, font);
-	entityTranslation.translate(75.f, 75.f);
+	shape->setFillColor(geometry->color);
+	surface->draw(*shape, sf::RenderStates(entityTranslation));
+
+	sf::Text greeting(label->text, font);
+	greeting.setColor(sf::Color::Black);
+	entityTranslation.translate(geometry->radius-25, geometry->radius-20);
 	surface->draw(greeting, sf::RenderStates(entityTranslation));
 }
