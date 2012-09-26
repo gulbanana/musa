@@ -7,14 +7,17 @@
 
 class ISystem
 {
+	virtual void on_frame() {}
+	virtual void on_entity(std::shared_ptr<IEntity> entity) {}
+
 protected:
 	std::vector<std::weak_ptr<IEntity>> entities;
 
 public:
 	virtual ~ISystem() {}
 	virtual std::vector<std::string> required_components() = 0;
-	virtual void frame() = 0;
 
-	void add_entity(std::weak_ptr<IEntity> new_entity) { entities.push_back(new_entity); }
+	void add_entity(std::weak_ptr<IEntity> new_entity);
+	void frame();
 };
 

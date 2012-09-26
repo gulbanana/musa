@@ -29,6 +29,9 @@
     <ClCompile Include="Ball.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
+    <ClCompile Include="ISystem.cpp">
+      <Filter>Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />

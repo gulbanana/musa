@@ -92,6 +92,7 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="IEntity.cpp" />
     <ClCompile Include="InputSystem.cpp" />
+    <ClCompile Include="ISystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MotionSystem.cpp" />
     <ClCompile Include="RenderSystem.cpp" />

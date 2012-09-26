@@ -11,7 +11,7 @@ class InputSystem : public ISystem
 public:
 	InputSystem(sf::RenderWindow* s) : window(s) {}
 
-	void frame() override;
 	std::vector<std::string> required_components() override;
+	void on_frame() override;
 };
 

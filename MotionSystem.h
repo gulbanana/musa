@@ -5,7 +5,7 @@
 class MotionSystem : public ISystem
 {
 public:
-	void frame() override;
 	std::vector<std::string> required_components() override;
+	void on_entity(std::shared_ptr<IEntity> entity) override;
 };
 

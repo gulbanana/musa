@@ -17,9 +17,9 @@ Game::Game()
 	add_system(make_unique<MotionSystem>());
 	add_system(make_unique<RenderSystem>(mainWindow.get()));
 
-	add_entity(make_shared<Ball>(sf::Color::Green, 100.f));
-	add_entity(make_shared<Ball>(sf::Color::Blue, 250.f));
-	add_entity(make_shared<Ball>(sf::Color::Magenta, 400.f));
+	add_entity(make_shared<Ball>(sf::Color::Cyan, 100.f));
+	add_entity(make_shared<Ball>(sf::Color::Magenta, 250.f));
+	add_entity(make_shared<Ball>(sf::Color::Yellow, 400.f));
 }
 
 void Game::play()
