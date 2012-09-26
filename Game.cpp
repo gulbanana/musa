@@ -14,6 +14,8 @@ using namespace std;
 Game::Game()
 {
 	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(700, 700), "Musa Musaceae - engine test");
+	mainWindow->setVerticalSyncEnabled(true);
+	mainWindow->setFramerateLimit(60);
 
 	add_system(make_unique<InputSystem>(mainWindow.get()));
 	add_system(make_unique<CollisionSystem>(700.f, 700.f));
@@ -30,29 +32,15 @@ Game::Game()
 
 void Game::play()
 {
-	clock_t frames_per_sec = 60;
-	clock_t clocks_per_frame = CLOCKS_PER_SEC / frames_per_sec;
-
-	clock_t now, last_frame = clock();
 	while (mainWindow->isOpen())
 	{
-		now = clock();
-		if ((now - last_frame) >= clocks_per_frame)
+		for_each(begin(systems), end(systems), [](unique_ptr<ISystem>& system)
 		{
-			last_frame = now;
-			frame();
-		}
+			system->frame();
+		});
+
+		mainWindow->display();
 	}
-}
-
-void Game::frame()
-{
-	for_each(begin(systems), end(systems), [](unique_ptr<ISystem>& system)
-	{
-		system->frame();
-	});
-
-	mainWindow->display();
 }
 
 void Game::add_entity(shared_ptr<IEntity> entity)

@@ -11,7 +11,6 @@ class Game
 	std::vector<std::shared_ptr<IEntity>> entities;
 
 private:
-	void frame();
 	void add_entity(std::shared_ptr<IEntity> entity);
 	void add_system(std::unique_ptr<ISystem> system);
 
