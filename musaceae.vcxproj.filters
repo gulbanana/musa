@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{b36a1366-33bd-4cef-bac0-c28d33e82877}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{926bc86f-f241-4ac3-b7c6-daa5c1cebee3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems">
+      <UniqueIdentifier>{265dfbce-b1b8-45e7-bee8-e429a37f8065}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="GreenBall.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="MotionSystem.cpp">
+      <Filter>Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="IEntity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="IComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Position2D.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="ISystem.h">
+      <Filter>Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="IEntity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawable.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GreenBall.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MotionSystem.h">
+      <Filter>Systems</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
