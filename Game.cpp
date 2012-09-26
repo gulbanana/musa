@@ -7,9 +7,8 @@
 #include "Ball.h"
 #include "Obstacle.h"
 #include "Backdrop.h"
-#include <functional>
 #include <typeinfo>
-#include <random>
+#include <ctime>
 using namespace std;
 
 Game::Game()
@@ -29,11 +28,22 @@ Game::Game()
 	add_entity(make_shared<Ball>(sf::Color::Yellow, 300.f, 200.f));
 }
 
+#define FRAMES_PER_SEC   60
+#define CLOCKS_PER_FRAME (CLOCKS_PER_SEC/FRAMES_PER_SEC)
 void Game::play()
 {
+	clock_t frames_per_sec = 60;
+	clock_t clocks_per_frame = CLOCKS_PER_SEC / frames_per_sec;
+
+	clock_t now, last_frame = clock();
 	while (mainWindow->isOpen())
 	{
-		frame();
+		now = clock();
+		if ((now - last_frame) >= clocks_per_frame)
+		{
+			last_frame = now;
+			frame();
+		}
 	}
 }
 
