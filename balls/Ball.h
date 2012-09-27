@@ -1,10 +1,11 @@
 #pragma once
-#include "IEntity.h"
-#include <SFML/Graphics.hpp>
+#include <core/IEntity.h>
+#include <core/types.h>
 
 class Ball : public IEntity
 {
 public:
-	Ball(sf::Color color, float x, float y);
+	Ball(Color4F color, Vector2F position, Vector2F acceleration);
+	Ball(Color4F color);
 };
 

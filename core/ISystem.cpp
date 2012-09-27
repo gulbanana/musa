@@ -9,12 +9,12 @@ void ISystem::add_entity(weak_ptr<IEntity> new_entity)
 
 void ISystem::frame()
 {
-	on_frame();
-
 	remove_if(begin(entities), end(entities), [](weak_ptr<IEntity> entity)
 	{
 		return entity.expired();
 	});
+
+	on_frame();
 
 	for_each(begin(entities), end(entities), [=](weak_ptr<IEntity> entity)
 	{

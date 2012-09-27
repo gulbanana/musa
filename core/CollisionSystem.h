@@ -1,19 +1,18 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "CShapeGeometry.h"
-#include "CPosition2D.h"
 #include "ISystem.h"
+#include "ICollisionDetector.h"
 
 class CollisionSystem : public ISystem
 {
-	float width;
-	float height;
+	std::vector<std::unique_ptr<ICollisionDetector>> detectors;
+	std::vector<std::weak_ptr<IEntity>> targets;
 
-	sf::FloatRect getBounds(CShapeGeometry* geometry, CPosition2D* position);
+	void on_frame() override;
+	void on_entity(std::shared_ptr<IEntity> entity) override;
 
 public:
-	CollisionSystem(float boundsX, float boundsY);
-	std::vector<std::string> required_components() override;
-	void on_entity(std::shared_ptr<IEntity> entity) override;
+	CollisionSystem();
+	std::vector<CID> required_components() override;
+	void add_entity(std::weak_ptr<IEntity> entity) override;
 };
 

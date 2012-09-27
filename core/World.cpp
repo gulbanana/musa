@@ -1,12 +1,11 @@
 #include "misc.h"
 #include "World.h"
 #include "InputSystem.h"
-#include "RenderSystem.h"
+#include "ShapeRenderSystem.h"
+#include "UIRenderSystem.h"
 #include "MotionSystem.h"
 #include "CollisionSystem.h"
-#include "Ball.h"
-#include "Obstacle.h"
-#include "Backdrop.h"
+#include "PhysicsSystem.h"
 #include <typeinfo>
 #include <ctime>
 #include <SFML/Graphics.hpp>
@@ -14,43 +13,50 @@ using namespace std;
 
 class WorldImpl
 {
-	std::unique_ptr<sf::RenderWindow> mainWindow;
-	std::vector<std::unique_ptr<ISystem>> systems;
-	std::vector<std::shared_ptr<IEntity>> entities;
+	vector<unique_ptr<ISystem>> systems;
+	vector<shared_ptr<IEntity>> entities;
+	unique_ptr<sf::RenderWindow> mainWindow;
+	int fps;
+
+	void frame();
 
 public:
-	WorldImpl();
-
-	void add_entity(std::shared_ptr<IEntity> entity);
-	void add_system(std::unique_ptr<ISystem> system);
+	WorldImpl(string title);
+	void add_entity(shared_ptr<IEntity> entity);
+	void add_system(unique_ptr<ISystem> system);
 	void play();
 };
 
 
-World::World() : _pimpl(new WorldImpl()) {}
-WorldImpl::WorldImpl()
+World::World(string title) : _pimpl(new WorldImpl(title)) {}
+WorldImpl::WorldImpl(string title)
 {
-	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(700, 700), "Musa Musaceae - engine test");
+	fps = 0;
+
+	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(700, 700), title);
 	mainWindow->setVerticalSyncEnabled(true);
-	mainWindow->setFramerateLimit(60);
+	//mainWindow->setFramerateLimit(60);
+
+	sf::Font font;
+	font.loadFromFile("C:\\Windows\\Fonts\\Arial.ttf");
 
 	add_system(make_unique<InputSystem>(mainWindow.get()));
-	add_system(make_unique<CollisionSystem>(700.f, 700.f));
-	add_system(make_unique<MotionSystem>());
-	add_system(make_unique<RenderSystem>(mainWindow.get()));
+	add_system(make_unique<CollisionSystem>());
+	add_system(make_unique<PhysicsSystem>());
+	add_system(make_unique<MotionSystem>(700.f, 700.f));
+	add_system(make_unique<ShapeRenderSystem>(font, mainWindow.get()));
+	add_system(make_unique<UIRenderSystem>(font, mainWindow.get(), fps));
 }
 
 void World::play() { _pimpl->play(); }
 void WorldImpl::play()
 {
+	sf::Clock clock;
 	while (mainWindow->isOpen())
 	{
-		for_each(begin(systems), end(systems), [](unique_ptr<ISystem>& system)
-		{
-			system->frame();
-		});
-
-		mainWindow->display();
+		clock.restart();
+		frame();
+		fps = (int)(1.f / clock.getElapsedTime().asSeconds());
 	}
 }
 
@@ -64,9 +70,9 @@ void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 		auto comps = system->required_components();
 		if (comps.size() == 0) return;
 
-		int matches = count_if(comps.begin(), comps.end(), [&](string requirementName)
+		int matches = count_if(comps.begin(), comps.end(), [&](CID requirement)
 		{
-			return entity->has_component(requirementName);
+			return entity->has_component(requirement);
 		});
 
 		if (matches == comps.size())
@@ -78,4 +84,14 @@ void World::add_system(unique_ptr<ISystem> system) { _pimpl->add_system(std::mov
 void WorldImpl::add_system(unique_ptr<ISystem> system)
 {
 	systems.push_back(std::move(system));
+}
+
+void WorldImpl::frame()
+{
+	for_each(begin(systems), end(systems), [](unique_ptr<ISystem>& system)
+	{
+		system->frame();
+	});
+
+	mainWindow->display();
 }

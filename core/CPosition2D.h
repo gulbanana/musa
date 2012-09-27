@@ -1,15 +1,15 @@
 #pragma once
 #include "IComponent.h"
+#include "types.h"
 
 class CPosition2D : public IComponent
 {
 public:
-	float x;
-	float prevX;
-	float y;
-	float prevY;
+	static const CID ID = CID::Position2D;
+	Vector2F current;
+	Vector2F previous;
 
-	CPosition2D(float posX, float posY) : x(posX), prevX(posX), y(posY), prevY(posY) {}
-	std::string Name() { return "Position2D"; }
+	CPosition2D(float x, float y) : current(x, y), previous(x, y) {}
+	CPosition2D(Vector2F pos) : current(pos), previous(pos) {}
 };
 

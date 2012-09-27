@@ -1,16 +1,15 @@
 #pragma once
+#include "types.h"
 #include "IComponent.h"
-#include <SFML/Graphics.hpp>
 
 class CShapeGeometry : public IComponent
 {
 public:
-	enum class Shape {SQUARE, CIRCLE};
-	Shape shape;
-	sf::Color color;
+	static const CID ID = CID::ShapeGeometry;
+	Polygon shape;
+	Color4F color;
 	float radius;
 
-	CShapeGeometry(Shape s, sf::Color c, float r) : shape(s), color(c), radius(r) {}
-	std::string Name() { return "ShapeGeometry"; }
+	CShapeGeometry(Polygon s, Color4F c, float r) : shape(s), color(c), radius(r) {}
 };
 

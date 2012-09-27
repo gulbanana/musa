@@ -87,9 +87,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\core\main.cpp" />
     <ClCompile Include="Backdrop.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstacle.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,10 +1,10 @@
 #pragma once
-#include "IEntity.h"
-#include <SFML/Graphics.hpp>
+#include <core/IEntity.h>
+#include <core/types.h>
 
 class Obstacle : public IEntity
 {
 public:
-	Obstacle(sf::Color color, float x, float y);
+	Obstacle(Color4F color, Vector2F position);
 };
 

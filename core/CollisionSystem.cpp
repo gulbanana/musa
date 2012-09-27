@@ -1,75 +1,67 @@
-#include "CollisionSystem.h"
-#include "CPosition2D.h"
-#include "CShapeGeometry.h"
-#include "CCollision.h"
 #include <array>
 #include <iterator>
 #include <typeinfo>
+#include <tuple>
+#include "misc.h"
+#include "CPosition2D.h"
+#include "CShapeGeometry.h"
+#include "CCollision.h"
+#include "CollisionSystem.h"
+#include "RectIntersectionDetector.h"
 using namespace std;
 
-vector<string> CollisionSystem::required_components()
+vector<CID> CollisionSystem::required_components()
 {
-	array<string,3> compTypes = {"Position2D", "ShapeGeometry", "Collision"};
-	return vector<string>(compTypes.begin(), compTypes.end());
+	array<CID,3> compTypes = {CID::Position2D, CID::ShapeGeometry, CID::Collision};
+	return vector<CID>(compTypes.begin(), compTypes.end());
 }
 
-CollisionSystem::CollisionSystem(float boundsX, float boundsY)
+CollisionSystem::CollisionSystem()
 {
-	width = boundsX;
-	height = boundsY;
+	targets = vector<weak_ptr<IEntity>>();
+	detectors = vector<unique_ptr<ICollisionDetector>>();
+	detectors.push_back(make_unique<RectIntersectionDetector>());
 }
 
-void CollisionSystem::on_entity(shared_ptr<IEntity> entity)
+void CollisionSystem::add_entity(weak_ptr<IEntity> new_entity)
+{ 
+	ISystem::add_entity(new_entity);
+	if (new_entity.lock()->get_component<CCollision>()->object)
+		targets.push_back(new_entity);
+}
+
+void CollisionSystem::on_frame()
 {
-	auto position = static_cast<CPosition2D*>(entity->get_component("Position2D"));
-	auto geometry = static_cast<CShapeGeometry*>(entity->get_component("ShapeGeometry"));
-	auto collision = static_cast<CCollision*>(entity->get_component("Collision"));
-
-	collision->collidedX = false;
-	collision->collidedY = false;
-
-	bool outOfBoundsX = position->x <= 0.f || (position->x + geometry->radius*2) >= width;
-	bool outOfBoundsY = position->y <= 0.f || (position->y + geometry->radius*2) >= height;
-
-	if (outOfBoundsX) collision->collidedX = true;
-	if (outOfBoundsY) collision->collidedY = true;
-	
-	sf::FloatRect sourceRect = getBounds(geometry, position);
-	for_each(entities.begin(), entities.end(), [&, sourceRect, collision, position](weak_ptr<IEntity> potentialCollision)
+	remove_if(begin(targets), end(targets), [](weak_ptr<IEntity> entity)
 	{
-		auto target = potentialCollision.lock();
-		if (target.get() == entity.get())
-			return;
-
-		auto targetGeometry = static_cast<CShapeGeometry*>(target->get_component("ShapeGeometry"));
-		auto targetPosition = static_cast<CPosition2D*>(target->get_component("Position2D"));
-		sf::FloatRect targetRect = getBounds(targetGeometry, targetPosition);
-
-		if (sourceRect.intersects(targetRect))
-		{
-			auto xDiff = abs(targetPosition->x - position->x);
-			auto yDiff = abs(targetPosition->y - position->y);
-
-			if (xDiff > yDiff)
-				collision->collidedX = true;
-			else if (yDiff > xDiff)
-				collision->collidedY = true;
-			else
-			{
-				collision->collidedX = true;
-				collision->collidedY = true;
-			}
-			return;
-		}
+		return entity.expired();
 	});
 }
 
-sf::FloatRect CollisionSystem::getBounds(CShapeGeometry* geometry, CPosition2D* position)
+//Operate on each subject-object pair. param entity is subject, objects are in vec targets
+void CollisionSystem::on_entity(shared_ptr<IEntity> sourceEntity)
 {
-	return sf::Rect<float>(
-		position->x - geometry->radius, 
-		position->y - geometry->radius, 
-		geometry->radius * 2, 
-		geometry->radius * 2
-	);
+	auto collision = sourceEntity->get_component<CCollision>();
+	if (!collision->subject) return;
+	auto position = sourceEntity->get_component<CPosition2D>();
+	auto geometry = sourceEntity->get_component<CShapeGeometry>();
+
+	collision->collisions.clear();
+
+	for_each(begin(targets), end(targets), [&](weak_ptr<IEntity>& entity)
+	{
+		auto targetEntity = entity.lock();
+		if (sourceEntity.get() == targetEntity.get()) return;
+
+		auto pairCollides = true;
+
+		for_each(begin(detectors), end(detectors), [&](unique_ptr<ICollisionDetector>& detector)
+		{
+			pairCollides = detector->collide(sourceEntity, targetEntity);
+			if (!pairCollides) return;
+		});
+		
+		if (pairCollides) collision->collisions.push_back(targetEntity);
+	});
 }
+

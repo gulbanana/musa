@@ -1,31 +1,50 @@
-#include "Ball.h"
-#include "CPosition2D.h"
-#include "CShapeGeometry.h"
-#include "CLabel.h"
-#include "CVelocity2D.h"
-#include "CCollision.h"
 #include <memory>
 #include <random>
+#include <core/components.h>
+#include <core/misc.h>
+#include "Ball.h"
 using namespace std;
 
-Ball::Ball(sf::Color color, float x, float y)
+Ball::Ball(Color4F color)
 {
 	add_component(
-		new CPosition2D(x, y)
+		make_unique<CPosition2D>(
+			((float)rand() / (float)RAND_MAX) * 800,
+			((float)rand() / (float)RAND_MAX) * 800
+		)
 	);
 	add_component(
-		new CShapeGeometry(CShapeGeometry::Shape::CIRCLE, color, 45.f)
+		make_unique<CShapeGeometry>(Polygon::CIRCLE, color, 10.f)
 	);
 	add_component(
-		new CLabel("ball")
-	);
-	add_component(
-		new CVelocity2D(
+		make_unique<CVelocity2D>(
 			(((float)rand() / (float)RAND_MAX) - 0.5f) * 10,
 			(((float)rand() / (float)RAND_MAX) - 0.5f) * 10
 		)
 	);
 	add_component(
-		new CCollision()
+		make_unique<CCollision>(true, false)
+	);
+	add_component(
+		make_unique<CPhysics>()
+	);
+}
+
+Ball::Ball(Color4F color, Vector2F position, Vector2F acceleration)
+{
+	add_component(
+		make_unique<CPosition2D>(position)
+	);
+	add_component(
+		make_unique<CShapeGeometry>(Polygon::CIRCLE, color, 20.f)
+	);
+	add_component(
+		make_unique<CVelocity2D>(acceleration)
+	);
+	add_component(
+		make_unique<CCollision>(true, true)
+	);
+	add_component(
+		make_unique<CPhysics>()
 	);
 }

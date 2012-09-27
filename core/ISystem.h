@@ -15,9 +15,9 @@ protected:
 
 public:
 	virtual ~ISystem() {}
-	virtual std::vector<std::string> required_components() = 0;
-
-	void add_entity(std::weak_ptr<IEntity> new_entity);
+	virtual std::vector<CID> required_components() { return std::vector<CID>(); }
+	virtual void add_entity(std::weak_ptr<IEntity> new_entity);
+	
 	void frame();
 };
 

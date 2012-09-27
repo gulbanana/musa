@@ -1,20 +1,19 @@
-#include "Backdrop.h"
-#include "CPosition2D.h"
-#include "CShapeGeometry.h"
-#include "CLabel.h"
 #include <memory>
 #include <random>
+#include <core/components.h>
+#include <core/misc.h>
+#include "Backdrop.h"
 using namespace std;
 
-Backdrop::Backdrop(sf::Color color, float x, float y)
+Backdrop::Backdrop(Color4F color, Vector2F position)
 {
 	add_component(
-		new CPosition2D(x, y)
+		make_unique<CPosition2D>(position)
 	);
 	add_component(
-		new CShapeGeometry(CShapeGeometry::Shape::SQUARE, color, 50.f)
+		make_unique<CShapeGeometry>(Polygon::SQUARE, color, 50.f)
 	);
 	add_component(
-		new CLabel("mall")
+		make_unique<CLabel>("mall")
 	);
 }

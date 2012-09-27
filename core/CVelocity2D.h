@@ -1,13 +1,14 @@
 #pragma once
 #include "IComponent.h"
+#include "types.h"
 
 class CVelocity2D : public IComponent
 {
 public:
-	float x;
-	float y;
+	static const CID ID = CID::Velocity2D;
+	Vector2F vector;
 
-	CVelocity2D(float posX, float posY) : x(posX), y(posY) {}
-	std::string Name() { return "Velocity2D"; }
+	CVelocity2D(float x, float y) : vector(x, y) {}
+	CVelocity2D(Vector2F vel) : vector(vel) {}
 };
 

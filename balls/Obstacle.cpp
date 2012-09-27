@@ -1,25 +1,23 @@
 #include <memory>
 #include <random>
-#include <core/CCollision.h>
-#include <core/CPosition2D.h>
-#include <core/CShapeGeometry.h>
-#include <core/CLabel.h>
+#include <core/components.h>
+#include <core/misc.h>
 #include "Obstacle.h"
 
 using namespace std;
 
-Obstacle::Obstacle(sf::Color color, float x, float y)
+Obstacle::Obstacle(Color4F color, Vector2F position)
 {
 	add_component(
-		new CPosition2D(x, y)
+		make_unique<CPosition2D>(position.x, position.y)
 	);
 	add_component(
-		new CShapeGeometry(CShapeGeometry::Shape::SQUARE, color, 50.f)
+		make_unique<CShapeGeometry>(Polygon::SQUARE, color, 50.f)
 	);
 	add_component(
-		new CLabel("wall")
+		make_unique<CLabel>("wall")
 	);
 	add_component(
-		new CCollision()
+		make_unique<CCollision>(false, true)
 	);
 }

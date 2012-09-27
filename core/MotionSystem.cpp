@@ -1,35 +1,29 @@
-#include "MotionSystem.h"
-#include "CPosition2D.h"
-#include "CVelocity2D.h"
-#include "CCollision.h"
 #include <array>
-#include <iterator>
-#include <typeinfo>
-#include <iostream>
+#include "components.h"
+#include "MotionSystem.h"
 using namespace std;
 
-vector<string> MotionSystem::required_components()
+vector<CID> MotionSystem::required_components()
 {
-	array<string,2> compTypes = {"Position2D", "Velocity2D"};
-	return vector<string>(compTypes.begin(), compTypes.end());
+	array<CID,2> compTypes = {CID::Position2D, CID::Velocity2D};
+	return vector<CID>(compTypes.begin(), compTypes.end());
 }
+
+MotionSystem::MotionSystem(float boundsX, float boundsY) : levelWidth(boundsX), levelHeight(boundsY) {}
 
 void MotionSystem::on_entity(shared_ptr<IEntity> entity)
 {
-	auto position = static_cast<CPosition2D*>(entity->get_component("Position2D"));
-	auto velocity = static_cast<CVelocity2D*>(entity->get_component("Velocity2D"));
+	auto position = entity->get_component<CPosition2D>();
+	auto velocity = entity->get_component<CVelocity2D>();
+	auto geometry = entity->get_component<CShapeGeometry>();
 		
-	if (entity->has_component("Collision"))
-	{
-		auto collision = static_cast<CCollision*>(entity->get_component("Collision"));
-		
-		if (collision->collidedX) velocity->x *= -1.f;
-		if (collision->collidedY) velocity->y *= -1.f;
-	}
+	//Special temporary check: wall collisions
+	bool outOfBoundsX = position->current.x - geometry->radius <= 0.f || (position->current.x + geometry->radius) >= levelWidth;
+	bool outOfBoundsY = position->current.y - geometry->radius <= 0.f || (position->current.y + geometry->radius) >= levelHeight;
 
-	position->prevX = position->x;
-	position->x += velocity->x;
+	if (outOfBoundsX) velocity->vector.x *= -1;
+	if (outOfBoundsY) velocity->vector.y *= -1;
 
-	position->prevY = position->y;
-	position->y += velocity->y;
+	position->previous = position->current;
+	position->current += velocity->vector;
 }

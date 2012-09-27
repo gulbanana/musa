@@ -10,47 +10,68 @@
     <Filter Include="Systems">
       <UniqueIdentifier>{265dfbce-b1b8-45e7-bee8-e429a37f8065}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data Types">
+      <UniqueIdentifier>{9a905454-5185-484e-a1e9-0842522bfb14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Display">
+      <UniqueIdentifier>{56188b5f-4184-460d-9c83-260583495db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Control">
+      <UniqueIdentifier>{b0093f0d-7b5f-4487-95e4-af307e0c6939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Collisions">
+      <UniqueIdentifier>{a31ff245-213e-4a80-b45c-533213b462c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\Movement">
+      <UniqueIdentifier>{1ce3cfdb-1481-4ef4-977c-3039dbfc85ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="InputSystem.cpp">
-      <Filter>Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="MotionSystem.cpp">
-      <Filter>Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="IEntity.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
     <ClCompile Include="ISystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
-    <ClCompile Include="RenderSystem.cpp">
-      <Filter>Systems</Filter>
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="Vector3F.cpp">
+      <Filter>Data Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2F.cpp">
+      <Filter>Data Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Color4F.cpp">
+      <Filter>Data Types</Filter>
     </ClCompile>
     <ClCompile Include="CollisionSystem.cpp">
-      <Filter>Systems</Filter>
+      <Filter>Systems\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="ShapeRenderSystem.cpp">
+      <Filter>Systems\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="UIRenderSystem.cpp">
+      <Filter>Systems\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>Systems\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MotionSystem.cpp">
+      <Filter>Systems\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystem.cpp">
+      <Filter>Systems\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="RectIntersectionDetector.cpp">
+      <Filter>Systems\Collisions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="misc.h" />
     <ClInclude Include="IComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="RenderSystem.h">
-      <Filter>Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="InputSystem.h">
-      <Filter>Systems</Filter>
-    </ClInclude>
     <ClInclude Include="ISystem.h">
       <Filter>Systems</Filter>
     </ClInclude>
     <ClInclude Include="IEntity.h">
       <Filter>Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="MotionSystem.h">
-      <Filter>Systems</Filter>
     </ClInclude>
     <ClInclude Include="CPosition2D.h">
       <Filter>Components</Filter>
@@ -64,12 +85,57 @@
     <ClInclude Include="CVelocity2D.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="World.h" />
+    <ClInclude Include="Vector3F.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2F.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Color4F.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Polygon.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
+    <ClInclude Include="components.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect4F.h">
+      <Filter>Data Types</Filter>
+    </ClInclude>
     <ClInclude Include="CollisionSystem.h">
-      <Filter>Systems</Filter>
+      <Filter>Systems\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="ICollisionDetector.h">
+      <Filter>Systems\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeRenderSystem.h">
+      <Filter>Systems\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="UIRenderSystem.h">
+      <Filter>Systems\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>Systems\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MotionSystem.h">
+      <Filter>Systems\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>Systems\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="CPhysics.h">
+      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="CCollision.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="World.h" />
+    <ClInclude Include="RectIntersectionDetector.h">
+      <Filter>Systems\Collisions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
