@@ -1,5 +1,5 @@
 #include "misc.h"
-#include "Game.h"
+#include "World.h"
 #include "InputSystem.h"
 #include "RenderSystem.h"
 #include "MotionSystem.h"
@@ -9,9 +9,26 @@
 #include "Backdrop.h"
 #include <typeinfo>
 #include <ctime>
+#include <SFML/Graphics.hpp>
 using namespace std;
 
-Game::Game()
+class WorldImpl
+{
+	std::unique_ptr<sf::RenderWindow> mainWindow;
+	std::vector<std::unique_ptr<ISystem>> systems;
+	std::vector<std::shared_ptr<IEntity>> entities;
+
+public:
+	WorldImpl();
+
+	void add_entity(std::shared_ptr<IEntity> entity);
+	void add_system(std::unique_ptr<ISystem> system);
+	void play();
+};
+
+
+World::World() : _pimpl(new WorldImpl()) {}
+WorldImpl::WorldImpl()
 {
 	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(700, 700), "Musa Musaceae - engine test");
 	mainWindow->setVerticalSyncEnabled(true);
@@ -21,16 +38,10 @@ Game::Game()
 	add_system(make_unique<CollisionSystem>(700.f, 700.f));
 	add_system(make_unique<MotionSystem>());
 	add_system(make_unique<RenderSystem>(mainWindow.get()));
-
-	add_entity(make_shared<Obstacle>(sf::Color::White, 200.f, 300.f));
-	add_entity(make_shared<Backdrop>(sf::Color::White, 400.f, 300.f));
-
-	add_entity(make_shared<Ball>(sf::Color::Cyan, 100.f, 100.f));
-	add_entity(make_shared<Ball>(sf::Color::Magenta, 200.f, 400.f));
-	add_entity(make_shared<Ball>(sf::Color::Yellow, 300.f, 200.f));
 }
 
-void Game::play()
+void World::play() { _pimpl->play(); }
+void WorldImpl::play()
 {
 	while (mainWindow->isOpen())
 	{
@@ -43,7 +54,8 @@ void Game::play()
 	}
 }
 
-void Game::add_entity(shared_ptr<IEntity> entity)
+void World::add_entity(shared_ptr<IEntity> entity) { _pimpl->add_entity(entity); }
+void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 {
 	entities.push_back(entity);
 
@@ -62,7 +74,8 @@ void Game::add_entity(shared_ptr<IEntity> entity)
 	});
 }
 
-void Game::add_system(unique_ptr<ISystem> system)
+void World::add_system(unique_ptr<ISystem> system) { _pimpl->add_system(std::move(system)); }
+void WorldImpl::add_system(unique_ptr<ISystem> system)
 {
 	systems.push_back(std::move(system));
 }

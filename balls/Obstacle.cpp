@@ -1,10 +1,11 @@
-#include "Obstacle.h"
-#include "CPosition2D.h"
-#include "CShapeGeometry.h"
-#include "CLabel.h"
-#include "CCollision.h"
 #include <memory>
 #include <random>
+#include <core/CCollision.h>
+#include <core/CPosition2D.h>
+#include <core/CShapeGeometry.h>
+#include <core/CLabel.h>
+#include "Obstacle.h"
+
 using namespace std;
 
 Obstacle::Obstacle(sf::Color color, float x, float y)

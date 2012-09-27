@@ -12,8 +12,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="InputSystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
@@ -23,27 +21,18 @@
     <ClCompile Include="IEntity.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
     <ClCompile Include="ISystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
-    <ClCompile Include="Obstacle.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionSystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
-    <ClCompile Include="Backdrop.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
     <ClInclude Include="misc.h" />
     <ClInclude Include="IComponent.h">
       <Filter>Components</Filter>
@@ -63,9 +52,6 @@
     <ClInclude Include="MotionSystem.h">
       <Filter>Systems</Filter>
     </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
     <ClInclude Include="CPosition2D.h">
       <Filter>Components</Filter>
     </ClInclude>
@@ -74,9 +60,6 @@
     </ClInclude>
     <ClInclude Include="CLabel.h">
       <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstacle.h">
-      <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="CVelocity2D.h">
       <Filter>Components</Filter>
@@ -87,8 +70,6 @@
     <ClInclude Include="CCollision.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Backdrop.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
+    <ClInclude Include="World.h" />
   </ItemGroup>
 </Project>

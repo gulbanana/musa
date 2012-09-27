@@ -1,0 +1,8 @@
+audit use of pointers
+many-balls test 
+reimplement framerate limit, using sleep, optional
+separate into core, engines, games
+mac port
+linux port
+folder structure?
+fps display
