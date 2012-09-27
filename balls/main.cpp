@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	auto ballgame = World("balls.exe");
+	auto ballgame = World("balls!");
 
 	//immobiles
 	ballgame.add_entity(make_shared<Obstacle>(Color4F::WHITE, Vector2F(250.f, 350.f)));

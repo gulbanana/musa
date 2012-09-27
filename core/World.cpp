@@ -35,15 +35,14 @@ WorldImpl::WorldImpl(string title)
 
 	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(700, 700), title);
 	mainWindow->setVerticalSyncEnabled(true);
-	//mainWindow->setFramerateLimit(60);
 
 	sf::Font font;
 	font.loadFromFile("C:\\Windows\\Fonts\\Arial.ttf");
 
 	add_system(make_unique<InputSystem>(mainWindow.get()));
+	add_system(make_unique<MotionSystem>(700.f, 700.f));
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<PhysicsSystem>());
-	add_system(make_unique<MotionSystem>(700.f, 700.f));
 	add_system(make_unique<ShapeRenderSystem>(font, mainWindow.get()));
 	add_system(make_unique<UIRenderSystem>(font, mainWindow.get(), fps));
 }
