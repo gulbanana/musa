@@ -19,7 +19,7 @@ public:                                                \
     inline bool has_##iname()                          \
     {                                                  \
         return has_##iname(T::ID);                     \
-	}                                                  \
+    }                                                  \
                                                        \
     bool has_##iname(itype::ID id)                     \
     {                                                  \
