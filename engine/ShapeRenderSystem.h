@@ -14,7 +14,7 @@ class ShapeRenderSystem : public ISystem
 public:
 	ShapeRenderSystem(sf::Font labelFont, sf::RenderTarget* s);
 
-	std::vector<CID> required_components() override;
+	std::vector<IComponent::ID> required_components() override;
 	void on_frame() override;
 	void on_entity(std::shared_ptr<IEntity> entity) override;
 	

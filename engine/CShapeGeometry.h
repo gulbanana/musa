@@ -4,7 +4,7 @@
 class CShapeGeometry : public IComponent
 {
 public:
-	static const CID ID = CID::ShapeGeometry;
+	static const ID ID = ID::ShapeGeometry;
 	Polygon shape;
 	Color4F color;
 	float radius;

@@ -5,18 +5,21 @@
 #include <typeinfo>
 #include "IEntity.h"
 
-enum class SID
-{
-	Collision,
-	Input,
-	Display,
-	Movement,
-	ShapeRender,
-	UIRender
-};
+
 
 class ISystem
 {
+	IDENTIFIABLE
+	(
+		Collision,
+		Input,
+		Display,
+		Movement,
+		ShapeRender,
+		UIRender
+	);
+
+private:
 	virtual void on_frame() {}
 	virtual void on_entity(std::shared_ptr<IEntity> entity) {}
 
@@ -25,7 +28,7 @@ protected:
 
 public:
 	virtual ~ISystem() {}
-	virtual std::vector<CID> required_components() { return std::vector<CID>(); }
+	virtual std::vector<IComponent::ID> required_components() { return std::vector<IComponent::ID>(); }
 	virtual void add_entity(std::weak_ptr<IEntity> new_entity);
 	
 	void frame();

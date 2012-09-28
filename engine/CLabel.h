@@ -5,7 +5,7 @@
 class CLabel : public IComponent
 {
 public:
-	static const CID ID = CID::Label;
+	static const ID ID = ID::Label;
 	std::string text;
 
 	CLabel(std::string t) : text(t) {}

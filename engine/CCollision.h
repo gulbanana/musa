@@ -7,7 +7,7 @@
 class CCollision : public IComponent
 {
 public:
-	static const CID ID = CID::Collision;
+	static const ID ID = ID::Collision;
 
 	bool subject;
 	bool object;

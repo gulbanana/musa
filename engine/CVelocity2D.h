@@ -4,7 +4,7 @@
 class CVelocity2D : public IComponent
 {
 public:
-	static const CID ID = CID::Velocity2D;
+	static const ID ID = ID::Velocity2D;
 	Vector2F vector;
 
 	CVelocity2D(float x, float y) : vector(x, y) {}

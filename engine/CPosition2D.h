@@ -5,7 +5,7 @@
 class CPosition2D : public IComponent
 {
 public:
-	static const CID ID = CID::Position2D;
+	static const ID ID = ID::Position2D;
 	Vector2F current;
 	Vector2F previous;
 

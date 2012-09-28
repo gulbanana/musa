@@ -4,7 +4,7 @@
 class CPhysics : public IComponent
 {
 public:
-	static const CID ID = CID::Physics;
+	static const ID ID = ID::Physics;
 
 	CPhysics() {}
 };

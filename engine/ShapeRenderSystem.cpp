@@ -8,10 +8,10 @@
 #include "ShapeRenderSystem.h"
 using namespace std;
 
-vector<CID> ShapeRenderSystem::required_components()
+vector<IComponent::ID> ShapeRenderSystem::required_components()
 {
-	array<CID,2> compTypes = {CID::Position2D, CID::ShapeGeometry};
-	return vector<CID>(compTypes.begin(), compTypes.end());
+	array<IComponent::ID,2> compTypes = {IComponent::ID::Position2D, IComponent::ID::ShapeGeometry};
+	return vector<IComponent::ID>(compTypes.begin(), compTypes.end());
 }
 
 ShapeRenderSystem::ShapeRenderSystem(sf::Font f, sf::RenderTarget* s) : font(f), surface(s) 

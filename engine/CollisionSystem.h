@@ -12,7 +12,7 @@ class CollisionSystem : public ISystem
 
 public:
 	CollisionSystem();
-	std::vector<CID> required_components() override;
+	std::vector<IComponent::ID> required_components() override;
 	void add_entity(std::weak_ptr<IEntity> entity) override;
 };
 

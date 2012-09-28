@@ -16,8 +16,8 @@ void ISystem::frame()
 
 	on_frame();
 
-	for_each(begin(entities), end(entities), [=](weak_ptr<IEntity> entity)
+	for (auto entity : entities)
 	{
 		on_entity(entity.lock());
-	});
+	}
 }

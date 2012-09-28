@@ -67,9 +67,9 @@ void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 	for (auto& system : systems)
 	{
 		auto comps = system->required_components();
-		if (comps.size() == 0) return;
+		if (comps.size() == 0) continue;
 
-		int matches = count_if(comps.begin(), comps.end(), [&](CID requirement)
+		int matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
 		{
 			return entity->has_component(requirement);
 		});

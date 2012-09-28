@@ -3,10 +3,10 @@
 #include "PhysicsSystem.h"
 using namespace std;
 
-vector<CID> PhysicsSystem::required_components()
+vector<IComponent::ID> PhysicsSystem::required_components()
 {
-	array<CID,1> compTypes = {CID::Physics};
-	return vector<CID>(compTypes.begin(), compTypes.end());
+	array<IComponent::ID,1> compTypes = {IComponent::ID::Physics};
+	return vector<IComponent::ID>(compTypes.begin(), compTypes.end());
 }
 
 void PhysicsSystem::on_entity(shared_ptr<IEntity> entity)

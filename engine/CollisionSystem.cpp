@@ -10,10 +10,10 @@
 #include "RectIntersectionDetector.h"
 using namespace std;
 
-vector<CID> CollisionSystem::required_components()
+vector<IComponent::ID> CollisionSystem::required_components()
 {
-	array<CID,3> compTypes = {CID::Position2D, CID::ShapeGeometry, CID::Collision};
-	return vector<CID>(compTypes.begin(), compTypes.end());
+	array<IComponent::ID,3> compTypes = {IComponent::ID::Position2D, IComponent::ID::ShapeGeometry, IComponent::ID::Collision};
+	return vector<IComponent::ID>(compTypes.begin(), compTypes.end());
 }
 
 CollisionSystem::CollisionSystem()
@@ -48,20 +48,20 @@ void CollisionSystem::on_entity(shared_ptr<IEntity> sourceEntity)
 
 	collision->collisions.clear();
 
-	for_each(begin(targets), end(targets), [&](weak_ptr<IEntity>& entity)
+	for (auto entity : targets)
 	{
 		auto targetEntity = entity.lock();
-		if (sourceEntity.get() == targetEntity.get()) return;
+		if (sourceEntity.get() == targetEntity.get()) continue;
 
 		auto pairCollides = true;
 
-		for_each(begin(detectors), end(detectors), [&](unique_ptr<ICollisionDetector>& detector)
+		for (auto& detector : detectors)
 		{
 			pairCollides = detector->collide(sourceEntity, targetEntity);
-			if (!pairCollides) return;
-		});
+			if (!pairCollides) continue;
+		}
 		
 		if (pairCollides) collision->collisions.push_back(targetEntity);
-	});
+	}
 }
 
