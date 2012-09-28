@@ -1,11 +1,11 @@
 #pragma once
 
-#define IDENTIFIABLE(...)	\
-public:						\
-	enum class ID			\
-	{						\
-		__VA_ARGS__			\
-	}
+#define IDENTIFIABLE(...) \
+public:                   \
+    enum class ID         \
+    {                     \
+        __VA_ARGS__       \
+    }
 
 #define IDENTIFIABLE_COLLECTION(itype, iname, iplural)	\
 public:													\
