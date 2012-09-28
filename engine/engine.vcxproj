@@ -16,7 +16,8 @@
   <PropertyGroup Label="Globals">
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>musaceae</RootNamespace>
-    <ProjectName>core</ProjectName>
+    <ProjectName>engine</ProjectName>
+    <ProjectGuid>{969892C5-2972-2EF3-15B9-D61708D8B939}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -115,13 +116,14 @@
     <ClInclude Include="CVelocity2D.h" />
     <ClInclude Include="CLabel.h" />
     <ClInclude Include="ICollisionDetector.h" />
+    <ClInclude Include="identifiable.h" />
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="Rect4F.h" />
     <ClInclude Include="RectIntersectionDetector.h" />
     <ClInclude Include="ShapeRenderSystem.h" />
     <ClInclude Include="UIRenderSystem.h" />
-    <ClInclude Include="types.h" />
+    <ClInclude Include="core.h" />
     <ClInclude Include="IEntity.h" />
     <ClInclude Include="Vector2F.h" />
     <ClInclude Include="Vector3F.h" />

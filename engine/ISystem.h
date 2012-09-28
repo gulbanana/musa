@@ -5,6 +5,16 @@
 #include <typeinfo>
 #include "IEntity.h"
 
+enum class SID
+{
+	Collision,
+	Input,
+	Display,
+	Movement,
+	ShapeRender,
+	UIRender
+};
+
 class ISystem
 {
 	virtual void on_frame() {}

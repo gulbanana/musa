@@ -1,9 +1,9 @@
 #pragma once
-#include <string>
+#include "core.h"
 
 enum class CID
 {
-	Collision = 0,
+	Collision,
 	Label,
 	Physics,
 	Position2D,

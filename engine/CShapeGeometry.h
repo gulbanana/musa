@@ -1,5 +1,4 @@
 #pragma once
-#include "types.h"
 #include "IComponent.h"
 
 class CShapeGeometry : public IComponent

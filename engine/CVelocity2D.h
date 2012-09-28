@@ -1,6 +1,5 @@
 #pragma once
 #include "IComponent.h"
-#include "types.h"
 
 class CVelocity2D : public IComponent
 {

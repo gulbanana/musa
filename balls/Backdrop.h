@@ -1,6 +1,5 @@
 #pragma once
-#include <core/IEntity.h>
-#include <core/types.h>
+#include <engine/core.h>
 
 class Backdrop : public IEntity
 {

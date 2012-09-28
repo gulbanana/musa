@@ -1,17 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Entities">
-      <UniqueIdentifier>{b36a1366-33bd-4cef-bac0-c28d33e82877}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components">
-      <UniqueIdentifier>{926bc86f-f241-4ac3-b7c6-daa5c1cebee3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Systems">
       <UniqueIdentifier>{265dfbce-b1b8-45e7-bee8-e429a37f8065}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Data Types">
-      <UniqueIdentifier>{9a905454-5185-484e-a1e9-0842522bfb14}</UniqueIdentifier>
     </Filter>
     <Filter Include="Systems\Display">
       <UniqueIdentifier>{56188b5f-4184-460d-9c83-260583495db6}</UniqueIdentifier>
@@ -25,6 +16,15 @@
     <Filter Include="Systems\Movement">
       <UniqueIdentifier>{1ce3cfdb-1481-4ef4-977c-3039dbfc85ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="components">
+      <UniqueIdentifier>{926bc86f-f241-4ac3-b7c6-daa5c1cebee3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{9a905454-5185-484e-a1e9-0842522bfb14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entities">
+      <UniqueIdentifier>{b36a1366-33bd-4cef-bac0-c28d33e82877}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ISystem.cpp">
@@ -32,13 +32,13 @@
     </ClCompile>
     <ClCompile Include="World.cpp" />
     <ClCompile Include="Vector3F.cpp">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="Vector2F.cpp">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="Color4F.cpp">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="CollisionSystem.cpp">
       <Filter>Systems\Collisions</Filter>
@@ -63,49 +63,45 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="misc.h" />
     <ClInclude Include="IComponent.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="ISystem.h">
       <Filter>Systems</Filter>
     </ClInclude>
     <ClInclude Include="IEntity.h">
-      <Filter>Entities</Filter>
+      <Filter>entities</Filter>
     </ClInclude>
     <ClInclude Include="CPosition2D.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="CShapeGeometry.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="CLabel.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="CVelocity2D.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="World.h" />
     <ClInclude Include="Vector3F.h">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="Vector2F.h">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="Color4F.h">
-      <Filter>Data Types</Filter>
-    </ClInclude>
-    <ClInclude Include="types.h">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="Polygon.h">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="components.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="Rect4F.h">
-      <Filter>Data Types</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="CollisionSystem.h">
       <Filter>Systems\Collisions</Filter>
@@ -129,13 +125,20 @@
       <Filter>Systems\Movement</Filter>
     </ClInclude>
     <ClInclude Include="CPhysics.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="CCollision.h">
-      <Filter>Components</Filter>
+      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="RectIntersectionDetector.h">
       <Filter>Systems\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="identifiable.h">
+      <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -64,7 +64,7 @@ void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 {
 	entities.push_back(entity);
 
-	for_each(systems.begin(), systems.end(), [&](unique_ptr<ISystem>& system)
+	for (auto& system : systems)
 	{
 		auto comps = system->required_components();
 		if (comps.size() == 0) return;
@@ -76,7 +76,7 @@ void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 
 		if (matches == comps.size())
 			system->add_entity(entity);
-	});
+	}
 }
 
 void World::add_system(unique_ptr<ISystem> system) { _pimpl->add_system(std::move(system)); }
@@ -87,10 +87,10 @@ void WorldImpl::add_system(unique_ptr<ISystem> system)
 
 void WorldImpl::frame()
 {
-	for_each(begin(systems), end(systems), [](unique_ptr<ISystem>& system)
+	for(auto& system : systems)
 	{
 		system->frame();
-	});
+	}
 
 	mainWindow->display();
 }

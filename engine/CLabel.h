@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "IComponent.h"
 
 class CLabel : public IComponent

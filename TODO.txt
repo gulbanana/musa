@@ -1,6 +1,8 @@
 mac port
 linux port
-folder structure?
+core IDable system
 proper collision detection
 collision-based repositioning
 time-based movement
+deabstract to opengl
+add/subtract ball
