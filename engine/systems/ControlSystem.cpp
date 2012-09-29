@@ -5,15 +5,14 @@ ControlSystem::ControlSystem(std::shared_ptr<GameState> s) : state(s)
 {
 }
 
-void ControlSystem::on_frame()
+bool ControlSystem::on_event(SDL_Event& event)
 {
-	while (SDL_PollEvent(&event))
+	switch (event.type)
 	{
-		switch (event.type)
-		{
-			case SDL_QUIT:
-				state->shouldQuit = true;
-				break;
-		}
+		case SDL_QUIT:
+			state->shouldQuit = true;
+			return true;
+
+		return false;
 	}
 }

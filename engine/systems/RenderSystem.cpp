@@ -41,6 +41,12 @@ RenderSystem::~RenderSystem()
 	//gldestroy??
 }
 
+bool RenderSystem::on_event(SDL_Event& event)
+{
+	//gl reset size or something
+	return false;
+}
+
 void RenderSystem::on_frame()
 {
 	glClear(GL_COLOR_BUFFER_BIT);

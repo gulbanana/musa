@@ -32,6 +32,7 @@ class WorldImpl
 	static const unsigned maxFPS = 60;
 
 	SDL_Surface* surface;
+	SDL_Event event;
 	shared_ptr<GameState> state;
 	vector<unique_ptr<ISystem>> systems;
 	vector<shared_ptr<IEntity>> entities;
@@ -44,9 +45,12 @@ public:
 	void add_system(unique_ptr<ISystem> system);
 	void play();
 };
-#pragma endregion
 
 World::World(const string title) : _pimpl(new WorldImpl(title, 800, 600)) {}
+void World::add_entity(shared_ptr<IEntity> entity) { _pimpl->add_entity(entity); }
+void World::play() { _pimpl->play(); }
+#pragma endregion
+
 WorldImpl::WorldImpl(const string title, int width, int height)
 {
 	state = make_shared<GameState>();
@@ -56,7 +60,7 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); });
 	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); });
 	check([]{ return SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); });
-	surface = check<SDL_Surface*>([=]{ return SDL_SetVideoMode(width, height, 32, SDL_OPENGL); });
+	surface = check<SDL_Surface*>([=]{ return SDL_SetVideoMode(width, height, 32, SDL_OPENGL | SDL_RESIZABLE); });
 
 	add_system(make_unique<ControlSystem>(state));
 	add_system(make_unique<MotionSystem>(state, width, height));
@@ -66,7 +70,6 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	add_system(make_unique<UISystem>(state));
 }
 
-void World::play() { _pimpl->play(); }
 void WorldImpl::play()
 {
 	unsigned next, mspf = 1000 / maxFPS;
@@ -91,7 +94,6 @@ void WorldImpl::play()
 	SDL_Quit();
 }
 
-void World::add_entity(shared_ptr<IEntity> entity) { _pimpl->add_entity(entity); }
 void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 {
 	entities.push_back(entity);
@@ -118,8 +120,10 @@ void WorldImpl::add_system(unique_ptr<ISystem> system)
 
 void WorldImpl::frame()
 {
+	while (SDL_PollEvent(&event))
+		for(auto& system : systems)
+			if (system->event(event)) break;
+
 	for(auto& system : systems)
-	{
 		system->frame();
-	}
 }

@@ -9,10 +9,8 @@ class WorldImpl;
 class World
 {
 	WorldImpl* _pimpl;
-
 public:
 	World(std::string title);
-
 	void add_entity(std::shared_ptr<IEntity> entity);
 	void play();
 };

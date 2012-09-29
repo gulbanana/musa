@@ -47,7 +47,7 @@
 
 #include "guichan/contrib/widgets/adjustingcontainer.hpp"
 
-#include <guichan.hpp>
+#include <guichan/guichan.hpp>
 
 namespace gcn
 {

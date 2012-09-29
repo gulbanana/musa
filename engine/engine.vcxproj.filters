@@ -47,9 +47,6 @@
       <Filter>systems</Filter>
     </ClCompile>
     <ClCompile Include="entities\Polygon2D.cpp" />
-    <ClCompile Include="systems\UISystem.cpp">
-      <Filter>systems\Display</Filter>
-    </ClCompile>
     <ClCompile Include="systems\RenderSystem.cpp">
       <Filter>systems\Display</Filter>
     </ClCompile>
@@ -68,6 +65,10 @@
       <Filter>systems\Control</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="systems\ui\UISystem.cpp">
+      <Filter>systems\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
@@ -117,9 +118,6 @@
     <ClInclude Include="components\IComponent.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="systems\UISystem.h">
-      <Filter>systems\Display</Filter>
-    </ClInclude>
     <ClInclude Include="systems\RenderSystem.h">
       <Filter>systems\Display</Filter>
     </ClInclude>
@@ -152,5 +150,9 @@
       <Filter>systems\Control</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="systems\ui\UISystem.h">
+      <Filter>systems\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\ui\UISystemImpl.h" />
   </ItemGroup>
 </Project>
