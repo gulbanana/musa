@@ -1,5 +1,9 @@
 #pragma once
 
+#define IDENTIFIED(itype, name) \
+public:                         \
+    static const itype::ID ID = ID::name
+
 #define IDENTIFIABLE(...) \
 public:                   \
     enum class ID         \

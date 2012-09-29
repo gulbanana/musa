@@ -5,8 +5,8 @@
 
 class CGeometry2D : public IComponent
 {
+	IDENTIFIED(IComponent, Geometry2D);
 public:
-	static const ID ID = ID::Geometry2D;
 	std::vector<std::unique_ptr<IDrawable>> polys;
 	Color4F color;
 

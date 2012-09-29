@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 11
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{97FD4DBD-D235-4A74-9026-AEB61AEA7AAB}"
 	ProjectSection(SolutionItems) = preProject
 		TODO.txt = TODO.txt

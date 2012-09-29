@@ -1,18 +1,40 @@
 #include <typeinfo>
 #include <ctime>
-#include <SFML/Window.hpp>
+#include <algorithm>
+#include <SDL.h>
 #include "misc.h"
 #include "systems.h"
 #include "World.h"
+#include "GameState.h"
 using namespace std;
 
+#pragma region sdlcall
+void check(std::function<int()> sdlCall)
+{
+	int rc = sdlCall();
+	if (rc != 0)
+		throw std::runtime_error(SDL_GetError());
+}
+
+template<typename T>
+T check(std::function<T()> sdlCall)
+{
+	T ret = sdlCall();
+	if (ret == nullptr)
+		throw std::runtime_error(SDL_GetError());
+	return ret;
+}
+#pragma endregion
+
+#pragma region pimpl
 class WorldImpl
 {
+	static const unsigned maxFPS = 30;
+	SDL_Surface* surface;
+	shared_ptr<GameState> state;
 	vector<unique_ptr<ISystem>> systems;
 	vector<shared_ptr<IEntity>> entities;
-	unique_ptr<sf::Window> mainWindow;
-	int fps;
-
+	
 	void frame();
 
 public:
@@ -21,33 +43,42 @@ public:
 	void add_system(unique_ptr<ISystem> system);
 	void play();
 };
-
+#pragma endregion
 
 World::World(string title) : _pimpl(new WorldImpl(title)) {}
 WorldImpl::WorldImpl(string title)
 {
-	fps = 0;
+	state = make_shared<GameState>();
 
-	mainWindow = make_unique<sf::Window>(sf::VideoMode(700, 700), title);
-	mainWindow->setVerticalSyncEnabled(true);
+	check([]{ return SDL_Init(SDL_INIT_EVERYTHING); });
+	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); });
+	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2); });
+	surface = check<SDL_Surface*>([]{ return SDL_SetVideoMode(700, 700, 32, SDL_HWSURFACE | SDL_OPENGL | SDL_DOUBLEBUF); });
 
-	add_system(make_unique<InputSystem>(mainWindow.get()));
+	add_system(make_unique<ControlSystem>(state));
 	add_system(make_unique<MotionSystem>(700.f, 700.f));
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<PhysicsSystem>());
 	add_system(make_unique<RenderSystem>());
-	add_system(make_unique<UISystem>(fps));
+	add_system(make_unique<UISystem>(state));
 }
 
 void World::play() { _pimpl->play(); }
 void WorldImpl::play()
 {
-	sf::Clock clock;
-	while (mainWindow->isOpen())
+	unsigned then = 0;
+	unsigned now = SDL_GetTicks();
+
+	while (!state->shouldQuit)
 	{
-		clock.restart();
+		then = now;
 		frame();
-		fps = (int)(1.f / clock.getElapsedTime().asSeconds());
+		now = SDL_GetTicks();
+		if (now != then)	//TODO: remove once the game is slow enough
+		{
+			state->fps = 1000 / (now - then);
+			SDL_Delay(max((int)(now - then - maxFPS), 1));
+		}
 	}
 }
 
@@ -82,6 +113,4 @@ void WorldImpl::frame()
 	{
 		system->frame();
 	}
-
-	mainWindow->display();
 }

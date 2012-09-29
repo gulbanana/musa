@@ -17,3 +17,4 @@ public:
 	void play();
 };
 
+#define main SDL_main

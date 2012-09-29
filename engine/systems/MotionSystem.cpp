@@ -18,14 +18,13 @@ void MotionSystem::on_entity(shared_ptr<IEntity> entity)
 	auto geometry = entity->get_component<CGeometry2D>();
 		
 	//Special temporary check: wall collisions
-	bool outOfBoundsX = geometry->bounds().left() + position->current.x <= 0.f ||
-						geometry->bounds().right() + position->current.x >= levelWidth;
-	bool outOfBoundsY = geometry->bounds().top() + position->current.x <= 0.f ||
-						geometry->bounds().bottom() + position->current.x >= levelHeight;
+	bool outOfBoundsX = geometry->bounds().left() + position->location.x <= 0.f ||
+						geometry->bounds().right() + position->location.x >= levelWidth;
+	bool outOfBoundsY = geometry->bounds().top() + position->location.x <= 0.f ||
+						geometry->bounds().bottom() + position->location.x >= levelHeight;
 
 	if (outOfBoundsX) velocity->vector.x *= -1;
 	if (outOfBoundsY) velocity->vector.y *= -1;
 
-	position->previous = position->current;
-	position->current += velocity->vector;
+	position->location += velocity->vector;
 }

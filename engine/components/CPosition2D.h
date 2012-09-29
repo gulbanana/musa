@@ -3,12 +3,10 @@
 
 class CPosition2D : public IComponent
 {
-public:
-	static const ID ID = ID::Position2D;
-	Vector2F current;
-	Vector2F previous;
-
-	CPosition2D(float x, float y) : current(x, y), previous(x, y) {}
-	CPosition2D(Vector2F pos) : current(pos), previous(pos) {}
+	IDENTIFIED(IComponent, Physics);
+	Vector2F location;
+	float orientation;
+	CPosition2D(float x, float y) : location(x, y), orientation(0.f) {}
+	CPosition2D(Vector2F pos) : location(pos), orientation(0.f) {}
 };
 

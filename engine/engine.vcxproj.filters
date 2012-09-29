@@ -31,17 +31,12 @@
     <ClCompile Include="core\Color4F.cpp">
       <Filter>core</Filter>
     </ClCompile>
-    <ClCompile Include="systems\InputSystem.cpp">
-      <Filter>systems\Control</Filter>
-    </ClCompile>
     <ClCompile Include="systems\MotionSystem.cpp">
       <Filter>systems\Movement</Filter>
     </ClCompile>
     <ClCompile Include="systems\PhysicsSystem.cpp">
       <Filter>systems\Movement</Filter>
     </ClCompile>
-    <ClCompile Include="platform\sfml.cpp" />
-    <ClCompile Include="platform\windows.cpp" />
     <ClCompile Include="core\Vector2F.cpp">
       <Filter>core</Filter>
     </ClCompile>
@@ -69,6 +64,10 @@
     <ClCompile Include="core\Rectangle.cpp" />
     <ClCompile Include="components\CGeometry2D.cpp" />
     <ClCompile Include="core\Rect4F.cpp" />
+    <ClCompile Include="systems\ControlSystem.cpp">
+      <Filter>systems\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
@@ -79,7 +78,6 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="misc.h" />
-    <ClInclude Include="platform.h" />
     <ClInclude Include="components\CPhysics.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -94,9 +92,6 @@
     </ClInclude>
     <ClInclude Include="systems\MotionSystem.h">
       <Filter>systems\Movement</Filter>
-    </ClInclude>
-    <ClInclude Include="systems\InputSystem.h">
-      <Filter>systems\Control</Filter>
     </ClInclude>
     <ClInclude Include="systems.h" />
     <ClInclude Include="entities.h" />
@@ -153,5 +148,9 @@
     <ClInclude Include="core\Rectangle.h" />
     <ClInclude Include="core\IDrawable.h" />
     <ClInclude Include="core\Box6F.h" />
+    <ClInclude Include="systems\ControlSystem.h">
+      <Filter>systems\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h" />
   </ItemGroup>
 </Project>

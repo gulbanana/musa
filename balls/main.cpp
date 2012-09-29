@@ -6,7 +6,8 @@
 
 using namespace std;
 
-int main()
+extern "C"
+int main(int argc, char *argv[])
 {
 	auto ballgame = World("balls!");
 

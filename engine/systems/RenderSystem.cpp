@@ -1,7 +1,7 @@
 #include <array>
 #include <iterator>
 #include <typeinfo>
-#include <SFML/OpenGL.hpp>
+#include <SDL_opengl.h>
 #include "../components.h"
 #include "RenderSystem.h"
 using namespace std;

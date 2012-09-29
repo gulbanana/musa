@@ -9,12 +9,14 @@ class ISystem
 {
 	IDENTIFIABLE
 	(
+		Control,
 		Collision,
 		Input,
 		Display,
-		Movement,
-		ShapeRender,
-		UIRender
+		Motion,
+		Physics,
+		Render,
+		UI
 	);
 
 private:
