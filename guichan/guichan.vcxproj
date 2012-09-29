@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>guichan</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;C:\Users\banana\Documents\code\SDL-1.2.15\include;C:\Users\banana\Documents\code\SDL_image-1.2.12\include;C:\Users\banana\Documents\code\SDL_ttf-2.0.11\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;C:\Users\banana\Documents\code\SDL-1.2.15\include;C:\Users\banana\Documents\code\SDL_image-1.2.12\include;C:\Users\banana\Documents\code\SDL_ttf-2.0.11\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;C:\Users\banana\Documents\code\SDL-1.2.15\include;C:\Users\banana\Documents\code\SDL_image-1.2.12\include;C:\Users\banana\Documents\code\SDL_ttf-2.0.11\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;C:\Users\banana\Documents\code\SDL-1.2.15\include;C:\Users\banana\Documents\code\SDL_image-1.2.12\include;C:\Users\banana\Documents\code\SDL_ttf-2.0.11\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\guichan.hpp" />
+    <ClInclude Include="include\guichan\actionevent.hpp" />
+    <ClInclude Include="include\guichan\actionlistener.hpp" />
+    <ClInclude Include="include\guichan\allegro.hpp" />
+    <ClInclude Include="include\guichan\basiccontainer.hpp" />
+    <ClInclude Include="include\guichan\cliprectangle.hpp" />
+    <ClInclude Include="include\guichan\color.hpp" />
+    <ClInclude Include="include\guichan\contrib\sdl\sdltruetypefont.hpp" />
+    <ClInclude Include="include\guichan\contrib\widgets\adjustingcontainer.hpp" />
+    <ClInclude Include="include\guichan\deathlistener.hpp" />
+    <ClInclude Include="include\guichan\defaultfont.hpp" />
+    <ClInclude Include="include\guichan\event.hpp" />
+    <ClInclude Include="include\guichan\exception.hpp" />
+    <ClInclude Include="include\guichan\focushandler.hpp" />
+    <ClInclude Include="include\guichan\focuslistener.hpp" />
+    <ClInclude Include="include\guichan\font.hpp" />
+    <ClInclude Include="include\guichan\genericinput.hpp" />
+    <ClInclude Include="include\guichan\glut.hpp" />
+    <ClInclude Include="include\guichan\graphics.hpp" />
+    <ClInclude Include="include\guichan\gui.hpp" />
+    <ClInclude Include="include\guichan\hge.hpp" />
+    <ClInclude Include="include\guichan\image.hpp" />
+    <ClInclude Include="include\guichan\imagefont.hpp" />
+    <ClInclude Include="include\guichan\imageloader.hpp" />
+    <ClInclude Include="include\guichan\input.hpp" />
+    <ClInclude Include="include\guichan\inputevent.hpp" />
+    <ClInclude Include="include\guichan\key.hpp" />
+    <ClInclude Include="include\guichan\keyevent.hpp" />
+    <ClInclude Include="include\guichan\keyinput.hpp" />
+    <ClInclude Include="include\guichan\keylistener.hpp" />
+    <ClInclude Include="include\guichan\listmodel.hpp" />
+    <ClInclude Include="include\guichan\mouseevent.hpp" />
+    <ClInclude Include="include\guichan\mouseinput.hpp" />
+    <ClInclude Include="include\guichan\mouselistener.hpp" />
+    <ClInclude Include="include\guichan\opengl.hpp" />
+    <ClInclude Include="include\guichan\opengl\openglallegroimageloader.hpp" />
+    <ClInclude Include="include\guichan\opengl\openglgraphics.hpp" />
+    <ClInclude Include="include\guichan\opengl\openglimage.hpp" />
+    <ClInclude Include="include\guichan\opengl\openglsdlimageloader.hpp" />
+    <ClInclude Include="include\guichan\openlayer.hpp" />
+    <ClInclude Include="include\guichan\platform.hpp" />
+    <ClInclude Include="include\guichan\rectangle.hpp" />
+    <ClInclude Include="include\guichan\sdl.hpp" />
+    <ClInclude Include="include\guichan\sdl\sdlgraphics.hpp" />
+    <ClInclude Include="include\guichan\sdl\sdlimage.hpp" />
+    <ClInclude Include="include\guichan\sdl\sdlimageloader.hpp" />
+    <ClInclude Include="include\guichan\sdl\sdlinput.hpp" />
+    <ClInclude Include="include\guichan\sdl\sdlpixel.hpp" />
+    <ClInclude Include="include\guichan\selectionevent.hpp" />
+    <ClInclude Include="include\guichan\selectionlistener.hpp" />
+    <ClInclude Include="include\guichan\widget.hpp" />
+    <ClInclude Include="include\guichan\widgetlistener.hpp" />
+    <ClInclude Include="include\guichan\widgets\button.hpp" />
+    <ClInclude Include="include\guichan\widgets\checkbox.hpp" />
+    <ClInclude Include="include\guichan\widgets\container.hpp" />
+    <ClInclude Include="include\guichan\widgets\dropdown.hpp" />
+    <ClInclude Include="include\guichan\widgets\icon.hpp" />
+    <ClInclude Include="include\guichan\widgets\imagebutton.hpp" />
+    <ClInclude Include="include\guichan\widgets\label.hpp" />
+    <ClInclude Include="include\guichan\widgets\listbox.hpp" />
+    <ClInclude Include="include\guichan\widgets\radiobutton.hpp" />
+    <ClInclude Include="include\guichan\widgets\scrollarea.hpp" />
+    <ClInclude Include="include\guichan\widgets\slider.hpp" />
+    <ClInclude Include="include\guichan\widgets\tab.hpp" />
+    <ClInclude Include="include\guichan\widgets\tabbedarea.hpp" />
+    <ClInclude Include="include\guichan\widgets\textbox.hpp" />
+    <ClInclude Include="include\guichan\widgets\textfield.hpp" />
+    <ClInclude Include="include\guichan\widgets\window.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\actionevent.cpp" />
+    <ClCompile Include="src\basiccontainer.cpp" />
+    <ClCompile Include="src\cliprectangle.cpp" />
+    <ClCompile Include="src\color.cpp" />
+    <ClCompile Include="src\contrib\sdl\sdltruetypefont.cpp" />
+    <ClCompile Include="src\contrib\widgets\adjustingcontainer.cpp" />
+    <ClCompile Include="src\defaultfont.cpp" />
+    <ClCompile Include="src\event.cpp" />
+    <ClCompile Include="src\exception.cpp" />
+    <ClCompile Include="src\focushandler.cpp" />
+    <ClCompile Include="src\font.cpp" />
+    <ClCompile Include="src\genericinput.cpp" />
+    <ClCompile Include="src\graphics.cpp" />
+    <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\guichan.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\imagefont.cpp" />
+    <ClCompile Include="src\inputevent.cpp" />
+    <ClCompile Include="src\key.cpp" />
+    <ClCompile Include="src\keyevent.cpp" />
+    <ClCompile Include="src\keyinput.cpp" />
+    <ClCompile Include="src\mouseevent.cpp" />
+    <ClCompile Include="src\mouseinput.cpp" />
+    <ClCompile Include="src\opengl\opengl.cpp" />
+    <ClCompile Include="src\opengl\openglgraphics.cpp" />
+    <ClCompile Include="src\opengl\openglimage.cpp" />
+    <ClCompile Include="src\rectangle.cpp" />
+    <ClCompile Include="src\sdl\sdl.cpp" />
+    <ClCompile Include="src\sdl\sdlgraphics.cpp" />
+    <ClCompile Include="src\sdl\sdlimage.cpp" />
+    <ClCompile Include="src\sdl\sdlimageloader.cpp" />
+    <ClCompile Include="src\sdl\sdlinput.cpp" />
+    <ClCompile Include="src\selectionevent.cpp" />
+    <ClCompile Include="src\widget.cpp" />
+    <ClCompile Include="src\widgets\button.cpp" />
+    <ClCompile Include="src\widgets\checkbox.cpp" />
+    <ClCompile Include="src\widgets\container.cpp" />
+    <ClCompile Include="src\widgets\dropdown.cpp" />
+    <ClCompile Include="src\widgets\icon.cpp" />
+    <ClCompile Include="src\widgets\imagebutton.cpp" />
+    <ClCompile Include="src\widgets\label.cpp" />
+    <ClCompile Include="src\widgets\listbox.cpp" />
+    <ClCompile Include="src\widgets\radiobutton.cpp" />
+    <ClCompile Include="src\widgets\scrollarea.cpp" />
+    <ClCompile Include="src\widgets\slider.cpp" />
+    <ClCompile Include="src\widgets\tab.cpp" />
+    <ClCompile Include="src\widgets\tabbedarea.cpp" />
+    <ClCompile Include="src\widgets\textbox.cpp" />
+    <ClCompile Include="src\widgets\textfield.cpp" />
+    <ClCompile Include="src\widgets\window.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
