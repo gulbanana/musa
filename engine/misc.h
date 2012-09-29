@@ -1,6 +1,9 @@
 #pragma once
 #include <memory>
+#include <functional>
+#include <stdexcept>
 
+#pragma region make_unique
 template<typename T>
 std::unique_ptr<T> make_unique()
 {
@@ -24,3 +27,4 @@ std::unique_ptr<T> make_unique(A1&& arg1, A2&& arg2, A3&& arg3)
 {
     return std::unique_ptr<T>(new T(std::forward<A1>(arg1), std::forward<A2>(arg2), std::forward<A3>(arg3)));
 }
+#pragma endregion
