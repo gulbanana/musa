@@ -8,6 +8,13 @@ Vector3F::Vector3F(float x_, float y_, float z_)
     z = z_;
 }
 
+Vector3F::Vector3F(float xyz[])
+{
+    x = xyz[0];
+    y = xyz[1];
+    z = xyz[2];
+}
+
 float Vector3F::length()
 {
     return (float)sqrt(x * x + y * y + z * z);

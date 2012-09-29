@@ -8,8 +8,8 @@ public:
     float y;
     float z;
 
-    Vector3F(float x_, float y_, float z_);
-    void set(float x_, float y_, float z_);
+    Vector3F(float, float, float);
+    Vector3F(float[]);
     float length();
     void normalize();
 

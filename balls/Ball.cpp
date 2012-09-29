@@ -13,7 +13,7 @@ Ball::Ball(Color4F color)
 		)
 	);
 	add_component(
-		make_unique<CShapeGeometry>(Polygon::CIRCLE, color, 10.f)
+		make_unique<CGeometry2D>(color, make_unique<Circle>(10.f))
 	);
 	add_component(
 		make_unique<CVelocity2D>(
@@ -35,7 +35,7 @@ Ball::Ball(Color4F color, Vector2F position, Vector2F acceleration)
 		make_unique<CPosition2D>(position)
 	);
 	add_component(
-		make_unique<CShapeGeometry>(Polygon::CIRCLE, color, 20.f)
+		make_unique<CGeometry2D>(color, make_unique<Circle>(10.f))
 	);
 	add_component(
 		make_unique<CVelocity2D>(acceleration)

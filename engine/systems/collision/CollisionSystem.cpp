@@ -10,7 +10,7 @@ using namespace std;
 
 vector<IComponent::ID> CollisionSystem::required_components()
 {
-	array<IComponent::ID,3> compTypes = {IComponent::ID::Position2D, IComponent::ID::ShapeGeometry, IComponent::ID::Collision};
+	array<IComponent::ID,3> compTypes = {IComponent::ID::Position2D, IComponent::ID::Geometry2D, IComponent::ID::Collision};
 	return vector<IComponent::ID>(compTypes.begin(), compTypes.end());
 }
 
@@ -42,7 +42,7 @@ void CollisionSystem::on_entity(shared_ptr<IEntity> sourceEntity)
 	auto collision = sourceEntity->get_component<CCollision>();
 	if (!collision->subject) return;
 	auto position = sourceEntity->get_component<CPosition2D>();
-	auto geometry = sourceEntity->get_component<CShapeGeometry>();
+	auto geometry = sourceEntity->get_component<CGeometry2D>();
 
 	collision->collisions.clear();
 

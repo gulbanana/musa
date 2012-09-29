@@ -7,8 +7,8 @@ public:
     float x;
     float y;
 
-    Vector2F(float x_, float y_);
-    void set(float x_, float y_);
+    Vector2F(float, float);
+    Vector2F(float[]);
     float length();
     void normalize();
 

@@ -17,8 +17,6 @@ public:
 	Color4F(float r, float g, float b, float a = 1.f);
 	Color4F(unsigned __int8 r, unsigned __int8 g, unsigned __int8 b, unsigned __int8 a = 1.f); 
 
-	operator sf::Color();
-
 	static const Color4F RED;
 	static const Color4F GREEN;
 	static const Color4F BLUE;

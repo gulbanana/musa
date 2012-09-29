@@ -8,7 +8,6 @@ class CCollision : public IComponent
 {
 public:
 	static const ID ID = ID::Collision;
-
 	bool subject;
 	bool object;
 	std::vector<std::shared_ptr<IEntity>> collisions;

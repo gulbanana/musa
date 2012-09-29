@@ -9,7 +9,7 @@ class IComponent
 		Label,
 		Physics,
 		Position2D,
-		ShapeGeometry,
+		Geometry2D,
 		Velocity2D
 	);
 

@@ -1,8 +1,14 @@
 #pragma once
+#include <vector>
+#include "../core.h"
+#include "IDrawable.h"
 
-enum class Polygon
+class Polygon : public IDrawable
 {
-	CIRCLE,
-	TRIANGLE,
-	SQUARE
+	std::vector<Vector3F> vertices;
+public:
+	Polygon(Vector3F vertexList[]);
+	Polygon(Vector2F vertexList[]);
+	void draw() override;
 };
+

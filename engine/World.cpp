@@ -1,6 +1,6 @@
 #include <typeinfo>
 #include <ctime>
-#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 #include "misc.h"
 #include "systems.h"
 #include "World.h"
@@ -10,7 +10,7 @@ class WorldImpl
 {
 	vector<unique_ptr<ISystem>> systems;
 	vector<shared_ptr<IEntity>> entities;
-	unique_ptr<sf::RenderWindow> mainWindow;
+	unique_ptr<sf::Window> mainWindow;
 	int fps;
 
 	void frame();
@@ -28,18 +28,15 @@ WorldImpl::WorldImpl(string title)
 {
 	fps = 0;
 
-	mainWindow = make_unique<sf::RenderWindow>(sf::VideoMode(700, 700), title);
+	mainWindow = make_unique<sf::Window>(sf::VideoMode(700, 700), title);
 	mainWindow->setVerticalSyncEnabled(true);
-
-	sf::Font font;
-	font.loadFromFile("C:\\Windows\\Fonts\\Arial.ttf");
 
 	add_system(make_unique<InputSystem>(mainWindow.get()));
 	add_system(make_unique<MotionSystem>(700.f, 700.f));
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<PhysicsSystem>());
-	add_system(make_unique<ShapeRenderSystem>(font, mainWindow.get()));
-	add_system(make_unique<UISystem>(font, mainWindow.get(), fps));
+	add_system(make_unique<RenderSystem>());
+	add_system(make_unique<UISystem>(fps));
 }
 
 void World::play() { _pimpl->play(); }

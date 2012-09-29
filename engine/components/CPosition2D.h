@@ -1,6 +1,5 @@
 #pragma once
 #include "IComponent.h"
-#include "core.h"
 
 class CPosition2D : public IComponent
 {

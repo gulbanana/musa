@@ -7,6 +7,12 @@ Vector2F::Vector2F(float x_, float y_)
     y = y_;
 }
 
+Vector2F::Vector2F(float xy[])
+{
+    x = xy[0];
+    y = xy[1];
+}
+
 float Vector2F::length()
 {
     return (float)sqrt(x * x + y * y);

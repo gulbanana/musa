@@ -3,10 +3,9 @@
 #include "UISystem.h"
 using namespace std;
 
-UISystem::UISystem(sf::Font f, sf::RenderTarget* s, int& fpsCounter) : font(f), surface(s), fps(fpsCounter)
+UISystem::UISystem(int& fpsCounter) : fps(fpsCounter)
 {
-	text = sf::Text("", font);
-	text.setColor(sf::Color::Red);
+	//load fonts..?
 }
 
 void UISystem::on_frame()
@@ -16,8 +15,5 @@ void UISystem::on_frame()
 
 void UISystem::print(string output, float x, float y)
 {
-	text.setString(output);
-	text.setPosition(x, y);
-
-	surface->draw(text);
+	//gltext
 }

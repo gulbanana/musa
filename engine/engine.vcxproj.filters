@@ -64,6 +64,11 @@
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
+    <ClCompile Include="core\Circle.cpp" />
+    <ClCompile Include="core\Polygon.cpp" />
+    <ClCompile Include="core\Rectangle.cpp" />
+    <ClCompile Include="components\CGeometry2D.cpp" />
+    <ClCompile Include="core\Rect4F.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
@@ -78,18 +83,6 @@
     <ClInclude Include="components\CPhysics.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="components\CPosition2D.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\CShapeGeometry.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\CVelocity2D.h">
-      <Filter>components</Filter>
-    </ClInclude>
-    <ClInclude Include="components\CCollision.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="components\CLabel.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -97,9 +90,6 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\Rect4F.h">
-      <Filter>core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\Polygon.h">
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="systems\MotionSystem.h">
@@ -147,5 +137,21 @@
     <ClInclude Include="systems\collision\CollisionSystem.h">
       <Filter>systems\Collisions</Filter>
     </ClInclude>
+    <ClInclude Include="gl\IDrawable.h" />
+    <ClInclude Include="components\CPosition2D.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\CVelocity2D.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="components\CGeometry2D.h" />
+    <ClInclude Include="components\CCollision.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Polygon.h" />
+    <ClInclude Include="core\Circle.h" />
+    <ClInclude Include="core\Rectangle.h" />
+    <ClInclude Include="core\IDrawable.h" />
+    <ClInclude Include="core\Box6F.h" />
   </ItemGroup>
 </Project>
