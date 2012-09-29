@@ -80,6 +80,8 @@ void WorldImpl::play()
 			SDL_Delay(max((int)(now - then - maxFPS), 1));
 		}
 	}
+
+	SDL_Quit();
 }
 
 void World::add_entity(shared_ptr<IEntity> entity) { _pimpl->add_entity(entity); }
