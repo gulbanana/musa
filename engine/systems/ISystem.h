@@ -22,6 +22,7 @@ class ISystem
 private:
 	virtual void on_frame() {}
 	virtual void on_entity(std::shared_ptr<IEntity> entity) {}
+	virtual void on_post_frame() {}
 
 protected:
 	std::vector<std::weak_ptr<IEntity>> entities;

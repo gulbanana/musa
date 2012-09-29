@@ -4,11 +4,12 @@
 class RenderSystem : public ISystem
 {
 public:
-	RenderSystem();
+	RenderSystem(int width, int height);
 	~RenderSystem();
 
 	std::vector<IComponent::ID> required_components() override;
 	void on_frame() override;
 	void on_entity(std::shared_ptr<IEntity> entity) override;
+	void on_post_frame() override;
 };
 

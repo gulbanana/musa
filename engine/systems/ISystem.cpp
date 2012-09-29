@@ -20,4 +20,6 @@ void ISystem::frame()
 	{
 		on_entity(entity.lock());
 	}
+
+	on_post_frame();
 }

@@ -10,7 +10,7 @@ Obstacle::Obstacle(Color4F color, Vector2F position)
 		make_unique<CPosition2D>(position.x, position.y)
 	);
 	add_component(
-		make_unique<CGeometry2D>(color, make_unique<Rectangle>(50.f))
+		make_unique<CGeometry2D>(color, make_unique<Rectangle>(Rect4F(-40.f, -60.f, 40.f, 60.f)))
 	);
 	add_component(
 		make_unique<CLabel>("wall")

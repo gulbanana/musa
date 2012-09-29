@@ -9,7 +9,5 @@ Rect4F CGeometry2D::bounds()
 		boundingBox = Rect4F::unify(boundingBox, poly->bounds2D());
 	}
 
-	
-
 	return boundingBox;
 }

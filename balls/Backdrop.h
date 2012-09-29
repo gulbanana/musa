@@ -4,6 +4,6 @@
 class Backdrop : public IEntity
 {
 public:
-	Backdrop(Color4F color, Vector2F position);
+	Backdrop(Color4F color, Vector2F position, float rotation);
 };
 

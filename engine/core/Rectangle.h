@@ -11,6 +11,7 @@ public:
 
 	//general rect constructor
 	Rectangle(Rect4F b) : bounds(b) {}
+	Rectangle(float x1, float y1, float x2, float y2) : bounds(Rect4F(x1, y1, x2, y2)) {}
 	//square constructor
-	Rectangle(float radius) : bounds(radius, radius, radius, radius) {}	
+	Rectangle(float radius) : bounds(-radius, -radius, radius, radius) {}	
 };

@@ -29,7 +29,8 @@ T check(std::function<T()> sdlCall)
 #pragma region pimpl
 class WorldImpl
 {
-	static const unsigned maxFPS = 30;
+	static const unsigned maxFPS = 60;
+
 	SDL_Surface* surface;
 	shared_ptr<GameState> state;
 	vector<unique_ptr<ISystem>> systems;
@@ -38,47 +39,47 @@ class WorldImpl
 	void frame();
 
 public:
-	WorldImpl(string title);
+	WorldImpl(const string title, int width, int height);
 	void add_entity(shared_ptr<IEntity> entity);
 	void add_system(unique_ptr<ISystem> system);
 	void play();
 };
 #pragma endregion
 
-World::World(string title) : _pimpl(new WorldImpl(title)) {}
-WorldImpl::WorldImpl(string title)
+World::World(const string title) : _pimpl(new WorldImpl(title, 800, 600)) {}
+WorldImpl::WorldImpl(const string title, int width, int height)
 {
 	state = make_shared<GameState>();
 
 	check([]{ return SDL_Init(SDL_INIT_EVERYTHING); });
+	SDL_WM_SetCaption(title.c_str(), nullptr);
 	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); });
-	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2); });
-	surface = check<SDL_Surface*>([]{ return SDL_SetVideoMode(700, 700, 32, SDL_HWSURFACE | SDL_OPENGL | SDL_DOUBLEBUF); });
+	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); });
+	check([]{ return SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); });
+	surface = check<SDL_Surface*>([=]{ return SDL_SetVideoMode(width, height, 32, SDL_OPENGL); });
 
 	add_system(make_unique<ControlSystem>(state));
-	add_system(make_unique<MotionSystem>(700.f, 700.f));
+	add_system(make_unique<MotionSystem>(state, width, height));
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<PhysicsSystem>());
-	add_system(make_unique<RenderSystem>());
+	add_system(make_unique<RenderSystem>(width, height));
 	add_system(make_unique<UISystem>(state));
 }
 
 void World::play() { _pimpl->play(); }
 void WorldImpl::play()
 {
-	unsigned then = 0;
-	unsigned now = SDL_GetTicks();
-
+	unsigned next, mspf = 1000 / maxFPS;
+	state->clock = SDL_GetTicks();
+	
 	while (!state->shouldQuit)
 	{
-		then = now;
 		frame();
-		now = SDL_GetTicks();
-		if (now != then)	//TODO: remove once the game is slow enough
-		{
-			state->fps = 1000 / (now - then);
-			SDL_Delay(max((int)(now - then - maxFPS), 1));
-		}
+		next = state->clock + mspf;
+		state->clock = SDL_GetTicks();
+		state->fps = 1000 / (state->clock - (next-mspf));
+		if (state->clock < next)
+			SDL_Delay(next - state->clock);
 	}
 
 	SDL_Quit();

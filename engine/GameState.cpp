@@ -1,8 +1,8 @@
 #include "GameState.h"
 
-
 GameState::GameState()
 {
-	shouldQuit = false;
+	clock = 0;
 	fps = 0;
+	shouldQuit = false;
 }
