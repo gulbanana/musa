@@ -4,7 +4,7 @@
 #include "Circle.h"
 
 const int resolution = 32;
-const float arc = 2 * M_PI / resolution;
+const float arc = (float)(2 * M_PI / resolution);
 
 Circle::Circle(float r) : radius(r) {}
 

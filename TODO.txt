@@ -1,8 +1,7 @@
 mac port
-linux port
-abstract the platform
+linux port?
 proper collision detection - boundary/edge based?
 collision-based repositioning (or level-based?)
-time-based movement
-deabstract to opengl
 add/subtract ball
+gui lib & fps display
+multithreading
