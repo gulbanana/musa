@@ -13,6 +13,7 @@ bool ControlSystem::on_event(SDL_Event& event)
 			state->shouldQuit = true;
 			return true;
 
-		return false;
+		default:
+			return false;
 	}
 }
