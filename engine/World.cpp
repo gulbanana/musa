@@ -77,9 +77,14 @@ void WorldImpl::play()
 		frame();
 		next = state->clock + mspf;
 		state->clock = SDL_GetTicks();
-		state->fps = 1000 / (state->clock - (next-mspf));
+		if (state->clock > next-mspf)
+		{
+			state->fps = 1000 / (state->clock - (next-mspf));
+		}
 		if (state->clock < next)
+		{
 			SDL_Delay(next - state->clock);
+		}
 	}
 
 	SDL_Quit();
