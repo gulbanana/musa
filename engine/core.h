@@ -1,8 +1,8 @@
 #pragma once
 
-#include "identifiable.h"
-#include "Vector2F.h"
-#include "Vector3F.h"
-#include "Rect4F.h"
-#include "Color4F.h"
-#include "Polygon.h"
+#include "core/identifiable.h"
+#include "core/Vector2F.h"
+#include "core/Vector3F.h"
+#include "core/Rect4F.h"
+#include "core/Color4F.h"
+#include "core/Polygon.h"

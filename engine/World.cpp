@@ -1,14 +1,9 @@
-#include "misc.h"
-#include "World.h"
-#include "InputSystem.h"
-#include "ShapeRenderSystem.h"
-#include "UIRenderSystem.h"
-#include "MotionSystem.h"
-#include "CollisionSystem.h"
-#include "PhysicsSystem.h"
 #include <typeinfo>
 #include <ctime>
 #include <SFML/Graphics.hpp>
+#include "misc.h"
+#include "systems.h"
+#include "World.h"
 using namespace std;
 
 class WorldImpl
@@ -44,7 +39,7 @@ WorldImpl::WorldImpl(string title)
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<PhysicsSystem>());
 	add_system(make_unique<ShapeRenderSystem>(font, mainWindow.get()));
-	add_system(make_unique<UIRenderSystem>(font, mainWindow.get(), fps));
+	add_system(make_unique<UISystem>(font, mainWindow.get(), fps));
 }
 
 void World::play() { _pimpl->play(); }
@@ -79,7 +74,6 @@ void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 	}
 }
 
-void World::add_system(unique_ptr<ISystem> system) { _pimpl->add_system(std::move(system)); }
 void WorldImpl::add_system(unique_ptr<ISystem> system)
 {
 	systems.push_back(std::move(system));

@@ -3,9 +3,7 @@
 #include <vector>
 #include <string>
 #include <typeinfo>
-#include "IEntity.h"
-
-
+#include "../entities/IEntity.h"
 
 class ISystem
 {

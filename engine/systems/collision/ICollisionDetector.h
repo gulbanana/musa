@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "IEntity.h"
+#include "../../entities/IEntity.h"
 
 class ICollisionDetector
 {

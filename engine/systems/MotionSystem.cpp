@@ -1,5 +1,5 @@
 #include <array>
-#include "components.h"
+#include "../components.h"
 #include "MotionSystem.h"
 using namespace std;
 

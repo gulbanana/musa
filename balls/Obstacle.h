@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/IEntity.h>
+#include <engine/entities.h>
 
 class Obstacle : public IEntity
 {

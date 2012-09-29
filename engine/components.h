@@ -1,8 +1,8 @@
 #pragma once
 
-#include "CLabel.h"
-#include "CPosition2D.h"
-#include "CVelocity2D.h"
-#include "CShapeGeometry.h"
-#include "CCollision.h"
-#include "CPhysics.h"
+#include "components/CLabel.h"
+#include "components/CPosition2D.h"
+#include "components/CVelocity2D.h"
+#include "components/CShapeGeometry.h"
+#include "components/CCollision.h"
+#include "components/CPhysics.h"

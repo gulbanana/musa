@@ -2,7 +2,7 @@
 #include <memory>
 #include <vector>
 #include "IComponent.h"
-#include "IEntity.h"
+#include "../entities/IEntity.h"
 
 class CCollision : public IComponent
 {

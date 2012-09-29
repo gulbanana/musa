@@ -1,8 +1,8 @@
 mac port
 linux port
-core IDable system
-proper collision detection
-collision-based repositioning
+abstract the platform
+proper collision detection - boundary/edge based?
+collision-based repositioning (or level-based?)
 time-based movement
 deabstract to opengl
 add/subtract ball

@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "components.h"
+#include "../../components.h"
 #include "RectIntersectionDetector.h"
 
 bool RectIntersectionDetector::collide(std::shared_ptr<IEntity> source, std::shared_ptr<IEntity> target)

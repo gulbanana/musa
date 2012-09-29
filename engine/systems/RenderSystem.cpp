@@ -1,11 +1,8 @@
 #include <array>
 #include <iterator>
 #include <typeinfo>
-#include "CPosition2D.h"
-#include "CShapeGeometry.h"
-#include "CLabel.h"
-#include "components.h"
-#include "ShapeRenderSystem.h"
+#include "../components.h"
+#include "RenderSystem.h"
 using namespace std;
 
 vector<IComponent::ID> ShapeRenderSystem::required_components()

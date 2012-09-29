@@ -1,5 +1,5 @@
 #pragma once
-#include "ISystem.h"
+#include "../ISystem.h"
 #include "ICollisionDetector.h"
 
 class CollisionSystem : public ISystem

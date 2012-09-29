@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "ISystem.h"
 
-class UIRenderSystem : public ISystem
+class UISystem : public ISystem
 {
 	sf::Font font;
 	sf::Text text;
@@ -14,7 +14,7 @@ class UIRenderSystem : public ISystem
 	void print(std::string output, float x, float y);
 
 public:
-	UIRenderSystem(sf::Font uiFont, sf::RenderTarget* s, int& fpsCounter);
+	UISystem(sf::Font uiFont, sf::RenderTarget* s, int& fpsCounter);
 	void on_frame() override;
 };
 

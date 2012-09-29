@@ -2,10 +2,8 @@
 #include <iterator>
 #include <typeinfo>
 #include <tuple>
-#include "misc.h"
-#include "CPosition2D.h"
-#include "CShapeGeometry.h"
-#include "CCollision.h"
+#include "../../misc.h"
+#include "../../components.h"
 #include "CollisionSystem.h"
 #include "RectIntersectionDetector.h"
 using namespace std;
