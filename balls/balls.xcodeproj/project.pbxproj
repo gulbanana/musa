@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63BEA16183C210007CDB1 /* Cocoa.framework */; };
-		E5A63C08161848B30007CDB1 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C07161848B30007CDB1 /* SDL.framework */; };
 		E5A63C1316184A330007CDB1 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C1216184A330007CDB1 /* libengine.a */; };
 		E5A63C1D16184BCC0007CDB1 /* Backdrop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1416184BCC0007CDB1 /* Backdrop.cpp */; };
 		E5A63C1E16184BCC0007CDB1 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1616184BCC0007CDB1 /* Ball.cpp */; };
@@ -18,8 +17,22 @@
 		E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
 		E5A63C2516184C5C0007CDB1 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2416184C5C0007CDB1 /* libguichan.a */; };
 		E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
-		E5BE5C8E161870BF0095BE77 /* SDL.framework in Resources */ = {isa = PBXBuildFile; fileRef = E5A63C07161848B30007CDB1 /* SDL.framework */; };
+		E5D03FD1161887B200FE0F56 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
+		E5D03FD2161887E300FE0F56 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5D03FCC1618822E00FE0F56 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E5D03FD2161887E300FE0F56 /* SDL.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E5A63BE616183C210007CDB1 /* balls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balls.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,7 +41,6 @@
 		E5A63BEE16183C210007CDB1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E5A63BEF16183C210007CDB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E5A63BF216183C210007CDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5A63C07161848B30007CDB1 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
 		E5A63C1216184A330007CDB1 /* libengine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libengine.a; path = "../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug/libengine.a"; sourceTree = "<group>"; };
 		E5A63C1416184BCC0007CDB1 /* Backdrop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Backdrop.cpp; sourceTree = "<group>"; };
 		E5A63C1516184BCC0007CDB1 /* Backdrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backdrop.h; sourceTree = "<group>"; };
@@ -42,6 +54,7 @@
 		E5A63C2216184C450007CDB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
 		E5A63C2416184C5C0007CDB1 /* libguichan.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libguichan.a; path = ../guichan/build/Release/libguichan.a; sourceTree = "<group>"; };
 		E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = SDLMain.nib; path = /Users/banana/Documents/Programming/musaceae/engine/mac/../../../../../../../Library/Frameworks/SDL.framework/Versions/A/Resources/SDLMain.nib; sourceTree = "<absolute>"; };
+		E5D03FD0161887B200FE0F56 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,10 +62,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D03FD1161887B200FE0F56 /* SDL.framework in Frameworks */,
 				E5A63C2516184C5C0007CDB1 /* libguichan.a in Frameworks */,
 				E5A63C1316184A330007CDB1 /* libengine.a in Frameworks */,
 				E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */,
-				E5A63C08161848B30007CDB1 /* SDL.framework in Frameworks */,
 				E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,8 +102,8 @@
 		E5A63BE916183C210007CDB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5D03FD0161887B200FE0F56 /* SDL.framework */,
 				E5A63C2216184C450007CDB1 /* OpenGL.framework */,
-				E5A63C07161848B30007CDB1 /* SDL.framework */,
 				E5A63BEA16183C210007CDB1 /* Cocoa.framework */,
 				E5A63BEC16183C210007CDB1 /* Other Frameworks */,
 			);
@@ -128,6 +141,7 @@
 				E5A63BE216183C210007CDB1 /* Sources */,
 				E5A63BE316183C210007CDB1 /* Frameworks */,
 				E5A63BE416183C210007CDB1 /* Resources */,
+				E5D03FCC1618822E00FE0F56 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -170,7 +184,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */,
-				E5BE5C8E161870BF0095BE77 /* SDL.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +215,10 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = (
+					"@rpath/Frameworks/Versions/A/SDL",
+					/Library/Frameworks,
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -217,6 +233,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ..;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks/";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.7;
@@ -234,7 +251,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = (
+					"@rpath/Frameworks/Versions/A/SDL",
+					/Library/Frameworks,
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -242,6 +262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ..;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks/";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx10.7;
