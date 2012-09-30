@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* SDLMain.m */; };
+		E5BE5C7C161862440095BE77 /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */; };
+		E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C7D161863A60095BE77 /* SDLApplication.h */; };
+		E5BE5C80161864060095BE77 /* SDLApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE5C7F161864060095BE77 /* SDLApplication.m */; };
+		E5BE5C82161864350095BE77 /* NSString_ReplaceSubString.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C81161864350095BE77 /* NSString_ReplaceSubString.h */; };
 		E5DDE5311618320E008179BF /* CGeometry2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE49616182B7A008179BF /* CGeometry2D.cpp */; };
 		E5DDE5321618321C008179BF /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4A016182B7A008179BF /* Circle.cpp */; };
 		E5DDE5331618321C008179BF /* Color4F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4A216182B7A008179BF /* Color4F.cpp */; };
@@ -29,6 +34,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E5A63C0E1618492B0007CDB1 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
+		E5A63C0F1618492B0007CDB1 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
+		E5BE5C7D161863A60095BE77 /* SDLApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLApplication.h; sourceTree = "<group>"; };
+		E5BE5C7F161864060095BE77 /* SDLApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLApplication.m; sourceTree = "<group>"; };
+		E5BE5C81161864350095BE77 /* NSString_ReplaceSubString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_ReplaceSubString.h; sourceTree = "<group>"; };
+		E5BE5C831618671C0095BE77 /* NSApplication_SDLMissingMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSApplication_SDLMissingMethods.h; sourceTree = "<group>"; };
 		E5DDE49516182B7A008179BF /* CCollision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCollision.h; sourceTree = "<group>"; };
 		E5DDE49616182B7A008179BF /* CGeometry2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CGeometry2D.cpp; sourceTree = "<group>"; };
 		E5DDE49716182B7A008179BF /* CGeometry2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGeometry2D.h; sourceTree = "<group>"; };
@@ -43,7 +54,7 @@
 		E5DDE4A116182B7A008179BF /* Circle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
 		E5DDE4A216182B7A008179BF /* Color4F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Color4F.cpp; sourceTree = "<group>"; };
 		E5DDE4A316182B7A008179BF /* Color4F.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color4F.h; sourceTree = "<group>"; };
-		E5DDE4A416182B7A008179BF /* identifiable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = identifiable.h; sourceTree = "<group>"; };
+		E5DDE4A416182B7A008179BF /* Identified.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Identified.h; sourceTree = "<group>"; };
 		E5DDE4A516182B7A008179BF /* IDrawable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDrawable.h; sourceTree = "<group>"; };
 		E5DDE4A616182B7A008179BF /* Polygon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Polygon.cpp; sourceTree = "<group>"; };
 		E5DDE4A716182B7A008179BF /* Polygon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
@@ -99,9 +110,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5A63C09161849030007CDB1 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				E5A63C0E1618492B0007CDB1 /* SDLMain.h */,
+				E5A63C0F1618492B0007CDB1 /* SDLMain.m */,
+				E5BE5C7D161863A60095BE77 /* SDLApplication.h */,
+				E5BE5C7F161864060095BE77 /* SDLApplication.m */,
+				E5BE5C81161864350095BE77 /* NSString_ReplaceSubString.h */,
+				E5BE5C831618671C0095BE77 /* NSApplication_SDLMissingMethods.h */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
 		E5DDE4461618242E008179BF = {
 			isa = PBXGroup;
 			children = (
+				E5A63C09161849030007CDB1 /* mac */,
 				E5DDE49416182B7A008179BF /* components */,
 				E5DDE49D16182B7A008179BF /* components.h */,
 				E5DDE49E16182B7A008179BF /* core */,
@@ -158,7 +183,7 @@
 				E5DDE4A116182B7A008179BF /* Circle.h */,
 				E5DDE4A216182B7A008179BF /* Color4F.cpp */,
 				E5DDE4A316182B7A008179BF /* Color4F.h */,
-				E5DDE4A416182B7A008179BF /* identifiable.h */,
+				E5DDE4A416182B7A008179BF /* Identified.h */,
 				E5DDE4A516182B7A008179BF /* IDrawable.h */,
 				E5DDE4A616182B7A008179BF /* Polygon.cpp */,
 				E5DDE4A716182B7A008179BF /* Polygon.h */,
@@ -233,6 +258,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */,
+				E5BE5C82161864350095BE77 /* NSString_ReplaceSubString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,9 +330,12 @@
 				E5DDE5341618321C008179BF /* Polygon.cpp in Sources */,
 				E5DDE5351618321C008179BF /* Rect4F.cpp in Sources */,
 				E5DDE5361618321C008179BF /* Rectangle.cpp in Sources */,
+				E5BE5C7C161862440095BE77 /* RectIntersectionDetector.cpp in Sources */,
 				E5DDE5371618321C008179BF /* Vector2F.cpp in Sources */,
 				E5DDE5381618321C008179BF /* Vector3F.cpp in Sources */,
 				E5DDE5311618320E008179BF /* CGeometry2D.cpp in Sources */,
+				E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */,
+				E5BE5C80161864060095BE77 /* SDLApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,8 +370,8 @@
 					/Library/Frameworks/SDL.framework/Headers,
 					..,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.7;
 			};
 			name = Debug;
@@ -368,7 +398,7 @@
 					/Library/Frameworks/SDL.framework/Headers,
 					..,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx10.7;
 			};
@@ -382,6 +412,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
 				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -393,6 +427,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

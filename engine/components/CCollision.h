@@ -4,9 +4,9 @@
 #include "IComponent.h"
 #include "../entities/IEntity.h"
 
-class CCollision : public IComponent
+class CCollision : public Identified<IComponent, CID::Collision>
 {
-	IDENTIFIED(IComponent, Collision);
+public:
 	bool subject;
 	bool object;
 	std::vector<std::shared_ptr<IEntity>> collisions;

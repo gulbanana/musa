@@ -1,9 +1,9 @@
 #pragma once
 #include "IComponent.h"
 
-class CPosition2D : public IComponent
+class CPosition2D : public Identified<IComponent, CID::Position2D>
 {
-	IDENTIFIED(IComponent, Position2D);
+public:
 	Vector2F previous;
 	Vector2F location;
 	float orientation;

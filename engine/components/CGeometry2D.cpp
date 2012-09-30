@@ -1,5 +1,10 @@
 #include "CGeometry2D.h"
 
+CGeometry2D::CGeometry2D(Color4F c, std::unique_ptr<IDrawable> p) :  polys(), color(c)
+{
+    polys.push_back(std::move(p));
+}
+
 Rect4F CGeometry2D::bounds()
 {
 	auto boundingBox = Rect4F(0.f, 0.f, 0.f, 0.f);

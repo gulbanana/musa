@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63BEA16183C210007CDB1 /* Cocoa.framework */; };
+		E5A63C08161848B30007CDB1 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C07161848B30007CDB1 /* SDL.framework */; };
+		E5A63C1316184A330007CDB1 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C1216184A330007CDB1 /* libengine.a */; };
+		E5A63C1D16184BCC0007CDB1 /* Backdrop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1416184BCC0007CDB1 /* Backdrop.cpp */; };
+		E5A63C1E16184BCC0007CDB1 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1616184BCC0007CDB1 /* Ball.cpp */; };
+		E5A63C1F16184BCC0007CDB1 /* LargeBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1816184BCC0007CDB1 /* LargeBall.cpp */; };
+		E5A63C2016184BCC0007CDB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1A16184BCC0007CDB1 /* main.cpp */; };
+		E5A63C2116184BCC0007CDB1 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */; };
+		E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
+		E5A63C2516184C5C0007CDB1 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2416184C5C0007CDB1 /* libguichan.a */; };
+		E5BE5C8716186B410095BE77 /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BE5C8616186B410095BE77 /* SDL_image.framework */; };
+		E5BE5C8916186B470095BE77 /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BE5C8816186B470095BE77 /* SDL_ttf.framework */; };
+		E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E5A63BE616183C210007CDB1 /* balls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5A63BEA16183C210007CDB1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E5A63BED16183C210007CDB1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E5A63BEE16183C210007CDB1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E5A63BEF16183C210007CDB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E5A63BF216183C210007CDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5A63C07161848B30007CDB1 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = ../../../../../../Library/Frameworks/SDL.framework; sourceTree = "<group>"; };
+		E5A63C1216184A330007CDB1 /* libengine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libengine.a; path = "../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug/libengine.a"; sourceTree = "<group>"; };
+		E5A63C1416184BCC0007CDB1 /* Backdrop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Backdrop.cpp; sourceTree = "<group>"; };
+		E5A63C1516184BCC0007CDB1 /* Backdrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backdrop.h; sourceTree = "<group>"; };
+		E5A63C1616184BCC0007CDB1 /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
+		E5A63C1716184BCC0007CDB1 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		E5A63C1816184BCC0007CDB1 /* LargeBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LargeBall.cpp; sourceTree = "<group>"; };
+		E5A63C1916184BCC0007CDB1 /* LargeBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargeBall.h; sourceTree = "<group>"; };
+		E5A63C1A16184BCC0007CDB1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
+		E5A63C1C16184BCC0007CDB1 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
+		E5A63C2216184C450007CDB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
+		E5A63C2416184C5C0007CDB1 /* libguichan.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libguichan.a; path = ../guichan/build/Release/libguichan.a; sourceTree = "<group>"; };
+		E5BE5C8616186B410095BE77 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = ../../../../../../Library/Frameworks/SDL_image.framework; sourceTree = "<group>"; };
+		E5BE5C8816186B470095BE77 /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = ../../../../../../Library/Frameworks/SDL_ttf.framework; sourceTree = "<group>"; };
+		E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = SDLMain.nib; path = /Users/banana/Documents/Programming/musaceae/engine/mac/../../../../../../../Library/Frameworks/SDL.framework/Versions/A/Resources/SDLMain.nib; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5A63BE316183C210007CDB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5A63C2516184C5C0007CDB1 /* libguichan.a in Frameworks */,
+				E5A63C1316184A330007CDB1 /* libengine.a in Frameworks */,
+				E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */,
+				E5A63C08161848B30007CDB1 /* SDL.framework in Frameworks */,
+				E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */,
+				E5BE5C8716186B410095BE77 /* SDL_image.framework in Frameworks */,
+				E5BE5C8916186B470095BE77 /* SDL_ttf.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5A63BDB16183C210007CDB1 = {
+			isa = PBXGroup;
+			children = (
+				E5BE5C8D16186C7F0095BE77 /* mac */,
+				E5A63C1416184BCC0007CDB1 /* Backdrop.cpp */,
+				E5A63C1516184BCC0007CDB1 /* Backdrop.h */,
+				E5A63C1616184BCC0007CDB1 /* Ball.cpp */,
+				E5A63C1716184BCC0007CDB1 /* Ball.h */,
+				E5A63C1816184BCC0007CDB1 /* LargeBall.cpp */,
+				E5A63C1916184BCC0007CDB1 /* LargeBall.h */,
+				E5A63C1A16184BCC0007CDB1 /* main.cpp */,
+				E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */,
+				E5A63C1C16184BCC0007CDB1 /* Obstacle.h */,
+				E5A63BE916183C210007CDB1 /* Frameworks */,
+				E5A63BE716183C210007CDB1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5A63BE716183C210007CDB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5A63BE616183C210007CDB1 /* balls.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5A63BE916183C210007CDB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5BE5C8816186B470095BE77 /* SDL_ttf.framework */,
+				E5BE5C8616186B410095BE77 /* SDL_image.framework */,
+				E5A63C2216184C450007CDB1 /* OpenGL.framework */,
+				E5A63C07161848B30007CDB1 /* SDL.framework */,
+				E5A63BEA16183C210007CDB1 /* Cocoa.framework */,
+				E5A63BEC16183C210007CDB1 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5A63BEC16183C210007CDB1 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5A63BED16183C210007CDB1 /* AppKit.framework */,
+				E5A63BEE16183C210007CDB1 /* CoreData.framework */,
+				E5A63BEF16183C210007CDB1 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E5BE5C8D16186C7F0095BE77 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				E5A63C2416184C5C0007CDB1 /* libguichan.a */,
+				E5A63C1216184A330007CDB1 /* libengine.a */,
+				E5A63BF216183C210007CDB1 /* Info.plist */,
+				E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */,
+			);
+			name = mac;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5A63BE516183C210007CDB1 /* balls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5A63C0416183C220007CDB1 /* Build configuration list for PBXNativeTarget "balls" */;
+			buildPhases = (
+				E5A63BE216183C210007CDB1 /* Sources */,
+				E5A63BE316183C210007CDB1 /* Frameworks */,
+				E5A63BE416183C210007CDB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = balls;
+			productName = balls;
+			productReference = E5A63BE616183C210007CDB1 /* balls.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5A63BDD16183C210007CDB1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Thomas Castiglione";
+			};
+			buildConfigurationList = E5A63BE016183C210007CDB1 /* Build configuration list for PBXProject "balls" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E5A63BDB16183C210007CDB1;
+			productRefGroup = E5A63BE716183C210007CDB1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5A63BE516183C210007CDB1 /* balls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5A63BE416183C210007CDB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5A63BE216183C210007CDB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5A63C1D16184BCC0007CDB1 /* Backdrop.cpp in Sources */,
+				E5A63C1E16184BCC0007CDB1 /* Ball.cpp in Sources */,
+				E5A63C1F16184BCC0007CDB1 /* LargeBall.cpp in Sources */,
+				E5A63C2016184BCC0007CDB1 /* main.cpp in Sources */,
+				E5A63C2116184BCC0007CDB1 /* Obstacle.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E5A63C0216183C220007CDB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ..;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.7;
+			};
+			name = Debug;
+		};
+		E5A63C0316183C220007CDB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ..;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx10.7;
+			};
+			name = Release;
+		};
+		E5A63C0516183C220007CDB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E5A63C0616183C220007CDB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5A63BE016183C210007CDB1 /* Build configuration list for PBXProject "balls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5A63C0216183C220007CDB1 /* Debug */,
+				E5A63C0316183C220007CDB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5A63C0416183C220007CDB1 /* Build configuration list for PBXNativeTarget "balls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5A63C0516183C220007CDB1 /* Debug */,
+				E5A63C0616183C220007CDB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5A63BDD16183C210007CDB1 /* Project object */;
+}

@@ -2,9 +2,9 @@
 #include <string>
 #include "IComponent.h"
 
-class CLabel : public IComponent
+class CLabel : public Identified<IComponent, CID::Label>
 {
-	IDENTIFIED(IComponent, Label);
+public:
 	std::string text;
 	CLabel(std::string t) : text(t) {}
 };

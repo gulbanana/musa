@@ -6,20 +6,21 @@
 #include <SDL_events.h>
 #include "../entities/IEntity.h"
 
-class ISystem
+enum class SID
+{
+    Control,
+    Collision,
+    Input,
+    Display,
+    Motion,
+    Physics,
+    Render,
+    UI
+};
+
+class ISystem : public Identifiable<SID>
 {
 public:
-	IDENTIFIABLE
-	(
-		Control,
-		Collision,
-		Input,
-		Display,
-		Motion,
-		Physics,
-		Render,
-		UI
-	);
 	virtual ~ISystem() {}
 	void frame();
 	bool event(SDL_Event& event) { return on_event(event); };	//for later interface changes

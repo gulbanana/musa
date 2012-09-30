@@ -1,18 +1,18 @@
 #pragma once
 #include "../core.h"
 
-class IComponent
+enum class CID
 {
-	IDENTIFIABLE
-	(
-		Collision,
-		Label,
-		Physics,
-		Position2D,
-		Geometry2D,
-		Velocity2D
-	);
+    Collision,
+    Label,
+    Physics,
+    Position2D,
+    Geometry2D,
+    Velocity2D
+};
 
+class IComponent : public Identifiable<CID>
+{
 public:
 	~IComponent() {}
 };

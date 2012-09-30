@@ -1,8 +1,8 @@
 #pragma once
 #include "IComponent.h"
 
-class CPhysics : public IComponent
+class CPhysics : public Identified<IComponent, CID::Physics>
 {
-	IDENTIFIED(IComponent, Physics);
+public:
 };
 

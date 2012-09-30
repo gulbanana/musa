@@ -657,7 +657,7 @@
 					/Library/Frameworks/SDL_ttf.framework/Headers,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.7;
 			};
 			name = Debug;

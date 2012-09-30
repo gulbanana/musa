@@ -1,10 +1,9 @@
 #pragma once
 #include "IComponent.h"
 
-class CVelocity2D : public IComponent
+class CVelocity2D : public Identified<IComponent, CID::Velocity2D>
 {
-	IDENTIFIED(IComponent, Velocity2D);
-
+public:
 	Vector2F vector;
 	float rotation;
 
