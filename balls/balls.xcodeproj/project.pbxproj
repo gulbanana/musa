@@ -17,8 +17,6 @@
 		E5A63C2116184BCC0007CDB1 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */; };
 		E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
 		E5A63C2516184C5C0007CDB1 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2416184C5C0007CDB1 /* libguichan.a */; };
-		E5BE5C8716186B410095BE77 /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BE5C8616186B410095BE77 /* SDL_image.framework */; };
-		E5BE5C8916186B470095BE77 /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BE5C8816186B470095BE77 /* SDL_ttf.framework */; };
 		E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +40,6 @@
 		E5A63C1C16184BCC0007CDB1 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		E5A63C2216184C450007CDB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
 		E5A63C2416184C5C0007CDB1 /* libguichan.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libguichan.a; path = ../guichan/build/Release/libguichan.a; sourceTree = "<group>"; };
-		E5BE5C8616186B410095BE77 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = ../../../../../../Library/Frameworks/SDL_image.framework; sourceTree = "<group>"; };
-		E5BE5C8816186B470095BE77 /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = ../../../../../../Library/Frameworks/SDL_ttf.framework; sourceTree = "<group>"; };
 		E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = SDLMain.nib; path = /Users/banana/Documents/Programming/musaceae/engine/mac/../../../../../../../Library/Frameworks/SDL.framework/Versions/A/Resources/SDLMain.nib; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -57,8 +53,6 @@
 				E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */,
 				E5A63C08161848B30007CDB1 /* SDL.framework in Frameworks */,
 				E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */,
-				E5BE5C8716186B410095BE77 /* SDL_image.framework in Frameworks */,
-				E5BE5C8916186B470095BE77 /* SDL_ttf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +88,6 @@
 		E5A63BE916183C210007CDB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5BE5C8816186B470095BE77 /* SDL_ttf.framework */,
-				E5BE5C8616186B410095BE77 /* SDL_image.framework */,
 				E5A63C2216184C450007CDB1 /* OpenGL.framework */,
 				E5A63C07161848B30007CDB1 /* SDL.framework */,
 				E5A63BEA16183C210007CDB1 /* Cocoa.framework */,
@@ -263,10 +255,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
 				);
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -281,10 +270,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
 				);
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
