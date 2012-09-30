@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:guichan/guichan.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:engine/engine.xcodeproj">
    </FileRef>
 </Workspace>

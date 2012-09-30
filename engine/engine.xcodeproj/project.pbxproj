@@ -29,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E5DDE4541618242E008179BF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E5DDE49516182B7A008179BF /* CCollision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCollision.h; sourceTree = "<group>"; };
 		E5DDE49616182B7A008179BF /* CGeometry2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CGeometry2D.cpp; sourceTree = "<group>"; };
 		E5DDE49716182B7A008179BF /* CGeometry2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGeometry2D.h; sourceTree = "<group>"; };
@@ -132,7 +131,6 @@
 		E5DDE4531618242E008179BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5DDE4541618242E008179BF /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -380,6 +378,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -388,6 +390,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -411,6 +417,7 @@
 				E5DDE5301618315E008179BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
