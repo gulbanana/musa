@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5DDE5311618320E008179BF /* CGeometry2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE49616182B7A008179BF /* CGeometry2D.cpp */; };
+		E5DDE5321618321C008179BF /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4A016182B7A008179BF /* Circle.cpp */; };
+		E5DDE5331618321C008179BF /* Color4F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4A216182B7A008179BF /* Color4F.cpp */; };
+		E5DDE5341618321C008179BF /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4A616182B7A008179BF /* Polygon.cpp */; };
+		E5DDE5351618321C008179BF /* Rect4F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4A816182B7A008179BF /* Rect4F.cpp */; };
+		E5DDE5361618321C008179BF /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4AA16182B7A008179BF /* Rectangle.cpp */; };
+		E5DDE5371618321C008179BF /* Vector2F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4AC16182B7A008179BF /* Vector2F.cpp */; };
+		E5DDE5381618321C008179BF /* Vector3F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4AE16182B7A008179BF /* Vector3F.cpp */; };
+		E5DDE53916183230008179BF /* Polygon2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4B816182B7A008179BF /* Polygon2D.cpp */; };
+		E5DDE53A16183230008179BF /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4BB16182B7A008179BF /* GameState.cpp */; };
+		E5DDE53B16183230008179BF /* CollisionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CA16182B7A008179BF /* CollisionSystem.cpp */; };
+		E5DDE53C16183230008179BF /* ControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CF16182B7A008179BF /* ControlSystem.cpp */; };
+		E5DDE53D16183230008179BF /* ISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4D116182B7A008179BF /* ISystem.cpp */; };
+		E5DDE53E16183230008179BF /* MotionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4D316182B7A008179BF /* MotionSystem.cpp */; };
+		E5DDE53F16183230008179BF /* PhysicsSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4D516182B7A008179BF /* PhysicsSystem.cpp */; };
+		E5DDE54016183230008179BF /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4D716182B7A008179BF /* RenderSystem.cpp */; };
+		E5DDE54116183230008179BF /* UISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4DA16182B7A008179BF /* UISystem.cpp */; };
+		E5DDE54216183230008179BF /* UISystemImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4DC16182B7A008179BF /* UISystemImpl.cpp */; };
+		E5DDE54316183230008179BF /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4DF16182B7A008179BF /* World.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E5DDE4541618242E008179BF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		E5DDE49516182B7A008179BF /* CCollision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCollision.h; sourceTree = "<group>"; };
+		E5DDE49616182B7A008179BF /* CGeometry2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CGeometry2D.cpp; sourceTree = "<group>"; };
+		E5DDE49716182B7A008179BF /* CGeometry2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGeometry2D.h; sourceTree = "<group>"; };
+		E5DDE49816182B7A008179BF /* CLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLabel.h; sourceTree = "<group>"; };
+		E5DDE49916182B7A008179BF /* CPhysics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPhysics.h; sourceTree = "<group>"; };
+		E5DDE49A16182B7A008179BF /* CPosition2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPosition2D.h; sourceTree = "<group>"; };
+		E5DDE49B16182B7A008179BF /* CVelocity2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVelocity2D.h; sourceTree = "<group>"; };
+		E5DDE49C16182B7A008179BF /* IComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IComponent.h; sourceTree = "<group>"; };
+		E5DDE49D16182B7A008179BF /* components.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = components.h; sourceTree = "<group>"; };
+		E5DDE49F16182B7A008179BF /* Box6F.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Box6F.h; sourceTree = "<group>"; };
+		E5DDE4A016182B7A008179BF /* Circle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
+		E5DDE4A116182B7A008179BF /* Circle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
+		E5DDE4A216182B7A008179BF /* Color4F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Color4F.cpp; sourceTree = "<group>"; };
+		E5DDE4A316182B7A008179BF /* Color4F.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color4F.h; sourceTree = "<group>"; };
+		E5DDE4A416182B7A008179BF /* identifiable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = identifiable.h; sourceTree = "<group>"; };
+		E5DDE4A516182B7A008179BF /* IDrawable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDrawable.h; sourceTree = "<group>"; };
+		E5DDE4A616182B7A008179BF /* Polygon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Polygon.cpp; sourceTree = "<group>"; };
+		E5DDE4A716182B7A008179BF /* Polygon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
+		E5DDE4A816182B7A008179BF /* Rect4F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rect4F.cpp; sourceTree = "<group>"; };
+		E5DDE4A916182B7A008179BF /* Rect4F.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rect4F.h; sourceTree = "<group>"; };
+		E5DDE4AA16182B7A008179BF /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
+		E5DDE4AB16182B7A008179BF /* Rectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
+		E5DDE4AC16182B7A008179BF /* Vector2F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2F.cpp; sourceTree = "<group>"; };
+		E5DDE4AD16182B7A008179BF /* Vector2F.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2F.h; sourceTree = "<group>"; };
+		E5DDE4AE16182B7A008179BF /* Vector3F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3F.cpp; sourceTree = "<group>"; };
+		E5DDE4AF16182B7A008179BF /* Vector3F.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3F.h; sourceTree = "<group>"; };
+		E5DDE4B016182B7A008179BF /* core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		E5DDE4B716182B7A008179BF /* IEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IEntity.h; sourceTree = "<group>"; };
+		E5DDE4B816182B7A008179BF /* Polygon2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Polygon2D.cpp; sourceTree = "<group>"; };
+		E5DDE4B916182B7A008179BF /* Polygon2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Polygon2D.h; sourceTree = "<group>"; };
+		E5DDE4BA16182B7A008179BF /* entities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = entities.h; sourceTree = "<group>"; };
+		E5DDE4BB16182B7A008179BF /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		E5DDE4BC16182B7A008179BF /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		E5DDE4C716182B7A008179BF /* misc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
+		E5DDE4CA16182B7A008179BF /* CollisionSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionSystem.cpp; sourceTree = "<group>"; };
+		E5DDE4CB16182B7A008179BF /* CollisionSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
+		E5DDE4CC16182B7A008179BF /* ICollisionDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICollisionDetector.h; sourceTree = "<group>"; };
+		E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RectIntersectionDetector.cpp; sourceTree = "<group>"; };
+		E5DDE4CE16182B7A008179BF /* RectIntersectionDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RectIntersectionDetector.h; sourceTree = "<group>"; };
+		E5DDE4CF16182B7A008179BF /* ControlSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ControlSystem.cpp; sourceTree = "<group>"; };
+		E5DDE4D016182B7A008179BF /* ControlSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlSystem.h; sourceTree = "<group>"; };
+		E5DDE4D116182B7A008179BF /* ISystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ISystem.cpp; sourceTree = "<group>"; };
+		E5DDE4D216182B7A008179BF /* ISystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISystem.h; sourceTree = "<group>"; };
+		E5DDE4D316182B7A008179BF /* MotionSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MotionSystem.cpp; sourceTree = "<group>"; };
+		E5DDE4D416182B7A008179BF /* MotionSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionSystem.h; sourceTree = "<group>"; };
+		E5DDE4D516182B7A008179BF /* PhysicsSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsSystem.cpp; sourceTree = "<group>"; };
+		E5DDE4D616182B7A008179BF /* PhysicsSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsSystem.h; sourceTree = "<group>"; };
+		E5DDE4D716182B7A008179BF /* RenderSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
+		E5DDE4D816182B7A008179BF /* RenderSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		E5DDE4DA16182B7A008179BF /* UISystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UISystem.cpp; sourceTree = "<group>"; };
+		E5DDE4DB16182B7A008179BF /* UISystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UISystem.h; sourceTree = "<group>"; };
+		E5DDE4DC16182B7A008179BF /* UISystemImpl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UISystemImpl.cpp; sourceTree = "<group>"; };
+		E5DDE4DD16182B7A008179BF /* UISystemImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UISystemImpl.h; sourceTree = "<group>"; };
+		E5DDE4DE16182B7A008179BF /* systems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
+		E5DDE4DF16182B7A008179BF /* World.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		E5DDE4E016182B7A008179BF /* World.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		E5DDE52D1618315D008179BF /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5DDE52A1618315D008179BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5DDE4461618242E008179BF = {
+			isa = PBXGroup;
+			children = (
+				E5DDE49416182B7A008179BF /* components */,
+				E5DDE49D16182B7A008179BF /* components.h */,
+				E5DDE49E16182B7A008179BF /* core */,
+				E5DDE4B016182B7A008179BF /* core.h */,
+				E5DDE4B616182B7A008179BF /* entities */,
+				E5DDE4BA16182B7A008179BF /* entities.h */,
+				E5DDE4BB16182B7A008179BF /* GameState.cpp */,
+				E5DDE4BC16182B7A008179BF /* GameState.h */,
+				E5DDE4C716182B7A008179BF /* misc.h */,
+				E5DDE4C816182B7A008179BF /* systems */,
+				E5DDE4DE16182B7A008179BF /* systems.h */,
+				E5DDE4DF16182B7A008179BF /* World.cpp */,
+				E5DDE4E016182B7A008179BF /* World.h */,
+				E5DDE4531618242E008179BF /* Frameworks */,
+				E5DDE4521618242E008179BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5DDE4521618242E008179BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE52D1618315D008179BF /* libengine.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5DDE4531618242E008179BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE4541618242E008179BF /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5DDE49416182B7A008179BF /* components */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE49516182B7A008179BF /* CCollision.h */,
+				E5DDE49616182B7A008179BF /* CGeometry2D.cpp */,
+				E5DDE49716182B7A008179BF /* CGeometry2D.h */,
+				E5DDE49816182B7A008179BF /* CLabel.h */,
+				E5DDE49916182B7A008179BF /* CPhysics.h */,
+				E5DDE49A16182B7A008179BF /* CPosition2D.h */,
+				E5DDE49B16182B7A008179BF /* CVelocity2D.h */,
+				E5DDE49C16182B7A008179BF /* IComponent.h */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		E5DDE49E16182B7A008179BF /* core */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE49F16182B7A008179BF /* Box6F.h */,
+				E5DDE4A016182B7A008179BF /* Circle.cpp */,
+				E5DDE4A116182B7A008179BF /* Circle.h */,
+				E5DDE4A216182B7A008179BF /* Color4F.cpp */,
+				E5DDE4A316182B7A008179BF /* Color4F.h */,
+				E5DDE4A416182B7A008179BF /* identifiable.h */,
+				E5DDE4A516182B7A008179BF /* IDrawable.h */,
+				E5DDE4A616182B7A008179BF /* Polygon.cpp */,
+				E5DDE4A716182B7A008179BF /* Polygon.h */,
+				E5DDE4A816182B7A008179BF /* Rect4F.cpp */,
+				E5DDE4A916182B7A008179BF /* Rect4F.h */,
+				E5DDE4AA16182B7A008179BF /* Rectangle.cpp */,
+				E5DDE4AB16182B7A008179BF /* Rectangle.h */,
+				E5DDE4AC16182B7A008179BF /* Vector2F.cpp */,
+				E5DDE4AD16182B7A008179BF /* Vector2F.h */,
+				E5DDE4AE16182B7A008179BF /* Vector3F.cpp */,
+				E5DDE4AF16182B7A008179BF /* Vector3F.h */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		E5DDE4B616182B7A008179BF /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE4B716182B7A008179BF /* IEntity.h */,
+				E5DDE4B816182B7A008179BF /* Polygon2D.cpp */,
+				E5DDE4B916182B7A008179BF /* Polygon2D.h */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
+		E5DDE4C816182B7A008179BF /* systems */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE4C916182B7A008179BF /* collision */,
+				E5DDE4CF16182B7A008179BF /* ControlSystem.cpp */,
+				E5DDE4D016182B7A008179BF /* ControlSystem.h */,
+				E5DDE4D116182B7A008179BF /* ISystem.cpp */,
+				E5DDE4D216182B7A008179BF /* ISystem.h */,
+				E5DDE4D316182B7A008179BF /* MotionSystem.cpp */,
+				E5DDE4D416182B7A008179BF /* MotionSystem.h */,
+				E5DDE4D516182B7A008179BF /* PhysicsSystem.cpp */,
+				E5DDE4D616182B7A008179BF /* PhysicsSystem.h */,
+				E5DDE4D716182B7A008179BF /* RenderSystem.cpp */,
+				E5DDE4D816182B7A008179BF /* RenderSystem.h */,
+				E5DDE4D916182B7A008179BF /* ui */,
+			);
+			path = systems;
+			sourceTree = "<group>";
+		};
+		E5DDE4C916182B7A008179BF /* collision */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE4CA16182B7A008179BF /* CollisionSystem.cpp */,
+				E5DDE4CB16182B7A008179BF /* CollisionSystem.h */,
+				E5DDE4CC16182B7A008179BF /* ICollisionDetector.h */,
+				E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */,
+				E5DDE4CE16182B7A008179BF /* RectIntersectionDetector.h */,
+			);
+			path = collision;
+			sourceTree = "<group>";
+		};
+		E5DDE4D916182B7A008179BF /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E5DDE4DA16182B7A008179BF /* UISystem.cpp */,
+				E5DDE4DB16182B7A008179BF /* UISystem.h */,
+				E5DDE4DC16182B7A008179BF /* UISystemImpl.cpp */,
+				E5DDE4DD16182B7A008179BF /* UISystemImpl.h */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E5DDE52B1618315D008179BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E5DDE52C1618315D008179BF /* engine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5DDE52E1618315E008179BF /* Build configuration list for PBXNativeTarget "engine" */;
+			buildPhases = (
+				E5DDE5291618315D008179BF /* Sources */,
+				E5DDE52A1618315D008179BF /* Frameworks */,
+				E5DDE52B1618315D008179BF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = engine;
+			productName = engine;
+			productReference = E5DDE52D1618315D008179BF /* libengine.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5DDE4481618242E008179BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Thomas Castiglione";
+			};
+			buildConfigurationList = E5DDE44B1618242E008179BF /* Build configuration list for PBXProject "engine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E5DDE4461618242E008179BF;
+			productRefGroup = E5DDE4521618242E008179BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5DDE52C1618315D008179BF /* engine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5DDE5291618315D008179BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5DDE53916183230008179BF /* Polygon2D.cpp in Sources */,
+				E5DDE53A16183230008179BF /* GameState.cpp in Sources */,
+				E5DDE53B16183230008179BF /* CollisionSystem.cpp in Sources */,
+				E5DDE53C16183230008179BF /* ControlSystem.cpp in Sources */,
+				E5DDE53D16183230008179BF /* ISystem.cpp in Sources */,
+				E5DDE53E16183230008179BF /* MotionSystem.cpp in Sources */,
+				E5DDE53F16183230008179BF /* PhysicsSystem.cpp in Sources */,
+				E5DDE54016183230008179BF /* RenderSystem.cpp in Sources */,
+				E5DDE54116183230008179BF /* UISystem.cpp in Sources */,
+				E5DDE54216183230008179BF /* UISystemImpl.cpp in Sources */,
+				E5DDE54316183230008179BF /* World.cpp in Sources */,
+				E5DDE5321618321C008179BF /* Circle.cpp in Sources */,
+				E5DDE5331618321C008179BF /* Color4F.cpp in Sources */,
+				E5DDE5341618321C008179BF /* Polygon.cpp in Sources */,
+				E5DDE5351618321C008179BF /* Rect4F.cpp in Sources */,
+				E5DDE5361618321C008179BF /* Rectangle.cpp in Sources */,
+				E5DDE5371618321C008179BF /* Vector2F.cpp in Sources */,
+				E5DDE5381618321C008179BF /* Vector3F.cpp in Sources */,
+				E5DDE5311618320E008179BF /* CGeometry2D.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E5DDE4631618242E008179BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Library/Frameworks/SDL.framework/Headers,
+					..,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E5DDE4641618242E008179BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Library/Frameworks/SDL.framework/Headers,
+					..,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E5DDE52F1618315E008179BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E5DDE5301618315E008179BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5DDE44B1618242E008179BF /* Build configuration list for PBXProject "engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DDE4631618242E008179BF /* Debug */,
+				E5DDE4641618242E008179BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5DDE52E1618315E008179BF /* Build configuration list for PBXNativeTarget "engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5DDE52F1618315E008179BF /* Debug */,
+				E5DDE5301618315E008179BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5DDE4481618242E008179BF /* Project object */;
+}
