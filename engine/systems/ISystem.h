@@ -6,7 +6,7 @@
 #include <SDL_events.h>
 #include "../entities/IEntity.h"
 
-enum class SID
+enum class SyID
 {
     Control,
     Collision,
@@ -18,7 +18,7 @@ enum class SID
     UI
 };
 
-class ISystem : public Identifiable<SID>
+class ISystem : public Identifiable<SyID>
 {
 public:
 	virtual ~ISystem() {}
