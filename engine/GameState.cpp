@@ -2,7 +2,7 @@
 
 GameState::GameState()
 {
-	clock = 0;
-	fps = 0;
+    last_frame = 0;
+    last_frame_time = 1;
 	shouldQuit = false;
 }

@@ -15,7 +15,7 @@ MotionSystem::MotionSystem(shared_ptr<GameState> s, int x, int y) : state(s), le
 
 void MotionSystem::on_frame()
 {
-	elapsedTime = (SDL_GetTicks() - state->clock) / 1000.f;
+	elapsedTime = state->last_frame_time / 1000.f;
 }
 
 void MotionSystem::on_entity(shared_ptr<IEntity> entity)

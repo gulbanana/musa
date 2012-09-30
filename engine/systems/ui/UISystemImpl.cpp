@@ -30,7 +30,7 @@ UISystemImpl::UISystemImpl(shared_ptr<GameState> s)
 
 void UISystemImpl::on_frame()
 {
-	_fpsLabel->setCaption("FPS: " + to_string(_state->fps));
+	_fpsLabel->setCaption("FPS: " + to_string(1000.f / _state->last_frame_time));
 	_gui->logic();
 	_gui->draw();
 }

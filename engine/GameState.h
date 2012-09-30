@@ -2,8 +2,11 @@
 class GameState
 {
 public:
-	unsigned clock;
-	unsigned fps;
+    //metrics
+	unsigned last_frame;
+    unsigned last_frame_time;
+    
+    //control
 	bool shouldQuit;
 
 	GameState();

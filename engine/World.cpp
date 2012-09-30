@@ -72,23 +72,20 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 
 void WorldImpl::play()
 {
-	unsigned next, mspf = 1000 / maxFPS;
-	state->clock = SDL_GetTicks();
+	unsigned now, mspf = 1000 / maxFPS;
+	state->last_frame = SDL_GetTicks();
 	
 	while (!state->shouldQuit)
 	{
 		frame();
-		next = state->clock + mspf;
-		state->clock = SDL_GetTicks();
-		if (state->clock > next-mspf)
-		{
-			state->fps = 1000 / (state->clock - (next-mspf));
-		}
-		SDL_Delay(max((int)(next - state->clock), 1));
-		//if (state->clock < next)
-		//{
-		//	SDL_Delay(next - state->clock);
-		//}
+        
+        now = SDL_GetTicks();
+        state->last_frame_time = now - state->last_frame;
+        state->last_frame = now;
+        
+
+        if (state->last_frame_time < mspf)
+            SDL_Delay(mspf - state->last_frame_time);
 	}
 
 	SDL_Quit();
