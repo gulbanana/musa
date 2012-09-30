@@ -1,4 +1,5 @@
 #include <array>
+#include <cmath>
 #include <SDL_timer.h>
 #include "../components.h"
 #include "MotionSystem.h"

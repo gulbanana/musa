@@ -7,7 +7,7 @@ class Rectangle : public IDrawable
 	Rect4F bounds;
 public:
 	void draw() override;
-	virtual Rect4F bounds2D();
+    Rect4F bounds2D() override;
 
 	//general rect constructor
 	Rectangle(Rect4F b) : bounds(b) {}

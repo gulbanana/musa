@@ -76,7 +76,7 @@ void RenderSystem::on_entity(shared_ptr<IEntity> entity)
 
 	if (entity->has_component<CLabel>())
 	{
-		auto label = entity->get_component<CLabel>();
+		//auto label = entity->get_component<CLabel>();
 		//gltext?
 		//guess i have to signal the ui system here, so maybe this should not be the label processor
 	}

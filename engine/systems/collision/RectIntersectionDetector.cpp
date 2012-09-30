@@ -3,14 +3,14 @@
 
 bool RectIntersectionDetector::collide(std::shared_ptr<IEntity> source, std::shared_ptr<IEntity> target)
 {
-	auto sourceGeometry = source->get_component<CGeometry2D>();
+	/*auto sourceGeometry = source->get_component<CGeometry2D>();
 	auto sourcePosition = source->get_component<CPosition2D>();
 	
 
 	auto targetGeometry = target->get_component<CGeometry2D>();
 	auto targetPosition = target->get_component<CPosition2D>();
 
-	/*sf::FloatRect sourceRect = getBounds(sourceGeometry, sourcePosition);
+	sf::FloatRect sourceRect = getBounds(sourceGeometry, sourcePosition);
 	sf::FloatRect targetRect = getBounds(targetGeometry, targetPosition);
 
 	if (sourceRect.intersects(targetRect))

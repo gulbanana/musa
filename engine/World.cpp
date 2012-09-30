@@ -103,7 +103,7 @@ void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 		auto comps = system->required_components();
 		if (comps.size() == 0) continue;
 
-		int matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
+		auto matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
 		{
 			return entity->has_component(requirement);
 		});

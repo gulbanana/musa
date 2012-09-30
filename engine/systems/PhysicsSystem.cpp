@@ -11,7 +11,7 @@ vector<IComponent::ID> PhysicsSystem::required_components()
 
 void PhysicsSystem::on_entity(shared_ptr<IEntity> entity)
 {
-	auto physics = entity->get_component<CPhysics>();
+	//auto physics = entity->get_component<CPhysics>();
 	//auto velocity = entity->get_component<CVelocity2D>("Velocity2D");
 
 /*		if (entity->has_component("Collision"))

@@ -41,8 +41,6 @@ void CollisionSystem::on_entity(shared_ptr<IEntity> sourceEntity)
 {
 	auto collision = sourceEntity->get_component<CCollision>();
 	if (!collision->subject) return;
-	auto position = sourceEntity->get_component<CPosition2D>();
-	auto geometry = sourceEntity->get_component<CGeometry2D>();
 
 	collision->collisions.clear();
 

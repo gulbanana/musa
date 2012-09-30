@@ -1,4 +1,5 @@
 #pragma once
+#include <stdint.h>
 
 namespace sf
 {
@@ -15,7 +16,7 @@ public:
 	float alpha;
 
 	Color4F(float r, float g, float b, float a = 1.f);
-	Color4F(unsigned __int8 r, unsigned __int8 g, unsigned __int8 b, unsigned __int8 a = 1.f); 
+	Color4F(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255);
 
 	static const Color4F RED;
 	static const Color4F GREEN;

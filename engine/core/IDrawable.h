@@ -5,7 +5,7 @@
 class IDrawable
 {
 public:
-	~IDrawable() {}
+	virtual ~IDrawable() {}
 	virtual void draw() = 0;
 	virtual Rect4F bounds2D() = 0;
 	//virtual Box6F bounds3D();
