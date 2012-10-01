@@ -60,12 +60,17 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 	//Bounce type #2: objects, reflect by angle of target
 	for (auto other : physics->collisions)
 	{
+		position->location = position->previous_location;	
 		auto targetPosition = other->get_component<CPosition>();
 
 		//calculate angle of collision
 		auto speed = velocity->vector.length();
 		auto angleOfCollision = targetPosition->location - position->location;
 		angleOfCollision.normalize();
+
+		velocity->vector = angleOfCollision * -1 * speed;
+
+		//velocity->vector  = velocity->vector * -1;
 	}
 			//Special temporary check: wall collisions
 	//TODO move this to collision so that this system is not 2d-specific

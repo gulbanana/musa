@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	ballgame.add_system(make_unique<BallBouncer>(800, 600));
 
 	//immobiles
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(275.f, 300.f), Vector3F(0.f, 0.f, 90.f)));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(275.f, 300.f), Vector3F(0.f, 0.f, 0.f)));
 	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(525.f, 300.f), Vector3F(45.f, 90.f, 0.f), false));
 
 	//fixed balls

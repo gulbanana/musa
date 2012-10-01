@@ -1,4 +1,5 @@
 #pragma once
+class Vector2F;
 
 class Vector3F
 {
@@ -32,5 +33,8 @@ public:
 
     Vector3F operator + (void) const;
     Vector3F operator - (void) const;
+
+	//conversions
+	Vector2F get2D();
 };
 

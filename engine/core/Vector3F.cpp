@@ -1,5 +1,6 @@
 #include <cmath>
 #include "Vector3F.h"
+#include "Vector2F.h"
 
 Vector3F::Vector3F(float x_, float y_, float z_)
 {
@@ -129,3 +130,9 @@ static Vector3F cross(const Vector3F &v1,  const Vector3F &v2)
 }
 #pragma endregion
 
+#pragma region Conversions
+Vector2F Vector3F::get2D()
+{
+	return Vector2F(x, y);
+}
+#pragma endregion

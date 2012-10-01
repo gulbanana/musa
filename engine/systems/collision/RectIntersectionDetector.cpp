@@ -3,32 +3,19 @@
 
 bool RectIntersectionDetector::collide(std::shared_ptr<IEntity> source, std::shared_ptr<IEntity> target)
 {
-	/*auto sourceGeometry = source->get_component<CGeometry2D>();
-	auto sourcePosition = source->get_component<CPosition2D>();
-	
+	auto sourceExtents = source->get_component<CExtents<Rect4F>>();
+	auto sourcePosition = source->get_component<CPosition>();
 
-	auto targetGeometry = target->get_component<CGeometry2D>();
-	auto targetPosition = target->get_component<CPosition2D>();
+	auto targetExtents = target->get_component<CExtents<Rect4F>>();
+	auto targetPosition = target->get_component<CPosition>();
 
-	sf::FloatRect sourceRect = getBounds(sourceGeometry, sourcePosition);
-	sf::FloatRect targetRect = getBounds(targetGeometry, targetPosition);
+	Rect4F sourceBounds = sourceExtents->bounds->accept(&_bounder) + sourcePosition->location.get2D();
+	Rect4F targetBounds = targetExtents->bounds->accept(&_bounder) + targetPosition->location.get2D();
 
-	if (sourceRect.intersects(targetRect))
+	if (sourceBounds.intersects(targetBounds))
 	{
-		auto sourceVelocity = source->get_component<CVelocity2D>();
-		auto xDiff = abs(targetPosition->current.x - sourcePosition->current.x);
-		auto yDiff = abs(targetPosition->current.y - sourcePosition->current.y);
-
-		if (xDiff > yDiff)
-			sourceVelocity->vector.x *= -1;
-		else if (yDiff > xDiff)
-			sourceVelocity->vector.y *= -1;
-		else
-		{
-			sourceVelocity->vector.x *= -1;
-			sourceVelocity->vector.y *= -1;
-		}
-	}*/
+		return true;
+	}
 
 	return false;
 }
