@@ -5,6 +5,6 @@ template<typename TBounds>
 class IBounded
 {
 public:
-	virtual ~IBounded() = 0 {}
+	virtual ~IBounded() {}
 	virtual TBounds accept(IBounder<TBounds>* boundsCalculator) = 0;
 };

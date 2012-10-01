@@ -8,7 +8,8 @@
 struct FVMesh : public IRenderable, public IBounded<Rect4F>, public IBounded<Box6F>
 {
 	std::vector<Vector3F> vertices;
-	FVMesh::FVMesh(Vector3F vertexList[]) {}
+	FVMesh(Vector3F vertexList[]) {}
+    virtual ~FVMesh() {}
 	void accept(IRenderer* renderer, Color4F brush, Vector3F position, Vector3F orientation) override 
 	{ 
 		renderer->visit(this, brush, position, orientation); 

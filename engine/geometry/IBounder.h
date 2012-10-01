@@ -9,7 +9,7 @@ template<typename TBounds>
 class IBounder
 {
 public:
-	virtual ~IBounder() = 0 {}
+	virtual ~IBounder() {}
 
 	virtual TBounds visit(CircleMesh*) = 0;
 	virtual TBounds visit(SphereMesh*) = 0;

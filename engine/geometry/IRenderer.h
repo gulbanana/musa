@@ -11,7 +11,7 @@ class IRenderer
 {
 
 public:
-	virtual ~IRenderer() = 0 {}
+	virtual ~IRenderer() {}
 
 	virtual void begin_frame() {}
 	virtual void end_frame() {}

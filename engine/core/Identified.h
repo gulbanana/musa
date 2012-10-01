@@ -3,8 +3,9 @@
 template<typename T, typename T::ID cid>
 class Identified : public T
 {
-	typename T::ID _id() const override { return cid; }
+	virtual typename T::ID _id() const override { return cid; }
 public:
+    virtual ~Identified() {}
     static typename T::ID id() { return cid; }
 };
 
@@ -14,6 +15,7 @@ class Identifiable
 protected:
 	virtual TEnumClass _id() const = 0;
 public:
+    virtual ~Identifiable() {}
     typedef TEnumClass ID;
 };
 
