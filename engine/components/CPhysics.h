@@ -1,8 +1,7 @@
 #pragma once
 #include <memory>
 #include <vector>
-#include "IComponent.h"
-#include "../entities/IEntity.h"
+#include <engine/core.h>
 
 class CPhysics : public Identified<IComponent, CID::Physics>
 {

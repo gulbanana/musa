@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "IComponent.h"
+#include <engine/core.h>
 
 class CLabel : public Identified<IComponent, CID::Label>
 {

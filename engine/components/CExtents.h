@@ -1,8 +1,7 @@
 #pragma once
-#include <vector>
 #include <memory>
+#include <engine/core.h>
 #include <engine/geometry.h>
-#include "IComponent.h"
 
 template<typename TBounds>
 class CExtents : public Identified<IComponent, CID::Extents>

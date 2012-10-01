@@ -1,10 +1,8 @@
 #pragma once
 #include <memory>
 #include <vector>
-#include <string>
-#include <typeinfo>
 #include <SDL_events.h>
-#include "../entities/IEntity.h"
+#include "IEntity.h"
 
 enum class SyID
 {

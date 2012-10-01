@@ -1,5 +1,5 @@
 #pragma once
-#include "IComponent.h"
+#include <engine/core.h>
 
 class CPosition : public Identified<IComponent, CID::Position>
 {

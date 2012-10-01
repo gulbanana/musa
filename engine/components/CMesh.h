@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
+#include <engine/core.h>
 #include <engine/geometry.h>
-#include "IComponent.h"
 
 class CMesh : public Identified<IComponent, CID::Mesh>
 {
