@@ -3,12 +3,14 @@
 
 enum class CID
 {
-    Collision,
-    Label,
-    Physics,
-    Position2D,
-    Geometry2D,
-    Velocity2D
+	Acceleration,
+	Brush,
+	Extents,
+	Label,
+    Mesh,
+	Physics,
+	Position,
+	Velocity
 };
 
 class IComponent : public Identifiable<CID>

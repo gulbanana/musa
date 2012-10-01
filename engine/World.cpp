@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include "misc.h"
 #include "systems.h"
+#include "systems/render/GLImmediateRenderer.h"
 #include "World.h"
 #include "GameState.h"
 using namespace std;
@@ -47,7 +48,8 @@ public:
 };
 
 World::World(const string title) : _pimpl(new WorldImpl(title, 800, 600)) {}
-void World::add_entity(shared_ptr<IEntity> entity) { _pimpl->add_entity(entity); }
+void World::add_entity(unique_ptr<IEntity> entity) { _pimpl->add_entity(std::move(entity)); }
+void World::add_system(unique_ptr<ISystem> system) { _pimpl->add_system(std::move(system)); }
 void World::play() { _pimpl->play(); }
 #pragma endregion
 
@@ -66,7 +68,11 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	add_system(make_unique<MotionSystem>(state, width, height));
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<PhysicsSystem>());
-	add_system(make_unique<RenderSystem>(width, height));
+	add_system(
+		make_unique<RenderSystem>(
+			make_unique<GLImmediateRenderer>(width, height)
+		)
+	);
 	add_system(make_unique<UISystem>(state));
 }
 

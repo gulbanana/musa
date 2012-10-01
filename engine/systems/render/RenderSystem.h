@@ -1,12 +1,12 @@
 #pragma once
 #include <engine/systems/ISystem.h>
+#include <engine/geometry.h>
 
 class RenderSystem : public ISystem
 {
+	std::unique_ptr<IRenderer> _renderer;
 public:
-	RenderSystem(int width, int height);
-	~RenderSystem();
-
+	RenderSystem(std::unique_ptr<IRenderer>);
 	std::vector<IComponent::ID> required_components() override;
 	void on_entity(std::shared_ptr<IEntity> entity) override;
 	void on_frame() override;

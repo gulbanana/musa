@@ -1,0 +1,16 @@
+first cut 2d/3d engine systems
+
+RENDER system
+components: mesh, brush
+
+MOTION system
+components: position, extents?, velocity <-- should this be physics?
+
+COLLISION system
+components: position, extents, physics
+
+PHYSICS system
+components: physics, ??
+
+UI system
+components: position, label

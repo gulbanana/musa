@@ -29,6 +29,13 @@ void Vector3F::normalize()
     z /= fLength;
 }
 
+void Vector3F::mod(float scalar)
+{
+	x = fmodf(x, scalar);
+	y = fmodf(y, scalar);
+	z = fmodf(z, scalar);
+}
+
 #pragma region "Operators"
 Vector3F Vector3F::operator + (const Vector3F &other)
 {

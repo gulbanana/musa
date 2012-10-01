@@ -1,6 +1,12 @@
 #include <cmath>
 #include "Vector2F.h"
 
+Vector2F::Vector2F()
+{
+    x = 0.f;
+    y = 0.f;
+}
+
 Vector2F::Vector2F(float x_, float y_)
 {
     x = x_;
@@ -89,6 +95,13 @@ Vector2F& Vector2F::operator -= (const Vector2F &other)
     y -= other.y;
 
     return *this;
+}
+#pragma endregion
+
+#pragma region Conversions
+Vector2F::operator Vector3F()
+{
+	return Vector3F(x, y, 0.f);
 }
 #pragma endregion
 

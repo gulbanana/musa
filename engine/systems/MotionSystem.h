@@ -2,6 +2,7 @@
 #include "ISystem.h"
 #include "../GameState.h"
 
+//provides "realistic" physical motion, no game-specific logic
 class MotionSystem : public ISystem
 {
 	std::shared_ptr<GameState> state;

@@ -12,6 +12,7 @@ public:
     Vector3F(float[]);
     float length();
     void normalize();
+	void mod(float);
 
     static float distance(const Vector3F &v1, const Vector3F &v2);
     static float dot(const Vector3F &v1,  const Vector3F &v2 );

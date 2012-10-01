@@ -4,6 +4,7 @@
 
 class CollisionSystem : public ISystem
 {
+	//TODO: inject these?
 	std::vector<std::unique_ptr<ICollisionDetector>> detectors;
 	std::vector<std::weak_ptr<IEntity>> targets;
 

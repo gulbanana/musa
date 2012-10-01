@@ -1,15 +1,12 @@
 #pragma once
 #include <memory>
-#include <vector>
+#include <engine/geometry.h>
 #include "IComponent.h"
 
 class CMesh : public Identified<IComponent, CID::Mesh>
 {
 public:
-	std::vector<std::unique_ptr<IRenderable<Rect4F>>> polys;
-	Color4F color;
-
-	CGeometry2D(Color4F c, std::unique_ptr<IRenderable<Rect4F>> p);
-	Rect4F bounds();
+	std::shared_ptr<IRenderable> geometry;
+	CMesh(std::shared_ptr<IRenderable> g) : geometry(g) {}
 };
 

@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "entities/IEntity.h"
+#include "systems/ISystem.h"
 
 class WorldImpl;
 
@@ -11,7 +12,8 @@ class World
 	WorldImpl* _pimpl;
 public:
 	World(std::string title);
-	void add_entity(std::shared_ptr<IEntity> entity);
+	void add_entity(std::unique_ptr<IEntity> entity);
+	void add_system(std::unique_ptr<ISystem> system);
 	void play();
 };
 

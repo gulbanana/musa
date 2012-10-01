@@ -1,0 +1,36 @@
+concerns to separate: geometry render, materials, texturing, motion, collision..
+
+
+gl1/2 render goes basically like this:
+bind texture (or use simple brush)
+for each vertex
+	send texmap color coords (or color otherwise)
+	send vertex coords
+
+collision detection will initially involve calculating bounding boxes or spheres and testing their intersection. later tree volumes for speed etc. aabb for axis aligned, obb for rotated. 
+
+-----------------------------------------
+
+common model format: wavefront
+OBJ file contains vertex data
+list of faces, list of vertices
+MTL file contains material data & texture maps
+
+-----------------------------------------
+
+_Brush_ abstraction: texture, material/shader, other nongeometric data
+a brush needs to be mapped to vertices to be usable
+initially: just colour
+
+_Mesh_ abstraction: geometry of vertex locations, and mapping of those verticies to a brush
+simple version: just polygons? 
+
+are Renderables and Boundeds necessary? or should all geometry, even simple, be vertex collections? essentially, am i building a sprite library layer?
+i probably AM building a sprite library layer, but should it be *at this level*? no, there should be _Entity_ factories which create brushes and meshes in the uniform format. 
+
+renderables and boundeds we still want however for the different mesh types if nothing else..
+
+mesh component then needs to provide two things:
+- summed renderable
+- summed boundable
+they could simply the be the same object if necessary

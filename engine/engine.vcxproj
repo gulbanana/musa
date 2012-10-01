@@ -87,12 +87,14 @@
     <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
     <TargetExt>.lib</TargetExt>
     <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
     <TargetExt>.lib</TargetExt>
     <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -122,6 +124,7 @@
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderFile>musaceae.h</PrecompiledHeaderFile>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -175,7 +178,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="components\CGeometry2D.cpp" />
     <ClCompile Include="core\Rect4F.cpp" />
     <ClCompile Include="entities\Polygon2D.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -196,40 +198,44 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="components\CAcceleration.h" />
+    <ClInclude Include="components\CBrush.h" />
+    <ClInclude Include="components\CExtents.h" />
     <ClInclude Include="core\Box6F.h" />
-    <ClInclude Include="core\Circle.h" />
-    <ClInclude Include="components\CCollision.h" />
-    <ClInclude Include="components\CGeometry2D.h" />
-    <ClInclude Include="core\IBounded.h" />
-    <ClInclude Include="core\IBounder.h" />
+    <ClInclude Include="geometry\CircleMesh.h" />
+    <ClInclude Include="components\CPhysics.h" />
+    <ClInclude Include="components\CMesh.h" />
+    <ClInclude Include="geometry\IBounded.h" />
+    <ClInclude Include="geometry\IBounder.h" />
     <ClInclude Include="core\Identified.h" />
-    <ClInclude Include="core\IRenderable.h" />
+    <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="entities.h" />
     <ClInclude Include="entities\Polygon2D.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="systems\collision\Bounder2D.h" />
+    <ClInclude Include="geometry.h" />
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="gl\IDrawable.h" />
-    <ClInclude Include="core\Rectangle.h" />
+    <ClInclude Include="geometry\RectangleMesh.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="systems\collision\CollisionSystem.h" />
     <ClInclude Include="core\Color4F.h" />
     <ClInclude Include="components.h" />
-    <ClInclude Include="components\CPhysics.h" />
-    <ClInclude Include="components\CVelocity2D.h" />
+    <ClInclude Include="components\CVelocity.h" />
     <ClInclude Include="components\CLabel.h" />
     <ClInclude Include="systems\collision\ICollisionDetector.h" />
     <ClInclude Include="core\identifiable.h" />
     <ClInclude Include="systems\PhysicsSystem.h" />
     <ClInclude Include="core\Rect4F.h" />
     <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
-    <ClInclude Include="core\IRenderer.h" />
+    <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="systems\render\RenderSystem.h" />
     <ClInclude Include="systems\ui\UISystem.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="entities\IEntity.h" />
     <ClInclude Include="core\Vector2F.h" />
     <ClInclude Include="core\Vector3F.h" />
-    <ClInclude Include="core\Polygon.h" />
+    <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="systems\ControlSystem.h" />
@@ -237,7 +243,7 @@
     <ClInclude Include="misc.h" />
     <ClInclude Include="components\IComponent.h" />
     <ClInclude Include="systems\MotionSystem.h" />
-    <ClInclude Include="components\CPosition2D.h" />
+    <ClInclude Include="components\CPosition.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
