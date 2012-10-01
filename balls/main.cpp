@@ -20,12 +20,12 @@ int main(int argc, char *argv[])
 	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(525.f, 300.f), Vector3F(45.f, 90.f, 0.f), false));
 
 	//fixed balls
-	ballgame.add_entity(make_unique<Ball>(20.f, Color4F::CYAN, Vector2F(100.f, 100.f), Vector2F(100.f, -100.f), true));
-	ballgame.add_entity(make_unique<Ball>(20.f, Color4F::MAGENTA, Vector2F(580.f, 300.f), Vector2F(100.f, 100.f), true));
-	ballgame.add_entity(make_unique<Ball>(20.f, Color4F::YELLOW, Vector2F(260.f, 500.f), Vector2F(-100.f, 100.f), true));
+	ballgame.add_entity(make_unique<Ball>(25.f, Color4F::CYAN, Vector2F(100.f, 100.f), Vector2F(100.f, -100.f), true));
+	ballgame.add_entity(make_unique<Ball>(25.f, Color4F::MAGENTA, Vector2F(580.f, 300.f), Vector2F(100.f, 100.f), true));
+	ballgame.add_entity(make_unique<Ball>(25.f, Color4F::YELLOW, Vector2F(260.f, 500.f), Vector2F(-100.f, 100.f), true));
 	
 	//random balls
-	for (int i = 0; i < 25; i++) {
+	for (int i = 0; i < 30; i++) {
 		ballgame.add_entity(
 			make_unique<Ball>(
 				10.f,
@@ -35,9 +35,10 @@ int main(int argc, char *argv[])
 					((float)rand() / (float)RAND_MAX) * 600
 				),
 				Vector2F(
-					(((float)rand() / (float)RAND_MAX) - 0.5f) * 300,
-					(((float)rand() / (float)RAND_MAX) - 0.5f) * 300
-				)
+					(((float)rand() / (float)RAND_MAX) - 0.5f) * 400,
+					(((float)rand() / (float)RAND_MAX) - 0.5f) * 400
+				),
+				true
 			)
 		);
 	}
