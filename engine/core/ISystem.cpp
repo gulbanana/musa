@@ -1,5 +1,5 @@
-#include "ISystem.h"
 #include <algorithm>
+#include "ISystem.h"
 using namespace std;
 
 void ISystem::add_entity(weak_ptr<IEntity> new_entity)

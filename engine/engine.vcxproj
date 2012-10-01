@@ -179,7 +179,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\Rect4F.cpp" />
-    <ClCompile Include="entities\Polygon2D.cpp" />
+    <ClCompile Include="entities\DataDrivenEntity.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="systems\collision\Bounder2D.cpp" />
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
@@ -194,7 +194,7 @@
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
-    <ClCompile Include="systems\ISystem.cpp" />
+    <ClCompile Include="core\ISystem.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -210,7 +210,7 @@
     <ClInclude Include="core\Identified.h" />
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="entities.h" />
-    <ClInclude Include="entities\Polygon2D.h" />
+    <ClInclude Include="entities\DataDrivenEntity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="systems\collision\Bounder2D.h" />
     <ClInclude Include="geometry.h" />
@@ -232,16 +232,16 @@
     <ClInclude Include="systems\render\RenderSystem.h" />
     <ClInclude Include="systems\ui\UISystem.h" />
     <ClInclude Include="core.h" />
-    <ClInclude Include="entities\IEntity.h" />
+    <ClInclude Include="core\IEntity.h" />
     <ClInclude Include="core\Vector2F.h" />
     <ClInclude Include="core\Vector3F.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="systems\ControlSystem.h" />
-    <ClInclude Include="systems\ISystem.h" />
+    <ClInclude Include="core\ISystem.h" />
     <ClInclude Include="misc.h" />
-    <ClInclude Include="components\IComponent.h" />
+    <ClInclude Include="core\IComponent.h" />
     <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="components\CPosition.h" />
   </ItemGroup>

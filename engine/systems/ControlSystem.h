@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include <typeinfo>
+#include <engine/core.h>
 #include <engine/GameState.h>
-#include "ISystem.h"
 
 class ControlSystem : public ISystem
 {

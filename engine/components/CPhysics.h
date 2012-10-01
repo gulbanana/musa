@@ -6,9 +6,10 @@
 class CPhysics : public Identified<IComponent, CID::Physics>
 {
 public:
-	bool reactive;
 	bool solid;
+	bool can_collide;
+
 	std::vector<std::shared_ptr<IEntity>> collisions;
-	CPhysics(bool subject, bool object) : reactive(subject), solid(object), collisions() {}
+	CPhysics(bool subject, bool object) : can_collide(subject), solid(object), collisions() {}
 };
 

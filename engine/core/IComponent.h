@@ -1,4 +1,5 @@
 #pragma once
+#include "Identified.h"
 
 enum class CID
 {

@@ -2,8 +2,7 @@
 #include <memory>
 #include <vector>
 #include <string>
-#include "entities/IEntity.h"
-#include "systems/ISystem.h"
+#include <engine/core.h>
 
 class WorldImpl;
 

@@ -1,6 +1,6 @@
 #pragma once
+#include <engine/core.h>
 #include <engine/GameState.h>
-#include "../ISystem.h"
 
 class UISystemImpl;
 

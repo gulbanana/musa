@@ -8,10 +8,10 @@
 #include "RectIntersectionDetector.h"
 using namespace std;
 
-vector<IComponent::ID> CollisionSystem::required_components()
+vector<CID> CollisionSystem::required_components()
 {
-	array<IComponent::ID,3> compTypes = {IComponent::ID::Position, IComponent::ID::Extents, IComponent::ID::Physics};
-	return vector<IComponent::ID>(compTypes.begin(), compTypes.end());
+	array<CID,3> compTypes = {CID::Position, CID::Extents, CID::Physics};
+	return vector<CID>(compTypes.begin(), compTypes.end());
 }
 
 CollisionSystem::CollisionSystem()
@@ -40,7 +40,7 @@ void CollisionSystem::on_frame()
 void CollisionSystem::on_entity(shared_ptr<IEntity> sourceEntity)
 {
 	auto physics = sourceEntity->get_component<CPhysics>();
-	if (!physics->reactive) return;
+	if (!physics->can_collide) return;
 
 	physics->collisions.clear();
 
@@ -59,25 +59,5 @@ void CollisionSystem::on_entity(shared_ptr<IEntity> sourceEntity)
 		
 		if (pairCollides) physics->collisions.push_back(targetEntity);
 	}
-
-			
-	//Special temporary check: wall collisions
-	//TODO move this to collision so that this system is not 2d-specific
-	/*bool outOfBoundsX = geometry->bounds().left() + position->location.x <= 0.f ||
-						geometry->bounds().right() + position->location.x >= levelWidth;
-	bool outOfBoundsY = geometry->bounds().top() + position->location.y <= 0.f ||
-						geometry->bounds().bottom() + position->location.y >= levelHeight;
-
-	if (outOfBoundsX) 
-	{
-		position->location.x = position->previous.x;
-		velocity->vector.x *= -1;
-	}
-		
-	if (outOfBoundsY) 
-	{
-		position->location.y = position->previous.y;
-		velocity->vector.y *= -1;
-	}*/
 }
 

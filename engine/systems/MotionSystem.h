@@ -1,6 +1,6 @@
 #pragma once
-#include "ISystem.h"
-#include "../GameState.h"
+#include <engine/core.h>
+#include <engine/GameState.h>
 
 //provides "realistic" physical motion, no game-specific logic
 class MotionSystem : public ISystem

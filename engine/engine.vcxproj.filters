@@ -40,10 +40,6 @@
     <ClCompile Include="core\Vector3F.cpp">
       <Filter>core</Filter>
     </ClCompile>
-    <ClCompile Include="systems\ISystem.cpp">
-      <Filter>systems</Filter>
-    </ClCompile>
-    <ClCompile Include="entities\Polygon2D.cpp" />
     <ClCompile Include="systems\collision\CollisionSystem.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
@@ -66,6 +62,10 @@
     <ClCompile Include="systems\collision\Bounder2D.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp">
       <Filter>systems\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="entities\DataDrivenEntity.cpp" />
+    <ClCompile Include="core\ISystem.cpp">
+      <Filter>systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,16 +99,6 @@
     </ClInclude>
     <ClInclude Include="core\identifiable.h">
       <Filter>core</Filter>
-    </ClInclude>
-    <ClInclude Include="entities\IEntity.h">
-      <Filter>entities</Filter>
-    </ClInclude>
-    <ClInclude Include="systems\ISystem.h">
-      <Filter>systems</Filter>
-    </ClInclude>
-    <ClInclude Include="entities\Polygon2D.h" />
-    <ClInclude Include="components\IComponent.h">
-      <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="systems\collision\ICollisionDetector.h">
       <Filter>systems\Collisions</Filter>
@@ -159,5 +149,15 @@
       <Filter>systems\Movement</Filter>
     </ClInclude>
     <ClInclude Include="components\CAcceleration.h" />
+    <ClInclude Include="core\ISystem.h">
+      <Filter>systems</Filter>
+    </ClInclude>
+    <ClInclude Include="core\IEntity.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="entities\DataDrivenEntity.h" />
+    <ClInclude Include="core\IComponent.h">
+      <Filter>components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

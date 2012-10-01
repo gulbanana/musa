@@ -1,5 +1,5 @@
 #pragma once
-#include "ISystem.h"
+#include <engine/core.h>
 
 class PhysicsSystem : public ISystem
 {

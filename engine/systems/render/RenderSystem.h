@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/systems/ISystem.h>
+#include <engine/core.h>
 #include <engine/geometry.h>
 
 class RenderSystem : public ISystem
