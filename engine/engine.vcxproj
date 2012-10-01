@@ -176,20 +176,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="components\CGeometry2D.cpp" />
-    <ClCompile Include="core\Circle.cpp" />
     <ClCompile Include="core\Rect4F.cpp" />
     <ClCompile Include="entities\Polygon2D.cpp" />
-    <ClCompile Include="core\Rectangle.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="systems\collision\Bounder2D.cpp" />
+    <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\collision\CollisionSystem.cpp" />
     <ClCompile Include="core\Color4F.cpp" />
     <ClCompile Include="systems\PhysicsSystem.cpp" />
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
-    <ClCompile Include="systems\RenderSystem.cpp" />
+    <ClCompile Include="systems\render\RenderSystem.cpp" />
     <ClCompile Include="systems\ui\UISystem.cpp" />
     <ClCompile Include="core\Vector2F.cpp" />
     <ClCompile Include="core\Vector3F.cpp" />
-    <ClCompile Include="core\Polygon.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
@@ -201,10 +200,14 @@
     <ClInclude Include="core\Circle.h" />
     <ClInclude Include="components\CCollision.h" />
     <ClInclude Include="components\CGeometry2D.h" />
-    <ClInclude Include="core\IDrawable.h" />
+    <ClInclude Include="core\IBounded.h" />
+    <ClInclude Include="core\IBounder.h" />
+    <ClInclude Include="core\Identified.h" />
+    <ClInclude Include="core\IRenderable.h" />
     <ClInclude Include="entities.h" />
     <ClInclude Include="entities\Polygon2D.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="gl\IDrawable.h" />
     <ClInclude Include="core\Rectangle.h" />
     <ClInclude Include="systems.h" />
@@ -219,7 +222,8 @@
     <ClInclude Include="systems\PhysicsSystem.h" />
     <ClInclude Include="core\Rect4F.h" />
     <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
-    <ClInclude Include="systems\RenderSystem.h" />
+    <ClInclude Include="core\IRenderer.h" />
+    <ClInclude Include="systems\render\RenderSystem.h" />
     <ClInclude Include="systems\ui\UISystem.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="entities\IEntity.h" />

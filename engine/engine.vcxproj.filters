@@ -47,18 +47,12 @@
       <Filter>systems</Filter>
     </ClCompile>
     <ClCompile Include="entities\Polygon2D.cpp" />
-    <ClCompile Include="systems\RenderSystem.cpp">
-      <Filter>systems\Display</Filter>
-    </ClCompile>
     <ClCompile Include="systems\collision\CollisionSystem.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="core\Circle.cpp" />
-    <ClCompile Include="core\Polygon.cpp" />
-    <ClCompile Include="core\Rectangle.cpp" />
     <ClCompile Include="components\CGeometry2D.cpp" />
     <ClCompile Include="core\Rect4F.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp">
@@ -69,6 +63,11 @@
       <Filter>systems\Display</Filter>
     </ClCompile>
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
+    <ClCompile Include="systems\render\RenderSystem.cpp">
+      <Filter>systems\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
+    <ClCompile Include="systems\collision\Bounder2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
@@ -118,9 +117,6 @@
     <ClInclude Include="components\IComponent.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="systems\RenderSystem.h">
-      <Filter>systems\Display</Filter>
-    </ClInclude>
     <ClInclude Include="systems\collision\ICollisionDetector.h">
       <Filter>systems\Collisions</Filter>
     </ClInclude>
@@ -144,7 +140,6 @@
     <ClInclude Include="core\Polygon.h" />
     <ClInclude Include="core\Circle.h" />
     <ClInclude Include="core\Rectangle.h" />
-    <ClInclude Include="core\IDrawable.h" />
     <ClInclude Include="core\Box6F.h" />
     <ClInclude Include="systems\ControlSystem.h">
       <Filter>systems\Control</Filter>
@@ -154,5 +149,14 @@
       <Filter>systems\Display</Filter>
     </ClInclude>
     <ClInclude Include="systems\ui\UISystemImpl.h" />
+    <ClInclude Include="systems\render\RenderSystem.h">
+      <Filter>systems\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="core\IRenderer.h" />
+    <ClInclude Include="core\Identified.h" />
+    <ClInclude Include="core\IRenderable.h" />
+    <ClInclude Include="systems\render\GLImmediateRenderer.h" />
+    <ClInclude Include="core\IBounded.h" />
+    <ClInclude Include="core\IBounder.h" />
   </ItemGroup>
 </Project>

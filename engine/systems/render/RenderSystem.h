@@ -1,5 +1,5 @@
 #pragma once
-#include "ISystem.h"
+#include <engine/systems/ISystem.h>
 
 class RenderSystem : public ISystem
 {

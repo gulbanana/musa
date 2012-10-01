@@ -1,6 +1,6 @@
 #include "CGeometry2D.h"
 
-CGeometry2D::CGeometry2D(Color4F c, std::unique_ptr<IDrawable> p) :  polys(), color(c)
+CGeometry2D::CGeometry2D(Color4F c, std::unique_ptr<IRenderable<Rect4F>> p) :  polys(), color(c)
 {
     polys.push_back(std::move(p));
 }

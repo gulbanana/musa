@@ -3,7 +3,7 @@
 #include <typeinfo>
 #include "SDL.h"
 #include <SDL_opengl.h>
-#include "../components.h"
+#include <engine/components.h>
 #include "RenderSystem.h"
 using namespace std;
 
