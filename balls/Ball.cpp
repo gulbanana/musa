@@ -3,14 +3,16 @@
 #include "Ball.h"
 using namespace std;
 
-Ball::Ball(Color4F color, Vector2F position, Vector2F acceleration, bool solid)
+Ball::Ball(float radius, Color4F color, Vector2F position, Vector2F acceleration, bool solid)
 {
+	add_component(make_unique<CLabel>("ball"));
+
 	add_component(make_unique<CBrush>(color));
 
 	add_component(make_unique<CPosition>(position));
 	add_component(make_unique<CVelocity>(acceleration));
 
-	auto geometry = make_shared<CircleMesh>(10.f);
+	auto geometry = make_shared<CircleMesh>(radius);
 	add_component(make_unique<CMesh>(geometry));
 	add_component(make_unique<CExtents<Rect4F>>(geometry));
 

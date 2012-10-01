@@ -3,7 +3,6 @@
 #include <engine/World.h>
 #include <engine/misc.h>
 #include "Obstacle.h"
-#include "Backdrop.h"
 #include "Ball.h"
 #include "BallBouncer.h"
 using namespace std;
@@ -17,18 +16,19 @@ int main(int argc, char *argv[])
 	ballgame.add_system(make_unique<BallBouncer>(800, 600));
 
 	//immobiles
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(275.f, 300.f), -5.f));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(525.f, 300.f), 10.f));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(275.f, 300.f), Vector3F(0.f, 0.f, 90.f)));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(525.f, 300.f), Vector3F(45.f, 90.f, 0.f), false));
 
 	//fixed balls
-	ballgame.add_entity(make_unique<Ball>(Color4F::CYAN, Vector2F(100.f, 100.f), Vector2F(100.f, -100.f), true));
-	ballgame.add_entity(make_unique<Ball>(Color4F::MAGENTA, Vector2F(580.f, 300.f), Vector2F(100.f, 100.f), true));
-	ballgame.add_entity(make_unique<Ball>(Color4F::YELLOW, Vector2F(260.f, 500.f), Vector2F(-100.f, 100.f), true));
+	ballgame.add_entity(make_unique<Ball>(20.f, Color4F::CYAN, Vector2F(100.f, 100.f), Vector2F(100.f, -100.f), true));
+	ballgame.add_entity(make_unique<Ball>(20.f, Color4F::MAGENTA, Vector2F(580.f, 300.f), Vector2F(100.f, 100.f), true));
+	ballgame.add_entity(make_unique<Ball>(20.f, Color4F::YELLOW, Vector2F(260.f, 500.f), Vector2F(-100.f, 100.f), true));
 	
 	//random balls
 	for (int i = 0; i < 25; i++) {
 		ballgame.add_entity(
 			make_unique<Ball>(
+				10.f,
 				Color4F(0.f, 1.f, 0.f, 0.75f), 
 				Vector2F(
 					((float)rand() / (float)RAND_MAX) * 800, 

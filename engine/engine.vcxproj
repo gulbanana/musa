@@ -213,6 +213,8 @@
     <ClInclude Include="entities\DataDrivenEntity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="geometry\RectangularPrismMesh.h" />
+    <ClInclude Include="geometry\SphereMesh.h" />
     <ClInclude Include="systems\collision\Bounder2D.h" />
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="gl\IDrawable.h" />

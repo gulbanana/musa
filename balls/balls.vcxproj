@@ -162,17 +162,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Backdrop.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="BallBouncer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Obstacle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Backdrop.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="BallBouncer.h" />
-    <ClInclude Include="Obstacle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

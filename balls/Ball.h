@@ -4,6 +4,6 @@
 class Ball : public IEntity
 {
 public:
-	Ball(Color4F color, Vector2F position, Vector2F acceleration, bool solid = false);
+	Ball(float radius, Color4F color, Vector2F position, Vector2F acceleration, bool solid = false);
 };
 

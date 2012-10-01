@@ -5,7 +5,20 @@ Rect4F Bounder2D::visit(CircleMesh* mesh)
 	return Rect4F(-mesh->radius, -mesh->radius, mesh->radius, mesh->radius);
 }
 
+Rect4F Bounder2D::visit(SphereMesh* mesh)
+{
+	return Rect4F(-mesh->radius, -mesh->radius, mesh->radius, mesh->radius);
+}
+
 Rect4F Bounder2D::visit(RectangleMesh* mesh)
+{
+	return Rect4F(-mesh->bounds.width()/2,
+				  -mesh->bounds.height()/2,
+				  mesh->bounds.width()/2,
+				  mesh->bounds.height()/2);
+}
+
+Rect4F Bounder2D::visit(RectangularPrismMesh* mesh)
 {
 	return Rect4F(-mesh->bounds.width()/2,
 				  -mesh->bounds.height()/2,

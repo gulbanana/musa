@@ -159,5 +159,7 @@
     </ClInclude>
     <ClInclude Include="geometry\IBounder.h" />
     <ClInclude Include="systems\collision\Bounder2D.h" />
+    <ClInclude Include="geometry\RectangularPrismMesh.h" />
+    <ClInclude Include="geometry\SphereMesh.h" />
   </ItemGroup>
 </Project>
