@@ -1,5 +1,6 @@
 #include <memory>
 #include <random>
+#include <ctime>
 #include <engine/World.h>
 #include <engine/misc.h>
 #include "Obstacle.h"
@@ -25,6 +26,7 @@ int main(int argc, char *argv[])
 	ballgame.add_entity(make_unique<Ball>(25.f, Color4F::YELLOW, Vector2F(260.f, 500.f), Vector2F(-100.f, 100.f), true));
 	
 	//random balls
+	srand(time(0));
 	for (int i = 0; i < 30; i++) {
 		ballgame.add_entity(
 			make_unique<Ball>(
