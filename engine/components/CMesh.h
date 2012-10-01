@@ -3,7 +3,7 @@
 #include <engine/core.h>
 #include <engine/geometry.h>
 
-class CMesh : public Identified<IComponent, CID::Mesh>
+class CMesh : public Identified<IComponent, CMP::Mesh>
 {
 public:
 	std::shared_ptr<IRenderable> geometry;

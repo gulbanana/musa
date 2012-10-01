@@ -6,10 +6,16 @@
 #include <SDL_opengl.h>
 using namespace std;
 
-vector<CID> RenderSystem::required_components()
+vector<CMP> RenderSystem::required_components() const 
 {
-	array<CID,3> compTypes = {CID::Position, CID::Brush, CID::Mesh};
-	return vector<CID>(compTypes.begin(), compTypes.end());
+	array<CMP,3> compTypes = {CMP::Position, CMP::Brush, CMP::Mesh};
+	return vector<CMP>(compTypes.begin(), compTypes.end());
+}
+
+vector<SYS> RenderSystem::required_systems() const 
+{
+	array<SYS,2> sysTypes = {SYS::Motion, SYS::Logic};
+	return vector<SYS>(sysTypes.begin(), sysTypes.end());
 }
 
 RenderSystem::RenderSystem(unique_ptr<IRenderer> r) : _renderer(std::move(r)) {}

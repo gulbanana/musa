@@ -4,7 +4,7 @@
 #include <engine/core.h>
 #include <engine/GameState.h>
 
-class ControlSystem : public ISystem
+class ControlSystem : public Identified<ISystem,SYS::Control>
 {
 	std::shared_ptr<GameState> state;
 public:

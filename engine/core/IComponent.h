@@ -1,7 +1,7 @@
 #pragma once
 #include "Identified.h"
 
-enum class CID
+enum class CMP
 {
 	Acceleration,
 	Brush,
@@ -13,7 +13,7 @@ enum class CID
 	Velocity
 };
 
-class IComponent : public Identifiable<CID>
+class IComponent : public Identifiable<CMP>
 {
 public:
 	~IComponent() {}

@@ -10,7 +10,7 @@ const float arc = (float)(2 * M_PI / resolution);
 GLImmediateRenderer::GLImmediateRenderer(int width, int height)
 {
 	//init and set capabilities
-	glDisable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST | GL_ALPHA_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -21,14 +21,23 @@ GLImmediateRenderer::GLImmediateRenderer(int width, int height)
 	glClearColor(0.f, 0.f, 0.f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	//create orthogonal projection matrix - device coordinates
+	//setup projection matrix - device coordinates
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0.f, width, height, 0.f, -1.f, 1.f);
 
-	//reset to standard matrix
+	//equivalent of glOrtho(0.f, width, height, 0.f, -1.f, 1.f);
+	auto fov = 45;
+	auto depth = 2;
+	auto fovRadians = fov * M_PI / 180.0;
+	auto nearPlane = (height / 2.0) / tanf(fovRadians / 2.0);
+	auto farPlane = nearPlane + depth;
+	auto zModel = - (nearPlane + depth/2);
+	glFrustum(0, width, 0, height, nearPlane, farPlane);
+
+	//setup model matrix - object coordinates
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	glTranslatef(0.f, 0.f, zModel);	//move all objects to a frustum slice equal to the coordinate field size
 }
 
 

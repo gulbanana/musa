@@ -59,7 +59,6 @@
       <Filter>systems\Display</Filter>
     </ClCompile>
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
-    <ClCompile Include="systems\collision\Bounder2D.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp">
       <Filter>systems\Movement</Filter>
     </ClCompile>
@@ -67,6 +66,7 @@
     <ClCompile Include="core\ISystem.cpp">
       <Filter>systems</Filter>
     </ClCompile>
+    <ClCompile Include="systems\collision\Bounder2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
@@ -129,9 +129,7 @@
     <ClInclude Include="components\CPhysics.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="systems\collision\Bounder2D.h" />
     <ClInclude Include="geometry\IBounded.h" />
-    <ClInclude Include="geometry\IBounder.h" />
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="geometry\FVMesh.h" />
@@ -159,5 +157,7 @@
     <ClInclude Include="core\IComponent.h">
       <Filter>components</Filter>
     </ClInclude>
+    <ClInclude Include="geometry\IBounder.h" />
+    <ClInclude Include="systems\collision\Bounder2D.h" />
   </ItemGroup>
 </Project>

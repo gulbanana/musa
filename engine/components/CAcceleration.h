@@ -1,7 +1,7 @@
 #pragma once
 #include <engine/core.h>
 
-class CAcceleration : public Identified<IComponent, CID::Acceleration>
+class CAcceleration : public Identified<IComponent, CMP::Acceleration>
 {
 public:
 	Vector3F vector_change;

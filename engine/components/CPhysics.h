@@ -3,7 +3,7 @@
 #include <vector>
 #include <engine/core.h>
 
-class CPhysics : public Identified<IComponent, CID::Physics>
+class CPhysics : public Identified<IComponent, CMP::Physics>
 {
 public:
 	bool solid;

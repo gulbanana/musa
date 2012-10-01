@@ -1,7 +1,7 @@
 #pragma once
 #include <engine/core.h>
 
-class CVelocity : public Identified<IComponent, CID::Velocity>
+class CVelocity : public Identified<IComponent, CMP::Velocity>
 {
 public:
 	Vector3F vector;

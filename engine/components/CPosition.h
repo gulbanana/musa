@@ -1,7 +1,7 @@
 #pragma once
 #include <engine/core.h>
 
-class CPosition : public Identified<IComponent, CID::Position>
+class CPosition : public Identified<IComponent, CMP::Position>
 {
 public:
 	//position data

@@ -34,7 +34,9 @@ class WorldImpl
 
 	SDL_Surface* surface;
 	SDL_Event event;
+
 	shared_ptr<GameState> state;
+
 	vector<unique_ptr<ISystem>> systems;
 	vector<shared_ptr<IEntity>> entities;
 	
@@ -65,7 +67,7 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	surface = check<SDL_Surface*>([=]{ return SDL_SetVideoMode(width, height, 32, SDL_OPENGL | SDL_RESIZABLE); });
 
 	add_system(make_unique<ControlSystem>(state));
-	add_system(make_unique<MotionSystem>(state, width, height));
+	add_system(make_unique<MotionSystem>(state));
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<PhysicsSystem>());
 	add_system(
@@ -119,6 +121,8 @@ void WorldImpl::add_entity(shared_ptr<IEntity> entity)
 void WorldImpl::add_system(unique_ptr<ISystem> system)
 {
 	systems.push_back(std::move(system));
+
+	//sort(begin(systems), end(systems));
 }
 
 void WorldImpl::frame()

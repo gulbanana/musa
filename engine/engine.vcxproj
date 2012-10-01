@@ -206,14 +206,14 @@
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CMesh.h" />
     <ClInclude Include="geometry\IBounded.h" />
-    <ClInclude Include="geometry\IBounder.h" />
     <ClInclude Include="core\Identified.h" />
+    <ClInclude Include="geometry\IBounder.h" />
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="entities.h" />
     <ClInclude Include="entities\DataDrivenEntity.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="systems\collision\Bounder2D.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="systems\collision\Bounder2D.h" />
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="gl\IDrawable.h" />
     <ClInclude Include="geometry\RectangleMesh.h" />

@@ -4,33 +4,40 @@
 #include <SDL_events.h>
 #include "IEntity.h"
 
-enum class SyID
+enum class SYS
 {
-    Control,
     Collision,
+	Control,
     Input,
-    Display,
+    Logic,
     Motion,
     Physics,
     Render,
     UI
 };
 
-class ISystem : public Identifiable<SyID>
+class ISystem : public Identifiable<SYS>
 {
 public:
 	virtual ~ISystem() {}
 	void frame();
-	bool event(SDL_Event& event) { return on_event(event); };	//for later interface changes
+	bool event(SDL_Event& event);
 
-//an ISystem implementation can register which components to maintainin in its entity list
+//an ISystem implementation registers required components and other system dependencies
+public:
+	virtual std::vector<ISystem::ID> required_systems() const;
+	virtual std::vector<IComponent::ID> required_components() const;
+
+//system dependencies are used for ordering
+	bool operator<(ISystem const& rhs);
+
+//the base ISystem maintains an entity list
 protected:
 	std::vector<std::weak_ptr<IEntity>> entities;
 public:
-	virtual std::vector<IComponent::ID> required_components() { return std::vector<IComponent::ID>(); }
 	virtual void add_entity(std::weak_ptr<IEntity> new_entity);
 
-//Systems can also optionally process frames, entity updates, or SDL events
+//Systems can optionally process frames, entity updates, or SDL events
 private:
 	virtual void on_frame() {}
 	virtual void on_post_frame() {}

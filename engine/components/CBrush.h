@@ -1,7 +1,7 @@
 #pragma once
 #include <engine/core.h>
 
-class CBrush : public Identified<IComponent, CID::Brush>
+class CBrush : public Identified<IComponent, CMP::Brush>
 {
 public:
 	Color4F color;

@@ -2,16 +2,22 @@
 #include <iterator>
 #include <typeinfo>
 #include <tuple>
-#include "../../misc.h"
-#include "../../components.h"
+#include <engine/misc.h>
+#include <engine/components.h>
 #include "CollisionSystem.h"
 #include "RectIntersectionDetector.h"
 using namespace std;
 
-vector<CID> CollisionSystem::required_components()
+vector<CMP> CollisionSystem::required_components() const 
 {
-	array<CID,3> compTypes = {CID::Position, CID::Extents, CID::Physics};
-	return vector<CID>(compTypes.begin(), compTypes.end());
+	array<CMP,3> compTypes = {CMP::Position, CMP::Extents, CMP::Physics};
+	return vector<CMP>(compTypes.begin(), compTypes.end());
+}
+
+vector<SYS> CollisionSystem::required_systems() const 
+{
+	array<SYS,1> sysTypes = {SYS::Motion};
+	return vector<SYS>(sysTypes.begin(), sysTypes.end());
 }
 
 CollisionSystem::CollisionSystem()

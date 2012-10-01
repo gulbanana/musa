@@ -4,7 +4,7 @@
 #include <engine/geometry.h>
 
 template<typename TBounds>
-class CExtents : public Identified<IComponent, CID::Extents>
+class CExtents : public Identified<IComponent, CMP::Extents>
 {
 public:
 	std::shared_ptr<IBounded<TBounds>> bounds;

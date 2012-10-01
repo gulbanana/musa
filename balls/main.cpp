@@ -5,14 +5,16 @@
 #include "Obstacle.h"
 #include "Backdrop.h"
 #include "Ball.h"
-
-
+#include "BallBouncer.h"
 using namespace std;
 
 extern "C"
 int main(int argc, char *argv[])
 {
 	auto ballgame = World("balls!");
+
+	//special logic system
+	ballgame.add_system(make_unique<BallBouncer>(800, 600));
 
 	//immobiles
 	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, Vector2F(275.f, 300.f), -5.f));

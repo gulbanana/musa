@@ -1,17 +1,24 @@
 #include <array>
 #include <cmath>
+#include <list>
 #include <SDL_timer.h>
 #include "../components.h"
 #include "MotionSystem.h"
 using namespace std;
 
-vector<CID> MotionSystem::required_components()
+vector<CMP> MotionSystem::required_components() const 
 {
-	array<CID,2> compTypes = {CID::Position, CID::Velocity};
-	return vector<CID>(compTypes.begin(), compTypes.end());
+	array<CMP,2> cmpTypes = {CMP::Position, CMP::Velocity};
+	return vector<CMP>(cmpTypes.begin(), cmpTypes.end());
 }
 
-MotionSystem::MotionSystem(shared_ptr<GameState> s, int x, int y) : state(s), levelWidth((float)x), levelHeight((float)y) {}
+vector<SYS> MotionSystem::required_systems() const 
+{
+	array<SYS,1> sysTypes = {SYS::Control};
+	return vector<SYS>(sysTypes.begin(), sysTypes.end());
+}
+
+MotionSystem::MotionSystem(shared_ptr<GameState> s) : state(s) {}
 
 void MotionSystem::on_frame()
 {
