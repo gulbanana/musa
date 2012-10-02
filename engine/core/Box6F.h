@@ -2,11 +2,10 @@
 #include "Vector3F.h"
 #include "Rect4F.h"
 
-class Box6F
+struct Box6F
 {
 	float x1, y1, z1, x2, y2, z2;
 
-public:
 	float left() { return x1; }
 	float bottom() { return y1; }
 	float front() { return z1; }

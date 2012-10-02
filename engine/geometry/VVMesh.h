@@ -6,6 +6,7 @@
 //"Vertex-Vertex" mesh- most minimal storage, requires traversal to calculate faces
 struct VVMesh : public IRenderable
 {
+	//data
 	struct Vertex : Vector3F
 	{
 		std::vector<int> adjacent;
@@ -13,9 +14,12 @@ struct VVMesh : public IRenderable
 	};
 	std::vector<Vertex> vertices;
 
-	VVMesh() : vertices() {}
-
+	//api
+	VVMesh(std::vector<Vertex>&&);
 	void accept(IRenderer* renderer, Color4F brush, Vector3F position, Vector3F orientation) const override;
 	Box6F bounds() const override;
+
+private:
+	Box6F bounds_cache;
 };
 

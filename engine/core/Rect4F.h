@@ -1,12 +1,11 @@
 #pragma once
 #include "Vector2F.h"
-class Box6F;
+struct Box6F;
 
-class Rect4F
+struct Rect4F
 {
 	float x1, y1, x2, y2;
 
-public:
 	//accessors - interface with the rect any way you like
 	float left() { return x1; }
 	float bottom() { return y1; }
