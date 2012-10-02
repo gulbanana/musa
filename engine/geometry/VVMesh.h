@@ -3,19 +3,17 @@
 #include <engine/core.h>
 #include "IRenderable.h"
 
-//"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits
-struct FVMesh : public IRenderable
+//"Vertex-Vertex" mesh- most minimal storage, requires traversal to calculate faces
+struct VVMesh : public IRenderable
 {
 	struct Vertex : Vector3F
 	{
 		std::vector<int> adjacent;
+		Vertex(float x, float y, float z) : Vector3F(x, y, z), adjacent() {}
 	};
+	std::vector<Vertex> vertices;
 
-	std::vector<Vector3F> vertices;
-	std::vector<Vector3F> faces;
-
-	FVMesh(Vector3F vertexList[]) {}
-    virtual ~FVMesh() {}
+	VVMesh() : vertices() {}
 
 	void accept(IRenderer* renderer, Color4F brush, Vector3F position, Vector3F orientation) const override;
 	Box6F bounds() const override;

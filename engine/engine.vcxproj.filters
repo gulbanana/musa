@@ -66,7 +66,9 @@
     <ClCompile Include="core\ISystem.cpp">
       <Filter>systems</Filter>
     </ClCompile>
-    <ClCompile Include="systems\collision\Bounder2D.cpp" />
+    <ClCompile Include="geometry\PrimitiveFactory.cpp" />
+    <ClCompile Include="geometry\VVMesh.cpp" />
+    <ClCompile Include="geometry\FVMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
@@ -129,14 +131,10 @@
     <ClInclude Include="components\CPhysics.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="geometry\IBounded.h" />
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="geometry.h" />
-    <ClInclude Include="components\CExtents.h" />
-    <ClInclude Include="geometry\CircleMesh.h" />
-    <ClInclude Include="geometry\RectangleMesh.h" />
     <ClInclude Include="systems\render\RenderSystem.h">
       <Filter>systems\Display</Filter>
     </ClInclude>
@@ -157,9 +155,7 @@
     <ClInclude Include="core\IComponent.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="geometry\IBounder.h" />
-    <ClInclude Include="systems\collision\Bounder2D.h" />
-    <ClInclude Include="geometry\RectangularPrismMesh.h" />
-    <ClInclude Include="geometry\SphereMesh.h" />
+    <ClInclude Include="geometry\PrimitiveFactory.h" />
+    <ClInclude Include="geometry\VVMesh.h" />
   </ItemGroup>
 </Project>

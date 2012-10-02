@@ -7,7 +7,6 @@ class BallBouncer : public Identified<ISystem,ISystem::ID::Logic>
 private:
 	float _width;
 	float _height;
-	std::unique_ptr<IBounder<Rect4F>> _bounder;
 	virtual void on_entity(std::shared_ptr<IEntity> entity) override;
 public:
 	BallBouncer(int x, int y);

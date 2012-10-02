@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector3F.h"
+#include "Rect4F.h"
 
 class Box6F
 {
@@ -16,6 +17,7 @@ public:
 	Vector3F bottomLeftBack() { return Vector3F(x1,y1,z1); }
 	Vector3F topRightFront() { return Vector3F(x2,y2,z2); }
 	Vector3F origin() { return bottomLeftBack(); }
+	Rect4F slice() { return Rect4F(x1, y1, x2, y2); }
 
 	float width() { return x2-x1; }
 	float height() { return y2-y1; }

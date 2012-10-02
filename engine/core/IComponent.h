@@ -5,7 +5,6 @@ enum class CMP
 {
 	Acceleration,
 	Brush,
-	Extents,
 	Label,
     Mesh,
 	Physics,

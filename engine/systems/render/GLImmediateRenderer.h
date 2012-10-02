@@ -13,10 +13,7 @@ public:
 	virtual void begin_frame() override;
 	virtual void end_frame() override;
 
-	virtual void visit(CircleMesh*, Color4F brush, Vector3F position, Vector3F orientation) override;
-	virtual void visit(SphereMesh*, Color4F brush, Vector3F position, Vector3F orientation) override;
-	virtual void visit(RectangleMesh*, Color4F brush, Vector3F position, Vector3F orientation) override;
-	virtual void visit(RectangularPrismMesh*, Color4F brush, Vector3F position, Vector3F orientation) override;
-	virtual void visit(FVMesh*, Color4F brush, Vector3F position, Vector3F orientation) override;
+	virtual void visit(VVMesh const*, Color4F brush, Vector3F position, Vector3F orientation) override;
+	virtual void visit(FVMesh const*, Color4F brush, Vector3F position, Vector3F orientation) override;
 };
 

@@ -6,7 +6,7 @@
 class CMesh : public Identified<IComponent, CMP::Mesh>
 {
 public:
-	std::shared_ptr<IRenderable> geometry;
-	CMesh(std::shared_ptr<IRenderable> g) : geometry(g) {}
+	std::unique_ptr<IRenderable> geometry;
+	CMesh(std::unique_ptr<IRenderable> g) : geometry(std::move(g)) {}
 };
 

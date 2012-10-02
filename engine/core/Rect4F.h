@@ -1,6 +1,6 @@
 #pragma once
 #include "Vector2F.h"
-#include "Box6F.h"
+class Box6F;
 
 class Rect4F
 {

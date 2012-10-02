@@ -3,14 +3,14 @@
 
 bool RectIntersectionDetector::collide(std::shared_ptr<IEntity> source, std::shared_ptr<IEntity> target)
 {
-	auto sourceExtents = source->get_component<CExtents<Rect4F>>();
+	auto sourceMesh = source->get_component<CMesh>();
 	auto sourcePosition = source->get_component<CPosition>();
 
-	auto targetExtents = target->get_component<CExtents<Rect4F>>();
+	auto targetMesh = target->get_component<CMesh>();
 	auto targetPosition = target->get_component<CPosition>();
 
-	Rect4F sourceBounds = sourceExtents->bounds->accept(&_bounder) + sourcePosition->location.get2D();
-	Rect4F targetBounds = targetExtents->bounds->accept(&_bounder) + targetPosition->location.get2D();
+	Rect4F sourceBounds = sourceMesh->geometry->bounds().slice() + sourcePosition->location.get2D();
+	Rect4F targetBounds = targetMesh->geometry->bounds().slice() + targetPosition->location.get2D();
 
 	if (sourceBounds.intersects(targetBounds))
 	{

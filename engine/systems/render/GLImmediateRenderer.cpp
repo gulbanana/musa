@@ -4,7 +4,7 @@
 #include <SDL_opengl.h>
 #include "GLImmediateRenderer.h"
 
-const int resolution = 32;
+const int resolution = 30;
 const float arc = (float)(2 * M_PI / resolution);
 
 GLImmediateRenderer::GLImmediateRenderer(int width, int height)
@@ -44,20 +44,7 @@ GLImmediateRenderer::~GLImmediateRenderer()
 {
 }
 
-void GLImmediateRenderer::visit(CircleMesh* mesh, Color4F brush, Vector3F position, Vector3F orientation)
-{
-	begin_modelobject(brush, position, orientation);
-
-	glBegin(GL_TRIANGLE_FAN);
-		glVertex2f(0.f, 0.f);
-		for (int i = 0; i <= resolution; i++)
-			glVertex2f(cos(i * arc) * mesh->radius, sin(i * arc) * mesh->radius);	
-	glEnd();
-
-	end_modelobject();
-}
-
-void GLImmediateRenderer::visit(SphereMesh* mesh, Color4F brush, Vector3F position, Vector3F orientation)
+/*void GLImmediateRenderer::visit(Sphere* mesh, Color4F brush, Vector3F position, Vector3F orientation)
 {
 	begin_modelobject(brush, position, orientation);
 
@@ -69,75 +56,40 @@ void GLImmediateRenderer::visit(SphereMesh* mesh, Color4F brush, Vector3F positi
 	glEnd();
 
 	end_modelobject();
-}
+}*/
 
-void GLImmediateRenderer::visit(RectangleMesh* mesh, Color4F brush, Vector3F position, Vector3F orientation)
+void GLImmediateRenderer::visit(FVMesh const* mesh, Color4F brush, Vector3F position, Vector3F orientation)
 {
 	begin_modelobject(brush, position, orientation);
+	
+	//draw each face
 
+	
 	glBegin(GL_QUADS);
-		glVertex2f(mesh->bounds.left(), mesh->bounds.top());
-		glVertex2f(mesh->bounds.right(), mesh->bounds.top());
-		glVertex2f(mesh->bounds.right(), mesh->bounds.bottom());
-		glVertex2f(mesh->bounds.left(), mesh->bounds.bottom());
-	glEnd();
-
-	end_modelobject();
-}
-
-void cube_vertices(RectangularPrismMesh* mesh)
-{
-	glVertex3f(mesh->bounds.left(), mesh->bounds.bottom(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.bottom(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.top(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.left(), mesh->bounds.top(), mesh->bounds.back());
-
-	glVertex3f(mesh->bounds.left(), mesh->bounds.bottom(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.bottom(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.top(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.left(), mesh->bounds.top(), mesh->bounds.front());
-
-	glVertex3f(mesh->bounds.left(), mesh->bounds.bottom(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.left(), mesh->bounds.bottom(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.bottom(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.bottom(), mesh->bounds.back());
-
-	glVertex3f(mesh->bounds.left(), mesh->bounds.top(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.left(), mesh->bounds.top(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.top(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.top(), mesh->bounds.back());
-
-	glVertex3f(mesh->bounds.left(), mesh->bounds.bottom(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.left(), mesh->bounds.top(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.left(), mesh->bounds.top(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.left(), mesh->bounds.bottom(), mesh->bounds.front());
-
-	glVertex3f(mesh->bounds.right(), mesh->bounds.bottom(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.top(), mesh->bounds.back());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.top(), mesh->bounds.front());
-	glVertex3f(mesh->bounds.right(), mesh->bounds.bottom(), mesh->bounds.front());
-}
-
-void GLImmediateRenderer::visit(RectangularPrismMesh* mesh, Color4F brush, Vector3F position, Vector3F orientation)
-{
-	begin_modelobject(brush, position, orientation);
-
-	glBegin(GL_QUADS);
-		cube_vertices(mesh);
+		//cube_vertices(mesh);
 	glEnd();
 
 	glColor3f(1.f, 0.f, 0.f);
 	glBegin(GL_LINES);
-		cube_vertices(mesh);
+		//cube_vertices(mesh);
 	glEnd();
 
 	end_modelobject();
 }
 
-void GLImmediateRenderer::visit(FVMesh* mesh, Color4F brush, Vector3F position, Vector3F orientation)
+void GLImmediateRenderer::visit(VVMesh const* mesh, Color4F brush, Vector3F position, Vector3F orientation)
 {
 	begin_modelobject(brush, position, orientation);
-	//not implemented
+	
+	//calculate faces
+	//draw each face
+	glBegin(GL_TRIANGLES);
+	for (auto v : mesh->vertices)
+	{
+		glVertex3f(v.x, v.y, v.z);
+	}
+	glEnd();
+
 	end_modelobject();
 }
 
