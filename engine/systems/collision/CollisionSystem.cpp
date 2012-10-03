@@ -1,4 +1,5 @@
 #include <array>
+#include <algorithm>
 #include <iterator>
 #include <typeinfo>
 #include <tuple>
@@ -20,10 +21,8 @@ vector<SYS> CollisionSystem::required_systems() const
 	return vector<SYS>(sysTypes.begin(), sysTypes.end());
 }
 
-CollisionSystem::CollisionSystem()
+CollisionSystem::CollisionSystem() : targets(), detectors()
 {
-	targets = vector<weak_ptr<IEntity>>();
-	detectors = vector<unique_ptr<ICollisionDetector>>();
 	detectors.push_back(make_unique<RectIntersectionDetector>());
 }
 
@@ -63,7 +62,10 @@ void CollisionSystem::on_entity(shared_ptr<IEntity> sourceEntity)
 			if (!pairCollides) continue;
 		}
 		
-		if (pairCollides) physics->collisions.push_back(targetEntity);
+		if (pairCollides) 
+		{
+			physics->collisions.push_back(targetEntity);
+		}
 	}
 }
 

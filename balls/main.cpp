@@ -30,17 +30,17 @@ void setup_world(World& ballgame)
 {
 	//special logic system
 	ballgame.add_system(make_unique<BallBouncer>(WIDTH, HEIGHT));
-
+	
 	//immobiles
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(300, 450), ROT(0,0,0)));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(600, 450), ROT(45,90,0), false));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(900, 450), ROT(0,0,0)));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(1200, 450), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(300, 450), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(600, 450), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(900, 450), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(1200, 450), ROT(45,90,0), false));
 
 	//fixed balls
-	ballgame.add_entity(make_unique<Ball>((coord)25, Color4F::CYAN, LOC(100,100), VEL(100,-100), true));
-	ballgame.add_entity(make_unique<Ball>((coord)25, Color4F::MAGENTA, LOC(580,300), VEL(100,100), true));
-	ballgame.add_entity(make_unique<Ball>((coord)25, Color4F::YELLOW, LOC(260,500), VEL(-100,100), true));
+	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::CYAN, LOC(100,100), VEL(100,-100), true));
+	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::MAGENTA, LOC(580,300), VEL(100,100), true));
+	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::YELLOW, LOC(260,500), VEL(-100,100), true));
 	
 	//random balls
 	default_random_engine generator;
@@ -51,7 +51,7 @@ void setup_world(World& ballgame)
 		ballgame.add_entity(
 			make_unique<Ball>(
 				(coord)10.f,
-				Color4F(0.f, 1.f, 0.f, 0.75f), 
+				Colour4F(0.f, 1.f, 0.f, 0.75f), 
 				LOC(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT),
 				VEL(half2half(generator) * 500, half2half(generator) * 500),
 				true

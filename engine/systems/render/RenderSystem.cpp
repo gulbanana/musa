@@ -8,7 +8,7 @@ using namespace std;
 
 vector<CMP> RenderSystem::required_components() const 
 {
-	array<CMP,3> compTypes = {CMP::Position, CMP::Brush, CMP::Mesh};
+	array<CMP,2> compTypes = {CMP::Position, CMP::Mesh};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 
@@ -41,8 +41,7 @@ void RenderSystem::on_post_frame()
 void RenderSystem::on_entity(shared_ptr<IEntity> entity)
 {
 	auto position = entity->get_component<CPosition>();
-	auto brush = entity->get_component<CBrush>();
 	auto mesh = entity->get_component<CMesh>();
 	
-	mesh->geometry->accept(_renderer.get(), brush->color, position->location, position->orientation);
+	mesh->geometry->accept(_renderer.get(), position->location, position->orientation);
 }

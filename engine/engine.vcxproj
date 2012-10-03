@@ -182,10 +182,10 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="geometry\FVMesh.cpp" />
     <ClCompile Include="geometry\PrimitiveFactory.cpp" />
-    <ClCompile Include="geometry\VVMesh.cpp" />
+    <ClCompile Include="geometry\SpriteMesh.cpp" />
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\collision\CollisionSystem.cpp" />
-    <ClCompile Include="core\Color4F.cpp" />
+    <ClCompile Include="core\Colour4F.cpp" />
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
     <ClCompile Include="systems\render\RenderSystem.cpp" />
     <ClCompile Include="systems\ui\UISystem.cpp" />
@@ -197,24 +197,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components\CAcceleration.h" />
-    <ClInclude Include="components\CBrush.h" />
     <ClInclude Include="core\Box6.h" />
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CMesh.h" />
     <ClInclude Include="core\Identified.h" />
     <ClInclude Include="core\typedefs.h" />
+    <ClInclude Include="geometry\IMaterial.h" />
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="entities.h" />
     <ClInclude Include="entities\DataDrivenEntity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="geometry\PrimitiveFactory.h" />
-    <ClInclude Include="geometry\VVMesh.h" />
+    <ClInclude Include="geometry\SolidColourBrush.h" />
+    <ClInclude Include="geometry\SpriteMesh.h" />
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="gl\IDrawable.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="systems\collision\CollisionSystem.h" />
-    <ClInclude Include="core\Color4F.h" />
+    <ClInclude Include="core\Colour4F.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="components\CVelocity.h" />
     <ClInclude Include="components\CLabel.h" />

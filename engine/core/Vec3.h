@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
 #include <array>
+#include <cfloat>
 template<typename T> class Vec2;
 
 template <typename T>
@@ -14,8 +15,18 @@ struct Vec3
 #pragma endregion
 
 #pragma region utility
-	T length() const	{ return (T)sqrt(x * x + y * y + z * z); }
-	void normalize()	{ T fLength = length(); x /= fLength; y /= fLength; z /= fLength; }
+	T length() const 
+	{ 
+		auto result = sqrt(x * x + y * y + z * z); 
+		if (_isnan(result)) return (T)0.0;
+		else return (T)result;
+	}
+	void normalize()
+	{
+		T fLength = length(); 
+		if (fLength == (T)0) return;
+		x /= fLength; y /= fLength; z /= fLength;
+	}
 	void mod(T scalar)	{ x = fmod(x, scalar); y = fmod(y, scalar); z = fmod(z, scalar);}
 
     static T distance(Vec3 const& v1, Vec3 const& v2)
@@ -49,9 +60,10 @@ struct Vec3
 	Vec3 operator *(T scalar) const { return Vec3(x * scalar, y * scalar, z * scalar); }
 	friend Vec3 operator *(T scalar, Vec3 const& other) { return Vec3(other.x * scalar, other.y * scalar, other.z * scalar); }
     
-    Vec3& operator =(const Vec3 &other) { x = other.x; y = other.y; z = other.z; return *this; }
-    Vec3& operator +=(const Vec3 &other) { x += other.x; y += other.y; z += other.z; return *this; }
-    Vec3& operator -=(const Vec3 &other) { x -= other.x; y -= other.y; z -= other.z; return *this; }
+    Vec3& operator =(Vec3 const& other) { x = other.x; y = other.y; z = other.z; return *this; }
+    Vec3& operator +=(Vec3 const& other) { x += other.x; y += other.y; z += other.z; return *this; }
+    Vec3& operator -=(Vec3 const& other) { x -= other.x; y -= other.y; z -= other.z; return *this; }
+	Vec3& operator *=(T scalar) { x *= scalar; y *= scalar; z *= scalar; return *this; }
 
 	Vec3 operator +() const { return *this; }
 	Vec3 operator -() const { return Vec3(-x, -y, -z); }

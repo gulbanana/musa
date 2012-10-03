@@ -2,12 +2,7 @@
 #include "FVMesh.h"
 using namespace std;
 
-void FVMesh::accept(IRenderer* renderer, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) const
-{ 
-	renderer->visit(this, brush, position, orientation); 
-}
-
-Box6<coord> FVMesh::bounds() const
+Box6<coord> FVMesh::calc_bounds()
 {
 	coord minX, minY, minZ, maxX, maxY, maxZ;
 	minX = minY = minZ = maxX = maxY = maxZ = 0.0;
@@ -23,4 +18,32 @@ Box6<coord> FVMesh::bounds() const
 	}
 	
 	return Box6<coord>(minX, minY, minZ, maxX, maxY, maxZ);
+}
+
+void FVMesh::validate_mesh()
+{
+	if (sides != 3 && sides != 4)
+		throw runtime_error("FVMesh: not composed of triangles or quads");
+
+	has_uv = uv_map.size() != 0;
+	has_normal = normal_map.size() != 0;
+
+	for (auto group : groups)
+	{
+		for (auto face : group.faces)
+		{
+			if (face.vertex_indices.size() != sides)
+				throw runtime_error("FVMesh: missing vertex indices for face");
+
+			if (has_uv && face.uv_indices.size() != sides)
+				throw runtime_error("FVMesh: missing UV indices for face");
+
+			if (has_normal && face.normal_indices.size() != sides)
+				throw runtime_error("FVMesh: missing normal indices for face");
+
+			for (auto index : face.vertex_indices)
+				if (index < 0 || index >= vertices.size())
+					throw runtime_error("FVMesh: index out of bounds");
+		}
+	}
 }
