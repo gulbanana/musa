@@ -10,7 +10,7 @@ using namespace std;
 const int resolution = 30;
 const float arc = (float)(2 * M_PI / resolution);
 
-GLImmediateRenderer::GLImmediateRenderer(bool flat, int width, int height) : _orthographic(flat)
+GLImmediateRenderer::GLImmediateRenderer(int width, int height, bool orthographic, bool wireframe) : _orthographic(orthographic), _wireframe(wireframe)
 {
 	//SDL init
 	int rc; 
@@ -74,6 +74,9 @@ void GLImmediateRenderer::resize(int width, int height)
 		glMatrixMode(GL_MODELVIEW);				
 		glTranslatef(0.f, 0.f, centrePlane);	//move all objects to the 1=1 frustum slice
 	}
+
+	if (_wireframe)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 void GLImmediateRenderer::begin_frame()
@@ -126,25 +129,6 @@ void GLImmediateRenderer::visit(FVMesh const* mesh, Vec3<coord> position, Vec3<d
 		{
 			group.brush->accept(this);
 
-			for (auto face : group.faces)
-			{
-				for (auto index : face.vertex_indices)
-				{
-					#ifdef DOUBLE_PRECISION
-					glVertex3d(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
-					#else
-					glVertex3f(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
-					#endif
-				}
-			}
-		}
-
-		glEnd();
-
-		glBegin(GL_LINES);
-		glColor3f(0.f, 0.f, 0.f);
-		for (auto group : mesh->groups)
-		{
 			for (auto face : group.faces)
 			{
 				for (auto index : face.vertex_indices)

@@ -62,7 +62,7 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	add_system(make_unique<CollisionSystem>());
 	add_system(
 		make_unique<RenderSystem>(
-			make_unique<GLImmediateRenderer>(false, width, height)
+			make_unique<GLImmediateRenderer>(width, height, true, true)
 		)
 	);
 	
