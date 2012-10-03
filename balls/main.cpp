@@ -38,14 +38,15 @@ void setup_world(World& ballgame)
 	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(1200, 450), ROT(45,90,0), false));
 
 	//fixed balls
-	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::CYAN, LOC(100,100), VEL(100,-100), true));
-	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::MAGENTA, LOC(580,300), VEL(100,100), true));
-	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::YELLOW, LOC(260,500), VEL(-100,100), true));
+	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::CYAN, LOC(100,100), VEL(100,-100), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::MAGENTA, LOC(580,300), VEL(100,100), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::YELLOW, LOC(260,500), VEL(-100,100), ROT(0,0,0)));
 	
 	//random balls
 	default_random_engine generator;
 	uniform_real_distribution<float> zero2one(0.0, 1.0);
 	uniform_real_distribution<float> half2half(-0.5, 0.5);
+	uniform_real_distribution<float> threesixty(0.0, 360.0);
 	srand((unsigned)time(0));
 	for (int i = 0; i < 40; i++) {
 		ballgame.add_entity(
@@ -54,7 +55,7 @@ void setup_world(World& ballgame)
 				Colour4F(0.f, 1.f, 0.f, 0.75f), 
 				LOC(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT),
 				VEL(half2half(generator) * 500, half2half(generator) * 500),
-				true
+				ROT(threesixty(generator), threesixty(generator), threesixty(generator))
 			)
 		);
 	}

@@ -140,6 +140,25 @@ void GLImmediateRenderer::visit(FVMesh const* mesh, Vec3<coord> position, Vec3<d
 		}
 
 		glEnd();
+
+		glBegin(GL_LINES);
+		glColor3f(0.f, 0.f, 0.f);
+		for (auto group : mesh->groups)
+		{
+			for (auto face : group.faces)
+			{
+				for (auto index : face.vertex_indices)
+				{
+					#ifdef DOUBLE_PRECISION
+					glVertex3d(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
+					#else
+					glVertex3f(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
+					#endif
+				}
+			}
+		}
+
+		glEnd();
 	});
 }
 
