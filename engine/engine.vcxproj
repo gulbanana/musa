@@ -187,7 +187,6 @@
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\collision\CollisionSystem.cpp" />
     <ClCompile Include="core\Color4F.cpp" />
-    <ClCompile Include="systems\PhysicsSystem.cpp" />
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
     <ClCompile Include="systems\render\RenderSystem.cpp" />
     <ClCompile Include="systems\ui\UISystem.cpp" />
@@ -223,7 +222,6 @@
     <ClInclude Include="components\CLabel.h" />
     <ClInclude Include="systems\collision\ICollisionDetector.h" />
     <ClInclude Include="core\identifiable.h" />
-    <ClInclude Include="systems\PhysicsSystem.h" />
     <ClInclude Include="core\Rect4F.h" />
     <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
     <ClInclude Include="geometry\IRenderer.h" />

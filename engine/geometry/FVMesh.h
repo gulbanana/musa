@@ -3,16 +3,12 @@
 #include <engine/core.h>
 #include "IRenderable.h"
 
-//"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits
+//"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits. Triangular faces.
 struct FVMesh : public IRenderable
 {
-	struct Vertex : Vector3F
-	{
-		std::vector<int> adjacent;
-	};
-
 	std::vector<Vector3F> vertices;
-	std::vector<Vector3F> faces;
+	std::vector<int> faces;
+	std::vector<Vector2F> triangles;
 
 	FVMesh(Vector3F vertexList[]) {}
     virtual ~FVMesh() {}

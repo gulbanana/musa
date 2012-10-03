@@ -1,16 +1,16 @@
 first cut 2d/3d engine systems
 
-RENDER system
-components: mesh, brush
+CONTROL system
+components: anything controllable
 
-MOTION system
-components: position, extents?, velocity <-- should this be physics?
+RENDER system
+components: position, mesh, brush
+
+(TIME and?) MOTION system
+components: position, velocity, expiry?
 
 COLLISION system
-components: position, extents, physics
-
-PHYSICS system
-components: physics, ??
+components: position, mesh, physics
 
 UI system
 components: position, label

@@ -31,9 +31,6 @@
     <ClCompile Include="core\Color4F.cpp">
       <Filter>core</Filter>
     </ClCompile>
-    <ClCompile Include="systems\PhysicsSystem.cpp">
-      <Filter>systems\Movement</Filter>
-    </ClCompile>
     <ClCompile Include="core\Vector2F.cpp">
       <Filter>core</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
     </ClInclude>
     <ClInclude Include="systems.h" />
     <ClInclude Include="entities.h" />
-    <ClInclude Include="systems\PhysicsSystem.h">
-      <Filter>systems\Movement</Filter>
-    </ClInclude>
     <ClInclude Include="core\Vector2F.h">
       <Filter>core</Filter>
     </ClInclude>

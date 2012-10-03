@@ -31,6 +31,7 @@ T check(std::function<T()> sdlCall)
 class WorldImpl
 {
 	static const unsigned maxFPS = 60;
+	static const unsigned minFPS = 15;
 
 	SDL_Surface* surface;
 	SDL_Event event;
@@ -58,6 +59,12 @@ void World::play() { _pimpl->play(); }
 WorldImpl::WorldImpl(const string title, int width, int height)
 {
 	state = make_shared<GameState>();
+	
+#ifdef _DEBUG
+	Uint32 flags = SDL_INIT_EVERYTHING | SDL_INIT_NOPARACHUTE;
+#else
+	Uint32 flags = SDL_INIT_EVERYTHING;
+#endif
 
 	check([]{ return SDL_Init(SDL_INIT_EVERYTHING); });
 	SDL_WM_SetCaption(title.c_str(), nullptr);
@@ -69,7 +76,6 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	add_system(make_unique<ControlSystem>(state));
 	add_system(make_unique<MotionSystem>(state));
 	add_system(make_unique<CollisionSystem>());
-	add_system(make_unique<PhysicsSystem>());
 	add_system(
 		make_unique<RenderSystem>(
 			make_unique<GLImmediateRenderer>(width, height)
@@ -80,7 +86,10 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 
 void WorldImpl::play()
 {
-	unsigned now, mspf = 1000 / maxFPS;
+	unsigned now, mspf, clamp;
+	mspf = 1000 / maxFPS;
+	clamp = 1000 / minFPS;
+
 	state->last_frame = SDL_GetTicks();
 	
 	while (!state->shouldQuit)
@@ -88,7 +97,7 @@ void WorldImpl::play()
 		frame();
         
         now = SDL_GetTicks();
-        state->last_frame_time = now - state->last_frame;
+        state->last_frame_time = min(now - state->last_frame, clamp);
         state->last_frame = now;
         
 

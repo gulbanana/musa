@@ -1,7 +1,22 @@
-mac port
-linux port?
-proper collision detection - boundary/edge based?
-collision-based repositioning (or level-based?)
-add/subtract ball
-gui lib & fps display
-multithreading
+IMMINENT
+vvmesh, fvmesh, flat/sprite mesh
+correct 2d/3d projections - homogenous coordinates
+resizing, fullscreen, auto-fov
+3d camera
+3d balls
+expand enums
+
+EVENTUAL
+multithreaded systems
+dynamic system sort
+aabb collision detection 
+better bounce physics
+gui - get fonts in
+gui/renderer - labels 
+gui / control - add/subtract ball
+expiring entities
+state - controllable game clock
+state - resizable view
+model loader
+linux port
+wizards game
