@@ -39,17 +39,19 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 	if (outOfBoundsX) 
 	{
 		velocity->vector.x *= -1;
+        position->location.x = max(position->location.x, sourceBox.right());
+        position->location.x = min(position->location.x, _width - sourceBox.right());
 	}
 		
 	if (outOfBoundsY) 
 	{
 		velocity->vector.y *= -1;
+        position->location.y = max(position->location.y, sourceBox.top());
+        position->location.y = min(position->location.y, _height - sourceBox.top());
 	}
 
 	if (outOfBoundsX || outOfBoundsY)
 	{
-		//maybe? this would create a "forcefield" but prevent double-collisions
-		position->location = position->previous_location;	
 		return;
 	}
 
@@ -64,7 +66,7 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 		angleOfCollision.normalize();
 
 		velocity->vector = angleOfCollision * -1 * speed;
-		position->location = position->previous_location;	
+		//position->location = position->previous_location;
 		//targetPosition->location = targetPosition->previous_location;
 		return;
 	}
