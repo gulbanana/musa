@@ -20,19 +20,6 @@ GLImmediateRenderer::GLImmediateRenderer(bool flat, int width, int height) : _or
 	rc = SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
 	if (rc != 0) throw std::runtime_error("failed to init multisampling");
 
-	_surface = SDL_SetVideoMode(width, height, 32, SDL_OPENGL | SDL_RESIZABLE);
-	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
-
-	//GL init
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	if (!_orthographic)
-		glEnable(GL_DEPTH_TEST | GL_ALPHA_TEST);
-
-	//set background colour
-	glClearColor(0.f, 0.f, 0.f, 0.f);
-	glClear(GL_COLOR_BUFFER_BIT);
-
 	resize(width, height);
 }
 
@@ -43,6 +30,20 @@ GLImmediateRenderer::~GLImmediateRenderer()
 
 void GLImmediateRenderer::resize(int width, int height)
 {
+    //might be able to avoid this with sdl 2.0..
+	_surface = SDL_SetVideoMode(width, height, 32, SDL_OPENGL | SDL_RESIZABLE);
+	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
+    
+	//GL init
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	if (!_orthographic)
+		glEnable(GL_DEPTH_TEST | GL_ALPHA_TEST);
+    
+	//set background colour
+	glClearColor(0.f, 0.f, 0.f, 0.f);
+	glClear(GL_COLOR_BUFFER_BIT);
+    
 	//setup device-space
 	glViewport(0, 0, width, height);
 

@@ -9,25 +9,6 @@
 #include "GameState.h"
 using namespace std;
 
-#pragma region sdlcall
-void check(std::function<int()> sdlCall)
-{
-	int rc = sdlCall();
-	if (rc != 0)
-		throw std::runtime_error(SDL_GetError());
-}
-
-template<typename T>
-T check(std::function<T()> sdlCall)
-{
-	T ret = sdlCall();
-	if (ret == nullptr)
-		throw std::runtime_error(SDL_GetError());
-	return ret;
-}
-#pragma endregion
-
-
 #pragma region pimpl
 class WorldImpl
 {
@@ -66,9 +47,13 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	Uint32 flags = SDL_INIT_EVERYTHING;
 #endif
 
-
-
-	check([]{ return SDL_Init(SDL_INIT_EVERYTHING); });
+    int rc = SDL_Init(flags);
+    if (rc != 0)
+    {
+        SDL_Error(SDL_LASTERROR);
+        throw runtime_error("SDL_Init failed");
+    }
+    
 	SDL_WM_SetCaption(title.c_str(), nullptr);
 
 	add_system(make_unique<ControlSystem>(state));

@@ -1,4 +1,3 @@
-#pragma once
 #include <memory>
 #include <engine/misc.h>
 #include "PrimitiveFactory.h"

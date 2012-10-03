@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E53C77F1161C01E3003CB7D7 /* FVMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53C77EC161C01E3003CB7D7 /* FVMesh.cpp */; };
+		E53C77F2161C01E3003CB7D7 /* PrimitiveFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53C77ED161C01E3003CB7D7 /* PrimitiveFactory.cpp */; };
+		E53C77F3161C01E3003CB7D7 /* PrimitiveFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77EE161C01E3003CB7D7 /* PrimitiveFactory.h */; };
+		E53C77F4161C01E3003CB7D7 /* VVMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53C77EF161C01E3003CB7D7 /* VVMesh.cpp */; };
+		E53C77F5161C01E3003CB7D7 /* VVMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77F0161C01E3003CB7D7 /* VVMesh.h */; };
 		E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* SDLMain.m */; };
 		E5BE5C7C161862440095BE77 /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */; };
 		E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C7D161863A60095BE77 /* SDLApplication.h */; };
@@ -41,31 +46,26 @@
 		E5EE0EEE161A328F008B9D2E /* Vector3F.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EE0161A328F008B9D2E /* Vector3F.h */; };
 		E5EE0EF1161A32A0008B9D2E /* DataDrivenEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0EEF161A32A0008B9D2E /* DataDrivenEntity.cpp */; };
 		E5EE0EF2161A32A0008B9D2E /* DataDrivenEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF0161A32A0008B9D2E /* DataDrivenEntity.h */; };
-		E5EE0EFD161A32AF008B9D2E /* CircleMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF4161A32AF008B9D2E /* CircleMesh.h */; };
 		E5EE0EFE161A32AF008B9D2E /* FVMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF5161A32AF008B9D2E /* FVMesh.h */; };
-		E5EE0EFF161A32AF008B9D2E /* IBounded.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF6161A32AF008B9D2E /* IBounded.h */; };
-		E5EE0F00161A32AF008B9D2E /* IBounder.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF7161A32AF008B9D2E /* IBounder.h */; };
 		E5EE0F01161A32AF008B9D2E /* IRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF8161A32AF008B9D2E /* IRenderable.h */; };
 		E5EE0F02161A32AF008B9D2E /* IRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF9161A32AF008B9D2E /* IRenderer.h */; };
-		E5EE0F03161A32AF008B9D2E /* RectangleMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EFA161A32AF008B9D2E /* RectangleMesh.h */; };
-		E5EE0F04161A32AF008B9D2E /* RectangularPrismMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EFB161A32AF008B9D2E /* RectangularPrismMesh.h */; };
-		E5EE0F05161A32AF008B9D2E /* SphereMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EFC161A32AF008B9D2E /* SphereMesh.h */; };
 		E5EE0F07161A32BA008B9D2E /* geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F06161A32BA008B9D2E /* geometry.h */; };
 		E5EE0F1A161A32DB008B9D2E /* ControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F14161A32DA008B9D2E /* ControlSystem.cpp */; };
 		E5EE0F1B161A32DB008B9D2E /* ControlSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F15161A32DA008B9D2E /* ControlSystem.h */; };
 		E5EE0F1C161A32DB008B9D2E /* MotionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F16161A32DA008B9D2E /* MotionSystem.cpp */; };
 		E5EE0F1D161A32DB008B9D2E /* MotionSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F17161A32DA008B9D2E /* MotionSystem.h */; };
-		E5EE0F1E161A32DB008B9D2E /* PhysicsSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F18161A32DB008B9D2E /* PhysicsSystem.cpp */; };
-		E5EE0F1F161A32DB008B9D2E /* PhysicsSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F19161A32DB008B9D2E /* PhysicsSystem.h */; };
 		E5EE0F25161A32EF008B9D2E /* GLImmediateRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F21161A32EF008B9D2E /* GLImmediateRenderer.cpp */; };
 		E5EE0F26161A32EF008B9D2E /* GLImmediateRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F22161A32EF008B9D2E /* GLImmediateRenderer.h */; };
 		E5EE0F27161A32EF008B9D2E /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F23161A32EF008B9D2E /* RenderSystem.cpp */; };
 		E5EE0F28161A32EF008B9D2E /* RenderSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F24161A32EF008B9D2E /* RenderSystem.h */; };
-		E5EE0F2E161A350E008B9D2E /* Bounder2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F2C161A350E008B9D2E /* Bounder2D.cpp */; };
-		E5EE0F2F161A350E008B9D2E /* Bounder2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F2D161A350E008B9D2E /* Bounder2D.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E53C77EC161C01E3003CB7D7 /* FVMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FVMesh.cpp; sourceTree = "<group>"; };
+		E53C77ED161C01E3003CB7D7 /* PrimitiveFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrimitiveFactory.cpp; sourceTree = "<group>"; };
+		E53C77EE161C01E3003CB7D7 /* PrimitiveFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveFactory.h; sourceTree = "<group>"; };
+		E53C77EF161C01E3003CB7D7 /* VVMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VVMesh.cpp; sourceTree = "<group>"; };
+		E53C77F0161C01E3003CB7D7 /* VVMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMesh.h; sourceTree = "<group>"; };
 		E5A63C0E1618492B0007CDB1 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		E5A63C0F1618492B0007CDB1 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		E5BE5C7D161863A60095BE77 /* SDLApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLApplication.h; sourceTree = "<group>"; };
@@ -117,28 +117,18 @@
 		E5EE0EE0161A328F008B9D2E /* Vector3F.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3F.h; sourceTree = "<group>"; };
 		E5EE0EEF161A32A0008B9D2E /* DataDrivenEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataDrivenEntity.cpp; sourceTree = "<group>"; };
 		E5EE0EF0161A32A0008B9D2E /* DataDrivenEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDrivenEntity.h; sourceTree = "<group>"; };
-		E5EE0EF4161A32AF008B9D2E /* CircleMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleMesh.h; sourceTree = "<group>"; };
 		E5EE0EF5161A32AF008B9D2E /* FVMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVMesh.h; sourceTree = "<group>"; };
-		E5EE0EF6161A32AF008B9D2E /* IBounded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBounded.h; sourceTree = "<group>"; };
-		E5EE0EF7161A32AF008B9D2E /* IBounder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBounder.h; sourceTree = "<group>"; };
 		E5EE0EF8161A32AF008B9D2E /* IRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderable.h; sourceTree = "<group>"; };
 		E5EE0EF9161A32AF008B9D2E /* IRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderer.h; sourceTree = "<group>"; };
-		E5EE0EFA161A32AF008B9D2E /* RectangleMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleMesh.h; sourceTree = "<group>"; };
-		E5EE0EFB161A32AF008B9D2E /* RectangularPrismMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangularPrismMesh.h; sourceTree = "<group>"; };
-		E5EE0EFC161A32AF008B9D2E /* SphereMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereMesh.h; sourceTree = "<group>"; };
 		E5EE0F06161A32BA008B9D2E /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
 		E5EE0F14161A32DA008B9D2E /* ControlSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlSystem.cpp; sourceTree = "<group>"; };
 		E5EE0F15161A32DA008B9D2E /* ControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSystem.h; sourceTree = "<group>"; };
 		E5EE0F16161A32DA008B9D2E /* MotionSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionSystem.cpp; sourceTree = "<group>"; };
 		E5EE0F17161A32DA008B9D2E /* MotionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSystem.h; sourceTree = "<group>"; };
-		E5EE0F18161A32DB008B9D2E /* PhysicsSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsSystem.cpp; sourceTree = "<group>"; };
-		E5EE0F19161A32DB008B9D2E /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsSystem.h; sourceTree = "<group>"; };
 		E5EE0F21161A32EF008B9D2E /* GLImmediateRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLImmediateRenderer.cpp; sourceTree = "<group>"; };
 		E5EE0F22161A32EF008B9D2E /* GLImmediateRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLImmediateRenderer.h; sourceTree = "<group>"; };
 		E5EE0F23161A32EF008B9D2E /* RenderSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
 		E5EE0F24161A32EF008B9D2E /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
-		E5EE0F2C161A350E008B9D2E /* Bounder2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bounder2D.cpp; sourceTree = "<group>"; };
-		E5EE0F2D161A350E008B9D2E /* Bounder2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bounder2D.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,8 +249,6 @@
 				E5EE0F15161A32DA008B9D2E /* ControlSystem.h */,
 				E5EE0F16161A32DA008B9D2E /* MotionSystem.cpp */,
 				E5EE0F17161A32DA008B9D2E /* MotionSystem.h */,
-				E5EE0F18161A32DB008B9D2E /* PhysicsSystem.cpp */,
-				E5EE0F19161A32DB008B9D2E /* PhysicsSystem.h */,
 				E5DDE4C916182B7A008179BF /* collision */,
 				E5DDE4D916182B7A008179BF /* ui */,
 			);
@@ -270,8 +258,6 @@
 		E5DDE4C916182B7A008179BF /* collision */ = {
 			isa = PBXGroup;
 			children = (
-				E5EE0F2C161A350E008B9D2E /* Bounder2D.cpp */,
-				E5EE0F2D161A350E008B9D2E /* Bounder2D.h */,
 				E5DDE4CA16182B7A008179BF /* CollisionSystem.cpp */,
 				E5DDE4CB16182B7A008179BF /* CollisionSystem.h */,
 				E5DDE4CC16182B7A008179BF /* ICollisionDetector.h */,
@@ -295,15 +281,14 @@
 		E5EE0EF3161A32AE008B9D2E /* geometry */ = {
 			isa = PBXGroup;
 			children = (
-				E5EE0EF4161A32AF008B9D2E /* CircleMesh.h */,
+				E53C77EC161C01E3003CB7D7 /* FVMesh.cpp */,
+				E53C77ED161C01E3003CB7D7 /* PrimitiveFactory.cpp */,
+				E53C77EE161C01E3003CB7D7 /* PrimitiveFactory.h */,
+				E53C77EF161C01E3003CB7D7 /* VVMesh.cpp */,
+				E53C77F0161C01E3003CB7D7 /* VVMesh.h */,
 				E5EE0EF5161A32AF008B9D2E /* FVMesh.h */,
-				E5EE0EF6161A32AF008B9D2E /* IBounded.h */,
-				E5EE0EF7161A32AF008B9D2E /* IBounder.h */,
 				E5EE0EF8161A32AF008B9D2E /* IRenderable.h */,
 				E5EE0EF9161A32AF008B9D2E /* IRenderer.h */,
-				E5EE0EFA161A32AF008B9D2E /* RectangleMesh.h */,
-				E5EE0EFB161A32AF008B9D2E /* RectangularPrismMesh.h */,
-				E5EE0EFC161A32AF008B9D2E /* SphereMesh.h */,
 			);
 			path = geometry;
 			sourceTree = "<group>";
@@ -346,22 +331,16 @@
 				E5EE0EEC161A328F008B9D2E /* Vector2F.h in Headers */,
 				E5EE0EEE161A328F008B9D2E /* Vector3F.h in Headers */,
 				E5EE0EF2161A32A0008B9D2E /* DataDrivenEntity.h in Headers */,
-				E5EE0EFD161A32AF008B9D2E /* CircleMesh.h in Headers */,
 				E5EE0EFE161A32AF008B9D2E /* FVMesh.h in Headers */,
-				E5EE0EFF161A32AF008B9D2E /* IBounded.h in Headers */,
-				E5EE0F00161A32AF008B9D2E /* IBounder.h in Headers */,
 				E5EE0F01161A32AF008B9D2E /* IRenderable.h in Headers */,
 				E5EE0F02161A32AF008B9D2E /* IRenderer.h in Headers */,
-				E5EE0F03161A32AF008B9D2E /* RectangleMesh.h in Headers */,
-				E5EE0F04161A32AF008B9D2E /* RectangularPrismMesh.h in Headers */,
-				E5EE0F05161A32AF008B9D2E /* SphereMesh.h in Headers */,
 				E5EE0F07161A32BA008B9D2E /* geometry.h in Headers */,
 				E5EE0F1B161A32DB008B9D2E /* ControlSystem.h in Headers */,
 				E5EE0F1D161A32DB008B9D2E /* MotionSystem.h in Headers */,
-				E5EE0F1F161A32DB008B9D2E /* PhysicsSystem.h in Headers */,
 				E5EE0F26161A32EF008B9D2E /* GLImmediateRenderer.h in Headers */,
 				E5EE0F28161A32EF008B9D2E /* RenderSystem.h in Headers */,
-				E5EE0F2F161A350E008B9D2E /* Bounder2D.h in Headers */,
+				E53C77F3161C01E3003CB7D7 /* PrimitiveFactory.h in Headers */,
+				E53C77F5161C01E3003CB7D7 /* VVMesh.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,10 +411,11 @@
 				E5EE0EF1161A32A0008B9D2E /* DataDrivenEntity.cpp in Sources */,
 				E5EE0F1A161A32DB008B9D2E /* ControlSystem.cpp in Sources */,
 				E5EE0F1C161A32DB008B9D2E /* MotionSystem.cpp in Sources */,
-				E5EE0F1E161A32DB008B9D2E /* PhysicsSystem.cpp in Sources */,
 				E5EE0F25161A32EF008B9D2E /* GLImmediateRenderer.cpp in Sources */,
 				E5EE0F27161A32EF008B9D2E /* RenderSystem.cpp in Sources */,
-				E5EE0F2E161A350E008B9D2E /* Bounder2D.cpp in Sources */,
+				E53C77F1161C01E3003CB7D7 /* FVMesh.cpp in Sources */,
+				E53C77F2161C01E3003CB7D7 /* PrimitiveFactory.cpp in Sources */,
+				E53C77F4161C01E3003CB7D7 /* VVMesh.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +449,7 @@
 				HEADER_SEARCH_PATHS = (
 					/Library/Frameworks/SDL.framework/Headers,
 					..,
+					/Users/banana/Documents/Programming/boost_1_51_0,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -497,6 +478,7 @@
 				HEADER_SEARCH_PATHS = (
 					/Library/Frameworks/SDL.framework/Headers,
 					..,
+					/Users/banana/Documents/Programming/boost_1_51_0,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
