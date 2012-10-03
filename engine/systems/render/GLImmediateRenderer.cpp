@@ -137,7 +137,11 @@ void GLImmediateRenderer::visit(VVMesh const* mesh, Color4F brush, Vec3<coord> p
 		glBegin(GL_TRIANGLES);
 		for (auto v : mesh->vertices)
 		{
+#ifdef DOUBLE_PRECISION
+			glVertex3d(v.x, v.y, v.z);
+#else
 			glVertex3f(v.x, v.y, v.z);
+#endif
 		}
 		glEnd();
 	});
