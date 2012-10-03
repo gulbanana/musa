@@ -72,7 +72,7 @@ void WorldImpl::play()
 {
 	add_system(make_unique<UISystem>(state)); //hack until we have system sorting, add this AFTER user systems
 
-	unsigned now, mspf, clamp;
+	milliseconds now, mspf, clamp;
 	mspf = 1000 / maxFPS;
 	clamp = 1000 / minFPS;
 
@@ -86,7 +86,6 @@ void WorldImpl::play()
         state->last_frame_time = min(now - state->last_frame, clamp);
         state->last_frame = now;
         
-
         if (state->last_frame_time < mspf)
             SDL_Delay(mspf - state->last_frame_time);
 	}

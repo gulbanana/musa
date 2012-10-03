@@ -134,7 +134,7 @@ void GLImmediateRenderer::visit(VVMesh const* mesh, Color4F brush, Vec3<coord> p
 	{
 		//calculate faces
 		//draw each face
-		glBegin(GL_TRIANGLES);
+		glBegin(GL_QUADS);
 		for (auto v : mesh->vertices)
 		{
 #ifdef DOUBLE_PRECISION
