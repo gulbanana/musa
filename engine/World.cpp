@@ -32,7 +32,7 @@ public:
 	void play();
 };
 
-World::World(const string title) : _pimpl(new WorldImpl(title, 800, 600)) {}
+World::World(const string title, int width, int height) : _pimpl(new WorldImpl(title, width, height)) {}
 void World::add_entity(unique_ptr<IEntity> entity) { _pimpl->add_entity(std::move(entity)); }
 void World::add_system(unique_ptr<ISystem> system) { _pimpl->add_system(std::move(system)); }
 void World::play() { _pimpl->play(); }

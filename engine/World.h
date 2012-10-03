@@ -10,7 +10,7 @@ class World
 {
 	WorldImpl* _pimpl;
 public:
-	World(std::string title);
+	World(std::string title, int width, int height);
 	void add_entity(std::unique_ptr<IEntity> entity);
 	void add_system(std::unique_ptr<ISystem> system);
 	void play();

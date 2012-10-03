@@ -11,13 +11,15 @@ using namespace std;
 #define LOC(x, y) Vec2<coord>((coord)(x), (coord)(y))
 #define VEL(x, y) Vec2<coord>((coord)(x), (coord)(y))
 #define ROT(x, y, z) Vec3<degrees>((degrees)(x), (degrees)(y), (degrees)(z))
+#define WIDTH 1600
+#define HEIGHT 900
 
 void setup_world(World&);
 
 extern "C"
 int main(int argc, char *argv[])
 {
-	auto game = World("balls!");
+	auto game = World("balls!", WIDTH, HEIGHT);
 	setup_world(game);
 	game.play();
 
@@ -27,11 +29,13 @@ int main(int argc, char *argv[])
 void setup_world(World& ballgame)
 {
 	//special logic system
-	ballgame.add_system(make_unique<BallBouncer>(800, 600));
+	ballgame.add_system(make_unique<BallBouncer>(WIDTH, HEIGHT));
 
 	//immobiles
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(275, 300), ROT(0,0,0)));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(525, 300), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(300, 450), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(600, 450), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(900, 450), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(1200, 450), ROT(45,90,0), false));
 
 	//fixed balls
 	ballgame.add_entity(make_unique<Ball>((coord)25, Color4F::CYAN, LOC(100,100), VEL(100,-100), true));
@@ -43,12 +47,12 @@ void setup_world(World& ballgame)
 	uniform_real_distribution<float> zero2one(0.0, 1.0);
 	uniform_real_distribution<float> half2half(-0.5, 0.5);
 	srand((unsigned)time(0));
-	for (int i = 0; i < 30; i++) {
+	for (int i = 0; i < 40; i++) {
 		ballgame.add_entity(
 			make_unique<Ball>(
 				(coord)10.f,
 				Color4F(0.f, 1.f, 0.f, 0.75f), 
-				LOC(zero2one(generator) * 800, zero2one(generator) * 600),
+				LOC(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT),
 				VEL(half2half(generator) * 500, half2half(generator) * 500),
 				true
 			)
