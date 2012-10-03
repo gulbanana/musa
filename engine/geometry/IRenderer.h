@@ -6,7 +6,6 @@ struct FVMesh;
 
 class IRenderer
 {
-
 public:
 	virtual ~IRenderer() {}
 
@@ -16,6 +15,6 @@ public:
 	virtual void end_frame() {}
 
 	//required operations
-	virtual void visit(VVMesh const*, Color4F brush, Vector3F position, Vector3F orientation) = 0;
-	virtual void visit(FVMesh const*, Color4F brush, Vector3F position, Vector3F orientation) = 0;
+	virtual void visit(VVMesh const*, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) = 0;
+	virtual void visit(FVMesh const*, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) = 0;
 };

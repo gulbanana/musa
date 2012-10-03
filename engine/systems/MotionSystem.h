@@ -6,7 +6,7 @@
 class MotionSystem : public Identified<ISystem,SYS::Motion>
 {
 	std::shared_ptr<GameState> state;
-	float elapsedTime;
+	seconds elapsedTime;
 
 public:
 	MotionSystem(std::shared_ptr<GameState> state);

@@ -2,15 +2,15 @@
 #include "FVMesh.h"
 using namespace std;
 
-void FVMesh::accept(IRenderer* renderer, Color4F brush, Vector3F position, Vector3F orientation) const
+void FVMesh::accept(IRenderer* renderer, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) const
 { 
 	renderer->visit(this, brush, position, orientation); 
 }
 
-Box6F FVMesh::bounds() const
+Box6<coord> FVMesh::bounds() const
 {
-	float minX, minY, minZ, maxX, maxY, maxZ;
-	minX = minY = minZ = maxX = maxY = maxZ = 0.f;
+	coord minX, minY, minZ, maxX, maxY, maxZ;
+	minX = minY = minZ = maxX = maxY = maxZ = 0.0;
 
 	for (auto v : vertices)
 	{
@@ -22,5 +22,5 @@ Box6F FVMesh::bounds() const
 		maxZ = max(v.z, maxZ);
 	}
 	
-	return Box6F(minX, minY, minZ, maxX, maxY, maxZ);
+	return Box6<coord>(minX, minY, minZ, maxX, maxY, maxZ);
 }

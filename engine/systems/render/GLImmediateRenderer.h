@@ -7,8 +7,7 @@ class GLImmediateRenderer : public IRenderer
 	bool _orthographic;	//2d?
 	SDL_Surface* _surface;
 
-	void begin_modelobject(Color4F brush, Vector3F position, Vector3F orientation);
-	void end_modelobject();
+	void with_modeltransform(Color4F brush, Vec3<coord> position, Vec3<degrees> orientation, std::function<void(void)>);
 public:
 	GLImmediateRenderer(bool orthographic, int width, int height);
 	~GLImmediateRenderer();
@@ -18,7 +17,7 @@ public:
 	virtual void begin_frame() override;
 	virtual void end_frame() override;
 
-	virtual void visit(VVMesh const*, Color4F brush, Vector3F position, Vector3F orientation) override;
-	virtual void visit(FVMesh const*, Color4F brush, Vector3F position, Vector3F orientation) override;
+	virtual void visit(VVMesh const*, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) override;
+	virtual void visit(FVMesh const*, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) override;
 };
 

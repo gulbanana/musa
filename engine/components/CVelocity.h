@@ -4,13 +4,13 @@
 class CVelocity : public Identified<IComponent, CMP::Velocity>
 {
 public:
-	Vector3F vector;
-	Vector3F rotation;
+	Vec3<coord> vector;
+	Vec3<degrees> rotation;
 	
-	CVelocity(float x, float y) : vector(x,y,0.f), rotation(0.f,0.f,0.f) {}
-	CVelocity(float x, float y, float z) : vector(x,y,z), rotation(0.f,0.f,0.f) {}
-	CVelocity(Vector3F vector) : vector(vector), rotation(0.f,0.f,0.f) {}
-	CVelocity(Vector3F vector, float zRotation) : vector(vector), rotation(0.f,0.f,zRotation) {}
-	CVelocity(Vector3F vector, Vector3F rotation) : vector(vector), rotation(rotation) {}
+	CVelocity(coord x, coord y) : vector(x,y,(coord)0.0), rotation((degrees)0.0,(degrees)0.0,(degrees)0.0) {}
+	CVelocity(coord x, coord y, coord z) : vector(x,y,z), rotation((degrees)0.0,(degrees)0.0,(degrees)0.0) {}
+	CVelocity(Vec3<coord> vector) : vector(vector), rotation((degrees)0.0,(degrees)0.0,(degrees)0.0) {}
+	CVelocity(Vec3<coord> vector, degrees zRotation) : vector(vector), rotation((degrees)0.0,(degrees)0.0,zRotation) {}
+	CVelocity(Vec3<coord> vector, Vec3<degrees> rotation) : vector(vector), rotation(rotation) {}
 };
 

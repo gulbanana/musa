@@ -31,19 +31,12 @@
     <ClCompile Include="core\Color4F.cpp">
       <Filter>core</Filter>
     </ClCompile>
-    <ClCompile Include="core\Vector2F.cpp">
-      <Filter>core</Filter>
-    </ClCompile>
-    <ClCompile Include="core\Vector3F.cpp">
-      <Filter>core</Filter>
-    </ClCompile>
     <ClCompile Include="systems\collision\CollisionSystem.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="core\Rect4F.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp">
       <Filter>systems\Control</Filter>
     </ClCompile>
@@ -82,17 +75,8 @@
     <ClInclude Include="core\Color4F.h">
       <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="core\Rect4F.h">
-      <Filter>core</Filter>
-    </ClInclude>
     <ClInclude Include="systems.h" />
     <ClInclude Include="entities.h" />
-    <ClInclude Include="core\Vector2F.h">
-      <Filter>core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\Vector3F.h">
-      <Filter>core</Filter>
-    </ClInclude>
     <ClInclude Include="core\identifiable.h">
       <Filter>core</Filter>
     </ClInclude>
@@ -106,7 +90,6 @@
       <Filter>systems\Collisions</Filter>
     </ClInclude>
     <ClInclude Include="gl\IDrawable.h" />
-    <ClInclude Include="core\Box6F.h" />
     <ClInclude Include="systems\ControlSystem.h">
       <Filter>systems\Control</Filter>
     </ClInclude>
@@ -151,5 +134,16 @@
     </ClInclude>
     <ClInclude Include="geometry\PrimitiveFactory.h" />
     <ClInclude Include="geometry\VVMesh.h" />
+    <ClInclude Include="core\typedefs.h" />
+    <ClInclude Include="core\Vec3.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Vec2.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Rect4.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Box6.h" />
   </ItemGroup>
 </Project>

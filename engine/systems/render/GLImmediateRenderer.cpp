@@ -5,6 +5,7 @@
 #include <SDL_opengl.h>
 #include <boost/graph/adjacency_list.hpp>
 #include "GLImmediateRenderer.h"
+using namespace std;
 
 const int resolution = 30;
 const float arc = (float)(2 * M_PI / resolution);
@@ -14,11 +15,11 @@ GLImmediateRenderer::GLImmediateRenderer(bool flat, int width, int height) : _or
 	//SDL init
 	int rc; 
 	rc = SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	if (rc != 0) throw std::runtime_error("failed to init doublebuffering");
+	if (rc != 0) throw runtime_error("failed to init doublebuffering");
 	rc = SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); 
-	if (rc != 0) throw std::runtime_error("failed to init multisampling");
+	if (rc != 0) throw runtime_error("failed to init multisampling");
 	rc = SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
-	if (rc != 0) throw std::runtime_error("failed to init multisampling");
+	if (rc != 0) throw runtime_error("failed to init multisampling");
 
 	resize(width, height);
 }
@@ -84,59 +85,60 @@ void GLImmediateRenderer::begin_frame()
 void GLImmediateRenderer::end_frame()
 {
 	SDL_GL_SwapBuffers();
+	//glGetError()
 }
 
 
-void GLImmediateRenderer::begin_modelobject(Color4F brush, Vector3F position, Vector3F orientation)
+void GLImmediateRenderer::with_modeltransform(Color4F brush, Vec3<coord> position, Vec3<degrees> orientation, std::function<void(void)> f)
 {
 	glPushMatrix();
 
 	glTranslatef(position.x, position.y, 0.f);
 
+#if defined DOUBLE_PRECISION && 0	//no dp for rotation!
+	glRotated(orientation.x, 1.0, 0.0, 0.0);
+	glRotated(orientation.y, 0.0, 1.0, 0.0);
+	glRotated(orientation.z, 0.0, 0.0, 1.0);
+#else
 	glRotatef(orientation.x, 1.f, 0.f, 0.f);
 	glRotatef(orientation.y, 0.f, 1.f, 0.f);
 	glRotatef(orientation.z, 0.f, 0.f, 1.f);
+#endif
 
 	//brush
 	glColor4f(brush.red, brush.green, brush.blue, brush.alpha);
-}
 
-void GLImmediateRenderer::end_modelobject()
-{
+	f();
+
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::visit(FVMesh const* mesh, Color4F brush, Vector3F position, Vector3F orientation)
+void GLImmediateRenderer::visit(FVMesh const* mesh, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation)
 {
-	begin_modelobject(brush, position, orientation);
-	
-	//draw each face
+	with_modeltransform(brush, position, orientation, [=]
+	{
+		glBegin(GL_QUADS);
+			//cube_vertices(mesh);
+		glEnd();
 
-	
-	glBegin(GL_QUADS);
-		//cube_vertices(mesh);
-	glEnd();
-
-	glColor3f(1.f, 0.f, 0.f);
-	glBegin(GL_LINES);
-		//cube_vertices(mesh);
-	glEnd();
-
-	end_modelobject();
+		glColor3f(1.f, 0.f, 0.f);
+		glBegin(GL_LINES);
+			//cube_vertices(mesh);
+		glEnd();
+	});
 }
 
-void GLImmediateRenderer::visit(VVMesh const* mesh, Color4F brush, Vector3F position, Vector3F orientation)
+void GLImmediateRenderer::visit(VVMesh const* mesh, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation)
 {
-	begin_modelobject(brush, position, orientation);
-	
-	//calculate faces
-	//draw each face
-	glBegin(GL_TRIANGLES);
-	for (auto v : mesh->vertices)
+	with_modeltransform(brush, position, orientation, [=]
 	{
-		glVertex3f(v.x, v.y, v.z);
-	}
-	glEnd();
-
-	end_modelobject();
+		//calculate faces
+		//draw each face
+		glBegin(GL_TRIANGLES);
+		for (auto v : mesh->vertices)
+		{
+			glVertex3f(v.x, v.y, v.z);
+		}
+		glEnd();
+	});
 }

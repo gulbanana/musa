@@ -1,9 +1,10 @@
 #pragma once
 
-#include "core/Vector2F.h"
-#include "core/Vector3F.h"
-#include "core/Rect4F.h"
-#include "core/Box6F.h"
+#include "core/typedefs.h"
+#include "core/Vec2.h"
+#include "core/Vec3.h"
+#include "core/Rect4.h"
+#include "core/Box6.h"
 #include "core/Color4F.h"
 #include "core/Identified.h"
 #include "core/IComponent.h"

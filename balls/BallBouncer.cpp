@@ -65,7 +65,7 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 		auto angleOfCollision = targetPosition->location - position->location;
 		angleOfCollision.normalize();
 
-		velocity->vector = angleOfCollision * -1 * speed;
+		velocity->vector = angleOfCollision * (coord)-1 * speed;
 		//position->location = position->previous_location;
 		//targetPosition->location = targetPosition->previous_location;
 		return;

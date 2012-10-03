@@ -5,14 +5,14 @@ class CPosition : public Identified<IComponent, CMP::Position>
 {
 public:
 	//position data
-	Vector3F location;
-	Vector3F previous_location;
-	Vector3F orientation;
+	Vec3<coord> location;
+	Vec3<coord> previous_location;
+	Vec3<degrees> orientation;
 
 	//constructors
-	CPosition(float x, float y) : location(x,y,0.f), previous_location(x,y,0.f), orientation(0.f,0.f,0.f) {}
-	CPosition(float x, float y, float z) : location(x,y,z), previous_location(x,y,z), orientation(0.f,0.f,0.f) {}
-	CPosition(Vector3F location) : location(location), previous_location(location), orientation(0.f,0.f,0.f) {}
-	CPosition(Vector3F location, Vector3F orientation) : location(location), previous_location(location), orientation(orientation) {}
+	CPosition(coord x, coord y) : location(x,y,(coord)0.0), previous_location(x,y,(coord)0.0), orientation((degrees)0.0,(degrees)0.0,(degrees)0.0) {}
+	CPosition(coord x, coord y, coord z) : location(x,y,z), previous_location(x,y,z), orientation((degrees)0.0,(degrees)0.0,(degrees)0.0) {}
+	CPosition(Vec3<coord> location) : location(location), previous_location(location), orientation((degrees)0.0,(degrees)0.0,(degrees)0.0) {}
+	CPosition(Vec3<coord> location, Vec3<degrees> orientation) : location(location), previous_location(location), orientation(orientation) {}
 };
 

@@ -21,3 +21,4 @@ state - resizable view
 model loader
 linux port
 wizards game
+windows: sdl version which static links to msvcrt, maybe 2.0

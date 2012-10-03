@@ -1,10 +1,12 @@
 #pragma once
+#include <engine/core.h>
+
 class GameState
 {
 public:
     //metrics
-	unsigned last_frame;
-    unsigned last_frame_time;
+	milliseconds last_frame;
+    milliseconds last_frame_time;
     
     //control
 	bool shouldQuit;

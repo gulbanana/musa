@@ -5,12 +5,12 @@
 #include "Obstacle.h"
 using namespace std;
 
-Obstacle::Obstacle(Color4F color, Vector2F position, Vector3F rotation, bool solid)
+Obstacle::Obstacle(Color4F color, Vec2<coord> position, Vec3<degrees> rotation, bool solid)
 {
 	add_component(make_unique<CPosition>(position));
 	add_component(make_unique<CBrush>(color));
-	add_component(make_unique<CMesh>(PrimitiveFactory::create_prism(Box6F(-40.f, -60.f, -40.f, 40.f, 60.f, 40.f))));
-	add_component(make_unique<CVelocity>(Vector2F(), rotation));
+	add_component(make_unique<CMesh>(PrimitiveFactory::create_prism(Box6<coord>((coord)-40, (coord)-60, (coord)-40, (coord)40, (coord)60, (coord)40))));
+	add_component(make_unique<CVelocity>(Vec2<coord>(), rotation));
 
 	if (solid)
 	{

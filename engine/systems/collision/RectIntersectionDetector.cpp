@@ -9,8 +9,8 @@ bool RectIntersectionDetector::collide(std::shared_ptr<IEntity> source, std::sha
 	auto targetMesh = target->get_component<CMesh>();
 	auto targetPosition = target->get_component<CPosition>();
 
-	Rect4F sourceBounds = sourceMesh->geometry->bounds().slice() + sourcePosition->location.get2D();
-	Rect4F targetBounds = targetMesh->geometry->bounds().slice() + targetPosition->location.get2D();
+	Rect4<coord> sourceBounds = Rect4<coord>(sourceMesh->geometry->bounds()) + Vec2<coord>(sourcePosition->location);
+	Rect4<coord> targetBounds = Rect4<coord>(targetMesh->geometry->bounds()) + Vec2<coord>(targetPosition->location);
 
 	if (sourceBounds.intersects(targetBounds))
 	{

@@ -2,17 +2,17 @@
 #include "VVMesh.h"
 using namespace std;
 
-void VVMesh::accept(IRenderer* renderer, Color4F brush, Vector3F position, Vector3F orientation) const
+void VVMesh::accept(IRenderer* renderer, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) const
 { 
 	renderer->visit(this, brush, position, orientation); 
 }
 
-Box6F VVMesh::bounds() const
+Box6<coord> VVMesh::bounds() const
 {
 	return bounds_cache;
 }
 
-VVMesh::VVMesh(vector<VVMesh::Vertex>&& v) : vertices(v), bounds_cache(0.f, 0.f, 0.f, 0.f, 0.f, 0.f)
+VVMesh::VVMesh(vector<VVMesh::Vertex>&& v) : vertices(v), bounds_cache((coord)0, (coord)0, (coord)0, (coord)0, (coord)0, (coord)0)
 {
 	for (auto v : vertices)
 	{

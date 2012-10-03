@@ -5,8 +5,8 @@
 class BallBouncer : public Identified<ISystem,ISystem::ID::Logic>
 {
 private:
-	float _width;
-	float _height;
+	coord _width;
+	coord _height;
 	virtual void on_entity(std::shared_ptr<IEntity> entity) override;
 	virtual bool on_event(SDL_Event&) override;
 public:

@@ -7,19 +7,19 @@
 struct VVMesh : public IRenderable
 {
 	//data
-	struct Vertex : Vector3F
+	struct Vertex : Vec3<coord>
 	{
 		std::vector<int> adjacent;
-		Vertex(float x, float y, float z) : Vector3F(x, y, z), adjacent() {}
+		Vertex(coord x, coord y, coord z) : Vec3<coord>(x, y, z), adjacent() {}
 	};
 	std::vector<Vertex> vertices;
 
 	//api
 	VVMesh(std::vector<Vertex>&&);
-	void accept(IRenderer* renderer, Color4F brush, Vector3F position, Vector3F orientation) const override;
-	Box6F bounds() const override;
+	void accept(IRenderer* renderer, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) const override;
+	Box6<coord> bounds() const override;
 
 private:
-	Box6F bounds_cache;
+	Box6<coord> bounds_cache;
 };
 

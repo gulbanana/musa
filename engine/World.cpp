@@ -1,6 +1,7 @@
 #include <typeinfo>
 #include <ctime>
 #include <algorithm>
+#include <boost/serialization/strong_typedef.hpp>
 #include <SDL.h>
 #include "misc.h"
 #include "systems.h"

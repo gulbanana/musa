@@ -3,7 +3,7 @@
 #include "Ball.h"
 using namespace std;
 
-Ball::Ball(float radius, Color4F color, Vector2F position, Vector2F acceleration, bool solid)
+Ball::Ball(coord radius, Color4F color, Vec2<coord> position, Vec2<coord> acceleration, bool solid)
 {
 	add_component(make_unique<CLabel>("ball"));
 	add_component(make_unique<CBrush>(color));

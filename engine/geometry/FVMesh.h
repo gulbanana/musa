@@ -6,14 +6,14 @@
 //"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits. Triangular faces.
 struct FVMesh : public IRenderable
 {
-	std::vector<Vector3F> vertices;
+	std::vector<Vec3<coord>> vertices;
 	std::vector<int> faces;
-	std::vector<Vector2F> triangles;
+	std::vector<Vec2<coord>> triangles;
 
-	FVMesh(Vector3F vertexList[]) {}
+	FVMesh(Vec3<coord> vertexList[]) {}
     virtual ~FVMesh() {}
 
-	void accept(IRenderer* renderer, Color4F brush, Vector3F position, Vector3F orientation) const override;
-	Box6F bounds() const override;
+	void accept(IRenderer* renderer, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) const override;
+	Box6<coord> bounds() const override;
 };
 

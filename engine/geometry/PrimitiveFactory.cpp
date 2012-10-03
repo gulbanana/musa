@@ -4,7 +4,7 @@
 #include "VVMesh.h"
 using namespace std;
 
-unique_ptr<IRenderable> PrimitiveFactory::create_cube(float radius)
+unique_ptr<IRenderable> PrimitiveFactory::create_cube(coord radius)
 {
 	auto vertices = vector<VVMesh::Vertex>();
 
@@ -51,12 +51,12 @@ unique_ptr<IRenderable> PrimitiveFactory::create_cube(float radius)
 	return make_unique<VVMesh>(std::move(vertices));
 }
 
-unique_ptr<IRenderable> PrimitiveFactory::create_prism(Box6F bounds)
+unique_ptr<IRenderable> PrimitiveFactory::create_prism(Box6<coord> bounds)
 {
-	return create_cube(10.f);
+	return create_cube((coord)10.f);
 }
 
-unique_ptr<IRenderable> PrimitiveFactory::create_sphere(float radius)
+unique_ptr<IRenderable> PrimitiveFactory::create_sphere(coord radius)
 {
 	return create_cube(radius);
 		//XXX this is not correct

@@ -5,8 +5,8 @@
 class PrimitiveFactory
 {
 public:
-	static std::unique_ptr<IRenderable> create_sphere(float radius);
-	static std::unique_ptr<IRenderable> create_cube(float radius);
-	static std::unique_ptr<IRenderable> create_prism(Box6F bounds);
+	static std::unique_ptr<IRenderable> create_sphere(coord radius);
+	static std::unique_ptr<IRenderable> create_cube(coord radius);
+	static std::unique_ptr<IRenderable> create_prism(Box6<coord> bounds);
 };
 

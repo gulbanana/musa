@@ -178,7 +178,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="core\Rect4F.cpp" />
     <ClCompile Include="entities\DataDrivenEntity.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="geometry\FVMesh.cpp" />
@@ -190,8 +189,6 @@
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
     <ClCompile Include="systems\render\RenderSystem.cpp" />
     <ClCompile Include="systems\ui\UISystem.cpp" />
-    <ClCompile Include="core\Vector2F.cpp" />
-    <ClCompile Include="core\Vector3F.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
@@ -201,10 +198,11 @@
   <ItemGroup>
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="components\CBrush.h" />
-    <ClInclude Include="core\Box6F.h" />
+    <ClInclude Include="core\Box6.h" />
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CMesh.h" />
     <ClInclude Include="core\Identified.h" />
+    <ClInclude Include="core\typedefs.h" />
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="entities.h" />
     <ClInclude Include="entities\DataDrivenEntity.h" />
@@ -222,15 +220,15 @@
     <ClInclude Include="components\CLabel.h" />
     <ClInclude Include="systems\collision\ICollisionDetector.h" />
     <ClInclude Include="core\identifiable.h" />
-    <ClInclude Include="core\Rect4F.h" />
+    <ClInclude Include="core\Rect4.h" />
     <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="systems\render\RenderSystem.h" />
     <ClInclude Include="systems\ui\UISystem.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="core\IEntity.h" />
-    <ClInclude Include="core\Vector2F.h" />
-    <ClInclude Include="core\Vector3F.h" />
+    <ClInclude Include="core\Vec2.h" />
+    <ClInclude Include="core\Vec3.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="World.h" />
