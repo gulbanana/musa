@@ -1,7 +1,7 @@
 IMMINENT
 vvmesh
 correct 2d/3d projections - homogenous coordinates
-resizing, fullscreen, auto-fov
+fullscreen, auto-fov
 3d camera
 3d balls
 expand enums
