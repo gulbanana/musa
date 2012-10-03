@@ -22,7 +22,9 @@ RenderSystem::RenderSystem(unique_ptr<IRenderer> r) : _renderer(std::move(r)) {}
 
 bool RenderSystem::on_event(SDL_Event& event)
 {
-	//gl reset size or something
+	if (event.type == SDL_VIDEORESIZE)
+		_renderer->resize(event.resize.w, event.resize.h);
+	
 	return false;
 }
 

@@ -1,4 +1,5 @@
 #include <array>
+#include <algorithm>
 #include <vector>
 #include <engine/misc.h>
 #include <engine/components.h>
@@ -69,3 +70,24 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 	}
 }
 
+bool BallBouncer::on_event(SDL_Event& event)
+{
+	if (event.type == SDL_VIDEORESIZE)
+	{
+		_width = (float)event.resize.w;
+		_height = (float)event.resize.h;
+
+		for (auto weakentity : entities)
+		{
+			auto entity = weakentity.lock();
+			auto position = entity->get_component<CPosition>();
+			auto mesh = entity->get_component<CMesh>();
+			auto box = mesh->geometry->bounds();
+
+			position->location.x = min(position->location.x, _width - box.right());
+			position->location.y = min(position->location.y, _width - box.top());
+		}
+	}
+	
+	return false;
+}

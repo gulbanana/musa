@@ -27,13 +27,13 @@ T check(std::function<T()> sdlCall)
 }
 #pragma endregion
 
+
 #pragma region pimpl
 class WorldImpl
 {
 	static const unsigned maxFPS = 60;
 	static const unsigned minFPS = 15;
 
-	SDL_Surface* surface;
 	SDL_Event event;
 
 	shared_ptr<GameState> state;
@@ -66,26 +66,26 @@ WorldImpl::WorldImpl(const string title, int width, int height)
 	Uint32 flags = SDL_INIT_EVERYTHING;
 #endif
 
+
+
 	check([]{ return SDL_Init(SDL_INIT_EVERYTHING); });
 	SDL_WM_SetCaption(title.c_str(), nullptr);
-	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); });
-	check([]{ return SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); });
-	check([]{ return SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); });
-	surface = check<SDL_Surface*>([=]{ return SDL_SetVideoMode(width, height, 32, SDL_OPENGL | SDL_RESIZABLE); });
 
 	add_system(make_unique<ControlSystem>(state));
 	add_system(make_unique<MotionSystem>(state));
 	add_system(make_unique<CollisionSystem>());
 	add_system(
 		make_unique<RenderSystem>(
-			make_unique<GLImmediateRenderer>(width, height)
+			make_unique<GLImmediateRenderer>(true, width, height)
 		)
 	);
-	add_system(make_unique<UISystem>(state));
+	
 }
 
 void WorldImpl::play()
 {
+	add_system(make_unique<UISystem>(state)); //hack until we have system sorting, add this AFTER user systems
+
 	unsigned now, mspf, clamp;
 	mspf = 1000 / maxFPS;
 	clamp = 1000 / minFPS;
@@ -138,7 +138,8 @@ void WorldImpl::frame()
 {
 	while (SDL_PollEvent(&event))
 		for(auto& system : systems)
-			if (system->event(event)) break;
+			if (system->event(event)) 
+				break;
 
 	for(auto& system : systems)
 		system->frame();

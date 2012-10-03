@@ -60,4 +60,10 @@ unique_ptr<IRenderable> PrimitiveFactory::create_prism(Box6F bounds)
 unique_ptr<IRenderable> PrimitiveFactory::create_sphere(float radius)
 {
 	return create_cube(radius);
+		//XXX this is not correct
+	/*glBegin(GL_TRIANGLE_FAN);
+		glVertex2f(0.f, 0.f);
+		for (int i = 0; i <= resolution; i++)
+			glVertex2f(cos(i * arc) * mesh->radius, sin(i * arc) * mesh->radius);	
+	glEnd();*/
 }
