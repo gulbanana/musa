@@ -12,7 +12,7 @@ class GLImmediateRenderer : public IRenderer
 	void with_modeltransform(Vec3<coord> position, Vec3<degrees> orientation, std::function<void(void)>);
 
 public:
-	GLImmediateRenderer(int width, int height, bool orthographic, bool wireframe);
+	GLImmediateRenderer(bool orthographic, bool wireframe);
 	~GLImmediateRenderer();
 
 	virtual void resize(int width, int height) override;

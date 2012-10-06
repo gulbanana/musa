@@ -17,7 +17,7 @@ vector<SYS> RenderSystem::required_systems() const
 	return vector<SYS>(sysTypes.begin(), sysTypes.end());
 }
 
-RenderSystem::RenderSystem(unique_ptr<IRenderer> r) : _renderer(std::move(r)) {}
+RenderSystem::RenderSystem(shared_ptr<IRenderer> r) : _renderer(r) {}
 
 bool RenderSystem::on_event(SDL_Event& event)
 {

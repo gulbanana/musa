@@ -1,7 +1,8 @@
 #include <memory>
 #include <random>
 #include <ctime>
-#include <engine/World.h>
+#include <engine/Engine.h>
+#include <engine/Scene.h>
 #include <engine/misc.h>
 #include "Obstacle.h"
 #include "Ball.h"
@@ -14,23 +15,26 @@ using namespace std;
 #define WIDTH 1600
 #define HEIGHT 900
 
-void setup_world(World&);
+void setup_world(Scene&);
 
 extern "C"
 int main(int argc, char *argv[])
 {
-	auto game = World("balls!", WIDTH, HEIGHT);
-	setup_world(game);
+	_putenv("SDL_VIDEO_WINDOW_POS=center");
+	_putenv("SDL_VIDEO_CENTERED=1");
+
+	Scene level;
+	Engine game("balls!", WIDTH, HEIGHT);
+
+	game.load_scene(&level, make_unique<BallBouncer>(WIDTH, HEIGHT));
+	setup_world(level);
 	game.play();
 
 	return 0;
 }
 
-void setup_world(World& ballgame)
+void setup_world(Scene& ballgame)
 {
-	//special logic system
-	ballgame.add_system(make_unique<BallBouncer>(WIDTH, HEIGHT));
-	
 	//immobiles
 	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(300, 450), ROT(0,0,0)));
 	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(600, 450), ROT(45,90,0), false));

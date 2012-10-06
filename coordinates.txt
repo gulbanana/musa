@@ -1,0 +1,16 @@
+CAMERA SPACE
+coordinate system: pixels
+a camera is an XxY 2d frame. the main camera is either contained within a window, or fullscreen
+world space is *projected* to camera space according to its size, aspect ratio, FOV
+every time the camera needs to be reset, resize() is sent to the renderer
+
+WORLD SPACE
+coordinate system: units
+the world has X, Y, Z, and potentially W or T coordinates. 
+
+OBJECT SPACE
+coordinate system: units
+every entity has its own relative coordinates, without rotation or scaling, 
+and an origin in the centre. these are fixed, or rather they change only if
+the entity's state changes; the entity is projected from "modelobject" space
+to "world"s pace in order to display it

@@ -27,7 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="World.cpp" />
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
@@ -57,9 +56,10 @@
     <ClCompile Include="systems\CollisionSystem.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="World.h" />
     <ClInclude Include="components.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -145,5 +145,7 @@
     <ClInclude Include="systems\CollisionSystem.h">
       <Filter>systems\Collisions</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="Engine.h" />
   </ItemGroup>
 </Project>

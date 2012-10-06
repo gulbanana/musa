@@ -10,7 +10,7 @@ using namespace std;
 const int resolution = 30;
 const float arc = (float)(2 * M_PI / resolution);
 
-GLImmediateRenderer::GLImmediateRenderer(int width, int height, bool orthographic, bool wireframe) : _orthographic(orthographic), _wireframe(wireframe)
+GLImmediateRenderer::GLImmediateRenderer(bool orthographic, bool wireframe) : _orthographic(orthographic), _wireframe(wireframe)
 {
 	//SDL init
 	int rc; 
@@ -20,8 +20,6 @@ GLImmediateRenderer::GLImmediateRenderer(int width, int height, bool orthographi
 	if (rc != 0) throw runtime_error("failed to init multisampling");
 	rc = SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
 	if (rc != 0) throw runtime_error("failed to init multisampling");
-
-	resize(width, height);
 }
 
 

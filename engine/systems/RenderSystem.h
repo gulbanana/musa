@@ -5,7 +5,7 @@
 
 class RenderSystem : public Identified<ISystem,SYS::Render,EntityManagingSystemBase>
 {
-	std::unique_ptr<IRenderer> _renderer;
+	std::shared_ptr<IRenderer> _renderer;
 
 	void pre_frame() override;
 	void post_frame() override;
@@ -13,7 +13,7 @@ class RenderSystem : public Identified<ISystem,SYS::Render,EntityManagingSystemB
 	bool on_event(SDL_Event& event) override;
 
 public:
-	RenderSystem(std::unique_ptr<IRenderer>);
+	RenderSystem(std::shared_ptr<IRenderer>);
 
 	std::vector<IComponent::ID> required_components() const override;
 	virtual std::vector<ISystem::ID> required_systems() const override;
