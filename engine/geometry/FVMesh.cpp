@@ -28,9 +28,9 @@ void FVMesh::validate_mesh()
 	has_uv = uv_map.size() != 0;
 	has_normal = normal_map.size() != 0;
 
-	for (auto group : groups)
+	for (auto& group : groups)
 	{
-		for (auto face : group.faces)
+		for (auto& face : group.faces)
 		{
 			if (face.vertex_indices.size() != sides)
 				throw runtime_error("FVMesh: missing vertex indices for face");

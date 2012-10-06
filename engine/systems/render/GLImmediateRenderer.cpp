@@ -123,11 +123,11 @@ void GLImmediateRenderer::visit(FVMesh const* mesh, Vec3<coord> position, Vec3<d
 		else
 			throw runtime_error("FVMesh has erroneous sides per face");	//TODO: or just do nothing?
 
-		for (auto group : mesh->groups)
+		for (auto& group : mesh->groups)
 		{
 			group.brush->accept(this);
 
-			for (auto face : group.faces)
+			for (auto& face : group.faces)
 			{
 				for (auto index : face.vertex_indices)
 				{

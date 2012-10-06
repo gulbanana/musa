@@ -35,7 +35,7 @@ struct FVMesh : public IRenderable
 		std::shared_ptr<IMaterial> brush;
 		std::vector<Face> faces;
 
-		Group(std::shared_ptr<IMaterial> brush, std::vector<Face>&& faces) : brush(brush), faces(faces) {}
+		Group(std::shared_ptr<IMaterial> brush, std::vector<Face>&& faces) : brush(brush), faces(move(faces)) {}
 	};
 
 	std::vector<Group> groups;

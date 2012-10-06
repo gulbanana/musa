@@ -51,6 +51,11 @@ struct Vec3
 				   -v1.x * v2.z + v1.z * v2.x,
 					v1.x * v2.y - v1.y * v2.x);
 	}
+
+	static Vec3 midpoint(Vec3 const& v1, Vec3 const& v2)
+	{
+		return (v1 + v2) / (T)2.0;
+	}
 #pragma endregion
 
 #pragma region operators
@@ -61,6 +66,7 @@ struct Vec3
 
 	Vec3 operator *(T scalar) const { return Vec3(x * scalar, y * scalar, z * scalar); }
 	friend Vec3 operator *(T scalar, Vec3 const& other) { return Vec3(other.x * scalar, other.y * scalar, other.z * scalar); }
+	Vec3 operator /(T scalar) const { return Vec3(x / scalar, y / scalar, z / scalar); }
     
     Vec3& operator =(Vec3 const& other) { x = other.x; y = other.y; z = other.z; return *this; }
     Vec3& operator +=(Vec3 const& other) { x += other.x; y += other.y; z += other.z; return *this; }
@@ -69,5 +75,7 @@ struct Vec3
 
 	Vec3 operator +() const { return *this; }
 	Vec3 operator -() const { return Vec3(-x, -y, -z); }
+
+	bool operator ==(Vec3 const& other) const { return x == other.x && y == other.y && z == other.z; }
 #pragma endregion
 };
