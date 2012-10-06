@@ -4,12 +4,13 @@
 enum class CMP
 {
 	Acceleration,
-	Brush,
 	Label,
     Mesh,
 	Physics,
 	Position,
-	Velocity
+	Scene,
+	Velocity,
+	Last = Velocity
 };
 
 class IComponent : public Identifiable<CMP>

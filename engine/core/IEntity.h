@@ -7,9 +7,9 @@
 //	component pointers remain valid until destruction, so holding ownership of the entity means you can use a pointer acquired earlier
 class IEntity
 {
+public:
+	virtual ~IEntity() = 0;
 protected:
-	IEntity() {}
-
 	IDENTIFIABLE_COLLECTION(IComponent, component, components);
 };
 

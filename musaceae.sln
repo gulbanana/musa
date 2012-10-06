@@ -13,6 +13,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "guichan", "guichan\guichan.vcxproj", "{6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{D55B7620-0FED-4EBB-8888-9B7FCF3570F0}"
+	ProjectSection(SolutionItems) = preProject
+		doc\architecture.png = doc\architecture.png
+		coordinates.txt = coordinates.txt
+		doc\LICENSE.txt = doc\LICENSE.txt
+		doc\renderables.txt = doc\renderables.txt
+		doc\systems.txt = doc\systems.txt
+		doc\TODO.txt = doc\TODO.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

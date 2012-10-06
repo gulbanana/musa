@@ -1,5 +1,6 @@
 #include "geometry/IRenderable.h"
 #include "geometry/IRenderer.h"
-#include "geometry/VVMesh.h"
+#include "geometry/SpriteMesh.h"
 #include "geometry/FVMesh.h"
+#include "geometry/SolidColourBrush.h"
 #include "geometry/PrimitiveFactory.h"

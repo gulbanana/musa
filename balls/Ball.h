@@ -1,9 +1,9 @@
 #pragma once
-#include <engine/entities.h>
+#include <engine/scene.h>
 
-class Ball : public IEntity
+class Ball : public LeafNode
 {
 public:
-	Ball(coord radius, Color4F color, Vec2<coord> position, Vec2<coord> acceleration, bool solid = false);
+	Ball(coord radius, Colour4F color, Vec2<coord> position, Vec2<coord> acceleration, Vec3<degrees> rotation);
 };
 

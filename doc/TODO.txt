@@ -1,13 +1,16 @@
 IMMINENT
-vvmesh
 correct 2d/3d projections - homogenous coordinates
-fullscreen, auto-fov
+auto-fov
 3d camera
 3d balls
 expand enums
 
 EVENTUAL
-fvmesh, flat/sprite mesh
+fullscreen
+scene graph?
+wrangle gl extensions
+make collision detection pairwise
+flat/sprite mesh
 multithreaded systems
 dynamic system sort
 aabb collision detection 
@@ -17,8 +20,9 @@ gui/renderer - labels
 gui / control - add/subtract ball
 expiring entities
 state - controllable game clock
-state - resizable view
 model loader
+gl3/VBO renderer
 linux port
 wizards game
 windows: sdl version which static links to msvcrt, maybe 2.0
+windows: directx renderer

@@ -1,19 +1,88 @@
 #pragma once
 #include <vector>
+#include <array>
 #include <engine/core.h>
 #include "IRenderable.h"
+#include "IMaterial.h"
 
-//"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits. Triangular faces.
+//"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits. quad or tri faces.
 struct FVMesh : public IRenderable
 {
+	struct Face
+	{
+		std::vector<unsigned> vertex_indices;
+		std::vector<unsigned> uv_indices;
+		std::vector<unsigned> normal_indices;
+
+		Face(std::vector<unsigned>&& vertex_indices) : vertex_indices(vertex_indices) {}
+		Face(unsigned a, unsigned b, unsigned c) : vertex_indices()
+		{
+			vertex_indices.push_back(a);
+			vertex_indices.push_back(b);
+			vertex_indices.push_back(c);
+		}
+		Face(unsigned a, unsigned b, unsigned c, unsigned d) : vertex_indices()
+		{
+			vertex_indices.push_back(a);
+			vertex_indices.push_back(b);
+			vertex_indices.push_back(c);
+			vertex_indices.push_back(d);
+		}
+	};
+
+	struct Group
+	{
+		std::shared_ptr<IMaterial> brush;
+		std::vector<Face> faces;
+
+		Group(std::shared_ptr<IMaterial> brush, std::vector<Face>&& faces) : brush(brush), faces(faces) {}
+	};
+
+	std::vector<Group> groups;
 	std::vector<Vec3<coord>> vertices;
-	std::vector<int> faces;
-	std::vector<Vec2<coord>> triangles;
+	std::vector<Vec2<coord>> uv_map;
+	std::vector<Vec3<coord>> normal_map;
 
-	FVMesh(Vec3<coord> vertexList[]) {}
-    virtual ~FVMesh() {}
+	unsigned sides;
+	bool has_uv;
+	bool has_normal;
 
-	void accept(IRenderer* renderer, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) const override;
-	Box6<coord> bounds() const override;
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices) : 
+		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
+	{
+		validate_mesh();
+	}
+	FVMesh(unsigned sides, std::shared_ptr<IMaterial> brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices) : 
+		sides(sides), groups(), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
+	{
+		groups.emplace_back(std::forward<std::shared_ptr<IMaterial>>(brush), std::forward<std::vector<Face>>(faces));
+		validate_mesh();
+	}
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs) :
+		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(), _bounds_cache(calc_bounds())
+	{
+		validate_mesh();
+	}
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals) :
+		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(normals), _bounds_cache(calc_bounds())
+	{
+		validate_mesh();
+	}
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs, std::vector<Vec3<coord>>&& normals) :
+		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(normals), _bounds_cache(calc_bounds())
+	{
+		validate_mesh();
+	}
+
+	void accept(IRenderer* renderer, Vec3<coord> position, Vec3<degrees> orientation) const override
+	{ 
+		renderer->visit(this, position, orientation); 
+	}
+	Box6<coord> bounds() const override { return _bounds_cache; }
+	
+private:
+	Box6<coord> _bounds_cache;
+	Box6<coord> calc_bounds();
+	void validate_mesh();
 };
 

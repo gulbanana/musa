@@ -1,8 +1,10 @@
 #pragma once
 #include <engine/core.h>
 
-struct VVMesh;
+struct SpriteMesh;
 struct FVMesh;
+
+struct SolidColourBrush;
 
 class IRenderer
 {
@@ -14,7 +16,10 @@ public:
 	virtual void begin_frame() {}
 	virtual void end_frame() {}
 
-	//required operations
-	virtual void visit(VVMesh const*, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) = 0;
-	virtual void visit(FVMesh const*, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation) = 0;
+	//objects
+	virtual void visit(SpriteMesh const*, Vec3<coord> position, Vec3<degrees> orientation) = 0;
+	virtual void visit(FVMesh const*, Vec3<coord> position, Vec3<degrees> orientation) = 0;
+
+	//brushes
+	virtual void visit(SolidColourBrush const*) = 0;
 };

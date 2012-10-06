@@ -10,7 +10,7 @@ using namespace std;
 const int resolution = 30;
 const float arc = (float)(2 * M_PI / resolution);
 
-GLImmediateRenderer::GLImmediateRenderer(bool flat, int width, int height) : _orthographic(flat)
+GLImmediateRenderer::GLImmediateRenderer(bool orthographic, bool wireframe) : _orthographic(orthographic), _wireframe(wireframe)
 {
 	//SDL init
 	int rc; 
@@ -20,8 +20,6 @@ GLImmediateRenderer::GLImmediateRenderer(bool flat, int width, int height) : _or
 	if (rc != 0) throw runtime_error("failed to init multisampling");
 	rc = SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
 	if (rc != 0) throw runtime_error("failed to init multisampling");
-
-	resize(width, height);
 }
 
 
@@ -74,6 +72,9 @@ void GLImmediateRenderer::resize(int width, int height)
 		glMatrixMode(GL_MODELVIEW);				
 		glTranslatef(0.f, 0.f, centrePlane);	//move all objects to the 1=1 frustum slice
 	}
+
+	if (_wireframe)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 void GLImmediateRenderer::begin_frame()
@@ -89,7 +90,7 @@ void GLImmediateRenderer::end_frame()
 }
 
 
-void GLImmediateRenderer::with_modeltransform(Color4F brush, Vec3<coord> position, Vec3<degrees> orientation, std::function<void(void)> f)
+void GLImmediateRenderer::with_modeltransform(Vec3<coord> position, Vec3<degrees> orientation, std::function<void(void)> f)
 {
 	glPushMatrix();
 
@@ -105,44 +106,52 @@ void GLImmediateRenderer::with_modeltransform(Color4F brush, Vec3<coord> positio
 	glRotatef(orientation.z, 0.f, 0.f, 1.f);
 #endif
 
-	//brush
-	glColor4f(brush.red, brush.green, brush.blue, brush.alpha);
-
 	f();
 
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::visit(FVMesh const* mesh, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation)
+void GLImmediateRenderer::visit(FVMesh const* mesh, Vec3<coord> position, Vec3<degrees> orientation)
 {
-	with_modeltransform(brush, position, orientation, [=]
+	
+	with_modeltransform(position, orientation, [=]
 	{
-		glBegin(GL_QUADS);
-			//cube_vertices(mesh);
-		glEnd();
+		if (mesh->sides == 3)
+			glBegin(GL_TRIANGLES);
+		else if (mesh->sides == 4)
+			glBegin(GL_QUADS);
+		else
+			throw runtime_error("FVMesh has erroneous sides per face");	//TODO: or just do nothing?
 
-		glColor3f(1.f, 0.f, 0.f);
-		glBegin(GL_LINES);
-			//cube_vertices(mesh);
+		for (auto group : mesh->groups)
+		{
+			group.brush->accept(this);
+
+			for (auto face : group.faces)
+			{
+				for (auto index : face.vertex_indices)
+				{
+					#ifdef DOUBLE_PRECISION
+					glVertex3d(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
+					#else
+					glVertex3f(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
+					#endif
+				}
+			}
+		}
+
 		glEnd();
 	});
 }
 
-void GLImmediateRenderer::visit(VVMesh const* mesh, Color4F brush, Vec3<coord> position, Vec3<degrees> orientation)
+void GLImmediateRenderer::visit(SpriteMesh const* mesh, Vec3<coord> position, Vec3<degrees> orientation)
 {
-	with_modeltransform(brush, position, orientation, [=]
+	with_modeltransform(position, orientation, [=]
 	{
-		//calculate faces
-		//draw each face
-		glBegin(GL_QUADS);
-		for (auto v : mesh->vertices)
-		{
-#ifdef DOUBLE_PRECISION
-			glVertex3d(v.x, v.y, v.z);
-#else
-			glVertex3f(v.x, v.y, v.z);
-#endif
-		}
-		glEnd();
 	});
+}
+
+void GLImmediateRenderer::visit(SolidColourBrush const* brush)
+{
+	glColor4f(brush->colour.red, brush->colour.green, brush->colour.blue, brush->colour.alpha);
 }

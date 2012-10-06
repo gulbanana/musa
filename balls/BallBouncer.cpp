@@ -1,6 +1,7 @@
 #include <array>
 #include <algorithm>
 #include <vector>
+#include <iostream>
 #include <engine/misc.h>
 #include <engine/components.h>
 #include "BallBouncer.h"
@@ -56,9 +57,9 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 	}
 
 	//Bounce type #2: objects, reflect by angle of target
-	for (auto other : physics->collisions)
+	for (auto target : physics->collisions)
 	{		
-		auto targetPosition = other->get_component<CPosition>();
+		auto targetPosition = target->get_component<CPosition>();
 
 		//calculate angle of collision
 		auto speed = velocity->vector.length();
@@ -66,8 +67,46 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 		angleOfCollision.normalize();
 
 		velocity->vector = angleOfCollision * (coord)-1 * speed;
-		//position->location = position->previous_location;
-		//targetPosition->location = targetPosition->previous_location;
+
+		if (target->has_component<CVelocity>())
+		{
+			auto targetVelocity = target->get_component<CVelocity>();
+			auto targetSpeed = targetVelocity->vector.length();
+
+			//swap velocity
+			if (targetSpeed > (coord)0)
+			{
+				velocity->vector.normalize();
+				velocity->vector *= targetSpeed;
+
+				targetVelocity->vector.normalize();
+				targetVelocity->vector *= speed;
+			}
+			
+			//equalise velocity
+			/*if (targetSpeed > (coord)0)
+			{
+				auto speedDifference = (coord)(abs(speed - targetSpeed) / 2);
+
+				if (speed > targetSpeed)
+				{
+					velocity->vector.normalize();
+					targetVelocity->vector.normalize();
+					velocity->vector *= speed - speedDifference;
+					targetVelocity->vector *= targetSpeed + speedDifference;
+				}
+
+				if (targetSpeed > speed)
+				{
+					velocity->vector.normalize();
+					targetVelocity->vector.normalize();
+					velocity->vector *= speed + speedDifference;
+					targetVelocity->vector *= targetSpeed - speedDifference;
+				}
+			}*/
+			
+		}
+		
 		return;
 	}
 }
