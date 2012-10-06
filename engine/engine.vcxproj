@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components\CScene.h" />
+    <ClInclude Include="platform.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
     <ClInclude Include="scene\RootNode.h" />
     <ClInclude Include="scene\LeafNode.h" />

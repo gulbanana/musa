@@ -163,5 +163,6 @@
     <ClInclude Include="scene\RootNode.h" />
     <ClInclude Include="components\CScene.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
+    <ClInclude Include="platform.h" />
   </ItemGroup>
 </Project>
