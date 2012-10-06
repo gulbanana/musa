@@ -7,7 +7,7 @@ using namespace std;
 
 vector<CMP> RenderSystem::required_components() const 
 {
-	array<CMP,2> compTypes = {CMP::Position, CMP::Mesh};
+	array<CMP,1> compTypes = {CMP::Scene};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 
@@ -19,6 +19,11 @@ vector<SYS> RenderSystem::required_systems() const
 
 RenderSystem::RenderSystem(shared_ptr<IRenderer> r) : _renderer(r) {}
 
+void RenderSystem::add_entity(weak_ptr<IEntity> new_entity)
+{ 
+	_scene = static_pointer_cast<RootNode>(new_entity.lock()); 
+}
+
 bool RenderSystem::on_event(SDL_Event& event)
 {
 	if (event.type == SDL_VIDEORESIZE)
@@ -27,20 +32,27 @@ bool RenderSystem::on_event(SDL_Event& event)
 	return false;
 }
 
-void RenderSystem::pre_frame()
+void RenderSystem::on_frame()
 {
-	_renderer->begin_frame();
-}
+	auto graph = _scene.lock();
 
-void RenderSystem::post_frame()
-{
+	_renderer->begin_frame();
+	graph->accept(this);
 	_renderer->end_frame();
 }
 
-void RenderSystem::on_entity(shared_ptr<IEntity> entity)
+void RenderSystem::visit(BranchNode* node)
 {
-	auto position = entity->get_component<CPosition>();
-	auto mesh = entity->get_component<CMesh>();
-	
-	mesh->geometry->accept(_renderer.get(), position->location, position->orientation);
+	for (auto child : node->children)
+		child->accept(this);
+}
+
+void RenderSystem::visit(LeafNode* node)
+{
+	if (node->has_component<CMesh>())
+	{
+		auto mesh = node->get_component<CMesh>();
+		auto position = node->get_component<CPosition>();
+		mesh->geometry->accept(_renderer.get(), position->location, position->orientation);
+	}
 }

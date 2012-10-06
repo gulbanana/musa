@@ -11,6 +11,7 @@ class CScene : public Identified<IComponent, CMP::Scene>
 {
 public:
 	int flags;
+	//camera??
 
 	CScene() {}
 };

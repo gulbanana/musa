@@ -20,6 +20,7 @@ RootNode* EntityGraph::entity_tree()
 vector<shared_ptr<IEntity>> EntityGraph::entity_list()
 {
 	vector<shared_ptr<IEntity>> refs;
+	refs.push_back(_root);
 
 	LambdaWalker vecBuilder(
 		[](LeafNode*){}, 
