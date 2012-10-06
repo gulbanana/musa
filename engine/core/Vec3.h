@@ -2,6 +2,7 @@
 #include <cmath>
 #include <array>
 #include <cfloat>
+#include <engine/platform.h>
 template<typename T> class Vec2;
 
 template <typename T>
@@ -17,8 +18,9 @@ struct Vec3
 #pragma region utility
 	T length() const 
 	{ 
-		auto result = sqrt(x * x + y * y + z * z); 
-		if (_isnan(result)) return (T)0.0;
+		auto result = sqrt(x * x + y * y + z * z);
+        if (isnan(result)) return (T)0.0;
+        
 		else return (T)result;
 	}
 	void normalize()

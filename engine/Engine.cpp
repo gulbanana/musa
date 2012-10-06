@@ -75,7 +75,7 @@ void EngineImpl::load_scene(EntityGraph* level)
 	{
 		for (auto& system : systems)
 		{
-			auto& comps = system->required_components();
+			auto const& comps = system->required_components();
 			if (comps.size() == 0) continue;
 
 			auto matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)

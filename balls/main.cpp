@@ -4,6 +4,7 @@
 #include <engine/Engine.h>
 #include <engine/Scene.h>
 #include <engine/misc.h>
+#include <engine/platform.h>
 #include "Obstacle.h"
 #include "Ball.h"
 #include "BallBouncer.h"
@@ -12,7 +13,7 @@ using namespace std;
 #define LOC(x, y) Vec2<coord>((coord)(x), (coord)(y))
 #define VEL(x, y) Vec2<coord>((coord)(x), (coord)(y))
 #define ROT(x, y, z) Vec3<degrees>((degrees)(x), (degrees)(y), (degrees)(z))
-#define WIDTH 1600
+#define WIDTH 1200
 #define HEIGHT 800
 
 void setup_world(EntityGraph&);
@@ -20,8 +21,8 @@ void setup_world(EntityGraph&);
 extern "C"
 int main(int argc, char *argv[])
 {
-	_putenv("SDL_VIDEO_WINDOW_POS=center");
-	_putenv("SDL_VIDEO_CENTERED=1");
+	setenv("SDL_VIDEO_WINDOW_POS", "center", 1);
+	setenv("SDL_VIDEO_CENTERED", "1", 1);
 
 	EntityGraph level;
 	Engine game(make_unique<BallBouncer>(WIDTH, HEIGHT), "balls!", WIDTH, HEIGHT);
@@ -36,10 +37,10 @@ int main(int argc, char *argv[])
 void setup_world(EntityGraph& ballgame)
 {
 	//immobiles
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(300, 400), ROT(0,0,0)));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(600, 400), ROT(45,90,0), false));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(900, 400), ROT(0,0,0)));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(1200, 400), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(250, 400), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(500, 400), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(750, 400), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(1000, 400), ROT(45,90,0), false));
 
 	//fixed balls
 	ballgame.add_entity(make_unique<Ball>((coord)25, Colour4F::CYAN, LOC(100,100), VEL(100,-100), ROT(0,0,0)));

@@ -35,7 +35,7 @@ void FVMesh::validate_mesh()
 			if (face.vertex_indices.size() != sides)
 				throw runtime_error("FVMesh: missing vertex indices for face");
 			for (auto index : face.vertex_indices)
-				if (index < 0 || index >= vertices.size())
+				if (index >= vertices.size())
 					throw runtime_error("FVMesh: vertex index out of bounds");
 
 			if (has_uv)
@@ -43,7 +43,7 @@ void FVMesh::validate_mesh()
 				if (face.uv_indices.size() != sides)
 					throw runtime_error("FVMesh: missing UV indices for face");
 				for (auto index : face.uv_indices)
-					if (index < 0 || index >= uv_map.size())
+					if (index >= uv_map.size())
 						throw runtime_error("FVMesh: UV index out of bounds");
 			}
 
@@ -52,7 +52,7 @@ void FVMesh::validate_mesh()
 				if (face.normal_indices.size() != sides)
 					throw runtime_error("FVMesh: missing normal indices for face");
 								for (auto index : face.normal_indices)
-					if (index < 0 || index >= normal_map.size())
+					if (index >= normal_map.size())
 						throw runtime_error("FVMesh: normal index out of bounds");
 			}
 		}
