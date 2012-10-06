@@ -1,7 +1,6 @@
 #pragma once
 #include <engine/core.h>
 #include <engine/GameState.h>
-
 class UISystemImpl;
 
 class UISystem : public Identified<ISystem,SYS::UI>

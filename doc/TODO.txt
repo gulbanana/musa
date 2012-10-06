@@ -1,12 +1,14 @@
 IMMINENT
 correct 2d/3d projections - homogenous coordinates
-fullscreen, auto-fov
+auto-fov
 3d camera
 3d balls
 expand enums
 
 EVENTUAL
-improve mesh validation
+fullscreen
+scene graph?
+wrangle gl extensions
 make collision detection pairwise
 flat/sprite mesh
 multithreaded systems
@@ -19,6 +21,8 @@ gui / control - add/subtract ball
 expiring entities
 state - controllable game clock
 model loader
+gl3/VBO renderer
 linux port
 wizards game
 windows: sdl version which static links to msvcrt, maybe 2.0
+windows: directx renderer

@@ -1,7 +1,7 @@
 #pragma once
 
-template<typename T, typename T::ID cid>
-class Identified : public T
+template<typename T, typename T::ID cid, typename TBase = T>
+class Identified : public TBase
 {
 	virtual typename T::ID _id() const override { return cid; }
 public:

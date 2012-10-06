@@ -123,9 +123,9 @@ void WorldImpl::frame()
 {
 	while (SDL_PollEvent(&event))
 		for(auto& system : systems)
-			if (system->event(event)) 
+			if (system->on_event(event)) 
 				break;
 
 	for(auto& system : systems)
-		system->frame();
+		system->on_frame();
 }

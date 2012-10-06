@@ -20,7 +20,7 @@ vector<SYS> MotionSystem::required_systems() const
 
 MotionSystem::MotionSystem(shared_ptr<GameState> s) : state(s) {}
 
-void MotionSystem::on_frame()
+void MotionSystem::pre_frame()
 {
 	elapsedTime = state->last_frame_time / (seconds)1000.0;
 }

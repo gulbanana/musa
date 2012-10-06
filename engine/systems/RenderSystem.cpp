@@ -1,9 +1,8 @@
 #include <array>
 #include <iterator>
-#include <typeinfo>
+#include <SDL_opengl.h>
 #include <engine/components.h>
 #include "RenderSystem.h"
-#include <SDL_opengl.h>
 using namespace std;
 
 vector<CMP> RenderSystem::required_components() const 
@@ -28,12 +27,12 @@ bool RenderSystem::on_event(SDL_Event& event)
 	return false;
 }
 
-void RenderSystem::on_frame()
+void RenderSystem::pre_frame()
 {
 	_renderer->begin_frame();
 }
 
-void RenderSystem::on_post_frame()
+void RenderSystem::post_frame()
 {
 	_renderer->end_frame();
 }

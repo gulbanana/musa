@@ -8,7 +8,8 @@ enum class CMP
     Mesh,
 	Physics,
 	Position,
-	Velocity
+	Velocity,
+	Last = Velocity
 };
 
 class IComponent : public Identifiable<CMP>

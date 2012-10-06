@@ -28,9 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="World.cpp" />
-    <ClCompile Include="systems\collision\CollisionSystem.cpp">
-      <Filter>systems\Collisions</Filter>
-    </ClCompile>
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
@@ -38,26 +35,27 @@
       <Filter>systems\Control</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="systems\ui\UISystem.cpp">
-      <Filter>systems\Display</Filter>
-    </ClCompile>
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
-    <ClCompile Include="systems\render\RenderSystem.cpp">
-      <Filter>systems\Display</Filter>
-    </ClCompile>
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp">
       <Filter>systems\Movement</Filter>
     </ClCompile>
     <ClCompile Include="entities\DataDrivenEntity.cpp" />
-    <ClCompile Include="core\ISystem.cpp">
-      <Filter>systems</Filter>
-    </ClCompile>
     <ClCompile Include="geometry\PrimitiveFactory.cpp" />
     <ClCompile Include="geometry\FVMesh.cpp" />
     <ClCompile Include="geometry\SpriteMesh.cpp" />
     <ClCompile Include="core\Colour4F.cpp">
       <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
+    <ClCompile Include="systems\RenderSystem.cpp">
+      <Filter>systems\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\UISystem.cpp">
+      <Filter>systems\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\CollisionSystem.cpp">
+      <Filter>systems\Collisions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,17 +81,11 @@
     <ClInclude Include="systems\collision\RectIntersectionDetector.h">
       <Filter>systems\Collisions</Filter>
     </ClInclude>
-    <ClInclude Include="systems\collision\CollisionSystem.h">
-      <Filter>systems\Collisions</Filter>
-    </ClInclude>
     <ClInclude Include="gl\IDrawable.h" />
     <ClInclude Include="systems\ControlSystem.h">
       <Filter>systems\Control</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="systems\ui\UISystem.h">
-      <Filter>systems\Display</Filter>
-    </ClInclude>
     <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="core\Identified.h" />
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
@@ -108,9 +100,6 @@
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="geometry.h" />
-    <ClInclude Include="systems\render\RenderSystem.h">
-      <Filter>systems\Display</Filter>
-    </ClInclude>
     <ClInclude Include="components\CPosition.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -145,6 +134,16 @@
     <ClInclude Include="geometry\SolidColourBrush.h" />
     <ClInclude Include="core\Colour4F.h">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\EntityManagingSystemBase.h" />
+    <ClInclude Include="systems\RenderSystem.h">
+      <Filter>systems\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\UISystem.h">
+      <Filter>systems\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\CollisionSystem.h">
+      <Filter>systems\Collisions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

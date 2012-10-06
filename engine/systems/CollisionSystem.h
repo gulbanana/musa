@@ -1,14 +1,14 @@
 #pragma once
 #include <engine/core.h>
-#include "ICollisionDetector.h"
+#include "EntityManagingSystemBase.h"
+#include "collision/ICollisionDetector.h"
 
-class CollisionSystem : public Identified<ISystem,SYS::Collision>
+class CollisionSystem : public Identified<ISystem,SYS::Collision,EntityManagingSystemBase>
 {
-	//TODO: inject these?
-	std::vector<std::unique_ptr<ICollisionDetector>> detectors;
+	std::vector<std::unique_ptr<ICollisionDetector>> detectors;	//TODO: inject these?
 	std::vector<std::weak_ptr<IEntity>> targets;
 	
-	void on_frame() override;
+	void pre_frame() override;
 	void on_entity(std::shared_ptr<IEntity> entity) override;
 
 public:
