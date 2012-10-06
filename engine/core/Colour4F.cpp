@@ -1,4 +1,5 @@
 #include "Colour4F.h"
+using namespace std;
 
 const Colour4F Colour4F::RED = Colour4F(1.f, 0.f, 0.f);
 const Colour4F Colour4F::GREEN = Colour4F(0.f, 1.f, 0.f);
@@ -21,4 +22,13 @@ Colour4F::Colour4F(unsigned char r, unsigned char g, unsigned char b, unsigned c
 	green = float(g)/255.f;
 	blue = float(b)/255.f;
 	alpha = float(a)/255.f;
+}
+
+string to_string(Colour4F c)
+{
+		return string("(") +
+		to_string(c.red) + "|" +
+		to_string(c.green) + "|" +
+		to_string(c.blue) + "|" +
+		to_string(c.alpha) + ")";
 }

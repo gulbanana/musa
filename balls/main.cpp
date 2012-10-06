@@ -46,7 +46,7 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	//immobiles
 	auto whitePaint = ballpit.load_brush(Colour4F::WHITE);
 	auto shape = Box6<coord>((coord)-40, (coord)-60, (coord)-40, (coord)40, (coord)60, (coord)40);
-	auto box = ballpit.load_primitive(whitePaint, Primitive::Prism, &shape);
+	auto box = ballpit.load_primitive((SolidColourBrush*)whitePaint, Primitive::Prism, &shape);
 
 	ballgame.add_entity(make_unique<Obstacle>(box, LOC(250, 400), ROT(0,0,0)));
 	ballgame.add_entity(make_unique<Obstacle>(box, LOC(500, 400), ROT(45,90,0), false));
@@ -55,14 +55,14 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 
 	//fixed balls
 	auto big = (coord)35;
-	auto bigBall = [&](Colour4F c){ return ballpit.load_primitive(ballpit.load_brush(c), Primitive::Sphere, &big); };
+	auto bigBall = [&](Colour4F c){ return ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(c), Primitive::Sphere, &big); };
 	ballgame.add_entity(make_unique<Ball>(bigBall(Colour4F::CYAN), LOC(100,100), VEL(100,-100), ROT(0,0,0)));
 	ballgame.add_entity(make_unique<Ball>(bigBall(Colour4F::MAGENTA), LOC(580,300), VEL(100,100), ROT(0,0,0)));
 	ballgame.add_entity(make_unique<Ball>(bigBall(Colour4F::YELLOW), LOC(260,500), VEL(-100,100), ROT(0,0,0)));
 	
 	//random balls
 	auto small = (coord)15;
-	auto smallGreenBall = ballpit.load_primitive(ballpit.load_brush(Colour4F(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &small);
+	auto smallGreenBall = ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(Colour4F(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &small);
 
 	for (int i = 0; i < 40; i++) {
 		ballgame.add_entity(

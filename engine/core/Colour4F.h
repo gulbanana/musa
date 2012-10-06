@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <stdint.h>
 
 class Colour4F
@@ -23,3 +24,5 @@ public:
 	static const Colour4F WHITE;
 	static const Colour4F TRANSLUCENT;
 };
+
+std::string to_string(Colour4F);
