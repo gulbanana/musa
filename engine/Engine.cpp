@@ -29,6 +29,7 @@ public:
 };
 
 Engine::Engine(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight) : _pimpl(new EngineImpl(move(logic), title, initialWidth, initialHeight)) {}
+Engine::~Engine() { delete _pimpl; }
 void Engine::load_scene(EntityGraph* level) { _pimpl->load_scene(level); }
 void Engine::play() { _pimpl->play(); }
 #pragma endregion

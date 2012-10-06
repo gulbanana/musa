@@ -5,7 +5,7 @@ enum class CMP
 {
 	Acceleration,
 	Label,
-    Mesh,
+    Node,
 	Physics,
 	Position,
 	Scene,

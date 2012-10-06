@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <string>
 #include "boost/operators.hpp"
 
 // 'strong' typedefs are not convertible implicitly to their 'base' type,
@@ -29,7 +30,7 @@
         D operator/(D const& rhs) const { return D(t / rhs.t); }         \
         D operator-() const { return D(-t); }                            \
         D operator+() const { return D(t); }                             \
-    };
+    };                                                                   
 #else
     #define CHECKED_TYPEDEF(T, D) typedef T D;
 #endif

@@ -5,14 +5,13 @@
 #include "FVMesh.h"
 using namespace std;
 
-PrimitiveFactory::PrimitiveFactory(shared_ptr<IMaterial> brush) : _brush(brush) {}
 
-unique_ptr<IRenderable> PrimitiveFactory::create_cube(coord radius)
+unique_ptr<IRenderable> PrimitiveFactory::create_cube(IMaterial* brush, coord radius)
 {
-	return create_prism(Box6<coord>(-radius, -radius, -radius, radius, radius, radius));
+	return create_prism(brush, Box6<coord>(-radius, -radius, -radius, radius, radius, radius));
 }
 
-unique_ptr<IRenderable> PrimitiveFactory::create_prism(Box6<coord> bounds)
+unique_ptr<IRenderable> PrimitiveFactory::create_prism(IMaterial* brush, Box6<coord> bounds)
 {
 	vector<Vec3<coord>> vertices;
 	vertices.emplace_back(bounds.left(), bounds.bottom(), bounds.back());
@@ -32,10 +31,10 @@ unique_ptr<IRenderable> PrimitiveFactory::create_prism(Box6<coord> bounds)
 	quads.emplace_back(3,2,6,7);	//top
 	quads.emplace_back(4,5,6,7);	//front
 
-	return make_unique<FVMesh>(4, _brush, std::move(quads), std::move(vertices));
+	return make_unique<FVMesh>(4, brush, std::move(quads), std::move(vertices));
 }
 
-unique_ptr<IRenderable> PrimitiveFactory::create_sphere(coord radius, int refinements)
+unique_ptr<IRenderable> PrimitiveFactory::create_sphere(IMaterial* brush, coord radius, int refinements)
 {
 	//generate initial icosahedron
 	auto t = (coord)((1.0 + sqrt(5.0)) / 2.0);
@@ -131,5 +130,5 @@ unique_ptr<IRenderable> PrimitiveFactory::create_sphere(coord radius, int refine
 		triangles = newFaces;
 	}
 
-	return make_unique<FVMesh>(3, _brush, std::move(triangles), std::move(vertices));
+	return make_unique<FVMesh>(3, brush, std::move(triangles), std::move(vertices));
 }

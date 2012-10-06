@@ -5,12 +5,9 @@
 
 class PrimitiveFactory
 {
-	std::shared_ptr<IMaterial> _brush;
-
 public:
-	PrimitiveFactory(std::shared_ptr<IMaterial> brush);
-	std::unique_ptr<IRenderable> create_sphere(coord radius, int refinements = 3);
-	std::unique_ptr<IRenderable> create_cube(coord radius);
-	std::unique_ptr<IRenderable> create_prism(Box6<coord> bounds);
+	static std::unique_ptr<IRenderable> create_sphere(IMaterial* brush, coord radius, int refinements = 3);
+	static std::unique_ptr<IRenderable> create_cube(IMaterial* brush, coord radius);
+	static std::unique_ptr<IRenderable> create_prism(IMaterial* brush, Box6<coord> bounds);
 };
 

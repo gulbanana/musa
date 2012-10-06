@@ -32,10 +32,10 @@ struct FVMesh : public IRenderable
 
 	struct Group
 	{
-		std::shared_ptr<IMaterial> brush;
+		IMaterial* brush;
 		std::vector<Face> faces;
 
-		Group(std::shared_ptr<IMaterial> brush, std::vector<Face>&& faces) : brush(brush), faces(move(faces)) {}
+		Group(IMaterial* brush, std::vector<Face>&& faces) : brush(brush), faces(move(faces)) {}
 	};
 
 	std::vector<Group> groups;
@@ -52,10 +52,10 @@ struct FVMesh : public IRenderable
 	{
 		validate_mesh();
 	}
-	FVMesh(unsigned sides, std::shared_ptr<IMaterial> brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices) : 
+	FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices) : 
 		sides(sides), groups(), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
 	{
-		groups.emplace_back(std::forward<std::shared_ptr<IMaterial>>(brush), std::forward<std::vector<Face>>(faces));
+		groups.emplace_back(brush, std::forward<std::vector<Face>>(faces));
 		validate_mesh();
 	}
 	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs) :

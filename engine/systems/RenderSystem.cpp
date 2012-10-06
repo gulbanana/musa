@@ -41,18 +41,18 @@ void RenderSystem::on_frame()
 	_renderer->end_frame();
 }
 
-void RenderSystem::visit(BranchNode* node)
+void RenderSystem::visit(BranchNode* entity)
 {
-	for (auto child : node->children)
+	for (auto child : entity->children)
 		child->accept(this);
 }
 
-void RenderSystem::visit(LeafNode* node)
+void RenderSystem::visit(LeafNode* entity)
 {
-	if (node->has_component<CMesh>())
+	if (entity->has_component<CNode>())
 	{
-		auto mesh = node->get_component<CMesh>();
-		auto position = node->get_component<CPosition>();
-		mesh->geometry->accept(_renderer.get(), position->location, position->orientation);
+		auto renderNode = entity->get_component<CNode>();
+		auto position = entity->get_component<CPosition>();
+		renderNode->geometry->accept(_renderer.get(), position->location, position->orientation);
 	}
 }

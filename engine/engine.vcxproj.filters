@@ -66,6 +66,7 @@
     <ClCompile Include="core\ISystem.cpp" />
     <ClCompile Include="scene\IGraphNode.cpp" />
     <ClCompile Include="scene\IGraphWalker.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -97,7 +98,6 @@
     <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="core\Identified.h" />
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
-    <ClInclude Include="components\CMesh.h" />
     <ClInclude Include="components\CVelocity.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -164,5 +164,7 @@
     <ClInclude Include="components\CScene.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
     <ClInclude Include="platform.h" />
+    <ClInclude Include="components\CNode.h" />
+    <ClInclude Include="ResourceManager.h" />
   </ItemGroup>
 </Project>

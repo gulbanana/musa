@@ -182,6 +182,7 @@
     <ClCompile Include="core\ISystem.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="entities\DataDrivenEntity.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="scene\BranchNode.cpp" />
     <ClCompile Include="scene\IGraphNode.cpp" />
     <ClCompile Include="scene\IGraphWalker.cpp" />
@@ -207,6 +208,7 @@
   <ItemGroup>
     <ClInclude Include="components\CScene.h" />
     <ClInclude Include="platform.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
     <ClInclude Include="scene\RootNode.h" />
     <ClInclude Include="scene\LeafNode.h" />
@@ -214,7 +216,7 @@
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="core\Box6.h" />
     <ClInclude Include="components\CPhysics.h" />
-    <ClInclude Include="components\CMesh.h" />
+    <ClInclude Include="components\CNode.h" />
     <ClInclude Include="scene\IGraphNode.h" />
     <ClInclude Include="scene\IGraphWalker.h" />
     <ClInclude Include="core\Identified.h" />

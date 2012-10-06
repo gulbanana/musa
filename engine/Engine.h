@@ -13,6 +13,7 @@ class Engine
 
 public:
 	Engine(std::unique_ptr<ISystem>&& logic, std::string title, int width, int height);
+	~Engine();
 
 	void play();
 	void load_scene(EntityGraph* level);

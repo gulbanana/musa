@@ -9,7 +9,7 @@ using namespace std;
 
 vector<IComponent::ID> BallBouncer::required_components() const
 {
-	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Position, CMP::Mesh};
+	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Position, CMP::Node};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 
@@ -28,7 +28,7 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 
 	auto position = entity->get_component<CPosition>();
 	auto velocity = entity->get_component<CVelocity>();
-	auto mesh = entity->get_component<CMesh>();
+	auto mesh = entity->get_component<CNode>();
 
 	//Bounce type #1: walls, reflect by component inversion
 	auto sourceBox = mesh->geometry->bounds();
@@ -122,7 +122,7 @@ bool BallBouncer::on_event(SDL_Event& event)
 		{
 			auto entity = weakentity.lock();
 			auto position = entity->get_component<CPosition>();
-			auto mesh = entity->get_component<CMesh>();
+			auto mesh = entity->get_component<CNode>();
 			auto box = mesh->geometry->bounds();
 
 			position->location.x = min(position->location.x, _width - box.right());

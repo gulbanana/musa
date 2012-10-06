@@ -42,3 +42,15 @@ struct Box6
 	Box6 operator-(Vec3<T> const& p) const { return Box6(x1 - p.x, y1 - p.y, z1 - p.z, x2 - p.x, y2 - p.y, z2 - p.z); }
 #pragma endregion
 };
+
+template<typename T>
+std::string to_string(Box6<T> box)
+{
+	return std::string("{") +
+		to_string(box.x1) + "," +
+		to_string(box.y1) + "," +
+		to_string(box.z1) + "},{" +
+		to_string(box.x2) + "," +
+		to_string(box.y2) + "," +
+		to_string(box.z2) + "}";
+}
