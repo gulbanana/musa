@@ -48,6 +48,8 @@
 		E58E6018162069EB00EB3F0D /* IEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E58E6017162069EB00EB3F0D /* IEntity.cpp */; };
 		E58E601B162069F300EB3F0D /* EntityManagingSystemBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E58E6019162069F300EB3F0D /* EntityManagingSystemBase.cpp */; };
 		E58E601C162069F300EB3F0D /* EntityManagingSystemBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E58E601A162069F300EB3F0D /* EntityManagingSystemBase.h */; };
+		E58E601F1620B5C300EB3F0D /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */; };
+		E58E60201620B5C300EB3F0D /* ResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E58E601E1620B5C300EB3F0D /* ResourceManager.h */; };
 		E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* SDLMain.m */; };
 		E5BE5C7C161862440095BE77 /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */; };
 		E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C7D161863A60095BE77 /* SDLApplication.h */; };
@@ -124,6 +126,8 @@
 		E58E6017162069EB00EB3F0D /* IEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IEntity.cpp; sourceTree = "<group>"; };
 		E58E6019162069F300EB3F0D /* EntityManagingSystemBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityManagingSystemBase.cpp; sourceTree = "<group>"; };
 		E58E601A162069F300EB3F0D /* EntityManagingSystemBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManagingSystemBase.h; sourceTree = "<group>"; };
+		E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		E58E601E1620B5C300EB3F0D /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		E5A63C0E1618492B0007CDB1 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		E5A63C0F1618492B0007CDB1 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		E5BE5C7D161863A60095BE77 /* SDLApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLApplication.h; sourceTree = "<group>"; };
@@ -220,27 +224,29 @@
 		E5DDE4461618242E008179BF = {
 			isa = PBXGroup;
 			children = (
-				E58E60151620673D00EB3F0D /* platform.h */,
 				E58E6005162065C900EB3F0D /* Engine.cpp */,
-				E58E6006162065C900EB3F0D /* Engine.h */,
-				E58E5FE8162065B800EB3F0D /* scene */,
-				E58E5FE5162065A300EB3F0D /* scene.h */,
-				E5A63C09161849030007CDB1 /* mac */,
-				E5DDE49416182B7A008179BF /* components */,
-				E5DDE49D16182B7A008179BF /* components.h */,
-				E5DDE49E16182B7A008179BF /* core */,
-				E5DDE4B016182B7A008179BF /* core.h */,
-				E5DDE4B616182B7A008179BF /* entities */,
-				E5DDE4BA16182B7A008179BF /* entities.h */,
 				E5DDE4BB16182B7A008179BF /* GameState.cpp */,
+				E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */,
+				E5DDE49D16182B7A008179BF /* components.h */,
+				E5DDE4B016182B7A008179BF /* core.h */,
+				E58E6006162065C900EB3F0D /* Engine.h */,
+				E5DDE4BA16182B7A008179BF /* entities.h */,
 				E5DDE4BC16182B7A008179BF /* GameState.h */,
-				E5DDE4C716182B7A008179BF /* misc.h */,
-				E5DDE4C816182B7A008179BF /* systems */,
-				E5DDE4DE16182B7A008179BF /* systems.h */,
 				E5EE0F06161A32BA008B9D2E /* geometry.h */,
-				E5EE0EF3161A32AE008B9D2E /* geometry */,
+				E5DDE4C716182B7A008179BF /* misc.h */,
+				E58E60151620673D00EB3F0D /* platform.h */,
+				E58E601E1620B5C300EB3F0D /* ResourceManager.h */,
+				E58E5FE5162065A300EB3F0D /* scene.h */,
+				E5DDE4DE16182B7A008179BF /* systems.h */,
+				E5DDE49416182B7A008179BF /* components */,
+				E5DDE49E16182B7A008179BF /* core */,
+				E5DDE4B616182B7A008179BF /* entities */,
 				E5DDE4531618242E008179BF /* Frameworks */,
+				E5EE0EF3161A32AE008B9D2E /* geometry */,
+				E5A63C09161849030007CDB1 /* mac */,
 				E5DDE4521618242E008179BF /* Products */,
+				E58E5FE8162065B800EB3F0D /* scene */,
+				E5DDE4C816182B7A008179BF /* systems */,
 			);
 			sourceTree = "<group>";
 		};
@@ -425,6 +431,7 @@
 				E58E6014162065ED00EB3F0D /* SpriteMesh.h in Headers */,
 				E58E60161620673D00EB3F0D /* platform.h in Headers */,
 				E58E601C162069F300EB3F0D /* EntityManagingSystemBase.h in Headers */,
+				E58E60201620B5C300EB3F0D /* ResourceManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +513,7 @@
 				E58E6013162065ED00EB3F0D /* SpriteMesh.cpp in Sources */,
 				E58E6018162069EB00EB3F0D /* IEntity.cpp in Sources */,
 				E58E601B162069F300EB3F0D /* EntityManagingSystemBase.cpp in Sources */,
+				E58E601F1620B5C300EB3F0D /* ResourceManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +537,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					_DEBUG,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -543,6 +552,10 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-wlambda-extensions",
+				);
 				SDKROOT = macosx10.7;
 			};
 			name = Debug;
@@ -572,6 +585,10 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-wlambda-extensions",
+				);
 				SDKROOT = macosx10.7;
 			};
 			name = Release;

@@ -7,7 +7,7 @@
 // providing a typesafe notion of "units"
 // boost::strong_typedef exists, but its use case is function overloading
 // and it does not provide arithmetic where typeof(D + D) == typeof(D)
-#ifdef _DEBUG
+#ifdef _DEBUG 
     #define CHECKED_TYPEDEF(T, D)                                        \
     struct D : boost::totally_ordered1<D, boost::totally_ordered2<D, T>> \
     {                                                                    \

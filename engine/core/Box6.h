@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Vec3.h"
 
 template<typename T>
@@ -47,10 +48,10 @@ template<typename T>
 std::string to_string(Box6<T> box)
 {
 	return std::string("{") +
-		to_string(box.x1) + "," +
-		to_string(box.y1) + "," +
-		to_string(box.z1) + "},{" +
-		to_string(box.x2) + "," +
-		to_string(box.y2) + "," +
-		to_string(box.z2) + "}";
+    std::to_string(box.x1) + "," +
+	std::to_string(box.y1) + "," +
+	std::to_string(box.z1) + "},{" +
+	std::to_string(box.x2) + "," +
+	std::to_string(box.y2) + "," +
+    std::to_string(box.z2) + "}";
 }
