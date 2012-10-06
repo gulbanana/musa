@@ -24,10 +24,10 @@ int main(int argc, char *argv[])
 	_putenv("SDL_VIDEO_CENTERED=1");
 
 	Scene level;
-	Engine game("balls!", WIDTH, HEIGHT);
+	Engine game(make_unique<BallBouncer>(WIDTH, HEIGHT), "balls!", WIDTH, HEIGHT);
 
-	game.load_scene(&level, make_unique<BallBouncer>(WIDTH, HEIGHT));
 	setup_world(level);
+	game.load_scene(&level);
 	game.play();
 
 	return 0;

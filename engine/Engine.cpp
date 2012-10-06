@@ -15,22 +15,25 @@ class EngineImpl
 	static const unsigned maxFPS = 60;
 	static const unsigned minFPS = 15;
 
+	vector<unique_ptr<ISystem>> systems;
+
 	shared_ptr<GameState> _state;
 	shared_ptr<IRenderer> _renderer;
-	Scene* _level;
 	
 public:
-	EngineImpl(const string title, int initialWidth, int initialHeight);
-	void load_scene(Scene* level, std::unique_ptr<ISystem>&& logic);
+	EngineImpl(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight);
+	void load_scene(Scene* level);
 	void play();
+	void frame();
+	void add_system(unique_ptr<ISystem>&& system);
 };
 
-Engine::Engine(const string title, int initialWidth, int initialHeight) : _pimpl(new EngineImpl(title, initialWidth, initialHeight)) {}
-void Engine::load_scene(Scene* level, std::unique_ptr<ISystem>&& logic) { _pimpl->load_scene(level, move(logic)); }
+Engine::Engine(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight) : _pimpl(new EngineImpl(move(logic), title, initialWidth, initialHeight)) {}
+void Engine::load_scene(Scene* level) { _pimpl->load_scene(level); }
 void Engine::play() { _pimpl->play(); }
 #pragma endregion
 
-EngineImpl::EngineImpl(const string title, int initialWidth, int initialHeight)
+EngineImpl::EngineImpl(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight)
 	: _state(make_shared<GameState>())
 {
 	
@@ -51,18 +54,39 @@ EngineImpl::EngineImpl(const string title, int initialWidth, int initialHeight)
 
 	_renderer = make_unique<GLImmediateRenderer>(true, true);
 	_renderer->resize(initialWidth, initialHeight);
+
+	add_system(make_unique<ControlSystem>(_state));
+	add_system(make_unique<MotionSystem>(_state));
+	add_system(make_unique<CollisionSystem>());
+	add_system(make_unique<RenderSystem>(_renderer));
+	add_system(move(logic));
+	add_system(make_unique<UISystem>(_state));
 }
 
-void EngineImpl::load_scene(Scene* level, std::unique_ptr<ISystem>&& logic)
+void EngineImpl::add_system(unique_ptr<ISystem>&& system)
 {
-	_level = level;
+	systems.push_back(move(system));
+	//sort(begin(systems), end(systems));
+}
 
-	_level->add_system(make_unique<ControlSystem>(_state));
-	_level->add_system(make_unique<MotionSystem>(_state));
-	_level->add_system(make_unique<CollisionSystem>());
-	_level->add_system(make_unique<RenderSystem>(_renderer));
-	_level->add_system(move(logic));
-	_level->add_system(make_unique<UISystem>(_state));
+void EngineImpl::load_scene(Scene* level)
+{
+	for (auto& entity : level->entities())
+	{
+		for (auto& system : systems)
+		{
+			auto& comps = system->required_components();
+			if (comps.size() == 0) continue;
+
+			auto matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
+			{
+				return entity.lock()->has_component(requirement);
+			});
+
+			if (matches == comps.size())
+				system->add_entity(entity);
+		}
+	}
 }
 
 void EngineImpl::play()
@@ -75,7 +99,7 @@ void EngineImpl::play()
 	
 	while (!_state->shouldQuit)
 	{
-		_level->frame();
+		frame();
         
         now = SDL_GetTicks();
         _state->last_frame_time = min(now - _state->last_frame, clamp);
@@ -86,4 +110,17 @@ void EngineImpl::play()
 	}
 
 	SDL_Quit();
+}
+
+void EngineImpl::frame()
+{
+	SDL_Event event;
+
+	while (SDL_PollEvent(&event))
+		for(auto& system : systems)
+			if (system->on_event(event)) 
+				break;
+
+	for(auto& system : systems)
+		system->on_frame();
 }

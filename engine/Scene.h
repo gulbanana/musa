@@ -6,12 +6,14 @@ class SceneImpl;
 
 class Scene
 {
-	SceneImpl* _pimpl;
+	std::vector<std::shared_ptr<IEntity>> _nodes;
 
 public:
 	Scene();
 
+	//adds a node to the scene graph
 	void add_entity(std::shared_ptr<IEntity> entity);
-	void add_system(std::unique_ptr<ISystem>&& system);
-	void frame();
+
+	//returns a "flat" copy of the scene graph in traversal order
+	std::vector<std::weak_ptr<IEntity>> entities();
 };

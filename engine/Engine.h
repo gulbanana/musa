@@ -12,10 +12,10 @@ class Engine
 	EngineImpl* _pimpl;
 
 public:
-	Engine(std::string title, int width, int height);
+	Engine(std::unique_ptr<ISystem>&& logic, std::string title, int width, int height);
 
 	void play();
-	void load_scene(Scene* level, std::unique_ptr<ISystem>&& logic);
+	void load_scene(Scene* level);
 };
 
 #define main SDL_main

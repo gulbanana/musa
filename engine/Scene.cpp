@@ -3,65 +3,19 @@
 #include "Scene.h"
 using namespace std;
 
-#pragma region pimpl
-class SceneImpl
+Scene::Scene() : _nodes() {}
+
+void Scene::add_entity(shared_ptr<IEntity> entity)
 {
-	vector<unique_ptr<ISystem>> systems;
-	vector<shared_ptr<IEntity>> entities;
-
-public:
-	SceneImpl();
-
-	void add_entity(shared_ptr<IEntity> entity);
-	void add_system(unique_ptr<ISystem>&& system);
-	void frame();
-};
-
-Scene::Scene() : _pimpl(new SceneImpl()) {}
-void Scene::add_entity(shared_ptr<IEntity> entity) { _pimpl->add_entity(entity); }
-void Scene::add_system(unique_ptr<ISystem>&& system) { _pimpl->add_system(move(system)); }
-void Scene::frame() { _pimpl->frame(); }
-#pragma endregion
-
-SceneImpl::SceneImpl() : entities(), systems()
-{
+	_nodes.push_back(entity);
 }
 
-void SceneImpl::add_entity(shared_ptr<IEntity> entity)
+vector<weak_ptr<IEntity>> Scene::entities()
 {
-	entities.push_back(entity);
+	vector<weak_ptr<IEntity>> weakRefs;
 
-	for (auto& system : systems)
-	{
-		auto& comps = system->required_components();
-		if (comps.size() == 0) continue;
+	for (auto& entity : _nodes)
+		weakRefs.push_back(entity);
 
-		auto matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
-		{
-			return entity->has_component(requirement);
-		});
-
-		if (matches == comps.size())
-			system->add_entity(entity);
-	}
-}
-
-void SceneImpl::add_system(unique_ptr<ISystem>&& system)
-{
-	systems.push_back(move(system));
-
-	//sort(begin(systems), end(systems));
-}
-
-void SceneImpl::frame()
-{
-	SDL_Event event;
-
-	while (SDL_PollEvent(&event))
-		for(auto& system : systems)
-			if (system->on_event(event)) 
-				break;
-
-	for(auto& system : systems)
-		system->on_frame();
+	return weakRefs;
 }
