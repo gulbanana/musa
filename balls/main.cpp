@@ -12,7 +12,7 @@ using namespace std;
 #define VEL(x, y) Vec2<coord>((coord)(x), (coord)(y))
 #define ROT(x, y, z) Vec3<degrees>((degrees)(x), (degrees)(y), (degrees)(z))
 #define WIDTH 1600
-#define HEIGHT 900
+#define HEIGHT 800
 
 void setup_world(World&);
 
@@ -32,10 +32,10 @@ void setup_world(World& ballgame)
 	ballgame.add_system(make_unique<BallBouncer>(WIDTH, HEIGHT));
 
 	//immobiles
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(300, 450), ROT(0,0,0)));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(600, 450), ROT(45,90,0), false));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(900, 450), ROT(0,0,0)));
-	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(1200, 450), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(300, 400), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(600, 400), ROT(45,90,0), false));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(900, 400), ROT(0,0,0)));
+	ballgame.add_entity(make_unique<Obstacle>(Color4F::WHITE, LOC(1200, 400), ROT(45,90,0), false));
 
 	//fixed balls
 	ballgame.add_entity(make_unique<Ball>((coord)25, Color4F::CYAN, LOC(100,100), VEL(100,-100), true));

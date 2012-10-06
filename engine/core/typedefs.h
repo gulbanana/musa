@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-#include <boost/operators.hpp>
+#include "boost/operators.hpp"
 
 // 'strong' typedefs are not convertible implicitly to their 'base' type,
 // providing a typesafe notion of "units"

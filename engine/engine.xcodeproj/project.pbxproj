@@ -12,6 +12,11 @@
 		E53C77F3161C01E3003CB7D7 /* PrimitiveFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77EE161C01E3003CB7D7 /* PrimitiveFactory.h */; };
 		E53C77F4161C01E3003CB7D7 /* VVMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53C77EF161C01E3003CB7D7 /* VVMesh.cpp */; };
 		E53C77F5161C01E3003CB7D7 /* VVMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77F0161C01E3003CB7D7 /* VVMesh.h */; };
+		E53C77FB161C50E6003CB7D7 /* Box6.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77F6161C50E6003CB7D7 /* Box6.h */; };
+		E53C77FC161C50E6003CB7D7 /* Rect4.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77F7161C50E6003CB7D7 /* Rect4.h */; };
+		E53C77FD161C50E6003CB7D7 /* typedefs.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77F8161C50E6003CB7D7 /* typedefs.h */; };
+		E53C77FE161C50E6003CB7D7 /* Vec2.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77F9161C50E6003CB7D7 /* Vec2.h */; };
+		E53C77FF161C50E6003CB7D7 /* Vec3.h in Headers */ = {isa = PBXBuildFile; fileRef = E53C77FA161C50E6003CB7D7 /* Vec3.h */; };
 		E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* SDLMain.m */; };
 		E5BE5C7C161862440095BE77 /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */; };
 		E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C7D161863A60095BE77 /* SDLApplication.h */; };
@@ -30,7 +35,6 @@
 		E5EE0E23161A3254008B9D2E /* CPhysics.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E1B161A3254008B9D2E /* CPhysics.h */; };
 		E5EE0E24161A3254008B9D2E /* CPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E1C161A3254008B9D2E /* CPosition.h */; };
 		E5EE0E25161A3254008B9D2E /* CVelocity.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E1D161A3254008B9D2E /* CVelocity.h */; };
-		E5EE0EE1161A328F008B9D2E /* Box6F.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0ED3161A328F008B9D2E /* Box6F.h */; };
 		E5EE0EE2161A328F008B9D2E /* Color4F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0ED4161A328F008B9D2E /* Color4F.cpp */; };
 		E5EE0EE3161A328F008B9D2E /* Color4F.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0ED5161A328F008B9D2E /* Color4F.h */; };
 		E5EE0EE4161A328F008B9D2E /* IComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0ED6161A328F008B9D2E /* IComponent.h */; };
@@ -38,12 +42,6 @@
 		E5EE0EE6161A328F008B9D2E /* IEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0ED8161A328F008B9D2E /* IEntity.h */; };
 		E5EE0EE7161A328F008B9D2E /* ISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0ED9161A328F008B9D2E /* ISystem.cpp */; };
 		E5EE0EE8161A328F008B9D2E /* ISystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EDA161A328F008B9D2E /* ISystem.h */; };
-		E5EE0EE9161A328F008B9D2E /* Rect4F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0EDB161A328F008B9D2E /* Rect4F.cpp */; };
-		E5EE0EEA161A328F008B9D2E /* Rect4F.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EDC161A328F008B9D2E /* Rect4F.h */; };
-		E5EE0EEB161A328F008B9D2E /* Vector2F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0EDD161A328F008B9D2E /* Vector2F.cpp */; };
-		E5EE0EEC161A328F008B9D2E /* Vector2F.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EDE161A328F008B9D2E /* Vector2F.h */; };
-		E5EE0EED161A328F008B9D2E /* Vector3F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0EDF161A328F008B9D2E /* Vector3F.cpp */; };
-		E5EE0EEE161A328F008B9D2E /* Vector3F.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EE0161A328F008B9D2E /* Vector3F.h */; };
 		E5EE0EF1161A32A0008B9D2E /* DataDrivenEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0EEF161A32A0008B9D2E /* DataDrivenEntity.cpp */; };
 		E5EE0EF2161A32A0008B9D2E /* DataDrivenEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF0161A32A0008B9D2E /* DataDrivenEntity.h */; };
 		E5EE0EFE161A32AF008B9D2E /* FVMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF5161A32AF008B9D2E /* FVMesh.h */; };
@@ -66,6 +64,11 @@
 		E53C77EE161C01E3003CB7D7 /* PrimitiveFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveFactory.h; sourceTree = "<group>"; };
 		E53C77EF161C01E3003CB7D7 /* VVMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VVMesh.cpp; sourceTree = "<group>"; };
 		E53C77F0161C01E3003CB7D7 /* VVMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMesh.h; sourceTree = "<group>"; };
+		E53C77F6161C50E6003CB7D7 /* Box6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box6.h; sourceTree = "<group>"; };
+		E53C77F7161C50E6003CB7D7 /* Rect4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rect4.h; sourceTree = "<group>"; };
+		E53C77F8161C50E6003CB7D7 /* typedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typedefs.h; sourceTree = "<group>"; };
+		E53C77F9161C50E6003CB7D7 /* Vec2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec2.h; sourceTree = "<group>"; };
+		E53C77FA161C50E6003CB7D7 /* Vec3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec3.h; sourceTree = "<group>"; };
 		E5A63C0E1618492B0007CDB1 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		E5A63C0F1618492B0007CDB1 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		E5BE5C7D161863A60095BE77 /* SDLApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLApplication.h; sourceTree = "<group>"; };
@@ -101,7 +104,6 @@
 		E5EE0E1B161A3254008B9D2E /* CPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPhysics.h; sourceTree = "<group>"; };
 		E5EE0E1C161A3254008B9D2E /* CPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPosition.h; sourceTree = "<group>"; };
 		E5EE0E1D161A3254008B9D2E /* CVelocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVelocity.h; sourceTree = "<group>"; };
-		E5EE0ED3161A328F008B9D2E /* Box6F.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box6F.h; sourceTree = "<group>"; };
 		E5EE0ED4161A328F008B9D2E /* Color4F.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color4F.cpp; sourceTree = "<group>"; };
 		E5EE0ED5161A328F008B9D2E /* Color4F.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color4F.h; sourceTree = "<group>"; };
 		E5EE0ED6161A328F008B9D2E /* IComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IComponent.h; sourceTree = "<group>"; };
@@ -109,12 +111,6 @@
 		E5EE0ED8161A328F008B9D2E /* IEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEntity.h; sourceTree = "<group>"; };
 		E5EE0ED9161A328F008B9D2E /* ISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ISystem.cpp; sourceTree = "<group>"; };
 		E5EE0EDA161A328F008B9D2E /* ISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISystem.h; sourceTree = "<group>"; };
-		E5EE0EDB161A328F008B9D2E /* Rect4F.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rect4F.cpp; sourceTree = "<group>"; };
-		E5EE0EDC161A328F008B9D2E /* Rect4F.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rect4F.h; sourceTree = "<group>"; };
-		E5EE0EDD161A328F008B9D2E /* Vector2F.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2F.cpp; sourceTree = "<group>"; };
-		E5EE0EDE161A328F008B9D2E /* Vector2F.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2F.h; sourceTree = "<group>"; };
-		E5EE0EDF161A328F008B9D2E /* Vector3F.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3F.cpp; sourceTree = "<group>"; };
-		E5EE0EE0161A328F008B9D2E /* Vector3F.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3F.h; sourceTree = "<group>"; };
 		E5EE0EEF161A32A0008B9D2E /* DataDrivenEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataDrivenEntity.cpp; sourceTree = "<group>"; };
 		E5EE0EF0161A32A0008B9D2E /* DataDrivenEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDrivenEntity.h; sourceTree = "<group>"; };
 		E5EE0EF5161A32AF008B9D2E /* FVMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVMesh.h; sourceTree = "<group>"; };
@@ -214,7 +210,11 @@
 		E5DDE49E16182B7A008179BF /* core */ = {
 			isa = PBXGroup;
 			children = (
-				E5EE0ED3161A328F008B9D2E /* Box6F.h */,
+				E53C77F6161C50E6003CB7D7 /* Box6.h */,
+				E53C77F7161C50E6003CB7D7 /* Rect4.h */,
+				E53C77F8161C50E6003CB7D7 /* typedefs.h */,
+				E53C77F9161C50E6003CB7D7 /* Vec2.h */,
+				E53C77FA161C50E6003CB7D7 /* Vec3.h */,
 				E5EE0ED4161A328F008B9D2E /* Color4F.cpp */,
 				E5EE0ED5161A328F008B9D2E /* Color4F.h */,
 				E5EE0ED6161A328F008B9D2E /* IComponent.h */,
@@ -222,12 +222,6 @@
 				E5EE0ED8161A328F008B9D2E /* IEntity.h */,
 				E5EE0ED9161A328F008B9D2E /* ISystem.cpp */,
 				E5EE0EDA161A328F008B9D2E /* ISystem.h */,
-				E5EE0EDB161A328F008B9D2E /* Rect4F.cpp */,
-				E5EE0EDC161A328F008B9D2E /* Rect4F.h */,
-				E5EE0EDD161A328F008B9D2E /* Vector2F.cpp */,
-				E5EE0EDE161A328F008B9D2E /* Vector2F.h */,
-				E5EE0EDF161A328F008B9D2E /* Vector3F.cpp */,
-				E5EE0EE0161A328F008B9D2E /* Vector3F.h */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -321,15 +315,11 @@
 				E5EE0E23161A3254008B9D2E /* CPhysics.h in Headers */,
 				E5EE0E24161A3254008B9D2E /* CPosition.h in Headers */,
 				E5EE0E25161A3254008B9D2E /* CVelocity.h in Headers */,
-				E5EE0EE1161A328F008B9D2E /* Box6F.h in Headers */,
 				E5EE0EE3161A328F008B9D2E /* Color4F.h in Headers */,
 				E5EE0EE4161A328F008B9D2E /* IComponent.h in Headers */,
 				E5EE0EE5161A328F008B9D2E /* Identified.h in Headers */,
 				E5EE0EE6161A328F008B9D2E /* IEntity.h in Headers */,
 				E5EE0EE8161A328F008B9D2E /* ISystem.h in Headers */,
-				E5EE0EEA161A328F008B9D2E /* Rect4F.h in Headers */,
-				E5EE0EEC161A328F008B9D2E /* Vector2F.h in Headers */,
-				E5EE0EEE161A328F008B9D2E /* Vector3F.h in Headers */,
 				E5EE0EF2161A32A0008B9D2E /* DataDrivenEntity.h in Headers */,
 				E5EE0EFE161A32AF008B9D2E /* FVMesh.h in Headers */,
 				E5EE0F01161A32AF008B9D2E /* IRenderable.h in Headers */,
@@ -341,6 +331,11 @@
 				E5EE0F28161A32EF008B9D2E /* RenderSystem.h in Headers */,
 				E53C77F3161C01E3003CB7D7 /* PrimitiveFactory.h in Headers */,
 				E53C77F5161C01E3003CB7D7 /* VVMesh.h in Headers */,
+				E53C77FB161C50E6003CB7D7 /* Box6.h in Headers */,
+				E53C77FC161C50E6003CB7D7 /* Rect4.h in Headers */,
+				E53C77FD161C50E6003CB7D7 /* typedefs.h in Headers */,
+				E53C77FE161C50E6003CB7D7 /* Vec2.h in Headers */,
+				E53C77FF161C50E6003CB7D7 /* Vec3.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,9 +400,6 @@
 				E5BE5C80161864060095BE77 /* SDLApplication.m in Sources */,
 				E5EE0EE2161A328F008B9D2E /* Color4F.cpp in Sources */,
 				E5EE0EE7161A328F008B9D2E /* ISystem.cpp in Sources */,
-				E5EE0EE9161A328F008B9D2E /* Rect4F.cpp in Sources */,
-				E5EE0EEB161A328F008B9D2E /* Vector2F.cpp in Sources */,
-				E5EE0EED161A328F008B9D2E /* Vector3F.cpp in Sources */,
 				E5EE0EF1161A32A0008B9D2E /* DataDrivenEntity.cpp in Sources */,
 				E5EE0F1A161A32DB008B9D2E /* ControlSystem.cpp in Sources */,
 				E5EE0F1C161A32DB008B9D2E /* MotionSystem.cpp in Sources */,

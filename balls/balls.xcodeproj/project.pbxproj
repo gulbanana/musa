@@ -229,6 +229,7 @@
 				HEADER_SEARCH_PATHS = (
 					..,
 					/Library/Frameworks/SDL.framework/Headers,
+					/Users/banana/Documents/Programming/boost_1_51_0,
 				);
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks/";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -261,6 +262,7 @@
 				HEADER_SEARCH_PATHS = (
 					..,
 					/Library/Frameworks/SDL.framework/Headers,
+					/Users/banana/Documents/Programming/boost_1_51_0,
 				);
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks/";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
