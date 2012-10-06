@@ -22,14 +22,14 @@ class EngineImpl
 	
 public:
 	EngineImpl(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight);
-	void load_scene(Scene* level);
+	void load_scene(EntityGraph* level);
 	void play();
 	void frame();
 	void add_system(unique_ptr<ISystem>&& system);
 };
 
 Engine::Engine(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight) : _pimpl(new EngineImpl(move(logic), title, initialWidth, initialHeight)) {}
-void Engine::load_scene(Scene* level) { _pimpl->load_scene(level); }
+void Engine::load_scene(EntityGraph* level) { _pimpl->load_scene(level); }
 void Engine::play() { _pimpl->play(); }
 #pragma endregion
 
@@ -69,9 +69,9 @@ void EngineImpl::add_system(unique_ptr<ISystem>&& system)
 	//sort(begin(systems), end(systems));
 }
 
-void EngineImpl::load_scene(Scene* level)
+void EngineImpl::load_scene(EntityGraph* level)
 {
-	for (auto& entity : level->entities())
+	for (auto& entity : level->entity_list())
 	{
 		for (auto& system : systems)
 		{
@@ -80,7 +80,7 @@ void EngineImpl::load_scene(Scene* level)
 
 			auto matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
 			{
-				return entity.lock()->has_component(requirement);
+				return entity->has_component(requirement);
 			});
 
 			if (matches == comps.size())

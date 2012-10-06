@@ -56,8 +56,16 @@
     <ClCompile Include="systems\CollisionSystem.cpp">
       <Filter>systems\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="scene\EntityGraph.cpp" />
+    <ClCompile Include="scene\RootNode.cpp" />
+    <ClCompile Include="scene\LambdaWalker.cpp" />
+    <ClCompile Include="scene\LeafNode.cpp" />
+    <ClCompile Include="scene\BranchNode.cpp" />
+    <ClCompile Include="core\IEntity.cpp" />
+    <ClCompile Include="core\ISystem.cpp" />
+    <ClCompile Include="scene\IGraphNode.cpp" />
+    <ClCompile Include="scene\IGraphWalker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -145,7 +153,15 @@
     <ClInclude Include="systems\CollisionSystem.h">
       <Filter>systems\Collisions</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="scene\IGraphWalker.h" />
+    <ClInclude Include="scene\IGraphNode.h" />
+    <ClInclude Include="scene.h" />
+    <ClInclude Include="scene\BranchNode.h" />
+    <ClInclude Include="scene\LeafNode.h" />
+    <ClInclude Include="scene\EntityGraph.h" />
+    <ClInclude Include="scene\RootNode.h" />
+    <ClInclude Include="components\CScene.h" />
+    <ClInclude Include="scene\LambdaWalker.h" />
   </ItemGroup>
 </Project>

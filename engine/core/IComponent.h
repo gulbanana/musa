@@ -8,6 +8,7 @@ enum class CMP
     Mesh,
 	Physics,
 	Position,
+	Scene,
 	Velocity,
 	Last = Velocity
 };

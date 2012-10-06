@@ -178,8 +178,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\IEntity.cpp" />
+    <ClCompile Include="core\ISystem.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="entities\DataDrivenEntity.cpp" />
+    <ClCompile Include="scene\BranchNode.cpp" />
+    <ClCompile Include="scene\IGraphNode.cpp" />
+    <ClCompile Include="scene\IGraphWalker.cpp" />
+    <ClCompile Include="scene\LambdaWalker.cpp" />
+    <ClCompile Include="scene\LeafNode.cpp" />
+    <ClCompile Include="scene\RootNode.cpp" />
     <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="geometry\FVMesh.cpp" />
@@ -192,18 +200,26 @@
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="systems\UISystem.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="scene\EntityGraph.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="components\CScene.h" />
+    <ClInclude Include="scene\LambdaWalker.h" />
+    <ClInclude Include="scene\RootNode.h" />
+    <ClInclude Include="scene\LeafNode.h" />
+    <ClInclude Include="scene\BranchNode.h" />
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="core\Box6.h" />
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CMesh.h" />
+    <ClInclude Include="scene\IGraphNode.h" />
+    <ClInclude Include="scene\IGraphWalker.h" />
     <ClInclude Include="core\Identified.h" />
     <ClInclude Include="core\typedefs.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="scene.h" />
     <ClInclude Include="systems\EntityManagingSystemBase.h" />
     <ClInclude Include="geometry\IMaterial.h" />
     <ClInclude Include="geometry\IRenderable.h" />
@@ -235,7 +251,7 @@
     <ClInclude Include="core\Vec3.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
-    <ClInclude Include="Scene.h" />
+    <ClInclude Include="scene\EntityGraph.h" />
     <ClInclude Include="systems\ControlSystem.h" />
     <ClInclude Include="core\ISystem.h" />
     <ClInclude Include="misc.h" />

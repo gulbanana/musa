@@ -15,7 +15,7 @@ public:
 	Engine(std::unique_ptr<ISystem>&& logic, std::string title, int width, int height);
 
 	void play();
-	void load_scene(Scene* level);
+	void load_scene(EntityGraph* level);
 };
 
 #define main SDL_main

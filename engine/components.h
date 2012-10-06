@@ -5,4 +5,5 @@
 #include "components/CMesh.h"
 #include "components/CPhysics.h"
 #include "components/CPosition.h"
+#include "components/CScene.h"
 #include "components/CVelocity.h"

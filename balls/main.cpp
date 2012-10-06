@@ -15,7 +15,7 @@ using namespace std;
 #define WIDTH 1600
 #define HEIGHT 900
 
-void setup_world(Scene&);
+void setup_world(EntityGraph&);
 
 extern "C"
 int main(int argc, char *argv[])
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	_putenv("SDL_VIDEO_WINDOW_POS=center");
 	_putenv("SDL_VIDEO_CENTERED=1");
 
-	Scene level;
+	EntityGraph level;
 	Engine game(make_unique<BallBouncer>(WIDTH, HEIGHT), "balls!", WIDTH, HEIGHT);
 
 	setup_world(level);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void setup_world(Scene& ballgame)
+void setup_world(EntityGraph& ballgame)
 {
 	//immobiles
 	ballgame.add_entity(make_unique<Obstacle>(Colour4F::WHITE, LOC(300, 450), ROT(0,0,0)));
