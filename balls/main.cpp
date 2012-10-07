@@ -15,8 +15,8 @@ using namespace std;
 #define WIDTH 1000
 #define HEIGHT 1000
 #define DEPTH 1000
-#define LOC(x, y) Vec3<coord>((coord)(x), (coord)(y), (coord)500)
-#define VEL(x, y) Vec3<coord>((coord)(x), (coord)(y), (coord)0)
+#define LOC(x, y, z) Vec3<coord>((coord)(x), (coord)(y), (coord)(z))
+#define VEL(x, y, z) Vec3<coord>((coord)(x), (coord)(y), (coord)(z))
 #define ROT(x, y, z) Vec3<degrees>((degrees)(x), (degrees)(y), (degrees)(z))
 
 void setup_world(EntityGraph&, ResourceManager&);
@@ -54,28 +54,28 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	auto shape = Box6<coord>((coord)-40, (coord)-60, (coord)-40, (coord)40, (coord)60, (coord)40);
 	auto box = ballpit.load_primitive((SolidColourBrush*)whitePaint, Primitive::Prism, &shape);
 
-	view->children.push_back(make_shared<Obstacle>(box, LOC(200, 500), ROT(0,0,0)));
-	view->children.push_back(make_shared<Obstacle>(box, LOC(400, 500), ROT(45,90,0), false));
-	view->children.push_back(make_shared<Obstacle>(box, LOC(600, 500), ROT(0,0,0)));
-	view->children.push_back(make_shared<Obstacle>(box, LOC(800, 500), ROT(45,90,0), false));
+	view->children.push_back(make_shared<Obstacle>(box, LOC(200, 500, WIDTH/2), ROT(0,0,0)));
+	view->children.push_back(make_shared<Obstacle>(box, LOC(400, 500, WIDTH/2), ROT(45,90,0), false));
+	view->children.push_back(make_shared<Obstacle>(box, LOC(600, 500, WIDTH/2), ROT(0,0,0)));
+	view->children.push_back(make_shared<Obstacle>(box, LOC(800, 500, WIDTH/2), ROT(45,90,0), false));
 
 	//fixed balls
 	auto big = (coord)35;
 	auto bigBall = [&](Colour4F c){ return ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(c), Primitive::Sphere, &big); };
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::CYAN), LOC(800,800), VEL(100,-100), ROT(0,0,0)));
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::MAGENTA), LOC(200,500), VEL(100,100), ROT(0,0,0)));
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::YELLOW), LOC(800,200), VEL(-100,100), ROT(0,0,0)));
+	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::CYAN), LOC(800,800,0), VEL(100,-100,0), ROT(0,0,0)));
+	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::MAGENTA), LOC(200,500,0), VEL(100,100,0), ROT(0,0,0)));
+	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::YELLOW), LOC(800,200,0), VEL(-100,100,0), ROT(0,0,0)));
 	
 	//random balls
 	auto small = (coord)15;
 	auto smallGreenBall = ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(Colour4F(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &small);
 
-	for (int i = 0; i < 40; i++) {
+	for (int i = 0; i < 50; i++) {
 		view->children.push_back(
 			make_shared<Ball>(
 				smallGreenBall, 
-				LOC(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT),
-				VEL(half2half(generator) * 500, half2half(generator) * 500),
+				LOC(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT, zero2one(generator) * DEPTH),
+				VEL(half2half(generator) * 500, half2half(generator) * 500, half2half(generator) * 500),
 				ROT(0, 0, 0)
 			)
 		);
