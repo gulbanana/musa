@@ -43,7 +43,11 @@ void GLImmediateRenderer::set_viewport(int width, int height)
 
 	//options
     if (_wireframe)
+	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		//glLineWidth(2);
+	}
+
 	glClearColor(0.f, 0.f, 0.f, 0.f);
     
 	//setup device-space
@@ -165,11 +169,12 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 	float aspect = (float)_viewport_width / (float)_viewport_height;
 	float vfov = camera->fov;
 	float tangent = tan(vfov/2 * deg2rad);
+	float depth = 1000;
 
 	//Select clipping planes based on FOV and scaling method
 	coord left, right, bottom, top, zNear, zFar;
-	zNear = 1000;
-	zFar = 2000;
+	zNear = _at_location.z;
+	zFar = zNear+depth;
 	float height = zNear * tangent;	//half the height of the near plane
 	float width = height * aspect; //half the width of the near plane
 
@@ -201,7 +206,8 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();
-	glTranslatef(-width, -height, -zNear);
+	//glTranslatef(-width, -height, -zNear);
+	glTranslatef(-_at_location.x, -_at_location.y, -_at_location.z);
 }
 
 void GLImmediateRenderer::unmorph(OrthographicCamera const*)

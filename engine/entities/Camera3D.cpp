@@ -17,6 +17,9 @@ Camera3D::Camera3D(Vec3<coord> initialLocation) : _camera_matrix(new Perspective
 	//in front of the world, looking back at it
 	add_component(make_unique<CPosition>(initialLocation, angle_from(initialLocation, Vec3<coord>::origin())));
 	add_component(make_unique<CTransform>(_camera_matrix.get()));
+	add_component(make_unique<CVelocity>((coord)-5, (coord)0, (coord)0));
+	add_component(make_unique<CAcceleration>(Vec3<coord>((coord)0, (coord)0, (coord)-2), Vec3<degrees>((degrees)0, (degrees)1, (degrees)0)));
+
 }
 
 Camera3D::Camera3D(Vec3<coord> initialLocation, Vec3<degrees> initialOrientation) : _camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus))
