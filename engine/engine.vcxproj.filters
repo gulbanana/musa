@@ -67,6 +67,7 @@
     <ClCompile Include="scene\IGraphNode.cpp" />
     <ClCompile Include="scene\IGraphWalker.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="entities\Camera2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -104,7 +105,6 @@
     <ClInclude Include="components\CPhysics.h">
       <Filter>components</Filter>
     </ClInclude>
-    <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="geometry.h" />
@@ -164,7 +164,13 @@
     <ClInclude Include="components\CScene.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
     <ClInclude Include="platform.h" />
-    <ClInclude Include="components\CNode.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="components\CMesh.h" />
+    <ClInclude Include="components\CTransform.h" />
+    <ClInclude Include="geometry\ITransform.h" />
+    <ClInclude Include="geometry\OrthographicCamera.h" />
+    <ClInclude Include="geometry\IModel.h" />
+    <ClInclude Include="geometry\PerspectiveCamera.h" />
+    <ClInclude Include="entities\Camera2D.h" />
   </ItemGroup>
 </Project>

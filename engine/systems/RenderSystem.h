@@ -18,6 +18,7 @@ public:
 	std::vector<IComponent::ID> required_components() const override;
 	virtual std::vector<ISystem::ID> required_systems() const override;
 
+	void visit(IGraphNode*);
 	void visit(LeafNode*) override;
 	void visit(BranchNode*) override;
 };

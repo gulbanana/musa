@@ -2,9 +2,9 @@
 #include "SpriteMesh.h"
 using namespace std;
 
-void SpriteMesh::accept(IRenderer* renderer, Vec3<coord> position, Vec3<degrees> orientation) const
+void SpriteMesh::accept(IRenderer* renderer) const
 { 
-	renderer->visit(this, position, orientation); 
+	renderer->draw(this); 
 }
 
 Box6<coord> SpriteMesh::bounds() const

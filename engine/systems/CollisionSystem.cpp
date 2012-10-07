@@ -11,7 +11,7 @@ using namespace std;
 
 vector<CMP> CollisionSystem::required_components() const 
 {
-	array<CMP,3> compTypes = {CMP::Position, CMP::Node, CMP::Physics};
+	array<CMP,3> compTypes = {CMP::Position, CMP::Mesh, CMP::Physics};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 

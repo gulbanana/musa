@@ -3,24 +3,26 @@ correct 2d/3d projections - homogenous coordinates
 auto-fov
 3d camera
 3d balls
-expand enums
+expand enums - or is this just as easy as casting
+textures, brush/mesh distinction SOMEHOW
 
 EVENTUAL
+model loader
+lighting
 fullscreen
-scene graph?
 wrangle gl extensions
 make collision detection pairwise
 flat/sprite mesh
 multithreaded systems
 dynamic system sort
 aabb collision detection 
+obb collision detection
 better bounce physics
 gui - get fonts in
 gui/renderer - labels 
 gui / control - add/subtract ball
 expiring entities
 state - controllable game clock
-model loader
 gl3/VBO renderer
 linux port
 wizards game

@@ -10,7 +10,8 @@ using namespace std;
 const int resolution = 30;
 const float arc = (float)(2 * M_PI / resolution);
 
-GLImmediateRenderer::GLImmediateRenderer(bool orthographic, bool wireframe) : _orthographic(orthographic), _wireframe(wireframe)
+GLImmediateRenderer::GLImmediateRenderer(bool wireframe) 
+	: _wireframe(wireframe), _at_location((coord)0,(coord)0,(coord)0), _at_orientation((degrees)0,(degrees)0,(degrees)0)
 {
 	//SDL init
 	int rc; 
@@ -27,21 +28,23 @@ GLImmediateRenderer::~GLImmediateRenderer()
 {
 }
 
-void GLImmediateRenderer::resize(int width, int height)
+void GLImmediateRenderer::set_viewport(int width, int height)
 {
+	_viewport_width = width;
+	_viewport_height = height;
+
     //might be able to avoid this with sdl 2.0..
-	_surface = SDL_SetVideoMode(width, height, 32, SDL_OPENGL | SDL_RESIZABLE);
+	_surface = SDL_SetVideoMode(_viewport_width, _viewport_height, 32, SDL_OPENGL | SDL_RESIZABLE);
 	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
     
 	//GL init
-	glEnable(GL_BLEND);
+	glEnable(GL_BLEND | GL_DEPTH_TEST | GL_ALPHA_TEST);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	if (!_orthographic)
-		glEnable(GL_DEPTH_TEST | GL_ALPHA_TEST);
-    
-	//set background colour
+
+	//options
+    if (_wireframe)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glClearColor(0.f, 0.f, 0.f, 0.f);
-	glClear(GL_COLOR_BUFFER_BIT);
     
 	//setup device-space
 	glViewport(0, 0, width, height);
@@ -54,27 +57,6 @@ void GLImmediateRenderer::resize(int width, int height)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	if (_orthographic)
-	{
-		glOrtho(0.f, width, height, 0.f, -300.f, 300.f);	
-	}
-
-	else
-	{
-		auto fov = 1;
-		auto depth = 300;
-		auto fovRadians = fov * (float)M_PI / 180;
-		auto nearPlane = (height / 2.f) / tanf(fovRadians / 2.f);
-		auto farPlane = nearPlane + depth;
-		auto centrePlane = -(nearPlane + depth/2);
-		glFrustum(0, width, 0, height, nearPlane, farPlane);
-
-		glMatrixMode(GL_MODELVIEW);				
-		glTranslatef(0.f, 0.f, centrePlane);	//move all objects to the 1=1 frustum slice
-	}
-
-	if (_wireframe)
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 void GLImmediateRenderer::begin_frame()
@@ -89,21 +71,26 @@ void GLImmediateRenderer::end_frame()
 	//glGetError()
 }
 
+void GLImmediateRenderer::with_position(Vec3<coord> location, Vec3<degrees> orientation) 
+{
+	_at_location = location;
+	_at_orientation = orientation;
+}
 
-void GLImmediateRenderer::with_modeltransform(Vec3<coord> position, Vec3<degrees> orientation, std::function<void(void)> f)
+void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 {
 	glPushMatrix();
 
-	glTranslatef(position.x, position.y, 0.f);
+	glTranslatef(_at_location.x, _at_location.y, 0.f);
 
 #if defined DOUBLE_PRECISION && 0	//no dp for rotation!
-	glRotated(orientation.x, 1.0, 0.0, 0.0);
-	glRotated(orientation.y, 0.0, 1.0, 0.0);
-	glRotated(orientation.z, 0.0, 0.0, 1.0);
+	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
+	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
+	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
 #else
-	glRotatef(orientation.x, 1.f, 0.f, 0.f);
-	glRotatef(orientation.y, 0.f, 1.f, 0.f);
-	glRotatef(orientation.z, 0.f, 0.f, 1.f);
+	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
+	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
+	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);
 #endif
 
 	f();
@@ -111,10 +98,65 @@ void GLImmediateRenderer::with_modeltransform(Vec3<coord> position, Vec3<degrees
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::visit(FVMesh const* mesh, Vec3<coord> position, Vec3<degrees> orientation)
+void GLImmediateRenderer::with_projection(std::function<void(void)> f)
 {
-	
-	with_modeltransform(position, orientation, [=]
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+
+	f();
+}
+
+void GLImmediateRenderer::morph(OrthographicCamera const* camera) 
+{
+	with_projection([=]{
+		glOrtho(0.f, _viewport_width, _viewport_height, 0.f, -(camera->depth/2), camera->depth/2);
+	});
+}
+
+
+void GLImmediateRenderer::morph(PerspectiveCamera const*)
+{
+	with_projection([=]{
+		auto fov = 1;
+		auto depth = 300;
+		auto fovRadians = fov * (float)M_PI / 180;
+		auto nearPlane = (_viewport_height / 2.f) / tanf(fovRadians / 2.f);
+		auto farPlane = nearPlane + depth;
+		auto centrePlane = -(nearPlane + depth/2);
+		glFrustum(0, _viewport_width, 0, _viewport_height, nearPlane, farPlane);
+
+		glMatrixMode(GL_MODELVIEW);				
+		glTranslatef(0.f, 0.f, centrePlane);	//move all objects to the 1=1 frustum slice
+	});
+}
+
+void GLImmediateRenderer::unmorph(OrthographicCamera const*)
+{
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+}
+
+void GLImmediateRenderer::unmorph(PerspectiveCamera const*)
+{
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+}
+
+void GLImmediateRenderer::paint(SolidColourBrush const* brush)
+{
+	glColor4f(brush->colour.red, brush->colour.green, brush->colour.blue, brush->colour.alpha);
+}
+
+void GLImmediateRenderer::draw(SpriteMesh const* mesh)
+{
+	with_modelobject([=]
+	{
+	});
+}
+
+void GLImmediateRenderer::draw(FVMesh const* mesh)
+{
+	with_modelobject([=]
 	{
 		if (mesh->sides == 3)
 			glBegin(GL_TRIANGLES);
@@ -144,14 +186,3 @@ void GLImmediateRenderer::visit(FVMesh const* mesh, Vec3<coord> position, Vec3<d
 	});
 }
 
-void GLImmediateRenderer::visit(SpriteMesh const* mesh, Vec3<coord> position, Vec3<degrees> orientation)
-{
-	with_modeltransform(position, orientation, [=]
-	{
-	});
-}
-
-void GLImmediateRenderer::visit(SolidColourBrush const* brush)
-{
-	glColor4f(brush->colour.red, brush->colour.green, brush->colour.blue, brush->colour.alpha);
-}

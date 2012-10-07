@@ -19,7 +19,7 @@ public:
 	~ResourceManager();
 
 	IMaterial* load_brush(Colour4F);
-	IRenderable* load_primitive(SolidColourBrush*, Primitive, void*);
-	IRenderable* load_model(IMaterial*);
+	IModel* load_primitive(SolidColourBrush*, Primitive, void*);
+	IModel* load_model(IMaterial*);
 };
 

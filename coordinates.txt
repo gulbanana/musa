@@ -3,6 +3,7 @@ coordinate system: pixels
 a camera is an XxY 2d frame. the main camera is either contained within a window, or fullscreen
 world space is *projected* to camera space according to its size, aspect ratio, FOV
 every time the camera needs to be reset, resize() is sent to the renderer
+when it *moves* this does not happen however. so where is its position & orientation kept? can it be an entity with a CPosition?
 
 WORLD SPACE
 coordinate system: units

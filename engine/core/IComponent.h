@@ -5,10 +5,11 @@ enum class CMP
 {
 	Acceleration,
 	Label,
-    Node,
+    Mesh,
 	Physics,
 	Position,
 	Scene,
+	Transform,
 	Velocity,
 	Last = Velocity
 };

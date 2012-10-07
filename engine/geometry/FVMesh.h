@@ -2,11 +2,11 @@
 #include <vector>
 #include <array>
 #include <engine/core.h>
-#include "IRenderable.h"
+#include "IModel.h"
 #include "IMaterial.h"
 
 //"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits. quad or tri faces.
-struct FVMesh : public IRenderable
+struct FVMesh : public IModel
 {
 	struct Face
 	{
@@ -47,38 +47,15 @@ struct FVMesh : public IRenderable
 	bool has_uv;
 	bool has_normal;
 
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices) : 
-		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
-	{
-		validate_mesh();
-	}
-	FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices) : 
-		sides(sides), groups(), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
-	{
-		groups.emplace_back(brush, std::forward<std::vector<Face>>(faces));
-		validate_mesh();
-	}
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs) :
-		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(), _bounds_cache(calc_bounds())
-	{
-		validate_mesh();
-	}
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals) :
-		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(normals), _bounds_cache(calc_bounds())
-	{
-		validate_mesh();
-	}
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs, std::vector<Vec3<coord>>&& normals) :
-		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(normals), _bounds_cache(calc_bounds())
-	{
-		validate_mesh();
-	}
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices);
+	FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs, std::vector<Vec3<coord>>&& normals);
 
-	void accept(IRenderer* renderer, Vec3<coord> position, Vec3<degrees> orientation) const override
-	{ 
-		renderer->visit(this, position, orientation); 
-	}
-	Box6<coord> bounds() const override { return _bounds_cache; }
+	void accept(IRenderer* renderer) const override; 
+	Box6<coord> bounds() const override; 
+	int polygons() const override; 
 	
 private:
 	Box6<coord> _bounds_cache;

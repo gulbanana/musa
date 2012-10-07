@@ -53,8 +53,8 @@ EngineImpl::EngineImpl(unique_ptr<ISystem>&& logic, const string title, int init
     
 	SDL_WM_SetCaption(title.c_str(), nullptr);	
 
-	_renderer = make_unique<GLImmediateRenderer>(true, true);
-	_renderer->resize(initialWidth, initialHeight);
+	_renderer = make_unique<GLImmediateRenderer>(true);
+	_renderer->set_viewport(initialWidth, initialHeight);
 
 	add_system(make_unique<ControlSystem>(_state));
 	add_system(make_unique<MotionSystem>(_state));

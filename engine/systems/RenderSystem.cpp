@@ -27,7 +27,7 @@ void RenderSystem::add_entity(weak_ptr<IEntity> new_entity)
 bool RenderSystem::on_event(SDL_Event& event)
 {
 	if (event.type == SDL_VIDEORESIZE)
-		_renderer->resize(event.resize.w, event.resize.h);
+		_renderer->set_viewport(event.resize.w, event.resize.h);
 	
 	return false;
 }
@@ -41,18 +41,42 @@ void RenderSystem::on_frame()
 	_renderer->end_frame();
 }
 
+void RenderSystem::visit(IGraphNode* entity)
+{
+	if (entity->has_component<CPosition>())
+	{
+		auto position = entity->get_component<CPosition>();
+		_renderer->with_position(position->location, position->orientation);
+	}
+}
+
 void RenderSystem::visit(BranchNode* entity)
 {
+	visit(static_cast<IGraphNode*>(entity));
+
+	if (entity->has_component<CTransform>())
+	{
+		auto transformNode = entity->get_component<CTransform>();
+		transformNode->matrix->accept(_renderer.get());
+	}
+
 	for (auto child : entity->children)
 		child->accept(this);
+
+	if (entity->has_component<CTransform>())
+	{
+		auto transformNode = entity->get_component<CTransform>();
+		transformNode->matrix->eject(_renderer.get());
+	}
 }
 
 void RenderSystem::visit(LeafNode* entity)
 {
-	if (entity->has_component<CNode>())
+	visit(static_cast<IGraphNode*>(entity));
+
+	if (entity->has_component<CMesh>())
 	{
-		auto renderNode = entity->get_component<CNode>();
-		auto position = entity->get_component<CPosition>();
-		renderNode->geometry->accept(_renderer.get(), position->location, position->orientation);
+		auto renderNode = entity->get_component<CMesh>();
+		renderNode->geometry->accept(_renderer.get());
 	}
 }

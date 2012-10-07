@@ -6,12 +6,12 @@
 using namespace std;
 
 
-unique_ptr<IRenderable> PrimitiveFactory::create_cube(IMaterial* brush, coord radius)
+unique_ptr<IModel> PrimitiveFactory::create_cube(IMaterial* brush, coord radius)
 {
 	return create_prism(brush, Box6<coord>(-radius, -radius, -radius, radius, radius, radius));
 }
 
-unique_ptr<IRenderable> PrimitiveFactory::create_prism(IMaterial* brush, Box6<coord> bounds)
+unique_ptr<IModel> PrimitiveFactory::create_prism(IMaterial* brush, Box6<coord> bounds)
 {
 	vector<Vec3<coord>> vertices;
 	vertices.emplace_back(bounds.left(), bounds.bottom(), bounds.back());
@@ -34,7 +34,7 @@ unique_ptr<IRenderable> PrimitiveFactory::create_prism(IMaterial* brush, Box6<co
 	return make_unique<FVMesh>(4, brush, std::move(quads), std::move(vertices));
 }
 
-unique_ptr<IRenderable> PrimitiveFactory::create_sphere(IMaterial* brush, coord radius, int refinements)
+unique_ptr<IModel> PrimitiveFactory::create_sphere(IMaterial* brush, coord radius, int refinements)
 {
 	//generate initial icosahedron
 	auto t = (coord)((1.0 + sqrt(5.0)) / 2.0);

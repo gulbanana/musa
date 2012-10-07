@@ -1,6 +1,55 @@
 #include <algorithm>
+#include <numeric>
 #include "FVMesh.h"
 using namespace std;
+
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices) : 
+		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
+{
+	validate_mesh();
+}
+
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs) :
+		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(), _bounds_cache(calc_bounds())
+{
+	validate_mesh();
+}
+
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals) :
+		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(normals), _bounds_cache(calc_bounds())
+{
+	validate_mesh();
+}
+
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs, std::vector<Vec3<coord>>&& normals) :
+		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(normals), _bounds_cache(calc_bounds())
+{
+	validate_mesh();
+}
+
+FVMesh::FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices) : 
+		sides(sides), groups(), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
+{
+	groups.emplace_back(brush, std::forward<std::vector<Face>>(faces));
+	validate_mesh();
+}
+
+void FVMesh::accept(IRenderer* renderer) const 
+{ 
+	renderer->draw(this); 
+}
+
+Box6<coord> FVMesh::bounds() const 
+{ 
+	return _bounds_cache; 
+}
+
+int FVMesh::polygons() const 
+{
+	return accumulate(groups.begin(), groups.end(), 0, [](int left, Group right){
+		return left + right.faces.size();
+	});
+}
 
 Box6<coord> FVMesh::calc_bounds()
 {

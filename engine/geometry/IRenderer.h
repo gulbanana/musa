@@ -6,20 +6,31 @@ struct FVMesh;
 
 struct SolidColourBrush;
 
+struct OrthographicCamera;
+struct PerspectiveCamera;
+
 class IRenderer
 {
 public:
 	virtual ~IRenderer() {}
 
 	//optional operations
-	virtual void resize(int width, int height) {}
+	virtual void set_viewport(int width, int height) {}
+	virtual void with_position(Vec3<coord> location, Vec3<degrees> orientation) {}
+
 	virtual void begin_frame() {}
 	virtual void end_frame() {}
 
 	//objects
-	virtual void visit(SpriteMesh const*, Vec3<coord> position, Vec3<degrees> orientation) = 0;
-	virtual void visit(FVMesh const*, Vec3<coord> position, Vec3<degrees> orientation) = 0;
+	virtual void draw(SpriteMesh const*) = 0;
+	virtual void draw(FVMesh const*) = 0;
 
-	//brushes
-	virtual void visit(SolidColourBrush const*) = 0;
+	//materials
+	virtual void paint(SolidColourBrush const*) = 0;
+
+	//transforms
+	virtual void morph(OrthographicCamera const*) = 0;
+	virtual void unmorph(OrthographicCamera const*)  = 0;
+	virtual void morph(PerspectiveCamera const*) = 0;
+	virtual void unmorph(PerspectiveCamera const*)  = 0;
 };

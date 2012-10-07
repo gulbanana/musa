@@ -178,6 +178,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="entities\Camera2D.cpp" />
     <ClCompile Include="core\IEntity.cpp" />
     <ClCompile Include="core\ISystem.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -206,7 +207,12 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="entities\Camera2D.h" />
+    <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CScene.h" />
+    <ClInclude Include="geometry\ITransform.h" />
+    <ClInclude Include="geometry\OrthographicCamera.h" />
+    <ClInclude Include="geometry\PerspectiveCamera.h" />
     <ClInclude Include="platform.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
@@ -216,7 +222,7 @@
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="core\Box6.h" />
     <ClInclude Include="components\CPhysics.h" />
-    <ClInclude Include="components\CNode.h" />
+    <ClInclude Include="components\CMesh.h" />
     <ClInclude Include="scene\IGraphNode.h" />
     <ClInclude Include="scene\IGraphWalker.h" />
     <ClInclude Include="core\Identified.h" />
@@ -225,7 +231,7 @@
     <ClInclude Include="scene.h" />
     <ClInclude Include="systems\EntityManagingSystemBase.h" />
     <ClInclude Include="geometry\IMaterial.h" />
-    <ClInclude Include="geometry\IRenderable.h" />
+    <ClInclude Include="geometry\IModel.h" />
     <ClInclude Include="entities.h" />
     <ClInclude Include="entities\DataDrivenEntity.h" />
     <ClInclude Include="GameState.h" />
