@@ -12,7 +12,6 @@ class GLImmediateRenderer : public IRenderer
 	Vec3<degrees> _at_orientation;
 
 	void with_modelobject(std::function<void(void)>);
-	void with_projection(std::function<void(void)>);
 
 public:
 	GLImmediateRenderer(bool wireframe);

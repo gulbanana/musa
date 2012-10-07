@@ -19,7 +19,9 @@ vector<ISystem::ID> BallBouncer::required_systems() const
 	return vector<SYS>(compTypes.begin(), compTypes.end());
 }
 
-BallBouncer::BallBouncer(int x, int y) : _width((float)x), _height((float)y) {}
+BallBouncer::BallBouncer(int r) : _width((coord)r), _height((coord)r), _depth((coord)r)  {}
+
+BallBouncer::BallBouncer(int x, int y, int z) : _width((coord)x), _height((coord)y), _depth((coord)z)  {}
 
 void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 {
@@ -36,6 +38,8 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 						sourceBox.right() + position->location.x >= _width;
 	bool outOfBoundsY = sourceBox.bottom() + position->location.y <= 0.f ||
 						sourceBox.top() + position->location.y >= _height;
+	bool outOfBoundsZ = sourceBox.bottom() + position->location.z <= 0.f ||
+						sourceBox.top() + position->location.z >= _depth;
 
 	if (outOfBoundsX) 
 	{
@@ -51,7 +55,14 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
         position->location.y = min(position->location.y, _height - sourceBox.top());
 	}
 
-	if (outOfBoundsX || outOfBoundsY)
+	if (outOfBoundsZ) 
+	{
+		velocity->vector.z *= -1;
+        position->location.z = max(position->location.z, sourceBox.front());
+        position->location.z = min(position->location.z, _depth - sourceBox.front());
+	}
+
+	if (outOfBoundsX || outOfBoundsY || outOfBoundsZ)
 	{
 		return;
 	}
@@ -113,7 +124,7 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 
 bool BallBouncer::on_event(SDL_Event& event)
 {
-	if (event.type == SDL_VIDEORESIZE)
+	/*if (event.type == SDL_VIDEORESIZE)
 	{
 		_width = (float)event.resize.w;
 		_height = (float)event.resize.h;
@@ -128,7 +139,7 @@ bool BallBouncer::on_event(SDL_Event& event)
 			position->location.x = min(position->location.x, _width - box.right());
 			position->location.y = min(position->location.y, _width - box.top());
 		}
-	}
+	}*/
 	
 	return false;
 }

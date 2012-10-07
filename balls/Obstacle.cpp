@@ -5,7 +5,7 @@
 #include "Obstacle.h"
 using namespace std;
 
-Obstacle::Obstacle(IModel* mesh, Vec2<coord> position, Vec3<degrees> rotation, bool solid)
+Obstacle::Obstacle(IModel* mesh, Vec3<coord> position, Vec3<degrees> rotation, bool solid)
 {
 	add_component(make_unique<CPosition>(position));
 	add_component(make_unique<CMesh>(mesh));

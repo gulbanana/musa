@@ -8,6 +8,6 @@ class Camera2D : public BranchNode
 	std::unique_ptr<OrthographicCamera> _camera_matrix;
 
 public:
-	Camera2D(coord depth);
+	Camera2D(Box6<coord> bounds);
 };
 

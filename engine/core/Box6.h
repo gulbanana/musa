@@ -8,20 +8,20 @@ struct Box6
 	T x1, y1, z1, x2, y2, z2;
 
 #pragma region accessors
-	T left() { return x1; }
-	T bottom() { return y1; }
-	T front() { return z1; }
-	T right() { return x2; }
-	T top() { return y2; }
-	T back() { return z2; }
+	T left() const   { return x1; }
+	T bottom() const { return y1; }
+	T back() const  { return z1; }
+	T right() const  { return x2; }
+	T top() const    { return y2; }
+	T front() const   { return z2; }
 
-	Vec3<T> bottomLeftBack() { return Vec3<T>(x1,y1,z1); }
-	Vec3<T> topRightFront() { return Vec3<T>(x2,y2,z2); }
-	Vec3<T> origin() { return bottomLeftBack(); }
+	Vec3<T> bottomLeftBack() const { return Vec3<T>(x1,y1,z1); }
+	Vec3<T> topRightFront() const  { return Vec3<T>(x2,y2,z2); }
+	Vec3<T> origin() const         { return bottomLeftBack(); }
 
-	T width() { return x2-x1; }
-	T height() { return y2-y1; }
-	T depth() { return z2-z1; }
+	T width() const  { return x2-x1; }
+	T height() const { return y2-y1; }
+	T depth() const  { return z2-z1; }
 #pragma endregion
 
 #pragma region constructors

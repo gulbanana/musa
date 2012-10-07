@@ -81,9 +81,9 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 {
 	glPushMatrix();
 
-	glTranslatef(_at_location.x, _at_location.y, 0.f);
+	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
 
-#if defined DOUBLE_PRECISION && 0	//no dp for rotation!
+#if defined DOUBLE_PRECISION
 	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
 	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
 	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
@@ -98,26 +98,40 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::with_projection(std::function<void(void)> f)
+void GLImmediateRenderer::morph(OrthographicCamera const* camera) 
 {
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
-	f();
-}
+	glOrtho(
+		camera->visible_world.left(), camera->visible_world.right(), 
+		camera->visible_world.bottom(), camera->visible_world.top(),
+		camera->visible_world.front(), camera->visible_world.back()		//near & far planes are flipped
+	);
 
-void GLImmediateRenderer::morph(OrthographicCamera const* camera) 
-{
-	with_projection([=]{
-		glOrtho(0.f, _viewport_width, _viewport_height, 0.f, -(camera->depth/2), camera->depth/2);
-	});
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+#ifdef DOUBLE_PRECISION
+	
+	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
+	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
+	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
+	glTranslated(_at_location.x, _at_location.y, _at_location.z);	
+#else
+	glTranslatef(-_at_location.x, -_at_location.y, -_at_location.z);	
+	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
+	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
+	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);
+#endif
 }
 
 
 void GLImmediateRenderer::morph(PerspectiveCamera const*)
 {
-	with_projection([=]{
-		auto fov = 1;
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+
+	auto fov = 1;
 		auto depth = 300;
 		auto fovRadians = fov * (float)M_PI / 180;
 		auto nearPlane = (_viewport_height / 2.f) / tanf(fovRadians / 2.f);
@@ -125,20 +139,30 @@ void GLImmediateRenderer::morph(PerspectiveCamera const*)
 		auto centrePlane = -(nearPlane + depth/2);
 		glFrustum(0, _viewport_width, 0, _viewport_height, nearPlane, farPlane);
 
-		glMatrixMode(GL_MODELVIEW);				
-		glTranslatef(0.f, 0.f, centrePlane);	//move all objects to the 1=1 frustum slice
-	});
+		//move all objects to the 1=1 frustum slice
+		glMatrixMode(GL_MODELVIEW);	
+#ifdef DOUBLE_PRECISION
+		glTranslated(0.0, 0.0, centrePlane);	
+#else
+		glTranslatef(0.f, 0.f, centrePlane);	
+#endif
 }
 
 void GLImmediateRenderer::unmorph(OrthographicCamera const*)
 {
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
+
+	glMatrixMode(GL_MODELVIEW);	
+	glPopMatrix();
 }
 
 void GLImmediateRenderer::unmorph(PerspectiveCamera const*)
 {
 	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	glMatrixMode(GL_MODELVIEW);	
 	glPopMatrix();
 }
 
