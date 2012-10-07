@@ -1,7 +1,8 @@
 #pragma once
 #include <engine/core.h>
+#include <engine/scene.h>
 
-class DataDrivenEntity : public IEntity
+class DataDrivenEntity : public LeafNode
 {
 public:
 	DataDrivenEntity();

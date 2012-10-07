@@ -149,7 +149,7 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
 	glTranslated(_at_location.x, _at_location.y, _at_location.z);	
 #else
-	glTranslatef(-_at_location.x, -_at_location.y, -_at_location.z);	
+	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
 	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
 	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
 	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);

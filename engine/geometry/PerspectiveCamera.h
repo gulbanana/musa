@@ -3,11 +3,12 @@
 
 struct PerspectiveCamera : public ITransform
 {
-	degrees* fov_override;
+	ScaleMethod widescreen;
+	bool natural_fov;
+	degrees fov_override;
 
-	PerspectiveCamera() : fov_override(nullptr) {}
-	PerspectiveCamera(degrees fov) : fov_override(new degrees(fov)) {}
-	~PerspectiveCamera() { if (fov_override != nullptr) delete fov_override; }
+	PerspectiveCamera(ScaleMethod widescreen) : widescreen(widescreen), natural_fov(true) {}
+	PerspectiveCamera(ScaleMethod widescreen, degrees fov) : widescreen(widescreen), natural_fov(false), fov_override(fov) {}
 
 	virtual void accept(IRenderer* renderer) const override { renderer->morph(this); }
 	virtual void eject(IRenderer* renderer) const override { renderer->unmorph(this); }

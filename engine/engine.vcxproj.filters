@@ -68,6 +68,7 @@
     <ClCompile Include="scene\IGraphWalker.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="entities\Camera2D.cpp" />
+    <ClCompile Include="entities\Camera3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -173,5 +174,6 @@
     <ClInclude Include="geometry\PerspectiveCamera.h" />
     <ClInclude Include="entities\Camera2D.h" />
     <ClInclude Include="geometry\ScaleMethod.h" />
+    <ClInclude Include="entities\Camera3D.h" />
   </ItemGroup>
 </Project>

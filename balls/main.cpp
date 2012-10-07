@@ -47,6 +47,8 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 
 	//root
 	auto view = make_shared<Camera2D>(Box6<coord>((coord)0, (coord)0, (coord)0, (coord)WIDTH, (coord)HEIGHT, (coord)DEPTH));
+	//auto view = make_shared<Camera3D>();
+	//view->move_to();
 	ballgame.add_entity(view);
 
 	//immobiles

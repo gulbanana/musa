@@ -178,6 +178,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="entities\Camera3D.cpp" />
     <ClCompile Include="entities\Camera2D.cpp" />
     <ClCompile Include="core\IEntity.cpp" />
     <ClCompile Include="core\ISystem.cpp" />
@@ -207,6 +208,7 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="entities\Camera3D.h" />
     <ClInclude Include="entities\Camera2D.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CScene.h" />
