@@ -103,10 +103,41 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
-	glOrtho(
-		camera->visible_world.left(), camera->visible_world.right(), 
-		camera->visible_world.bottom(), camera->visible_world.top(),
-		camera->visible_world.front(), camera->visible_world.back()		//near & far planes are flipped
+	coord viewportAR = (coord)_viewport_width / (coord)_viewport_height;
+	coord cameraAR = camera->range.width() / camera->range.height();
+	coord l, r, b, t;
+
+	switch (camera->widescreen)
+	{
+	case ScaleMethod::HorPlus:
+		b = camera->range.bottom();
+		t = camera->range.top();
+		l = (camera->range.width() - (camera->range.width() / cameraAR * viewportAR)) / 2;
+		r = camera->range.width() / cameraAR * viewportAR + l;
+		break;
+
+	case ScaleMethod::VertMinus:
+		l = camera->range.left();
+		r = camera->range.right();
+		b = (camera->range.height() - (camera->range.height() * cameraAR / viewportAR)) / 2;
+		t = camera->range.height() * cameraAR / viewportAR + b;
+		break;
+
+	case ScaleMethod::Anamorphic:
+		throw runtime_error("letterboxing not implemented");
+		break;
+
+	case ScaleMethod::Stretch:
+	default:
+		l = camera->range.left();
+		r = camera->range.right();
+		b = camera->range.bottom();
+		t = camera->range.top();
+		break;
+	}
+
+	glOrtho(l, r, b, t,
+		camera->range.front(), camera->range.back()		//near & far planes are flipped
 	);
 
 	glMatrixMode(GL_MODELVIEW);

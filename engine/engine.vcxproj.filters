@@ -172,5 +172,6 @@
     <ClInclude Include="geometry\IModel.h" />
     <ClInclude Include="geometry\PerspectiveCamera.h" />
     <ClInclude Include="entities\Camera2D.h" />
+    <ClInclude Include="geometry\ScaleMethod.h" />
   </ItemGroup>
 </Project>

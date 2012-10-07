@@ -213,6 +213,7 @@
     <ClInclude Include="geometry\ITransform.h" />
     <ClInclude Include="geometry\OrthographicCamera.h" />
     <ClInclude Include="geometry\PerspectiveCamera.h" />
+    <ClInclude Include="geometry\ScaleMethod.h" />
     <ClInclude Include="platform.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
