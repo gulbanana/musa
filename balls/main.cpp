@@ -46,9 +46,9 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	uniform_real_distribution<float> threesixty(0.0, 360.0);
 
 	//root
-	//auto view = make_shared<Camera2D>(Box6<coord>((coord)0, (coord)0, (coord)0, (coord)WIDTH, (coord)HEIGHT, (coord)DEPTH));
-	auto view = make_shared<Camera3D>(LOC(WIDTH/2, HEIGHT/2, DEPTH));
-	view->look_at(LOC(WIDTH/2, HEIGHT/2, DEPTH/2));
+	auto view = make_shared<Camera2D>(Box6<coord>((coord)0, (coord)0, (coord)0, (coord)WIDTH, (coord)HEIGHT, (coord)DEPTH));
+	//auto view = make_shared<Camera3D>(LOC(WIDTH/2, HEIGHT/2, DEPTH));
+	//view->look_at(LOC(WIDTH/2, HEIGHT/2, DEPTH/2));
 	ballgame.add_entity(view);
 
 	//immobiles

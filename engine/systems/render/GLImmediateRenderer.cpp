@@ -144,9 +144,9 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 #ifdef DOUBLE_PRECISION
-	glTranslated(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
+	glTranslated(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, _at_location.z);	
 #else
-	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
+	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, 0);	
 #endif
 	//TODO: rotation
 }
