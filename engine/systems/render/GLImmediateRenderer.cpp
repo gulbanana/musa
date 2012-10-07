@@ -81,7 +81,7 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 {
 	glPushMatrix();
 
-	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
+	glTranslatef(_at_location.x, _at_location.y, -_at_location.z);
 
 #if defined DOUBLE_PRECISION
 	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
@@ -107,6 +107,7 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 	coord cameraAR = camera->range.width() / camera->range.height();
 	coord l, r, b, t;
 
+	//calculate planes based on scaling mode
 	switch (camera->widescreen)
 	{
 	case ScaleMethod::HorPlus:
@@ -143,40 +144,64 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 #ifdef DOUBLE_PRECISION
-	
-	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
-	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
-	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
-	glTranslated(_at_location.x, _at_location.y, _at_location.z);	
+	glTranslated(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
 #else
 	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
-	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
-	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
-	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);
 #endif
+	//TODO: rotation
 }
 
-
-void GLImmediateRenderer::morph(PerspectiveCamera const*)
+/*
+                  y       tan(vertical FOV/2)
+aspect ratio  =  ---  =  ---------------------
+				  x      tan(horizontal FOV/2)
+*/
+const double deg2rad = M_PI / 180;
+void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 {
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
-	auto fov = 1;
-		auto depth = 300;
-		auto fovRadians = fov * (float)M_PI / 180;
-		auto nearPlane = (_viewport_height / 2.f) / tanf(fovRadians / 2.f);
-		auto farPlane = nearPlane + depth;
-		auto centrePlane = -(nearPlane + depth/2);
-		glFrustum(0, _viewport_width, 0, _viewport_height, nearPlane, farPlane);
+	float aspect = (float)_viewport_width / (float)_viewport_height;
+	float vfov = camera->fov;
+	float tangent = tan(vfov/2 * deg2rad);
 
-		//move all objects to the 1=1 frustum slice
-		glMatrixMode(GL_MODELVIEW);	
-#ifdef DOUBLE_PRECISION
-		glTranslated(0.0, 0.0, centrePlane);	
-#else
-		glTranslatef(0.f, 0.f, centrePlane);	
-#endif
+	//Select clipping planes based on FOV and scaling method
+	coord left, right, bottom, top, zNear, zFar;
+	zNear = 1000;
+	zFar = 2000;
+	float height = zNear * tangent;	//half the height of the near plane
+	float width = height * aspect; //half the width of the near plane
+
+	switch (camera->widescreen)
+	{
+	case ScaleMethod::HorPlus:
+		bottom = -height;
+		top = height;
+		left = -width;
+		right = width;
+		break;
+
+	case ScaleMethod::Stretch:
+		left = (coord)0;
+		right = (coord)_viewport_width;
+		bottom = (coord)0;
+		top = (coord)_viewport_height;
+		break;
+
+	case ScaleMethod::VertMinus:
+	case ScaleMethod::Anamorphic:
+	default:
+		throw runtime_error("scaling method not implemented");
+
+		break;
+	}
+
+	glFrustum(left, right, bottom, top, zNear, zFar);
+
+	glMatrixMode(GL_MODELVIEW);	
+	glPushMatrix();
+	glTranslatef(-width, -height, -zNear);
 }
 
 void GLImmediateRenderer::unmorph(OrthographicCamera const*)

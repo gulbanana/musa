@@ -46,20 +46,28 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	uniform_real_distribution<float> threesixty(0.0, 360.0);
 
 	//root
-	auto view = make_shared<Camera2D>(Box6<coord>((coord)0, (coord)0, (coord)0, (coord)WIDTH, (coord)HEIGHT, (coord)DEPTH));
-	//auto view = make_shared<Camera3D>();
-	//view->move_to();
+	//auto view = make_shared<Camera2D>(Box6<coord>((coord)0, (coord)0, (coord)0, (coord)WIDTH, (coord)HEIGHT, (coord)DEPTH));
+	auto view = make_shared<Camera3D>(LOC(WIDTH/2, HEIGHT/2, DEPTH));
+	view->look_at(LOC(WIDTH/2, HEIGHT/2, DEPTH/2));
 	ballgame.add_entity(view);
 
 	//immobiles
 	auto whitePaint = ballpit.load_brush(Colour4F::WHITE);
-	auto shape = Box6<coord>((coord)-40, (coord)-60, (coord)-40, (coord)40, (coord)60, (coord)40);
-	auto box = ballpit.load_primitive((SolidColourBrush*)whitePaint, Primitive::Prism, &shape);
+	auto redPaint = ballpit.load_brush(Colour4F::RED);
+	auto bluePaint = ballpit.load_brush(Colour4F::BLUE);
 
-	view->children.push_back(make_shared<Obstacle>(box, LOC(200, 500, WIDTH/2), ROT(0,0,0)));
-	view->children.push_back(make_shared<Obstacle>(box, LOC(400, 500, WIDTH/2), ROT(45,90,0), false));
-	view->children.push_back(make_shared<Obstacle>(box, LOC(600, 500, WIDTH/2), ROT(0,0,0)));
-	view->children.push_back(make_shared<Obstacle>(box, LOC(800, 500, WIDTH/2), ROT(45,90,0), false));
+	auto smallBox = Box6<coord>((coord)-50, (coord)-80, (coord)-30, (coord)50, (coord)80, (coord)30);
+	auto bigBox = Box6<coord>((coord)-500, (coord)-500, (coord)-500, (coord)500, (coord)500, (coord)500);
+
+	auto bluePlatform = ballpit.load_primitive((SolidColourBrush*)bluePaint, Primitive::Prism, &smallBox);
+	auto redPlatform = ballpit.load_primitive((SolidColourBrush*)redPaint, Primitive::Prism, &smallBox);
+	auto whiteBounds = ballpit.load_primitive((SolidColourBrush*)whitePaint, Primitive::Prism, &bigBox);
+
+	view->children.push_back(make_shared<Obstacle>(redPlatform, LOC(200, 500, WIDTH/2), ROT(0,0,0)));
+	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(400, 500, WIDTH/2), ROT(45,90,0), false));
+	view->children.push_back(make_shared<Obstacle>(redPlatform, LOC(600, 500, WIDTH/2), ROT(0,0,0)));
+	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(800, 500, WIDTH/2), ROT(45,90,0), false));
+	view->children.push_back(make_shared<Obstacle>(whiteBounds, LOC(500, 500, 500), ROT(0,0,0), false));
 
 	//fixed balls
 	auto big = (coord)35;

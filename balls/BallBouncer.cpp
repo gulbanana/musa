@@ -38,8 +38,8 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 						sourceBox.right() + position->location.x >= _width;
 	bool outOfBoundsY = sourceBox.bottom() + position->location.y <= 0.f ||
 						sourceBox.top() + position->location.y >= _height;
-	bool outOfBoundsZ = sourceBox.bottom() + position->location.z <= 0.f ||
-						sourceBox.top() + position->location.z >= _depth;
+	bool outOfBoundsZ = sourceBox.back() + position->location.z <= 0.f ||
+						sourceBox.front() + position->location.z >= _depth;
 
 	if (outOfBoundsX) 
 	{

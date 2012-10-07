@@ -49,7 +49,7 @@ struct Box6
 #pragma region utility
 	bool intersects(Box6 const& prism) const
 	{
-		Box6 intersection(0,0,0,0,0,0);
+		Box6 intersection((T)0,(T)0,(T)0,(T)0,(T)0,(T)0);
 		return intersects(prism, intersection);
 	}
 
@@ -70,7 +70,7 @@ struct Box6
 		}
 		else
 		{
-			intersection = Box6(0,0,0,0,0,0);
+			intersection = Box6((T)0,(T)0,(T)0,(T)0,(T)0,(T)0);
 			return false;
 		}
 	}

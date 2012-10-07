@@ -7,7 +7,7 @@ Camera2D::Camera2D(Box6<coord> bounds, bool anamorphic) : _camera_matrix(new Ort
 {
 	//in front of the world, looking back at it
 	add_component(make_unique<CPosition>(
-		Vec3<coord>(bounds.width()/2, bounds.height()/2, bounds.depth()), 
+		Vec3<coord>(bounds.width()/(coord)2, bounds.height()/(coord)2, bounds.depth()), 
 		Vec3<degrees>((degrees)0, (degrees)0, (degrees)0)
 	));
 	add_component(make_unique<CTransform>(_camera_matrix.get()));

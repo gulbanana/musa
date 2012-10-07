@@ -16,6 +16,16 @@ struct Vec3
 #pragma endregion
 
 #pragma region utility
+	static Vec3 origin()
+	{
+		return Vec3((T)0, (T)0, (T)0);
+	}
+
+	static Vec3 unit()
+	{
+		return Vec3((T)1, (T)1, (T)1);
+	}
+
 	T length() const 
 	{ 
 		auto result = sqrt(x * x + y * y + z * z);
@@ -23,12 +33,14 @@ struct Vec3
         
 		else return (T)result;
 	}
+
 	void normalize()
 	{
 		T fLength = length(); 
 		if (fLength == (T)0) return;
 		x /= fLength; y /= fLength; z /= fLength;
 	}
+
 	void mod(T scalar)	{ x = fmod(x, scalar); y = fmod(y, scalar); z = fmod(z, scalar);}
 
     static T distance(Vec3 const& v1, Vec3 const& v2)
