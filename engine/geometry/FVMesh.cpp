@@ -44,9 +44,9 @@ Box6<coord> FVMesh::bounds() const
 	return _bounds_cache; 
 }
 
-int FVMesh::polygons() const 
+size_t FVMesh::polygons() const 
 {
-	return accumulate(groups.begin(), groups.end(), 0, [](int left, Group right){
+	return accumulate(groups.begin(), groups.end(), (size_t)0, [](size_t left, Group right){
 		return left + right.faces.size();
 	});
 }

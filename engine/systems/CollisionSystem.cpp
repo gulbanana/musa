@@ -6,7 +6,7 @@
 #include <engine/misc.h>
 #include <engine/components.h>
 #include "CollisionSystem.h"
-#include "collision/RectIntersectionDetector.h"
+#include "collision/AABBDetector.h"
 using namespace std;
 
 vector<CMP> CollisionSystem::required_components() const 
@@ -23,7 +23,7 @@ vector<SYS> CollisionSystem::required_systems() const
 
 CollisionSystem::CollisionSystem() : targets(), detectors()
 {
-	detectors.push_back(make_unique<RectIntersectionDetector>());
+	detectors.push_back(make_unique<AABBDetector>());
 }
 
 void CollisionSystem::add_entity(weak_ptr<IEntity> new_entity)

@@ -178,6 +178,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="entities\Camera3D.cpp" />
     <ClCompile Include="entities\Camera2D.cpp" />
     <ClCompile Include="core\IEntity.cpp" />
@@ -208,6 +209,7 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="systems\collision\AABBDetector.h" />
     <ClInclude Include="entities\Camera3D.h" />
     <ClInclude Include="entities\Camera2D.h" />
     <ClInclude Include="components\CTransform.h" />

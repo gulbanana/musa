@@ -25,6 +25,9 @@ struct Box6
 #pragma endregion
 
 #pragma region constructors
+	template<typename U>
+	Box6(U left, U bottom, U back, U right, U top, U front) : 
+		x1((T)left), y1((T)bottom), z1((T)back), x2((T)right), y2((T)top), z2((T)front) {}
 	Box6(T left, T bottom, T back, T right, T top, T front) : 
 		x1(left), y1(bottom), z1(back), x2(right), y2(top), z2(front) {}
 	Box6(Vec3<T> bottomLeftBack, Vec3<T> topRightFront) : 
@@ -41,6 +44,36 @@ struct Box6
 #pragma region arithmetic
 	Box6 operator+(Vec3<T> const& p) const { return Box6(x1 + p.x, y1 + p.y, z1 + p.z, x2 + p.x, y2 + p.y, z2 + p.z); }
 	Box6 operator-(Vec3<T> const& p) const { return Box6(x1 - p.x, y1 - p.y, z1 - p.z, x2 - p.x, y2 - p.y, z2 - p.z); }
+#pragma endregion
+
+#pragma region utility
+	bool intersects(Box6 const& prism) const
+	{
+		Box6 intersection(0,0,0,0,0,0);
+		return intersects(prism, intersection);
+	}
+
+	bool intersects(Box6 const& prism, Box6& intersection) const
+	{
+		auto interLeft = std::max(x1, prism.x1);
+		auto interBottom = std::max(y1, prism.y1);
+		auto interBack = std::max(z1, prism.z1);
+		auto interRight = std::min(x2, prism.x2);
+		auto interTop = std::min(y2, prism.y2);
+		auto interFront = std::min(z2, prism.z2);
+
+		// If the intersection is valid (positive non zero area), then there is an intersection
+		if ((interLeft < interRight) && (interBottom < interTop) && (interBack < interFront))
+		{
+			intersection = Box6(interLeft, interBottom, interBack, interRight, interTop, interFront);
+			return true;
+		}
+		else
+		{
+			intersection = Box6(0,0,0,0,0,0);
+			return false;
+		}
+	}
 #pragma endregion
 };
 

@@ -55,7 +55,7 @@ struct FVMesh : public IModel
 
 	void accept(IRenderer* renderer) const override; 
 	Box6<coord> bounds() const override; 
-	int polygons() const override; 
+	size_t polygons() const override; 
 	
 private:
 	Box6<coord> _bounds_cache;

@@ -69,6 +69,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="entities\Camera2D.cpp" />
     <ClCompile Include="entities\Camera3D.cpp" />
+    <ClCompile Include="systems\collision\AABBDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -175,5 +176,6 @@
     <ClInclude Include="entities\Camera2D.h" />
     <ClInclude Include="geometry\ScaleMethod.h" />
     <ClInclude Include="entities\Camera3D.h" />
+    <ClInclude Include="systems\collision\AABBDetector.h" />
   </ItemGroup>
 </Project>
