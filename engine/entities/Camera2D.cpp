@@ -1,6 +1,7 @@
-#include "Camera2D.h"
 #include <engine/components.h>
 #include <engine/misc.h>
+#include "Camera2D.h"
+
 using namespace std;
 
 Camera2D::Camera2D(coord width, coord height, coord depth, bool anamorphic) : 

@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E59A762E16296A5900AE0CB0 /* Bouncer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A762C16296A5900AE0CB0 /* Bouncer.cpp */; };
+		E59A763216296A6600AE0CB0 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1616184BCC0007CDB1 /* Ball.cpp */; };
+		E59A763416296A6600AE0CB0 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */; };
+		E59A763516296A6600AE0CB0 /* Bouncer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A762C16296A5900AE0CB0 /* Bouncer.cpp */; };
+		E59A763716296A6600AE0CB0 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
+		E59A763816296A6600AE0CB0 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2416184C5C0007CDB1 /* libguichan.a */; };
+		E59A763916296A6600AE0CB0 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C1216184A330007CDB1 /* libengine.a */; };
+		E59A763A16296A6600AE0CB0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63BEA16183C210007CDB1 /* Cocoa.framework */; };
+		E59A763B16296A6600AE0CB0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
+		E59A763D16296A6600AE0CB0 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
+		E59A763F16296A6600AE0CB0 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
+		E59A764716296AB500AE0CB0 /* main3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A764616296AB500AE0CB0 /* main3d.cpp */; };
+		E59A764A16296AD000AE0CB0 /* ResizingBouncer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A764816296AD000AE0CB0 /* ResizingBouncer.cpp */; };
 		E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63BEA16183C210007CDB1 /* Cocoa.framework */; };
 		E5A63C1316184A330007CDB1 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C1216184A330007CDB1 /* libengine.a */; };
 		E5A63C1E16184BCC0007CDB1 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1616184BCC0007CDB1 /* Ball.cpp */; };
@@ -17,10 +30,19 @@
 		E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
 		E5D03FD1161887B200FE0F56 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
 		E5D03FD2161887E300FE0F56 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
-		E5EE0F2B161A34D8008B9D2E /* BallBouncer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F29161A34D8008B9D2E /* BallBouncer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E59A763E16296A6600AE0CB0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E59A763F16296A6600AE0CB0 /* SDL.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5D03FCC1618822E00FE0F56 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -34,6 +56,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E59A762C16296A5900AE0CB0 /* Bouncer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bouncer.cpp; sourceTree = "<group>"; };
+		E59A762D16296A5900AE0CB0 /* Bouncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bouncer.h; sourceTree = "<group>"; };
+		E59A764316296A6600AE0CB0 /* balls3d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balls3d.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E59A764616296AB500AE0CB0 /* main3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main3d.cpp; sourceTree = "<group>"; };
+		E59A764816296AD000AE0CB0 /* ResizingBouncer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResizingBouncer.cpp; sourceTree = "<group>"; };
+		E59A764916296AD000AE0CB0 /* ResizingBouncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizingBouncer.h; sourceTree = "<group>"; };
 		E5A63BE616183C210007CDB1 /* balls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A63BEA16183C210007CDB1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E5A63BED16183C210007CDB1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -50,11 +78,21 @@
 		E5A63C2416184C5C0007CDB1 /* libguichan.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libguichan.a; path = ../guichan/build/Release/libguichan.a; sourceTree = "<group>"; };
 		E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = SDLMain.nib; path = /Users/banana/Documents/Programming/musaceae/engine/mac/../../../../../../../Library/Frameworks/SDL.framework/Versions/A/Resources/SDLMain.nib; sourceTree = "<absolute>"; };
 		E5D03FD0161887B200FE0F56 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
-		E5EE0F29161A34D8008B9D2E /* BallBouncer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallBouncer.cpp; sourceTree = "<group>"; };
-		E5EE0F2A161A34D8008B9D2E /* BallBouncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallBouncer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E59A763616296A6600AE0CB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59A763716296A6600AE0CB0 /* SDL.framework in Frameworks */,
+				E59A763816296A6600AE0CB0 /* libguichan.a in Frameworks */,
+				E59A763916296A6600AE0CB0 /* libengine.a in Frameworks */,
+				E59A763A16296A6600AE0CB0 /* Cocoa.framework in Frameworks */,
+				E59A763B16296A6600AE0CB0 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5A63BE316183C210007CDB1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,12 +111,15 @@
 		E5A63BDB16183C210007CDB1 = {
 			isa = PBXGroup;
 			children = (
-				E5EE0F29161A34D8008B9D2E /* BallBouncer.cpp */,
-				E5EE0F2A161A34D8008B9D2E /* BallBouncer.h */,
+				E59A764816296AD000AE0CB0 /* ResizingBouncer.cpp */,
+				E59A764916296AD000AE0CB0 /* ResizingBouncer.h */,
+				E5A63C1A16184BCC0007CDB1 /* main.cpp */,
+				E59A764616296AB500AE0CB0 /* main3d.cpp */,
+				E59A762C16296A5900AE0CB0 /* Bouncer.cpp */,
+				E59A762D16296A5900AE0CB0 /* Bouncer.h */,
 				E5BE5C8D16186C7F0095BE77 /* mac */,
 				E5A63C1616184BCC0007CDB1 /* Ball.cpp */,
 				E5A63C1716184BCC0007CDB1 /* Ball.h */,
-				E5A63C1A16184BCC0007CDB1 /* main.cpp */,
 				E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */,
 				E5A63C1C16184BCC0007CDB1 /* Obstacle.h */,
 				E5A63BE916183C210007CDB1 /* Frameworks */,
@@ -90,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A63BE616183C210007CDB1 /* balls.app */,
+				E59A764316296A6600AE0CB0 /* balls3d.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +171,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E59A763016296A6600AE0CB0 /* balls3d */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E59A764016296A6600AE0CB0 /* Build configuration list for PBXNativeTarget "balls3d" */;
+			buildPhases = (
+				E59A763116296A6600AE0CB0 /* Sources */,
+				E59A763616296A6600AE0CB0 /* Frameworks */,
+				E59A763C16296A6600AE0CB0 /* Resources */,
+				E59A763E16296A6600AE0CB0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = balls3d;
+			productName = balls;
+			productReference = E59A764316296A6600AE0CB0 /* balls3d.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E5A63BE516183C210007CDB1 /* balls */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5A63C0416183C220007CDB1 /* Build configuration list for PBXNativeTarget "balls" */;
@@ -169,11 +229,20 @@
 			projectRoot = "";
 			targets = (
 				E5A63BE516183C210007CDB1 /* balls */,
+				E59A763016296A6600AE0CB0 /* balls3d */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E59A763C16296A6600AE0CB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59A763D16296A6600AE0CB0 /* SDLMain.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5A63BE416183C210007CDB1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +254,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E59A763116296A6600AE0CB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59A763216296A6600AE0CB0 /* Ball.cpp in Sources */,
+				E59A763416296A6600AE0CB0 /* Obstacle.cpp in Sources */,
+				E59A763516296A6600AE0CB0 /* Bouncer.cpp in Sources */,
+				E59A764716296AB500AE0CB0 /* main3d.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5A63BE216183C210007CDB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,13 +272,44 @@
 				E5A63C1E16184BCC0007CDB1 /* Ball.cpp in Sources */,
 				E5A63C2016184BCC0007CDB1 /* main.cpp in Sources */,
 				E5A63C2116184BCC0007CDB1 /* Obstacle.cpp in Sources */,
-				E5EE0F2B161A34D8008B9D2E /* BallBouncer.cpp in Sources */,
+				E59A762E16296A5900AE0CB0 /* Bouncer.cpp in Sources */,
+				E59A764A16296AD000AE0CB0 /* ResizingBouncer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		E59A764116296A6600AE0CB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = balls3d;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E59A764216296A6600AE0CB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = balls3d;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		E5A63C0216183C220007CDB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -304,6 +415,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E59A764016296A6600AE0CB0 /* Build configuration list for PBXNativeTarget "balls3d" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E59A764116296A6600AE0CB0 /* Debug */,
+				E59A764216296A6600AE0CB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E5A63BE016183C210007CDB1 /* Build configuration list for PBXProject "balls" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

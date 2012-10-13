@@ -5,9 +5,9 @@
       location = "group:balls/balls.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:guichan/guichan.xcodeproj">
+      location = "group:engine/engine.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:engine/engine.xcodeproj">
+      location = "group:guichan/guichan.xcodeproj">
    </FileRef>
 </Workspace>

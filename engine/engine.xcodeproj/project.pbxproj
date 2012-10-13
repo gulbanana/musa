@@ -50,6 +50,19 @@
 		E58E601C162069F300EB3F0D /* EntityManagingSystemBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E58E601A162069F300EB3F0D /* EntityManagingSystemBase.h */; };
 		E58E601F1620B5C300EB3F0D /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */; };
 		E58E60201620B5C300EB3F0D /* ResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E58E601E1620B5C300EB3F0D /* ResourceManager.h */; };
+		E59A765016296B3D00AE0CB0 /* AABBDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A764E16296B3D00AE0CB0 /* AABBDetector.cpp */; };
+		E59A765116296B3D00AE0CB0 /* AABBDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A764F16296B3D00AE0CB0 /* AABBDetector.h */; };
+		E59A765516296B7500AE0CB0 /* IModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A765316296B7500AE0CB0 /* IModel.h */; };
+		E59A765616296B7500AE0CB0 /* ITransform.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A765416296B7500AE0CB0 /* ITransform.h */; };
+		E59A765916296B7E00AE0CB0 /* OrthographicCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A765716296B7E00AE0CB0 /* OrthographicCamera.h */; };
+		E59A765A16296B7E00AE0CB0 /* PerspectiveCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A765816296B7E00AE0CB0 /* PerspectiveCamera.h */; };
+		E59A766116296B9400AE0CB0 /* Camera2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A765B16296B9400AE0CB0 /* Camera2D.cpp */; };
+		E59A766216296B9400AE0CB0 /* Camera2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A765C16296B9400AE0CB0 /* Camera2D.h */; };
+		E59A766316296B9400AE0CB0 /* Camera3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A765D16296B9400AE0CB0 /* Camera3D.cpp */; };
+		E59A766416296B9400AE0CB0 /* Camera3D.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A765E16296B9400AE0CB0 /* Camera3D.h */; };
+		E59A766516296B9400AE0CB0 /* DataDrivenEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A765F16296B9400AE0CB0 /* DataDrivenEntity.cpp */; };
+		E59A766616296B9400AE0CB0 /* DataDrivenEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A766016296B9400AE0CB0 /* DataDrivenEntity.h */; };
+		E59A766816296B9B00AE0CB0 /* Settings.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A766716296B9A00AE0CB0 /* Settings.h */; };
 		E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* SDLMain.m */; };
 		E5BE5C7C161862440095BE77 /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */; };
 		E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C7D161863A60095BE77 /* SDLApplication.h */; };
@@ -73,7 +86,6 @@
 		E5EE0EF1161A32A0008B9D2E /* DataDrivenEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0EEF161A32A0008B9D2E /* DataDrivenEntity.cpp */; };
 		E5EE0EF2161A32A0008B9D2E /* DataDrivenEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF0161A32A0008B9D2E /* DataDrivenEntity.h */; };
 		E5EE0EFE161A32AF008B9D2E /* FVMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF5161A32AF008B9D2E /* FVMesh.h */; };
-		E5EE0F01161A32AF008B9D2E /* IRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF8161A32AF008B9D2E /* IRenderable.h */; };
 		E5EE0F02161A32AF008B9D2E /* IRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0EF9161A32AF008B9D2E /* IRenderer.h */; };
 		E5EE0F07161A32BA008B9D2E /* geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0F06161A32BA008B9D2E /* geometry.h */; };
 		E5EE0F1A161A32DB008B9D2E /* ControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EE0F14161A32DA008B9D2E /* ControlSystem.cpp */; };
@@ -128,6 +140,20 @@
 		E58E601A162069F300EB3F0D /* EntityManagingSystemBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManagingSystemBase.h; sourceTree = "<group>"; };
 		E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
 		E58E601E1620B5C300EB3F0D /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
+		E59A764E16296B3D00AE0CB0 /* AABBDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AABBDetector.cpp; sourceTree = "<group>"; };
+		E59A764F16296B3D00AE0CB0 /* AABBDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABBDetector.h; sourceTree = "<group>"; };
+		E59A765316296B7500AE0CB0 /* IModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IModel.h; sourceTree = "<group>"; };
+		E59A765416296B7500AE0CB0 /* ITransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITransform.h; sourceTree = "<group>"; };
+		E59A765716296B7E00AE0CB0 /* OrthographicCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrthographicCamera.h; sourceTree = "<group>"; };
+		E59A765816296B7E00AE0CB0 /* PerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerspectiveCamera.h; sourceTree = "<group>"; };
+		E59A765B16296B9400AE0CB0 /* Camera2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera2D.cpp; sourceTree = "<group>"; };
+		E59A765C16296B9400AE0CB0 /* Camera2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera2D.h; sourceTree = "<group>"; };
+		E59A765D16296B9400AE0CB0 /* Camera3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera3D.cpp; sourceTree = "<group>"; };
+		E59A765E16296B9400AE0CB0 /* Camera3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera3D.h; sourceTree = "<group>"; };
+		E59A765F16296B9400AE0CB0 /* DataDrivenEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataDrivenEntity.cpp; sourceTree = "<group>"; };
+		E59A766016296B9400AE0CB0 /* DataDrivenEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDrivenEntity.h; sourceTree = "<group>"; };
+		E59A766716296B9A00AE0CB0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		E59A766A1629700F00AE0CB0 /* msvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = msvc.h; sourceTree = "<group>"; };
 		E5A63C0E1618492B0007CDB1 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		E5A63C0F1618492B0007CDB1 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		E5BE5C7D161863A60095BE77 /* SDLApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLApplication.h; sourceTree = "<group>"; };
@@ -165,7 +191,6 @@
 		E5EE0EEF161A32A0008B9D2E /* DataDrivenEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataDrivenEntity.cpp; sourceTree = "<group>"; };
 		E5EE0EF0161A32A0008B9D2E /* DataDrivenEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDrivenEntity.h; sourceTree = "<group>"; };
 		E5EE0EF5161A32AF008B9D2E /* FVMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVMesh.h; sourceTree = "<group>"; };
-		E5EE0EF8161A32AF008B9D2E /* IRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderable.h; sourceTree = "<group>"; };
 		E5EE0EF9161A32AF008B9D2E /* IRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderer.h; sourceTree = "<group>"; };
 		E5EE0F06161A32BA008B9D2E /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
 		E5EE0F14161A32DA008B9D2E /* ControlSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlSystem.cpp; sourceTree = "<group>"; };
@@ -208,6 +233,14 @@
 			path = scene;
 			sourceTree = "<group>";
 		};
+		E59A76691629700E00AE0CB0 /* windows */ = {
+			isa = PBXGroup;
+			children = (
+				E59A766A1629700F00AE0CB0 /* msvc.h */,
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
 		E5A63C09161849030007CDB1 /* mac */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +257,9 @@
 		E5DDE4461618242E008179BF = {
 			isa = PBXGroup;
 			children = (
+				E5A63C09161849030007CDB1 /* mac */,
+				E59A76691629700E00AE0CB0 /* windows */,
+				E59A766716296B9A00AE0CB0 /* Settings.h */,
 				E58E6005162065C900EB3F0D /* Engine.cpp */,
 				E5DDE4BB16182B7A008179BF /* GameState.cpp */,
 				E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */,
@@ -241,12 +277,11 @@
 				E5DDE49416182B7A008179BF /* components */,
 				E5DDE49E16182B7A008179BF /* core */,
 				E5DDE4B616182B7A008179BF /* entities */,
-				E5DDE4531618242E008179BF /* Frameworks */,
 				E5EE0EF3161A32AE008B9D2E /* geometry */,
-				E5A63C09161849030007CDB1 /* mac */,
-				E5DDE4521618242E008179BF /* Products */,
 				E58E5FE8162065B800EB3F0D /* scene */,
 				E5DDE4C816182B7A008179BF /* systems */,
+				E5DDE4531618242E008179BF /* Frameworks */,
+				E5DDE4521618242E008179BF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,6 +340,12 @@
 		E5DDE4B616182B7A008179BF /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				E59A765B16296B9400AE0CB0 /* Camera2D.cpp */,
+				E59A765C16296B9400AE0CB0 /* Camera2D.h */,
+				E59A765D16296B9400AE0CB0 /* Camera3D.cpp */,
+				E59A765E16296B9400AE0CB0 /* Camera3D.h */,
+				E59A765F16296B9400AE0CB0 /* DataDrivenEntity.cpp */,
+				E59A766016296B9400AE0CB0 /* DataDrivenEntity.h */,
 				E5EE0EEF161A32A0008B9D2E /* DataDrivenEntity.cpp */,
 				E5EE0EF0161A32A0008B9D2E /* DataDrivenEntity.h */,
 			);
@@ -336,6 +377,8 @@
 		E5DDE4C916182B7A008179BF /* collision */ = {
 			isa = PBXGroup;
 			children = (
+				E59A764E16296B3D00AE0CB0 /* AABBDetector.cpp */,
+				E59A764F16296B3D00AE0CB0 /* AABBDetector.h */,
 				E5DDE4CC16182B7A008179BF /* ICollisionDetector.h */,
 				E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */,
 				E5DDE4CE16182B7A008179BF /* RectIntersectionDetector.h */,
@@ -355,6 +398,10 @@
 		E5EE0EF3161A32AE008B9D2E /* geometry */ = {
 			isa = PBXGroup;
 			children = (
+				E59A765716296B7E00AE0CB0 /* OrthographicCamera.h */,
+				E59A765816296B7E00AE0CB0 /* PerspectiveCamera.h */,
+				E59A765316296B7500AE0CB0 /* IModel.h */,
+				E59A765416296B7500AE0CB0 /* ITransform.h */,
 				E58E600D162065ED00EB3F0D /* IMaterial.h */,
 				E58E600E162065ED00EB3F0D /* SolidColourBrush.h */,
 				E58E600F162065ED00EB3F0D /* SpriteMesh.cpp */,
@@ -363,7 +410,6 @@
 				E53C77ED161C01E3003CB7D7 /* PrimitiveFactory.cpp */,
 				E53C77EE161C01E3003CB7D7 /* PrimitiveFactory.h */,
 				E5EE0EF5161A32AF008B9D2E /* FVMesh.h */,
-				E5EE0EF8161A32AF008B9D2E /* IRenderable.h */,
 				E5EE0EF9161A32AF008B9D2E /* IRenderer.h */,
 			);
 			path = geometry;
@@ -401,7 +447,6 @@
 				E5EE0EE8161A328F008B9D2E /* ISystem.h in Headers */,
 				E5EE0EF2161A32A0008B9D2E /* DataDrivenEntity.h in Headers */,
 				E5EE0EFE161A32AF008B9D2E /* FVMesh.h in Headers */,
-				E5EE0F01161A32AF008B9D2E /* IRenderable.h in Headers */,
 				E5EE0F02161A32AF008B9D2E /* IRenderer.h in Headers */,
 				E5EE0F07161A32BA008B9D2E /* geometry.h in Headers */,
 				E5EE0F1B161A32DB008B9D2E /* ControlSystem.h in Headers */,
@@ -432,6 +477,15 @@
 				E58E60161620673D00EB3F0D /* platform.h in Headers */,
 				E58E601C162069F300EB3F0D /* EntityManagingSystemBase.h in Headers */,
 				E58E60201620B5C300EB3F0D /* ResourceManager.h in Headers */,
+				E59A765116296B3D00AE0CB0 /* AABBDetector.h in Headers */,
+				E59A765516296B7500AE0CB0 /* IModel.h in Headers */,
+				E59A765616296B7500AE0CB0 /* ITransform.h in Headers */,
+				E59A765916296B7E00AE0CB0 /* OrthographicCamera.h in Headers */,
+				E59A765A16296B7E00AE0CB0 /* PerspectiveCamera.h in Headers */,
+				E59A766216296B9400AE0CB0 /* Camera2D.h in Headers */,
+				E59A766416296B9400AE0CB0 /* Camera3D.h in Headers */,
+				E59A766616296B9400AE0CB0 /* DataDrivenEntity.h in Headers */,
+				E59A766816296B9B00AE0CB0 /* Settings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +568,10 @@
 				E58E6018162069EB00EB3F0D /* IEntity.cpp in Sources */,
 				E58E601B162069F300EB3F0D /* EntityManagingSystemBase.cpp in Sources */,
 				E58E601F1620B5C300EB3F0D /* ResourceManager.cpp in Sources */,
+				E59A765016296B3D00AE0CB0 /* AABBDetector.cpp in Sources */,
+				E59A766116296B9400AE0CB0 /* Camera2D.cpp in Sources */,
+				E59A766316296B9400AE0CB0 /* Camera3D.cpp in Sources */,
+				E59A766516296B9400AE0CB0 /* DataDrivenEntity.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

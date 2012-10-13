@@ -1,8 +1,9 @@
-#include "Camera3D.h"
 #include <engine/components.h>
 #include <engine/misc.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include "Camera3D.h"
+
 using namespace std;
 
 Camera3D::Camera3D() : _camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus))
@@ -42,7 +43,7 @@ void Camera3D::look_at(Vec3<coord> location)
 
 Vec3<degrees> Camera3D::angle_from(Vec3<coord> from, Vec3<coord> to)
 {
-	auto angle = [](coord x1, coord y1, coord x2, coord y2)
+	auto angle = [](coord x1, coord y1, coord x2, coord y2)->degrees
 	{
 		auto dx = x2 - x1;
 		auto dy = y2 - y1;
