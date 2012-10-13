@@ -35,7 +35,8 @@ void GLImmediateRenderer::set_viewport(int width, int height)
 	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
     
 	//alpha blending, depth testing
-	glEnable(GL_BLEND | GL_DEPTH_TEST);
+	
+	//glDisable();
 
 	//rgba translucency
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -111,6 +112,9 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 
 void GLImmediateRenderer::morph(OrthographicCamera const* camera) 
 {
+	glEnable(GL_BLEND);
+	glDisable(GL_DEPTH_TEST);
+
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
@@ -167,6 +171,9 @@ aspect ratio  =  ---  =  ---------------------
 */
 void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 {
+	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 

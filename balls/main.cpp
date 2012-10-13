@@ -43,11 +43,11 @@ int main(int argc, char *argv[])
 
 	//immobiles
 	auto redPaint = ballpit.load_brush(Colour4F::RED);
-	auto bluePaint = ballpit.load_brush(Colour4F::BLUE);
+	auto whitePaint = ballpit.load_brush(Colour4F::WHITE);
 
 	auto smallBox = Box6<coord>((coord)-50, (coord)-80, (coord)-30, (coord)50, (coord)80, (coord)30);
 
-	auto bluePlatform = ballpit.load_primitive((SolidColourBrush*)bluePaint, Primitive::Prism, &smallBox);
+	auto bluePlatform = ballpit.load_primitive((SolidColourBrush*)whitePaint, Primitive::Prism, &smallBox);
 	auto redPlatform = ballpit.load_primitive((SolidColourBrush*)redPaint, Primitive::Prism, &smallBox);
 
 	view->children.push_back(make_shared<Obstacle>(redPlatform, LOC(250, 400), ROT(0)));

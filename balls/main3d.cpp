@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
 	ResourceManager loader;
 	EntityGraph level;
-	Settings settings("balls!", 1200, 675, GraphicsMode::THREE_D);
+	Settings settings("balls 3d!", 1200, 675, GraphicsMode::THREE_D);
 	Engine game(settings, move(customs));
 
 	setup_world(level, loader);
