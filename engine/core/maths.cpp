@@ -4,11 +4,11 @@
 #include "maths.h"
 using namespace std;
 
-static const Vec3<coord> maths::origin = Vec3<coord>((coord)0, (coord)0, (coord)0);
+const Vec3<coord> maths::origin = Vec3<coord>((coord)0, (coord)0, (coord)0);
 
-static const Vec3<degrees> maths::forward_rotation = Vec3<degrees>((degrees)0, (degrees)0, (degrees)0);	//360
-static const Vec3<degrees> maths::up_rotation = Vec3<degrees>((degrees)0, (degrees)-90, (degrees)0);	
-static const Vec3<degrees> maths::backward_rotation = Vec3<degrees>((degrees)0, (degrees)180, (degrees)0);
+const Vec3<degrees> maths::forward_rotation = Vec3<degrees>((degrees)0, (degrees)0, (degrees)0);	//360
+const Vec3<degrees> maths::up_rotation = Vec3<degrees>((degrees)0, (degrees)-90, (degrees)0);
+const Vec3<degrees> maths::backward_rotation = Vec3<degrees>((degrees)0, (degrees)180, (degrees)0);
 
 radians maths::deg2rad(const degrees d)
 {

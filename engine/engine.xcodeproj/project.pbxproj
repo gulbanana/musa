@@ -63,6 +63,11 @@
 		E59A766516296B9400AE0CB0 /* DataDrivenEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A765F16296B9400AE0CB0 /* DataDrivenEntity.cpp */; };
 		E59A766616296B9400AE0CB0 /* DataDrivenEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A766016296B9400AE0CB0 /* DataDrivenEntity.h */; };
 		E59A766816296B9B00AE0CB0 /* Settings.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A766716296B9A00AE0CB0 /* Settings.h */; };
+		E59A766D1629D41900AE0CB0 /* maths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A766B1629D41900AE0CB0 /* maths.cpp */; };
+		E59A766E1629D41900AE0CB0 /* maths.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A766C1629D41900AE0CB0 /* maths.h */; };
+		E59A76721629D42800AE0CB0 /* CPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A766F1629D42800AE0CB0 /* CPlayer.h */; };
+		E59A76731629D42800AE0CB0 /* CScene.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A76701629D42800AE0CB0 /* CScene.h */; };
+		E59A76741629D42800AE0CB0 /* CTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A76711629D42800AE0CB0 /* CTransform.h */; };
 		E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* SDLMain.m */; };
 		E5BE5C7C161862440095BE77 /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4CD16182B7A008179BF /* RectIntersectionDetector.cpp */; };
 		E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C7D161863A60095BE77 /* SDLApplication.h */; };
@@ -71,8 +76,6 @@
 		E5DDE53A16183230008179BF /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4BB16182B7A008179BF /* GameState.cpp */; };
 		E5DDE54216183230008179BF /* UISystemImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4DC16182B7A008179BF /* UISystemImpl.cpp */; };
 		E5EE0E1E161A3254008B9D2E /* CAcceleration.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E16161A3254008B9D2E /* CAcceleration.h */; };
-		E5EE0E1F161A3254008B9D2E /* CBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E17161A3254008B9D2E /* CBrush.h */; };
-		E5EE0E20161A3254008B9D2E /* CExtents.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E18161A3254008B9D2E /* CExtents.h */; };
 		E5EE0E21161A3254008B9D2E /* CLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E19161A3254008B9D2E /* CLabel.h */; };
 		E5EE0E22161A3254008B9D2E /* CMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E1A161A3254008B9D2E /* CMesh.h */; };
 		E5EE0E23161A3254008B9D2E /* CPhysics.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E1B161A3254008B9D2E /* CPhysics.h */; };
@@ -154,6 +157,11 @@
 		E59A766016296B9400AE0CB0 /* DataDrivenEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDrivenEntity.h; sourceTree = "<group>"; };
 		E59A766716296B9A00AE0CB0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		E59A766A1629700F00AE0CB0 /* msvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = msvc.h; sourceTree = "<group>"; };
+		E59A766B1629D41900AE0CB0 /* maths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = maths.cpp; sourceTree = "<group>"; };
+		E59A766C1629D41900AE0CB0 /* maths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = maths.h; sourceTree = "<group>"; };
+		E59A766F1629D42800AE0CB0 /* CPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPlayer.h; sourceTree = "<group>"; };
+		E59A76701629D42800AE0CB0 /* CScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CScene.h; sourceTree = "<group>"; };
+		E59A76711629D42800AE0CB0 /* CTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTransform.h; sourceTree = "<group>"; };
 		E5A63C0E1618492B0007CDB1 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		E5A63C0F1618492B0007CDB1 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		E5BE5C7D161863A60095BE77 /* SDLApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLApplication.h; sourceTree = "<group>"; };
@@ -176,8 +184,6 @@
 		E5DDE4DE16182B7A008179BF /* systems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
 		E5DDE52D1618315D008179BF /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EE0E16161A3254008B9D2E /* CAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAcceleration.h; sourceTree = "<group>"; };
-		E5EE0E17161A3254008B9D2E /* CBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBrush.h; sourceTree = "<group>"; };
-		E5EE0E18161A3254008B9D2E /* CExtents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CExtents.h; sourceTree = "<group>"; };
 		E5EE0E19161A3254008B9D2E /* CLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLabel.h; sourceTree = "<group>"; };
 		E5EE0E1A161A3254008B9D2E /* CMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMesh.h; sourceTree = "<group>"; };
 		E5EE0E1B161A3254008B9D2E /* CPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPhysics.h; sourceTree = "<group>"; };
@@ -303,9 +309,10 @@
 		E5DDE49416182B7A008179BF /* components */ = {
 			isa = PBXGroup;
 			children = (
+				E59A766F1629D42800AE0CB0 /* CPlayer.h */,
+				E59A76701629D42800AE0CB0 /* CScene.h */,
+				E59A76711629D42800AE0CB0 /* CTransform.h */,
 				E5EE0E16161A3254008B9D2E /* CAcceleration.h */,
-				E5EE0E17161A3254008B9D2E /* CBrush.h */,
-				E5EE0E18161A3254008B9D2E /* CExtents.h */,
 				E5EE0E19161A3254008B9D2E /* CLabel.h */,
 				E5EE0E1A161A3254008B9D2E /* CMesh.h */,
 				E5EE0E1B161A3254008B9D2E /* CPhysics.h */,
@@ -320,6 +327,8 @@
 		E5DDE49E16182B7A008179BF /* core */ = {
 			isa = PBXGroup;
 			children = (
+				E59A766B1629D41900AE0CB0 /* maths.cpp */,
+				E59A766C1629D41900AE0CB0 /* maths.h */,
 				E58E6017162069EB00EB3F0D /* IEntity.cpp */,
 				E58E6009162065D400EB3F0D /* Colour4F.cpp */,
 				E58E600A162065D400EB3F0D /* Colour4F.h */,
@@ -434,8 +443,6 @@
 				E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */,
 				E5BE5C82161864350095BE77 /* NSString_ReplaceSubString.h in Headers */,
 				E5EE0E1E161A3254008B9D2E /* CAcceleration.h in Headers */,
-				E5EE0E1F161A3254008B9D2E /* CBrush.h in Headers */,
-				E5EE0E20161A3254008B9D2E /* CExtents.h in Headers */,
 				E5EE0E21161A3254008B9D2E /* CLabel.h in Headers */,
 				E5EE0E22161A3254008B9D2E /* CMesh.h in Headers */,
 				E5EE0E23161A3254008B9D2E /* CPhysics.h in Headers */,
@@ -486,6 +493,10 @@
 				E59A766416296B9400AE0CB0 /* Camera3D.h in Headers */,
 				E59A766616296B9400AE0CB0 /* DataDrivenEntity.h in Headers */,
 				E59A766816296B9B00AE0CB0 /* Settings.h in Headers */,
+				E59A766E1629D41900AE0CB0 /* maths.h in Headers */,
+				E59A76721629D42800AE0CB0 /* CPlayer.h in Headers */,
+				E59A76731629D42800AE0CB0 /* CScene.h in Headers */,
+				E59A76741629D42800AE0CB0 /* CTransform.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +583,7 @@
 				E59A766116296B9400AE0CB0 /* Camera2D.cpp in Sources */,
 				E59A766316296B9400AE0CB0 /* Camera3D.cpp in Sources */,
 				E59A766516296B9400AE0CB0 /* DataDrivenEntity.cpp in Sources */,
+				E59A766D1629D41900AE0CB0 /* maths.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,7 @@
 
 namespace maths
 {
-	extern const Vec3<coord> origin;
+    extern const Vec3<coord> origin;
 
 	extern const Vec3<degrees> up_rotation;
 	extern const Vec3<degrees> forward_rotation;
