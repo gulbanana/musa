@@ -46,6 +46,7 @@ struct FVMesh : public IModel
 	unsigned sides;
 	bool has_uv;
 	bool has_normal;
+	bool wireframe;
 
 	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices);
 	FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices);

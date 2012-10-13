@@ -70,6 +70,7 @@
     <ClCompile Include="entities\Camera2D.cpp" />
     <ClCompile Include="entities\Camera3D.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
+    <ClCompile Include="core\maths.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -180,5 +181,6 @@
     <ClInclude Include="Settings.h" />
     <ClInclude Include="windows\msvc.h" />
     <ClInclude Include="mac\clang.h" />
+    <ClInclude Include="core\maths.h" />
   </ItemGroup>
 </Project>

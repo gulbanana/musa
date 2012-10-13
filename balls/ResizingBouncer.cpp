@@ -18,7 +18,7 @@ bool ResizingBouncer::on_event(SDL_Event& event)
 		{
 			auto entity = weakentity.lock();
 
-			if (entity->has_component<CVelocity>() && entity->get_component<CVelocity>()->vector != Vec3<coord>::origin())
+			if (entity->has_component<CVelocity>() && entity->get_component<CVelocity>()->vector != maths::origin)
 			{
 				auto position = entity->get_component<CPosition>();
 				auto mesh = entity->get_component<CMesh>();

@@ -34,11 +34,11 @@ void Bouncer::on_entity(std::shared_ptr<IEntity> entity)
 
 	//Bounce type #1: walls, reflect by component inversion
 	auto sourceBox = mesh->geometry->bounds();
-	bool outOfBoundsX = sourceBox.left() + position->location.x <= 0.f ||
+	bool outOfBoundsX = sourceBox.left() + position->location.x <= (coord)0.0 ||
 						sourceBox.right() + position->location.x >= _width;
-	bool outOfBoundsY = sourceBox.bottom() + position->location.y <= 0.f ||
+	bool outOfBoundsY = sourceBox.bottom() + position->location.y <= (coord)0.0 ||
 						sourceBox.top() + position->location.y >= _height;
-	bool outOfBoundsZ = sourceBox.back() + position->location.z <= 0.f ||
+	bool outOfBoundsZ = sourceBox.back() + position->location.z <= (coord)0.0 ||
 						sourceBox.front() + position->location.z >= _depth;
 
 	if (outOfBoundsX) 

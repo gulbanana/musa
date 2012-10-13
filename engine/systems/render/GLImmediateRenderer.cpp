@@ -1,14 +1,9 @@
-#define _USE_MATH_DEFINES
-#include <cmath>
 #include <stdexcept>
+#include <functional>
 #include <SDL_video.h>
 #include <SDL_opengl.h>
-#include <boost/graph/adjacency_list.hpp>
 #include "GLImmediateRenderer.h"
 using namespace std;
-
-const int resolution = 30;
-const float arc = (float)(2 * M_PI / resolution);
 
 GLImmediateRenderer::GLImmediateRenderer(bool wireframe) 
 	: _wireframe(wireframe), _at_location((coord)0,(coord)0,(coord)0), _at_orientation((degrees)0,(degrees)0,(degrees)0)
@@ -21,6 +16,8 @@ GLImmediateRenderer::GLImmediateRenderer(bool wireframe)
 	if (rc != 0) throw runtime_error("failed to init multisampling");
 	rc = SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
 	if (rc != 0) throw runtime_error("failed to init multisampling");
+	rc = SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16); 
+	if (rc != 0) throw runtime_error("failed to init depth buffer");
 }
 
 
@@ -37,19 +34,28 @@ void GLImmediateRenderer::set_viewport(int width, int height)
 	_surface = SDL_SetVideoMode(_viewport_width, _viewport_height, 32, SDL_OPENGL | SDL_RESIZABLE);
 	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
     
-	//GL init
-	glEnable(GL_BLEND | GL_DEPTH_TEST | GL_ALPHA_TEST);
+	//alpha blending, depth testing
+	glEnable(GL_BLEND | GL_DEPTH_TEST);
+
+	//rgba translucency
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//options
-    if (_wireframe)
-	{
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		//glLineWidth(2);
-	}
+	//??
+	glShadeModel(GL_SMOOTH);
 
+	//black background
 	glClearColor(0.f, 0.f, 0.f, 0.f);
-    
+	//glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+
+	//depth buffer config
+	//glDepthFunc(GL_LEQUAL);
+	//glClearDepth(1.0);
+	//glDepthMask(GL_TRUE);
+
+	//back-face fragment culling
+    //glCullFace(GL_BACK);
+	//glEnable(GL_CULL_FACE);
+
 	//setup device-space
 	glViewport(0, 0, width, height);
 
@@ -60,13 +66,11 @@ void GLImmediateRenderer::set_viewport(int width, int height)
 	//setup clipping-space 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-
 }
 
 void GLImmediateRenderer::begin_frame()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
-	glMatrixMode(GL_MODELVIEW);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void GLImmediateRenderer::end_frame()
@@ -83,15 +87,18 @@ void GLImmediateRenderer::with_position(Vec3<coord> location, Vec3<degrees> orie
 
 void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 {
+	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 
 #if defined DOUBLE_PRECISION
 	glTranslated(_at_location.x, _at_location.y, _at_location.z);
+
 	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
 	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
 	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
 #else
 	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
+
 	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
 	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
 	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);
@@ -158,57 +165,54 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 aspect ratio  =  ---  =  ---------------------
 				  x      tan(horizontal FOV/2)
 */
-const double deg2rad = M_PI / 180;
 void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 {
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
-	coord aspect = (coord)_viewport_width / (coord)_viewport_height;
-	degrees vfov = camera->fov;
-	radians tangent = tan(vfov/2 * deg2rad);
-	coord depth = 1000;
-
 	//Select clipping planes based on FOV and scaling method
-	coord left, right, bottom, top, zNear, zFar;
-	zNear = _at_location.z;
-	zFar = zNear+depth;
-	coord height = zNear * tangent;	//half the height of the near plane
-	coord width = height * aspect; //half the width of the near plane
-
+	auto aspect = maths::aspect_ratio(_viewport_width, _viewport_height);
 	switch (camera->widescreen)
 	{
-	case ScaleMethod::HorPlus:
-		bottom = -height;
-		top = height;
-		left = -width;
-		right = width;
-		break;
+		case ScaleMethod::HorPlus:
+		{
+			auto planes = maths::vertical_perspective(camera->fov, aspect, _at_location.z, _at_location.z + camera->dof);
+			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
+			break;
+		}
 
-	case ScaleMethod::Stretch:
-		left = (coord)0;
-		right = (coord)_viewport_width;
-		bottom = (coord)0;
-		top = (coord)_viewport_height;
-		break;
+		case ScaleMethod::VertMinus:
+		{
+			auto planes = maths::horizontal_perspective(camera->fov, aspect, _at_location.z, _at_location.z + camera->dof);
+			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
+			break;
+		}
 
-	case ScaleMethod::VertMinus:
-	case ScaleMethod::Anamorphic:
-	default:
-		throw runtime_error("scaling method not implemented");
-
-		break;
+		case ScaleMethod::Stretch:
+		case ScaleMethod::Anamorphic:
+		default:
+			throw runtime_error("scaling method not implemented by 3d renderer");
+			break;
 	}
 
-	glFrustum(left, right, bottom, top, zNear, zFar);
+	//add rotation matrices to the projection
+#ifdef DOUBLE_PRECISION
+	//glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
+	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
+	//glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
+#else
+	glRotatef(_at_orientation.x, 1.0, 0.0, 0.0);
+	glRotatef(_at_orientation.y, 0.0, 1.0, 0.0);
+	glRotatef(_at_orientation.z, 0.0, 0.0, 1.0);
+#endif
 
+	//move models to the "eye level" plane
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();
-
 #ifdef DOUBLE_PRECISION
-	glTranslated(-_at_location.x, -_at_location.y, -_at_location.z);
+	glTranslated(-_at_location.x, -_at_location.y, _at_location.z);
 #else
-	glTranslatef(-_at_location.x, -_at_location.y, -_at_location.z);
+	glTranslatef(-_at_location.x, -_at_location.y, _at_location.z);
 #endif
 }
 
@@ -246,6 +250,11 @@ void GLImmediateRenderer::draw(FVMesh const* mesh)
 {
 	with_modelobject([=]
 	{
+		if (_wireframe || mesh->wireframe)
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		else
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 		if (mesh->sides == 3)
 			glBegin(GL_TRIANGLES);
 		else if (mesh->sides == 4)

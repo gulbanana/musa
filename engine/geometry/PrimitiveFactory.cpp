@@ -8,7 +8,8 @@ using namespace std;
 
 unique_ptr<IModel> PrimitiveFactory::create_cube(IMaterial* brush, coord radius)
 {
-	return create_prism(brush, Box6<coord>(-radius, -radius, -radius, radius, radius, radius));
+	auto mesh = create_prism(brush, Box6<coord>(-radius, -radius, -radius, radius, radius, radius));
+	return mesh;
 }
 
 unique_ptr<IModel> PrimitiveFactory::create_prism(IMaterial* brush, Box6<coord> bounds)
@@ -31,7 +32,9 @@ unique_ptr<IModel> PrimitiveFactory::create_prism(IMaterial* brush, Box6<coord> 
 	quads.emplace_back(3,2,6,7);	//top
 	quads.emplace_back(4,5,6,7);	//front
 
-	return make_unique<FVMesh>(4, brush, std::move(quads), std::move(vertices));
+	auto mesh = make_unique<FVMesh>(4, brush, move(quads), move(vertices));
+	mesh->wireframe = true;
+	return move(mesh);
 }
 
 unique_ptr<IModel> PrimitiveFactory::create_sphere(IMaterial* brush, coord radius, int refinements)
@@ -130,5 +133,5 @@ unique_ptr<IModel> PrimitiveFactory::create_sphere(IMaterial* brush, coord radiu
 		triangles = newFaces;
 	}
 
-	return make_unique<FVMesh>(3, brush, std::move(triangles), std::move(vertices));
+	return make_unique<FVMesh>(3, brush, move(triangles), move(vertices));
 }

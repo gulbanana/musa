@@ -4,31 +4,31 @@
 using namespace std;
 
 FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices) : 
-		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
+		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
 FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs) :
-		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(), _bounds_cache(calc_bounds())
+		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
 FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals) :
-		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(normals), _bounds_cache(calc_bounds())
+		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(normals), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
 FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs, std::vector<Vec3<coord>>&& normals) :
-		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(normals), _bounds_cache(calc_bounds())
+		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(normals), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
 FVMesh::FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices) : 
-		sides(sides), groups(), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds())
+		sides(sides), groups(), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	groups.emplace_back(brush, std::forward<std::vector<Face>>(faces));
 	validate_mesh();

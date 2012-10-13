@@ -16,7 +16,7 @@ struct Vec3
 #pragma endregion
 
 #pragma region utility
-	static Vec3 origin()
+	static Vec3 zero()
 	{
 		return Vec3((T)0, (T)0, (T)0);
 	}

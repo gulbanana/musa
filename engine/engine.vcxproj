@@ -204,6 +204,7 @@
     <ClCompile Include="core\Colour4F.cpp" />
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
+    <ClCompile Include="core\maths.cpp" />
     <ClCompile Include="systems\UISystem.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="scene\EntityGraph.cpp" />
@@ -262,6 +263,7 @@
     <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="systems\RenderSystem.h" />
+    <ClInclude Include="core\maths.h" />
     <ClInclude Include="systems\UISystem.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="core\IEntity.h" />

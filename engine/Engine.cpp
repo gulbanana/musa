@@ -53,7 +53,7 @@ EngineImpl::EngineImpl(Settings& settings, std::unique_ptr<ISystem> logic)
     
 	SDL_WM_SetCaption(settings.window_title.c_str(), nullptr);	
 
-	_renderer = make_unique<GLImmediateRenderer>(settings.mode == GraphicsMode::THREE_D);
+	_renderer = make_unique<GLImmediateRenderer>(false);
 	_renderer->set_viewport(settings.initial_width, settings.initial_height);
 
 	add_system(make_unique<ControlSystem>(_state));
