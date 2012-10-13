@@ -33,7 +33,7 @@ unique_ptr<IModel> PrimitiveFactory::create_prism(IMaterial* brush, Box6<coord> 
 	quads.emplace_back(4,5,6,7);	//front
 
 	auto mesh = make_unique<FVMesh>(4, brush, move(quads), move(vertices));
-	mesh->wireframe = true;
+	//mesh->wireframe = true;
 	return move(mesh);
 }
 

@@ -8,7 +8,7 @@ using namespace std;
 using namespace maths;
 
 Camera3D::Camera3D() : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)90, (coord)1000))
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)1000))
 {
 	//in the centre of the world, looking forward
 	add_component(make_unique<CPosition>(origin, forward_rotation));
@@ -16,7 +16,7 @@ Camera3D::Camera3D() :
 }
 
 Camera3D::Camera3D(Vec3<coord> initialLocation) : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)90, (coord)1000))
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)1000))
 {
 	//in front of the world, looking back at it
 	add_component(make_unique<CPosition>(initialLocation, rotation_from(initialLocation, origin)));
@@ -24,7 +24,7 @@ Camera3D::Camera3D(Vec3<coord> initialLocation) :
 }
 
 Camera3D::Camera3D(Vec3<coord> initialLocation, Vec3<degrees> initialOrientation) : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)90, (coord)1000))
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)1000))
 {
 	//in front of the world, looking back at it
 	add_component(make_unique<CPosition>(initialLocation, initialOrientation));

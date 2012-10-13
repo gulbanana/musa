@@ -7,9 +7,11 @@
 #include <engine/misc.h>
 #include <engine/platform.h>
 #include <engine/entities.h>
-#include <balls/Obstacle.h>
-#include <balls/Ball.h>
-#include <balls/Bouncer.h>
+#include "Obstacle.h"
+#include "Ball.h"
+#include "Bouncer.h"
+#include "FPSCamera.h"
+#include "FPSController.h"
 using namespace std;
 
 #define WIDTH 1000
@@ -26,10 +28,14 @@ int main(int argc, char *argv[])
 {
 	SDL_putenv("SDL_VIDEO_WINDOW_POS=center");
 
+	vector<unique_ptr<ISystem>> customs;
+	customs.push_back(make_unique<Bouncer>(WIDTH, HEIGHT, DEPTH));
+	customs.push_back(make_unique<FPSController>());
+
 	ResourceManager loader;
 	EntityGraph level;
-	Settings settings("balls!", 800, 800, GraphicsMode::THREE_D);
-	Engine game(settings, make_unique<Bouncer>(WIDTH, HEIGHT, DEPTH));
+	Settings settings("balls!", 1200, 675, GraphicsMode::THREE_D);
+	Engine game(settings, move(customs));
 
 	setup_world(level, loader);
 	game.load_scene(level);
@@ -46,19 +52,15 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	uniform_real_distribution<float> threesixty(0.0, 360.0);
 
 	//root
-	//auto view = make_shared<Camera2D>(Box6<coord>((coord)0, (coord)0, (coord)0, (coord)WIDTH, (coord)HEIGHT, (coord)DEPTH));
-	auto view = make_shared<Camera3D>(LOC(WIDTH/2, HEIGHT/2, DEPTH));
-	view->look_at(LOC(WIDTH/2, HEIGHT/2, DEPTH/2));
+	auto view = make_shared<FPSCamera>(LOC(WIDTH/2, HEIGHT/2, DEPTH));
 	ballgame.add_entity(view);
-	//add_component(make_unique<CVelocity>((coord)-5, (coord)0, (coord)0));
-	//add_component(make_unique<CAcceleration>(Vec3<coord>((coord)0, (coord)0, (coord)-2), Vec3<degrees>((degrees)0, (degrees)0, (degrees)0)));
 
 	//immobiles
 	auto whitePaint = ballpit.load_brush(Colour4F::WHITE);
 	auto redPaint = ballpit.load_brush(Colour4F::RED);
 	auto bluePaint = ballpit.load_brush(Colour4F::BLUE);
 
-	auto smallBox = Box6<coord>((coord)-50, (coord)-80, (coord)-30, (coord)50, (coord)80, (coord)30);
+	auto smallBox = Box6<coord>((coord)-50, (coord)-150, (coord)-30, (coord)50, (coord)150, (coord)30);
 	auto bigBox = Box6<coord>((coord)-500, (coord)-500, (coord)-500, (coord)500, (coord)500, (coord)500);
 
 	auto bluePlatform = ballpit.load_primitive((SolidColourBrush*)bluePaint, Primitive::Prism, &smallBox);
@@ -66,9 +68,9 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	auto whiteBounds = ballpit.load_primitive((SolidColourBrush*)whitePaint, Primitive::Prism, &bigBox);
 
 	view->children.push_back(make_shared<Obstacle>(redPlatform, LOC(200, 500, WIDTH/2), ROT(0,0,0)));
-	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(400, 500, WIDTH/2), ROT(45,90,0), false));
+	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(400, 500, WIDTH/2), ROT(0,45,0), false));
 	view->children.push_back(make_shared<Obstacle>(redPlatform, LOC(600, 500, WIDTH/2), ROT(0,0,0)));
-	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(800, 500, WIDTH/2), ROT(45,90,0), false));
+	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(800, 500, WIDTH/2), ROT(45,0,0), false));
 
 	//fixed balls
 	auto big = (coord)35;

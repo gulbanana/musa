@@ -212,6 +212,7 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="components\CPlayer.h" />
     <ClInclude Include="mac\clang.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="systems\collision\AABBDetector.h" />

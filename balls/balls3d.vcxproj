@@ -21,12 +21,16 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bouncer.cpp" />
+    <ClCompile Include="FPSCamera.cpp" />
+    <ClCompile Include="FPSController.cpp" />
     <ClCompile Include="main3d.cpp" />
     <ClCompile Include="Obstacle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bouncer.h" />
+    <ClInclude Include="FPSCamera.h" />
+    <ClInclude Include="FPSController.h" />
     <ClInclude Include="Obstacle.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

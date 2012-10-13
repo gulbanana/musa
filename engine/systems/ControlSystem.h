@@ -6,7 +6,9 @@
 
 class ControlSystem : public Identified<ISystem,SYS::Control>
 {
-	std::shared_ptr<GameState> state;
+private:
+	std::shared_ptr<GameState> _state;
+	
 public:
 	ControlSystem(std::shared_ptr<GameState> state);
 	bool on_event(SDL_Event& event) override;

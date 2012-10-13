@@ -18,11 +18,11 @@ vector<SYS> MotionSystem::required_systems() const
 	return vector<SYS>(sysTypes.begin(), sysTypes.end());
 }
 
-MotionSystem::MotionSystem(shared_ptr<GameState> s) : state(s) {}
+MotionSystem::MotionSystem(shared_ptr<GameState> s) : _state(s) {}
 
 void MotionSystem::pre_frame()
 {
-	elapsedTime = state->last_frame_time / (seconds)1000.0;
+	elapsedTime = _state->last_frame_time / (seconds)1000.0;
 }
 
 void MotionSystem::on_entity(shared_ptr<IEntity> entity)

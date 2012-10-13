@@ -6,7 +6,7 @@
 //provides "realistic" physical motion, no game-specific logic
 class MotionSystem : public Identified<ISystem,SYS::Motion,EntityManagingSystemBase>
 {
-	std::shared_ptr<GameState> state;
+	std::shared_ptr<GameState> _state;
 	seconds elapsedTime;
 
 	void pre_frame() override;

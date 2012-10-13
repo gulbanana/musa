@@ -21,20 +21,20 @@ class EngineImpl
 	shared_ptr<IRenderer> _renderer;
 	
 public:
-	EngineImpl(Settings& settings, std::unique_ptr<ISystem> logic);
+	EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic);
 	void load_scene(EntityGraph& level);
 	void play();
 	void frame();
 	void add_system(unique_ptr<ISystem> system);
 };
 
-Engine::Engine(Settings& settings, std::unique_ptr<ISystem> logic) : _pimpl(new EngineImpl(settings, move(logic))) {}
+Engine::Engine(Settings& settings, vector<unique_ptr<ISystem>> customLogic) : _pimpl(new EngineImpl(settings, move(customLogic))) {}
 Engine::~Engine() { delete _pimpl; }
 void Engine::load_scene(EntityGraph& level) { _pimpl->load_scene(level); }
 void Engine::play() { _pimpl->play(); }
 #pragma endregion
 
-EngineImpl::EngineImpl(Settings& settings, std::unique_ptr<ISystem> logic)
+EngineImpl::EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic)
 	: _state(make_shared<GameState>())
 {
 	
@@ -53,14 +53,19 @@ EngineImpl::EngineImpl(Settings& settings, std::unique_ptr<ISystem> logic)
     
 	SDL_WM_SetCaption(settings.window_title.c_str(), nullptr);	
 
-	_renderer = make_unique<GLImmediateRenderer>(false);
+	_renderer = make_unique<GLImmediateRenderer>(settings.mode == GraphicsMode::THREE_D);
 	_renderer->set_viewport(settings.initial_width, settings.initial_height);
 
 	add_system(make_unique<ControlSystem>(_state));
 	add_system(make_unique<MotionSystem>(_state));
 	add_system(make_unique<CollisionSystem>());
 	add_system(make_unique<RenderSystem>(_renderer));
-	add_system(move(logic));
+
+	for (auto& customSystem : customLogic)
+	{
+		add_system(move(customSystem));
+	}
+	
 	add_system(make_unique<UISystem>(_state));
 }
 

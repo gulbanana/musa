@@ -182,5 +182,6 @@
     <ClInclude Include="windows\msvc.h" />
     <ClInclude Include="mac\clang.h" />
     <ClInclude Include="core\maths.h" />
+    <ClInclude Include="components\CPlayer.h" />
   </ItemGroup>
 </Project>

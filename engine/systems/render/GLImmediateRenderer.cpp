@@ -197,9 +197,9 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 
 	//add rotation matrices to the projection
 #ifdef DOUBLE_PRECISION
-	//glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
+	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
 	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
-	//glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
+	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
 #else
 	glRotatef(_at_orientation.x, 1.0, 0.0, 0.0);
 	glRotatef(_at_orientation.y, 0.0, 1.0, 0.0);

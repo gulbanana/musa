@@ -78,7 +78,10 @@ int main(int argc, char *argv[])
 	}
 
 	/* run the game */
-	Engine game(settings, make_unique<ResizingBouncer>(view, WIDTH, HEIGHT, DEPTH));
+	vector<unique_ptr<ISystem>> customs;
+	customs.push_back(make_unique<ResizingBouncer>(view, WIDTH, HEIGHT, DEPTH));
+
+	Engine game(settings, move(customs));
 	game.load_scene(ballgame);
 	game.play();
 

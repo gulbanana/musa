@@ -1,5 +1,6 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <functional>
 #include "maths.h"
 using namespace std;
 
@@ -14,6 +15,11 @@ radians maths::deg2rad(const degrees d)
 	return (radians)d * (radians)M_PI / (radians)180;
 }
 
+degrees maths::rad2deg(const radians r)
+{
+	return (degrees)r * (degrees)180 / (degrees)M_PI;
+}
+
 coord maths::aspect_ratio(int width, int height)
 {
 	return (coord)width / (coord)height;
@@ -21,17 +27,20 @@ coord maths::aspect_ratio(int width, int height)
 
 Vec3<degrees> maths::rotation_from(Vec3<coord> from, Vec3<coord> to)
 {
-	auto angle = [](coord x1, coord y1, coord x2, coord y2)
+	auto angle = [&](function<coord(Vec3<coord>)> a1, function<coord(Vec3<coord>)> a2)
 	{
-		auto dx = x2 - x1;
-		auto dy = y2 - y1;
-		auto rad = atan2(dy, dx);
-		return (degrees)(rad * 180/M_PI);
+		auto d1 = a1(to) - a1(from);
+		auto d2 = a2(to) - a2(from);
+		return rad2deg((radians)atan2(d2, d1));
 	};
 
-	degrees zangle = angle(from.x, from.y, to.x, to.y);
-	degrees xangle = angle(from.y, from.z, to.y, to.z);
-	degrees yangle = angle(from.z, from.x, to.z, to.x);
+	auto x = [](Vec3<coord> c){return c.x;};
+	auto y = [](Vec3<coord> c){return c.y;};
+	auto z = [](Vec3<coord> c){return c.z;};
+
+	degrees xangle = angle(y, z);
+	degrees yangle = angle(z, x);
+	degrees zangle = angle(x, y);
 
 	return Vec3<degrees>(xangle, yangle, zangle);
 }

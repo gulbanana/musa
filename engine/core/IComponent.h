@@ -6,6 +6,7 @@ enum class CMP
 	Acceleration,
 	Label,
     Mesh,
+	Player,
 	Physics,
 	Position,
 	Scene,
