@@ -36,9 +36,6 @@
     #define CHECKED_TYPEDEF(T, D) typedef T D;
 #endif
 
-CHECKED_TYPEDEF(float,degrees)
-CHECKED_TYPEDEF(float,radians)
-
 // C4146 is a warning for unary negation of unsigned types
 // TODO: maybe i really shouldn't use an unsigned type here? the problem is that SDL_GetTicks() returns uint32..
 #pragma warning(disable:4146)
@@ -47,9 +44,13 @@ CHECKED_TYPEDEF(uint32_t,milliseconds)
 #pragma warning(default:4146)
 
 #ifdef DOUBLE_PRECISION
+	CHECKED_TYPEDEF(double,degrees)
+	CHECKED_TYPEDEF(double,radians)
     CHECKED_TYPEDEF(double,seconds)
     CHECKED_TYPEDEF(double,coord)
 #else
+	CHECKED_TYPEDEF(float,degrees)
+	CHECKED_TYPEDEF(float,radians)
     CHECKED_TYPEDEF(float,seconds)
     CHECKED_TYPEDEF(float,coord)
 #endif

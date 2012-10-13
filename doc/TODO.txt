@@ -1,11 +1,11 @@
 IMMINENT
-correct 2d/3d projections - homogenous coordinates
+correct 3d projection - rotation
 auto-fov - maybe impossible
-expand enums - or is this just as easy as casting
 textures, brush/mesh distinction SOMEHOW
 double viewport
 
 EVENTUAL
+precompiled headers
 model loader
 lighting
 fullscreen

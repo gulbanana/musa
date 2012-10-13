@@ -85,13 +85,13 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 {
 	glPushMatrix();
 
-	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
-
 #if defined DOUBLE_PRECISION
+	glTranslated(_at_location.x, _at_location.y, _at_location.z);
 	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
 	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
 	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
 #else
+	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
 	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
 	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
 	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);
@@ -141,9 +141,7 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 		break;
 	}
 
-	glOrtho(l, r, b, t,
-		camera->range.front(), camera->range.back()		//the Z-axis is flipped
-	);
+	glOrtho(l, r, b, t, camera->range.front(), camera->range.back());
 
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
@@ -166,17 +164,17 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
-	float aspect = (float)_viewport_width / (float)_viewport_height;
-	float vfov = camera->fov;
-	float tangent = tan(vfov/2 * deg2rad);
-	float depth = 1000;
+	coord aspect = (coord)_viewport_width / (coord)_viewport_height;
+	degrees vfov = camera->fov;
+	radians tangent = tan(vfov/2 * deg2rad);
+	coord depth = 1000;
 
 	//Select clipping planes based on FOV and scaling method
 	coord left, right, bottom, top, zNear, zFar;
 	zNear = _at_location.z;
 	zFar = zNear+depth;
-	float height = zNear * tangent;	//half the height of the near plane
-	float width = height * aspect; //half the width of the near plane
+	coord height = zNear * tangent;	//half the height of the near plane
+	coord width = height * aspect; //half the width of the near plane
 
 	switch (camera->widescreen)
 	{
@@ -206,8 +204,12 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();
-	//glTranslatef(-width, -height, -zNear);
+
+#ifdef DOUBLE_PRECISION
+	glTranslated(-_at_location.x, -_at_location.y, -_at_location.z);
+#else
 	glTranslatef(-_at_location.x, -_at_location.y, -_at_location.z);
+#endif
 }
 
 void GLImmediateRenderer::unmorph(OrthographicCamera const*)

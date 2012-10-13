@@ -179,5 +179,6 @@
     <ClInclude Include="systems\collision\AABBDetector.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="windows\msvc.h" />
+    <ClInclude Include="mac\clang.h" />
   </ItemGroup>
 </Project>
