@@ -3,7 +3,8 @@
 #include <vector>
 #include <string>
 #include <engine/core.h>
-#include "Scene.h"
+#include <engine/scene.h>
+#include "Settings.h"
 
 class EngineImpl;
 
@@ -12,11 +13,11 @@ class Engine
 	EngineImpl* _pimpl;
 
 public:
-	Engine(std::unique_ptr<ISystem>&& logic, std::string title, int width, int height);
+	Engine(Settings& settings, std::unique_ptr<ISystem> logic);
 	~Engine();
 
 	void play();
-	void load_scene(EntityGraph* level);
+	void load_scene(EntityGraph& level);
 };
 
 #define main SDL_main

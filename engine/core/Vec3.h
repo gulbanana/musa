@@ -89,5 +89,6 @@ struct Vec3
 	Vec3 operator -() const { return Vec3(-x, -y, -z); }
 
 	bool operator ==(Vec3 const& other) const { return x == other.x && y == other.y && z == other.z; }
+	bool operator !=(Vec3 const& other) const { return x != other.x || y != other.y || z != other.z; }
 #pragma endregion
 };

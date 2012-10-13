@@ -2,13 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="BallBouncer.cpp" />
     <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Bouncer.cpp" />
+    <ClCompile Include="ResizingBouncer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
-    <ClInclude Include="BallBouncer.h" />
     <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="Bouncer.h" />
+    <ClInclude Include="ResizingBouncer.h" />
   </ItemGroup>
 </Project>

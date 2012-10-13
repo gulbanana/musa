@@ -4,26 +4,26 @@
 #include <iostream>
 #include <engine/misc.h>
 #include <engine/components.h>
-#include "BallBouncer.h"
+#include "Bouncer.h"
 using namespace std;
 
-vector<IComponent::ID> BallBouncer::required_components() const
+vector<IComponent::ID> Bouncer::required_components() const
 {
 	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Position, CMP::Mesh};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 
-vector<ISystem::ID> BallBouncer::required_systems() const
+vector<ISystem::ID> Bouncer::required_systems() const
 {
 	array<SYS,3> compTypes = {SYS::Collision};
 	return vector<SYS>(compTypes.begin(), compTypes.end());
 }
 
-BallBouncer::BallBouncer(int r) : _width((coord)r), _height((coord)r), _depth((coord)r)  {}
+Bouncer::Bouncer(int r) : _width((coord)r), _height((coord)r), _depth((coord)r)  {}
 
-BallBouncer::BallBouncer(int x, int y, int z) : _width((coord)x), _height((coord)y), _depth((coord)z)  {}
+Bouncer::Bouncer(int x, int y, int z) : _width((coord)x), _height((coord)y), _depth((coord)z)  {}
 
-void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
+void Bouncer::on_entity(std::shared_ptr<IEntity> entity)
 {
 	auto physics = entity->get_component<CPhysics>();
 	if (!physics->can_collide) return;
@@ -120,26 +120,4 @@ void BallBouncer::on_entity(std::shared_ptr<IEntity> entity)
 		
 		return;
 	}
-}
-
-bool BallBouncer::on_event(SDL_Event& event)
-{
-	/*if (event.type == SDL_VIDEORESIZE)
-	{
-		_width = (float)event.resize.w;
-		_height = (float)event.resize.h;
-
-		for (auto weakentity : entities)
-		{
-			auto entity = weakentity.lock();
-			auto position = entity->get_component<CPosition>();
-			auto mesh = entity->get_component<CMesh>();
-			auto box = mesh->geometry->bounds();
-
-			position->location.x = min(position->location.x, _width - box.right());
-			position->location.y = min(position->location.y, _width - box.top());
-		}
-	}*/
-	
-	return false;
 }

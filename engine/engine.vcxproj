@@ -209,6 +209,7 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="systems\collision\AABBDetector.h" />
     <ClInclude Include="entities\Camera3D.h" />
     <ClInclude Include="entities\Camera2D.h" />
@@ -272,6 +273,7 @@
     <ClInclude Include="core\IComponent.h" />
     <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="components\CPosition.h" />
+    <ClInclude Include="windows\msvc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

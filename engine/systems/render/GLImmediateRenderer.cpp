@@ -85,7 +85,7 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 {
 	glPushMatrix();
 
-	glTranslatef(_at_location.x, _at_location.y, -_at_location.z);
+	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
 
 #if defined DOUBLE_PRECISION
 	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
@@ -142,17 +142,17 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 	}
 
 	glOrtho(l, r, b, t,
-		camera->range.front(), camera->range.back()		//near & far planes are flipped
+		camera->range.front(), camera->range.back()		//the Z-axis is flipped
 	);
 
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 #ifdef DOUBLE_PRECISION
-	glTranslated(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, _at_location.z);	
+	glTranslated(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
 #else
-	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, 0);	
+	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
 #endif
-	//TODO: rotation
+	//TODO: rotation?
 }
 
 /*

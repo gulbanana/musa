@@ -21,20 +21,20 @@ class EngineImpl
 	shared_ptr<IRenderer> _renderer;
 	
 public:
-	EngineImpl(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight);
-	void load_scene(EntityGraph* level);
+	EngineImpl(Settings& settings, std::unique_ptr<ISystem> logic);
+	void load_scene(EntityGraph& level);
 	void play();
 	void frame();
-	void add_system(unique_ptr<ISystem>&& system);
+	void add_system(unique_ptr<ISystem> system);
 };
 
-Engine::Engine(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight) : _pimpl(new EngineImpl(move(logic), title, initialWidth, initialHeight)) {}
+Engine::Engine(Settings& settings, std::unique_ptr<ISystem> logic) : _pimpl(new EngineImpl(settings, move(logic))) {}
 Engine::~Engine() { delete _pimpl; }
-void Engine::load_scene(EntityGraph* level) { _pimpl->load_scene(level); }
+void Engine::load_scene(EntityGraph& level) { _pimpl->load_scene(level); }
 void Engine::play() { _pimpl->play(); }
 #pragma endregion
 
-EngineImpl::EngineImpl(unique_ptr<ISystem>&& logic, const string title, int initialWidth, int initialHeight)
+EngineImpl::EngineImpl(Settings& settings, std::unique_ptr<ISystem> logic)
 	: _state(make_shared<GameState>())
 {
 	
@@ -51,10 +51,10 @@ EngineImpl::EngineImpl(unique_ptr<ISystem>&& logic, const string title, int init
         throw runtime_error("SDL_Init failed");
     }
     
-	SDL_WM_SetCaption(title.c_str(), nullptr);	
+	SDL_WM_SetCaption(settings.window_title.c_str(), nullptr);	
 
-	_renderer = make_unique<GLImmediateRenderer>(true);
-	_renderer->set_viewport(initialWidth, initialHeight);
+	_renderer = make_unique<GLImmediateRenderer>(settings.mode == GraphicsMode::THREE_D);
+	_renderer->set_viewport(settings.initial_width, settings.initial_height);
 
 	add_system(make_unique<ControlSystem>(_state));
 	add_system(make_unique<MotionSystem>(_state));
@@ -64,15 +64,15 @@ EngineImpl::EngineImpl(unique_ptr<ISystem>&& logic, const string title, int init
 	add_system(make_unique<UISystem>(_state));
 }
 
-void EngineImpl::add_system(unique_ptr<ISystem>&& system)
+void EngineImpl::add_system(unique_ptr<ISystem> system)
 {
 	systems.push_back(move(system));
 	//sort(begin(systems), end(systems));
 }
 
-void EngineImpl::load_scene(EntityGraph* level)
+void EngineImpl::load_scene(EntityGraph& level)
 {
-	for (auto& entity : level->entity_list())
+	for (auto& entity : level.entity_list())
 	{
 		for (auto& system : systems)
 		{

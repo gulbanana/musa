@@ -177,5 +177,7 @@
     <ClInclude Include="geometry\ScaleMethod.h" />
     <ClInclude Include="entities\Camera3D.h" />
     <ClInclude Include="systems\collision\AABBDetector.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="windows\msvc.h" />
   </ItemGroup>
 </Project>

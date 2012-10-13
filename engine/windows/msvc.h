@@ -1,0 +1,1 @@
+#define isnan _isnan
