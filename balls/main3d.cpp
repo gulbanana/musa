@@ -24,7 +24,7 @@ void setup_world(EntityGraph&, ResourceManager&);
 extern "C"
 int main(int argc, char *argv[])
 {
-	SDL_putenv((char*)"SDL_VIDEO_WINDOW_POS=center");
+	SDL_putenv("SDL_VIDEO_WINDOW_POS=center");
 
 	ResourceManager loader;
 	EntityGraph level;

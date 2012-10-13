@@ -42,12 +42,10 @@ int main(int argc, char *argv[])
 	ballgame.add_entity(view);
 
 	//immobiles
-	auto whitePaint = ballpit.load_brush(Colour4F::WHITE);
 	auto redPaint = ballpit.load_brush(Colour4F::RED);
 	auto bluePaint = ballpit.load_brush(Colour4F::BLUE);
 
 	auto smallBox = Box6<coord>((coord)-50, (coord)-80, (coord)-30, (coord)50, (coord)80, (coord)30);
-	auto bigBox = Box6<coord>((coord)-500, (coord)-500, (coord)-500, (coord)500, (coord)500, (coord)500);
 
 	auto bluePlatform = ballpit.load_primitive((SolidColourBrush*)bluePaint, Primitive::Prism, &smallBox);
 	auto redPlatform = ballpit.load_primitive((SolidColourBrush*)redPaint, Primitive::Prism, &smallBox);
