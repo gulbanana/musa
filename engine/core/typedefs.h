@@ -1,7 +1,6 @@
 #pragma once
 #include <cstdint>
 #include <string>
-#include "boost/operators.hpp"
 #include <engine/platform.h>
 
 // 'strong' typedefs are not convertible implicitly to their 'base' type,

@@ -1,10 +1,11 @@
 IMMINENT
-correct 3d projection - rotation
 auto-fov - maybe impossible
 textures, brush/mesh distinction SOMEHOW
-double viewport
 
 EVENTUAL
+double viewport
+rotation: quaternions
+consider eigen
 precompiled headers
 model loader
 lighting
@@ -15,7 +16,7 @@ flat/sprite mesh
 multithreaded systems
 dynamic system sort
 obb collision detection
-better bounce physics
+better bounce physics - forces?
 gui - get fonts in
 gui/renderer - labels 
 gui / control - add/subtract ball
