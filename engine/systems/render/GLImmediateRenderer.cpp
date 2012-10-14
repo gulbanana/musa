@@ -177,20 +177,22 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 
+	const coord eyeDistance = camera->dof / 1024;
+
 	//Select clipping planes based on FOV and scaling method
 	auto aspect = maths::aspect_ratio(_viewport_width, _viewport_height);
 	switch (camera->widescreen)
 	{
 		case ScaleMethod::HorPlus:
 		{
-			auto planes = maths::vertical_perspective(camera->fov, aspect, _at_location.z, _at_location.z + camera->dof);
+			auto planes = maths::vertical_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
 			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
 			break;
 		}
 
 		case ScaleMethod::VertMinus:
 		{
-			auto planes = maths::horizontal_perspective(camera->fov, aspect, _at_location.z, _at_location.z + camera->dof);
+			auto planes = maths::horizontal_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
 			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
 			break;
 		}
@@ -217,9 +219,9 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();
 #ifdef DOUBLE_PRECISION
-	glTranslated(-_at_location.x, -_at_location.y, _at_location.z);
+	glTranslated(-_at_location.x, -_at_location.y, _at_location.z - camera->dof);
 #else
-	glTranslatef(-_at_location.x, -_at_location.y, _at_location.z);
+	glTranslatef(-_at_location.x, -_at_location.y, _at_location.z - camera->dof);
 #endif
 }
 
