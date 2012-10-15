@@ -1,13 +1,11 @@
-IMMINENT
-auto-fov - maybe impossible
+remove scene graph
 textures, brush/mesh distinction SOMEHOW
-
-EVENTUAL
+auto-fov - maybe impossible
 double viewport
 rotation: quaternions
-consider eigen
+decide between Eigen and GLM
 precompiled headers
-model loader
+model loader/better resource loader in general
 lighting
 fullscreen
 wrangle gl extensions
@@ -16,6 +14,8 @@ flat/sprite mesh
 multithreaded systems
 dynamic system sort
 obb collision detection
+make aabb detection spatial (octree)
+mesh collision detection?
 better bounce physics - forces?
 gui - get fonts in
 gui/renderer - labels 
