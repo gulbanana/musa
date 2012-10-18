@@ -1,10 +1,8 @@
 remove scene graph
 textures, brush/mesh distinction SOMEHOW
 auto-fov - maybe impossible
-double viewport
+double viewport (balls unification)
 rotation: quaternions
-decide between Eigen and GLM
-precompiled headers
 model loader/better resource loader in general
 lighting
 fullscreen
