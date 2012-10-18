@@ -3,7 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "balls", "balls\balls.vcxproj", "{0B618313-B996-1041-5BC5-E8F880CE02A0}"
 	ProjectSection(ProjectDependencies) = postProject
-		{6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7} = {6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7}
 		{969892C5-2972-2EF3-15B9-D61708D8B939} = {969892C5-2972-2EF3-15B9-D61708D8B939}
 	EndProjectSection
 EndProject
@@ -27,7 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{D55B7620-0FE
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "balls3d", "balls\balls3d.vcxproj", "{AD9CCB96-3607-4FE2-A58B-2B9DF6096073}"
 	ProjectSection(ProjectDependencies) = postProject
-		{6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7} = {6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7}
 		{969892C5-2972-2EF3-15B9-D61708D8B939} = {969892C5-2972-2EF3-15B9-D61708D8B939}
 	EndProjectSection
 EndProject

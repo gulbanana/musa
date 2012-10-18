@@ -5,31 +5,31 @@
 using namespace std;
 using namespace glm;
 
-FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices) : 
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices) : 
 		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
-FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<vec2>&& uvs) :
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<vec2>&& uvs) :
 		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
-FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals) :
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<vec3>&& normals) :
 		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(normals), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
-FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<vec2>&& uvs, std::vector<Vec3<coord>>&& normals) :
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<vec2>&& uvs, std::vector<vec3>&& normals) :
 		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(normals), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
 }
 
-FVMesh::FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices) : 
+FVMesh::FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<point>&& vertices) : 
 		sides(sides), groups(), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	groups.emplace_back(brush, std::forward<std::vector<Face>>(faces));
@@ -41,7 +41,7 @@ void FVMesh::accept(IRenderer* renderer) const
 	renderer->draw(this); 
 }
 
-Box6<coord> FVMesh::bounds() const 
+box6 FVMesh::bounds() const 
 { 
 	return _bounds_cache; 
 }
@@ -53,7 +53,7 @@ size_t FVMesh::polygons() const
 	});
 }
 
-Box6<coord> FVMesh::calc_bounds()
+box6 FVMesh::calc_bounds()
 {
 	coord minX, minY, minZ, maxX, maxY, maxZ;
 	minX = minY = minZ = maxX = maxY = maxZ = 0.0;
@@ -68,7 +68,7 @@ Box6<coord> FVMesh::calc_bounds()
 		maxZ = std::max(v.z, maxZ);
 	}
 	
-	return Box6<coord>(minX, minY, minZ, maxX, maxY, maxZ);
+	return box6(minX, minY, minZ, maxX, maxY, maxZ);
 }
 
 void FVMesh::validate_mesh()

@@ -37,28 +37,28 @@ struct FVMesh : public IModel
 	};
 
 	std::vector<Group> groups;
-	std::vector<Vec3<coord>> vertices;
+	std::vector<point> vertices;
 	std::vector<glm::vec2> uv_map;
-	std::vector<Vec3<coord>> normal_map;
+	std::vector<glm::vec3> normal_map;
 
 	unsigned sides;
 	bool has_uv;
 	bool has_normal;
 	bool wireframe;
 
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices);
-	FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices);
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<glm::vec2>&& uvs);
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals);
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<glm::vec2>&& uvs, std::vector<Vec3<coord>>&& normals);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices);
+	FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<point>&& vertices);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<glm::vec2>&& uvs);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<glm::vec3>&& normals);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<glm::vec2>&& uvs, std::vector<glm::vec3>&& normals);
 
 	void accept(IRenderer* renderer) const override; 
-	Box6<coord> bounds() const override; 
+	box6 bounds() const override; 
 	size_t polygons() const override; 
 	
 private:
-	Box6<coord> _bounds_cache;
-	Box6<coord> calc_bounds();
+	box6 _bounds_cache;
+	box6 calc_bounds();
 	void validate_mesh();
 };
 

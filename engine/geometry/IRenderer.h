@@ -15,7 +15,7 @@ public:
 
 	//optional operations
 	virtual void set_viewport(int width, int height) {}
-	virtual void with_position(Vec3<coord> location, Vec3<degrees> orientation) {}
+	virtual void with_position(point location, angles orientation) {}
 
 	virtual void begin_frame() {}
 	virtual void end_frame() {}

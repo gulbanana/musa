@@ -11,6 +11,6 @@ struct SpriteMesh : public IModel
 	
 	SpriteMesh(coord width, coord height/*, texture*/);
 	void accept(IRenderer* renderer) const override;
-	Box6<coord> bounds() const override;
+	box6 bounds() const override;
 };
 

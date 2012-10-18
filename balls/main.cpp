@@ -14,9 +14,9 @@ using namespace std;
 #define WIDTH 1200
 #define HEIGHT 800
 #define DEPTH HEIGHT
-#define LOC(x, y) Vec3<coord>((coord)(x), (coord)(y), (coord)(DEPTH/2))
-#define VEL(x, y) Vec3<coord>((coord)(x), (coord)(y), (coord)(0))
-#define ROT(z) Vec3<degrees>((degrees)(0), (degrees)(0), (degrees)(z))
+#define LOC(x, y) point((coord)(x), (coord)(y), (coord)(DEPTH/2))
+#define VEL(x, y) point((coord)(x), (coord)(y), (coord)(0))
+#define ROT(z) angles((degrees)(0), (degrees)(0), (degrees)(z))
 
 void setup_world(EntityGraph&, ResourceManager&);
 
@@ -32,9 +32,9 @@ int main(int argc, char *argv[])
 
 	//useful random functions
 	default_random_engine generator;
-	uniform_real_distribution<float> zero2one(0.0, 1.0);
-	uniform_real_distribution<float> half2half(-0.5, 0.5);
-	uniform_real_distribution<float> threesixty(0.0, 360.0);
+	uniform_real_distribution<glm::float_t> zero2one(0.0, 1.0);
+	uniform_real_distribution<glm::float_t> half2half(-0.5, 0.5);
+	uniform_real_distribution<glm::float_t> threesixty(0.0, 360.0);
 
 	//root
 	auto view = make_shared<Camera2D>((coord)WIDTH, (coord)HEIGHT, (coord)HEIGHT);
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	auto redPaint = ballpit.load_brush(Colour::RED);
 	auto whitePaint = ballpit.load_brush(Colour::WHITE);
 
-	auto smallBox = Box6<coord>((coord)-50, (coord)-80, (coord)-30, (coord)50, (coord)80, (coord)30);
+	auto smallBox = box6(-50, -80, -30, 50, 80, 30);
 
 	auto bluePlatform = ballpit.load_primitive((SolidColourBrush*)whitePaint, Primitive::Prism, &smallBox);
 	auto redPlatform = ballpit.load_primitive((SolidColourBrush*)redPaint, Primitive::Prism, &smallBox);
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(500, 400), ROT(45), false));
 	view->children.push_back(make_shared<Obstacle>(redPlatform, LOC(750, 400), ROT(0)));
 	view->children.push_back(make_shared<Obstacle>(bluePlatform, LOC(1000, 400), ROT(45), false));
-
+	
 	//fixed balls
 	auto big = (coord)35;
 	auto bigBall = [&](colour c){ return ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(c), Primitive::Sphere, &big); };
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 			)
 		);
 	}
-
+	
 	/* run the game */
 	vector<unique_ptr<ISystem>> customs;
 	customs.push_back(make_unique<ResizingBouncer>(view, WIDTH, HEIGHT, DEPTH));

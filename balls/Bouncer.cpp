@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Bouncer.h"
 using namespace std;
+using namespace glm;
 
 vector<IComponent::ID> Bouncer::required_components() const
 {
@@ -43,22 +44,22 @@ void Bouncer::on_entity(std::shared_ptr<IEntity> entity)
 	if (outOfBoundsX) 
 	{
 		velocity->vector.x *= -1;
-        position->location.x = max(position->location.x, sourceBox.right());
-        position->location.x = min(position->location.x, _width - sourceBox.right());
+        position->location.x = glm::max(position->location.x, sourceBox.right());
+        position->location.x = glm::min(position->location.x, _width - sourceBox.right());
 	}
 		
 	if (outOfBoundsY) 
 	{
 		velocity->vector.y *= -1;
-        position->location.y = max(position->location.y, sourceBox.top());
-        position->location.y = min(position->location.y, _height - sourceBox.top());
+        position->location.y = glm::max(position->location.y, sourceBox.top());
+        position->location.y = glm::min(position->location.y, _height - sourceBox.top());
 	}
 
 	if (outOfBoundsZ) 
 	{
 		velocity->vector.z *= -1;
-        position->location.z = max(position->location.z, sourceBox.front());
-        position->location.z = min(position->location.z, _depth - sourceBox.front());
+        position->location.z = glm::max(position->location.z, sourceBox.front());
+        position->location.z = glm::min(position->location.z, _depth - sourceBox.front());
 	}
 
 	if (outOfBoundsX || outOfBoundsY || outOfBoundsZ)
@@ -72,24 +73,23 @@ void Bouncer::on_entity(std::shared_ptr<IEntity> entity)
 		auto targetPosition = target->get_component<CPosition>();
 
 		//calculate angle of collision
-		auto speed = velocity->vector.length();
-		auto angleOfCollision = targetPosition->location - position->location;
-		angleOfCollision.normalize();
+		auto speed = length(velocity->vector);
+		auto angleOfCollision = normalize(targetPosition->location - position->location);
 
-		velocity->vector = angleOfCollision * (coord)-1 * speed;
+		velocity->vector = angleOfCollision * (coord)-1 * (coord)speed;
 
 		if (target->has_component<CVelocity>())
 		{
 			auto targetVelocity = target->get_component<CVelocity>();
-			auto targetSpeed = targetVelocity->vector.length();
+			auto targetSpeed = length(targetVelocity->vector);
 
 			//swap velocity
-			if (targetSpeed > (coord)0)
+			if (targetSpeed > (coord)0 && speed > 0)
 			{
-				velocity->vector.normalize();
+				velocity->vector = normalize(velocity->vector);
 				velocity->vector *= targetSpeed;
 
-				targetVelocity->vector.normalize();
+				targetVelocity->vector = normalize(targetVelocity->vector);
 				targetVelocity->vector *= speed;
 			}
 			

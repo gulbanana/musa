@@ -69,9 +69,10 @@
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="core\maths.cpp" />
     <ClCompile Include="core.cpp" />
-    <ClCompile Include="core\Colour.cpp">
+    <ClCompile Include="core\colour.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\box6.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -131,13 +132,6 @@
     </ClInclude>
     <ClInclude Include="geometry\PrimitiveFactory.h" />
     <ClInclude Include="core\typedefs.h" />
-    <ClInclude Include="core\Vec3.h">
-      <Filter>core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\Rect4.h">
-      <Filter>core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\Box6.h" />
     <ClInclude Include="geometry\IMaterial.h" />
     <ClInclude Include="geometry\SpriteMesh.h" />
     <ClInclude Include="geometry\SolidColourBrush.h" />
@@ -178,8 +172,12 @@
     <ClInclude Include="core\maths.h" />
     <ClInclude Include="components\CPlayer.h" />
     <ClInclude Include="core\platform.h" />
-    <ClInclude Include="core\Colour.h">
+    <ClInclude Include="core\rect4.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="core\colour.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\box6.h" />
   </ItemGroup>
 </Project>

@@ -119,13 +119,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;SFML_STATIC;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>musaceae.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>engine/core.h</PrecompiledHeaderFile>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
@@ -183,7 +183,10 @@
     <ClCompile Include="core.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">core.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="core\box6.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="entities\Camera3D.cpp" />
     <ClCompile Include="entities\Camera2D.cpp" />
@@ -205,7 +208,7 @@
     <ClCompile Include="geometry\SpriteMesh.cpp" />
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\CollisionSystem.cpp" />
-    <ClCompile Include="core\Colour.cpp" />
+    <ClCompile Include="core\colour.cpp" />
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="core\maths.cpp" />
@@ -235,7 +238,7 @@
     <ClInclude Include="scene\LeafNode.h" />
     <ClInclude Include="scene\BranchNode.h" />
     <ClInclude Include="components\CAcceleration.h" />
-    <ClInclude Include="core\Box6.h" />
+    <ClInclude Include="core\box6.h" />
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CMesh.h" />
     <ClInclude Include="scene\IGraphNode.h" />
@@ -258,13 +261,13 @@
     <ClInclude Include="gl\IDrawable.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="systems\CollisionSystem.h" />
-    <ClInclude Include="core\Colour.h" />
+    <ClInclude Include="core\colour.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="components\CVelocity.h" />
     <ClInclude Include="components\CLabel.h" />
     <ClInclude Include="systems\collision\ICollisionDetector.h" />
     <ClInclude Include="core\identifiable.h" />
-    <ClInclude Include="core\Rect4.h" />
+    <ClInclude Include="core\rect4.h" />
     <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="systems\RenderSystem.h" />
@@ -272,7 +275,6 @@
     <ClInclude Include="systems\UISystem.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="core\IEntity.h" />
-    <ClInclude Include="core\Vec3.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="scene\EntityGraph.h" />

@@ -81,7 +81,7 @@ void GLImmediateRenderer::end_frame()
 	//glGetError()
 }
 
-void GLImmediateRenderer::with_position(Vec3<coord> location, Vec3<degrees> orientation) 
+void GLImmediateRenderer::with_position(point location, angles orientation) 
 {
 	_at_location = location;
 	_at_orientation = orientation;
@@ -92,19 +92,15 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 
-#if defined DOUBLE_PRECISION
+#ifdef GLM_PRECISION_HIGHP_FLOAT 
 	glTranslated(_at_location.x, _at_location.y, _at_location.z);
-
-	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
-	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
-	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
 #else
 	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
+#endif
 
 	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
 	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
 	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);
-#endif
 
 	f();
 
@@ -157,7 +153,7 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
-#ifdef DOUBLE_PRECISION
+#ifdef GLM_PRECISION_HIGHP_FLOAT
 	glTranslated(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
 #else
 	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
@@ -206,23 +202,17 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 	}
 
 	//add rotation matrices to the projection
-#ifdef DOUBLE_PRECISION
-	glRotated(_at_orientation.x, 1.0, 0.0, 0.0);
-	glRotated(_at_orientation.y, 0.0, 1.0, 0.0);
-	glRotated(_at_orientation.z, 0.0, 0.0, 1.0);
-#else
 	glRotatef(_at_orientation.x, 1.0, 0.0, 0.0);
 	glRotatef(_at_orientation.y, 0.0, 1.0, 0.0);
 	glRotatef(_at_orientation.z, 0.0, 0.0, 1.0);
-#endif
 
 	//move models to the "eye level" plane
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();
-#ifdef DOUBLE_PRECISION
-	glTranslated(-_at_location.x, -_at_location.y, _at_location.z - camera->dof);
+#ifdef GLM_PRECISION_HIGHP_FLOAT
+	glTranslated(-_at_location.x, -_at_location.y, _at_location.z - camera->dof/2);
 #else
-	glTranslatef(-_at_location.x, -_at_location.y, _at_location.z - camera->dof);
+	glTranslatef(-_at_location.x, -_at_location.y, _at_location.z - camera->dof/2);
 #endif
 }
 
@@ -280,7 +270,7 @@ void GLImmediateRenderer::draw(FVMesh const* mesh)
 			{
 				for (auto index : face.vertex_indices)
 				{
-					#ifdef DOUBLE_PRECISION
+					#ifdef GLM_PRECISION_HIGHP_FLOAT
 					glVertex3d(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
 					#else
 					glVertex3f(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);

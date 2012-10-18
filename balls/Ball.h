@@ -4,6 +4,6 @@
 class Ball : public LeafNode
 {
 public:
-	Ball(IModel* mesh, Vec3<coord> position, Vec3<coord> acceleration, Vec3<degrees> rotation);
+	Ball(IModel* mesh, point position, point acceleration, angles rotation);
 };
 

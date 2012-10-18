@@ -20,10 +20,10 @@ This is not a typical orthographic projection but is designed to be attached to 
 */
 struct OrthographicCamera : public ITransform
 {
-	Box6<coord> range;
+	box6 range;
 	ScaleMethod widescreen;
 
-	OrthographicCamera(Box6<coord> bounds, ScaleMethod widescreen = ScaleMethod::HorPlus) : range(bounds), widescreen(widescreen) {}
+	OrthographicCamera(box6 bounds, ScaleMethod widescreen = ScaleMethod::HorPlus) : range(bounds), widescreen(widescreen) {}
 
 	virtual void accept(IRenderer* renderer) const override { renderer->morph(this); }
 	virtual void eject(IRenderer* renderer) const override { renderer->unmorph(this); }

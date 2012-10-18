@@ -1,9 +1,9 @@
 #include <engine/core.h>
+#include <engine/components.h>
+#include <SDL_timer.h>
 #include <array>
 #include <cmath>
 #include <list>
-#include <SDL_timer.h>
-#include <engine/components.h>
 #include "MotionSystem.h"
 using namespace std;
 
@@ -23,7 +23,7 @@ MotionSystem::MotionSystem(shared_ptr<GameState> s) : _state(s) {}
 
 void MotionSystem::pre_frame()
 {
-	elapsedTime = _state->last_frame_time / (seconds)1000.0;
+	elapsedTime = _state->last_frame_time * (seconds)0.001;
 }
 
 void MotionSystem::on_entity(shared_ptr<IEntity> entity)
@@ -43,5 +43,5 @@ void MotionSystem::on_entity(shared_ptr<IEntity> entity)
 	position->location += velocity->vector * (coord)elapsedTime;
 	
 	position->orientation += velocity->rotation * (degrees)elapsedTime;
-	position->orientation.mod((degrees)360.0);
+	position->orientation = maths::vmod(position->orientation, (degrees)360);
 }

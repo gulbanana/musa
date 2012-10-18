@@ -48,7 +48,7 @@ IModel* ResourceManagerImpl::load_primitive(SolidColourBrush* brush, Primitive s
 {
 	string hash;	//this works but sucks
 	coord radius;
-	Box6<coord>* bounds;
+	box6* bounds;
 
 	switch(shape)
 	{
@@ -69,7 +69,7 @@ IModel* ResourceManagerImpl::load_primitive(SolidColourBrush* brush, Primitive s
 		break;
 
 	case Primitive::Prism:
-		bounds = (Box6<coord>*)arg;
+		bounds = (box6*)arg;
 		hash = to_string(brush->colour) + "R" + to_string(*bounds);
 
 		if (_meshCache.find(hash) == _meshCache.end())

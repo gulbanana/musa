@@ -10,8 +10,8 @@ bool AABBDetector::collide(std::shared_ptr<IEntity> source, std::shared_ptr<IEnt
 	auto targetMesh = target->get_component<CMesh>();
 	auto targetPosition = target->get_component<CPosition>();
 
-	Box6<coord> sourceBounds = sourceMesh->geometry->bounds() + sourcePosition->location;
-	Box6<coord> targetBounds = targetMesh->geometry->bounds() + targetPosition->location;
+	box6 sourceBounds = sourceMesh->geometry->bounds() + sourcePosition->location;
+	box6 targetBounds = targetMesh->geometry->bounds() + targetPosition->location;
 
 	if (sourceBounds.intersects(targetBounds))
 	{

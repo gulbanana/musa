@@ -9,10 +9,10 @@ class Camera3D : public BranchNode
 
 public:
 	Camera3D();
-	Camera3D(Vec3<coord> initialLocation);
-	Camera3D(Vec3<coord> initialLocation, Vec3<degrees> initialOrientation);
+	Camera3D(point initialLocation);
+	Camera3D(point initialLocation, angles initialOrientation);
 
-	void move_to(Vec3<coord> location);
-	void look_at(Vec3<coord> location);
+	void move_to(point location);
+	void look_at(point location);
 };
 

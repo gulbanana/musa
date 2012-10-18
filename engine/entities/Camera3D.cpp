@@ -9,35 +9,35 @@ using namespace std;
 using namespace maths;
 
 Camera3D::Camera3D() : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)1024))
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)2048))
 {
 	//in the centre of the world, looking forward
 	add_component(make_unique<CPosition>(origin, forward_rotation));
 	add_component(make_unique<CTransform>(_camera_matrix.get()));
 }
 
-Camera3D::Camera3D(Vec3<coord> initialLocation) : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)1024))
+Camera3D::Camera3D(point initialLocation) : 
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)2048))
 {
 	//in front of the world, looking back at it
 	add_component(make_unique<CPosition>(initialLocation, rotation_from(initialLocation, origin)));
 	add_component(make_unique<CTransform>(_camera_matrix.get()));
 }
 
-Camera3D::Camera3D(Vec3<coord> initialLocation, Vec3<degrees> initialOrientation) : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)1024))
+Camera3D::Camera3D(point initialLocation, angles initialOrientation) : 
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)2048))
 {
 	//in front of the world, looking back at it
 	add_component(make_unique<CPosition>(initialLocation, initialOrientation));
 	add_component(make_unique<CTransform>(_camera_matrix.get()));
 }
 
-void Camera3D::move_to(Vec3<coord> location)
+void Camera3D::move_to(point location)
 {
 	get_component<CPosition>()->location = location;
 }
 
-void Camera3D::look_at(Vec3<coord> location)
+void Camera3D::look_at(point location)
 {
 	auto position = get_component<CPosition>();
 	position->orientation = rotation_from(position->location, location);

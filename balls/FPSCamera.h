@@ -4,6 +4,6 @@
 class FPSCamera : public Camera3D
 {
 public:
-	FPSCamera(Vec3<coord> initialLocation);
+	FPSCamera(point initialLocation);
 };
 

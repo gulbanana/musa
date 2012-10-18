@@ -5,11 +5,11 @@
 #include "Obstacle.h"
 using namespace std;
 
-Obstacle::Obstacle(IModel* mesh, Vec3<coord> position, Vec3<degrees> rotation, bool solid)
+Obstacle::Obstacle(IModel* mesh, point position, angles rotation, bool solid)
 {
 	add_component(make_unique<CPosition>(position));
 	add_component(make_unique<CMesh>(mesh));
-	add_component(make_unique<CVelocity>(Vec3<coord>(0.0, 0.0, 0.0), rotation));
+	add_component(make_unique<CVelocity>(point(0.0, 0.0, 0.0), rotation));
 
 	if (solid)
 	{

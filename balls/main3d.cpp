@@ -16,9 +16,9 @@ using namespace std;
 #define WIDTH 1000
 #define HEIGHT 1000
 #define DEPTH 1000
-#define LOC(x, y, z) Vec3<coord>((coord)(x), (coord)(y), (coord)(z))
-#define VEL(x, y, z) Vec3<coord>((coord)(x), (coord)(y), (coord)(z))
-#define ROT(x, y, z) Vec3<degrees>((degrees)(x), (degrees)(y), (degrees)(z))
+#define LOC(x, y, z) point((coord)(x), (coord)(y), (coord)(z))
+#define VEL(x, y, z) point((coord)(x), (coord)(y), (coord)(z))
+#define ROT(x, y, z) angles((degrees)(x), (degrees)(y), (degrees)(z))
 
 void setup_world(EntityGraph&, ResourceManager&);
 
@@ -46,12 +46,12 @@ int main(int argc, char *argv[])
 void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 {
 	default_random_engine generator;
-	uniform_real_distribution<float> zero2one(0.0, 1.0);
-	uniform_real_distribution<float> half2half(-0.5, 0.5);
-	uniform_real_distribution<float> threesixty(0.0, 360.0);
+	uniform_real_distribution<glm::float_t> zero2one(0.0, 1.0);
+	uniform_real_distribution<glm::float_t> half2half(-0.5, 0.5);
+	uniform_real_distribution<glm::float_t> threesixty(0.0, 360.0);
 
 	//root
-	auto view = make_shared<FPSCamera>(LOC(WIDTH/2, HEIGHT/2, DEPTH/2));
+	auto view = make_shared<FPSCamera>(LOC(WIDTH/2, HEIGHT/2, DEPTH));
 	ballgame.add_entity(view);
 
 	//immobiles
@@ -59,8 +59,8 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	auto redPaint = ballpit.load_brush(Colour::RED);
 	auto bluePaint = ballpit.load_brush(Colour::BLUE);
 
-	auto smallBox = Box6<coord>((coord)-50, (coord)-150, (coord)-30, (coord)50, (coord)150, (coord)30);
-	auto bigBox = Box6<coord>((coord)-500, (coord)-500, (coord)-500, (coord)500, (coord)500, (coord)500);
+	auto smallBox = box6((coord)-50, (coord)-150, (coord)-30, (coord)50, (coord)150, (coord)30);
+	auto bigBox = box6((coord)-500, (coord)-500, (coord)-500, (coord)500, (coord)500, (coord)500);
 
 	auto bluePlatform = ballpit.load_primitive((SolidColourBrush*)bluePaint, Primitive::Prism, &smallBox);
 	auto redPlatform = ballpit.load_primitive((SolidColourBrush*)redPaint, Primitive::Prism, &smallBox);

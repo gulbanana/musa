@@ -8,8 +8,8 @@ void SpriteMesh::accept(IRenderer* renderer) const
 	renderer->draw(this); 
 }
 
-Box6<coord> SpriteMesh::bounds() const
+box6 SpriteMesh::bounds() const
 {
 	//nominal depth
-	return Box6<coord>(width/(coord)2, height/(coord)2, (coord)-1, width/(coord)2, height/(coord)2, (coord)1);
+	return box6(width/(coord)2, height/(coord)2, (coord)-1, width/(coord)2, height/(coord)2, (coord)1);
 }
