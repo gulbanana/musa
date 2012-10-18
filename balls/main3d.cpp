@@ -1,12 +1,11 @@
-#include <memory>
-#include <random>
-#include <ctime>
+#include <engine/core.h>
 #include <engine/Engine.h>
 #include <engine/ResourceManager.h>
 #include <engine/scene.h>
 #include <engine/misc.h>
-#include <engine/platform.h>
 #include <engine/entities.h>
+#include <random>
+#include <ctime>
 #include "Obstacle.h"
 #include "Ball.h"
 #include "Bouncer.h"

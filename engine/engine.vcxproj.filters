@@ -71,6 +71,7 @@
     <ClCompile Include="entities\Camera3D.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="core\maths.cpp" />
+    <ClCompile Include="core.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">

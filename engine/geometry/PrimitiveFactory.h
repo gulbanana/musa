@@ -1,5 +1,4 @@
 #pragma once
-#include <memory>
 #include "IModel.h"
 #include "IMaterial.h"
 

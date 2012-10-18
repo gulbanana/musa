@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include "LambdaWalker.h"
 #include "BranchNode.h"
 

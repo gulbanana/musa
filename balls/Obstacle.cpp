@@ -1,7 +1,7 @@
-#include <memory>
-#include <random>
+#include <engine/core.h>
 #include <engine/components.h>
 #include <engine/misc.h>
+#include <random>
 #include "Obstacle.h"
 using namespace std;
 

@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 
 struct SpriteMesh;
 struct FVMesh;

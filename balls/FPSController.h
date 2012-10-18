@@ -1,7 +1,4 @@
 #pragma once
-#include <vector>
-#include <typeinfo>
-#include <engine/core.h>
 #include <engine/GameState.h>
 #include <engine/systems/EntityManagingSystemBase.h>
 

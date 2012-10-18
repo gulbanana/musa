@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 #include <engine/geometry.h>
 
 class GLImmediateRenderer : public IRenderer

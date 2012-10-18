@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <algorithm>
 #include "EntityManagingSystemBase.h"
 using namespace std;

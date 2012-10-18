@@ -1,5 +1,6 @@
-#include "ResizingBouncer.h"
+#include <engine/core.h>
 #include <engine/components.h>
+#include "ResizingBouncer.h"
 using namespace std;
 
 ResizingBouncer::ResizingBouncer(std::shared_ptr<Camera2D> cam, int x, int y, int z) : Bouncer(x, y, z), _camera(cam)

@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <engine/misc.h>
 #include "UISystemImpl.h"
 using namespace std;

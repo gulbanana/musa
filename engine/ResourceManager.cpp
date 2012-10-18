@@ -1,5 +1,5 @@
+#include <engine/core.h>
 #include <stdexcept>
-#include <string>
 #include "ResourceManager.h"
 using namespace std;
 

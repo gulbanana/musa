@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 
 class CPlayer : public Identified<IComponent, CMP::Player>
 {

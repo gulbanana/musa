@@ -1,8 +1,9 @@
+#include <engine/core.h>
 #include <array>
 #include <cmath>
 #include <list>
 #include <SDL_timer.h>
-#include "../components.h"
+#include <engine/components.h>
 #include "MotionSystem.h"
 using namespace std;
 

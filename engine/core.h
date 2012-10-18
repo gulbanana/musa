@@ -1,6 +1,15 @@
+//precompiled header file
 #pragma once
 
+#define _USE_MATH_DEFINES
+#include <memory>
+#include <vector>
+#include <string>
+
 #include <glm/glm.hpp>
+
+#include "platform.h"
+
 #include "core/typedefs.h"
 #include "core/Vec2.h"
 #include "core/Vec3.h"

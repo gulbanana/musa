@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <engine/components.h>
 #include <engine/misc.h>
 #define _USE_MATH_DEFINES

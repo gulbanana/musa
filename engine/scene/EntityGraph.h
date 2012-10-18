@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-#include <engine/core.h>
 #include "RootNode.h"
 
 class SceneImpl;

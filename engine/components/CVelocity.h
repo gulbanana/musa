@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 
 class CVelocity : public Identified<IComponent, CMP::Velocity>
 {

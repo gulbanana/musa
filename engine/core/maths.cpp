@@ -1,4 +1,4 @@
-#define _USE_MATH_DEFINES
+#include <engine/core.h>
 #include <cmath>
 #include <functional>
 #include "maths.h"

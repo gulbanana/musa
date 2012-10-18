@@ -1,8 +1,4 @@
 #pragma once
-#include <memory>
-#include <vector>
-#include <string>
-#include <engine/core.h>
 #include <engine/scene.h>
 #include "Settings.h"
 

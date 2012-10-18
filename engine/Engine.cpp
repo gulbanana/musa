@@ -1,5 +1,4 @@
-#include <typeinfo>
-#include <ctime>
+#include <engine/core.h>
 #include <algorithm>
 #include <SDL.h>
 #include "misc.h"

@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 
 class CPosition : public Identified<IComponent, CMP::Position>
 {

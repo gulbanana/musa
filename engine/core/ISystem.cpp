@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include "ISystem.h"
 
 ISystem::~ISystem() {}

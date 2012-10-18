@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 #include <engine/GameState.h>
 #include "EntityManagingSystemBase.h"
 

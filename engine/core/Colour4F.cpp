@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include "Colour4F.h"
 using namespace std;
 

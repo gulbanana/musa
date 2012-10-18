@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 #include <engine/geometry.h>
 #include <engine/systems/EntityManagingSystemBase.h>
 

@@ -1,6 +1,4 @@
 #pragma once
-#include <vector>
-#include <engine/core.h>
 #include "IModel.h"
 #include "IMaterial.h"
 

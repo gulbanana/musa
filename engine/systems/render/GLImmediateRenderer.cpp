@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <stdexcept>
 #include <functional>
 #include <SDL_video.h>

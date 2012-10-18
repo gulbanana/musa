@@ -1,4 +1,4 @@
-#include <vector>
+#include <engine/core.h>
 #include <algorithm>
 #include "EntityGraph.h"
 #include "LambdaWalker.h"

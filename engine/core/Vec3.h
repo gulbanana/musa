@@ -2,7 +2,6 @@
 #include <cmath>
 #include <array>
 #include <cfloat>
-#include <engine/platform.h>
 template<typename T> class Vec2;
 
 template <typename T>

@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-#include <string>
 #include <engine/GameState.h>
 #include <SDL_events.h>
 #include <guichan/guichan.hpp>

@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <algorithm>
 #include "SpriteMesh.h"
 using namespace std;

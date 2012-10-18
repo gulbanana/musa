@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <array>
 #include "UISystem.h"
 #include "ui/UISystemImpl.h"

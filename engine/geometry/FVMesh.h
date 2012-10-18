@@ -1,7 +1,5 @@
 #pragma once
-#include <vector>
 #include <array>
-#include <engine/core.h>
 #include "IModel.h"
 #include "IMaterial.h"
 

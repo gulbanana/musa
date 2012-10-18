@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 
 class CAcceleration : public Identified<IComponent, CMP::Acceleration>
 {

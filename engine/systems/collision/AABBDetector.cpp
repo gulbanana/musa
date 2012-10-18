@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <engine/components.h>
 #include "AABBDetector.h"
 

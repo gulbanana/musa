@@ -1,9 +1,8 @@
-#include <array>
-#include <algorithm>
-#include <vector>
-#include <iostream>
+#include <engine/core.h>
 #include <engine/misc.h>
 #include <engine/components.h>
+#include <array>
+#include <iostream>
 #include "Bouncer.h"
 using namespace std;
 

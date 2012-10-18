@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-#include <vector>
 #include <SDL_events.h>
 #include "IEntity.h"
 

@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-#include <engine/core.h>
 #include <engine/geometry.h>
 
 // a modelobject renderer node 

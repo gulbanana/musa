@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/core.h>
 #include "IGraphWalker.h"
 
 class IGraphNode : public IEntity

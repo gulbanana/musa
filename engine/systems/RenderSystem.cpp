@@ -1,3 +1,4 @@
+#include <engine/core.h>
 #include <array>
 #include <iterator>
 #include <SDL_opengl.h>

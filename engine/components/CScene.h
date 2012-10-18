@@ -3,8 +3,6 @@
 //processing a flat entity list
 
 #pragma once
-#include <memory>
-#include <engine/core.h>
 #include <engine/geometry.h>
 
 class CScene : public Identified<IComponent, CMP::Scene>

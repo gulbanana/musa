@@ -1,7 +1,5 @@
 #pragma once
 #include <cstdint>
-#include <string>
-#include <engine/platform.h>
 
 // 'strong' typedefs are not convertible implicitly to their 'base' type,
 // providing a typesafe notion of "units"
