@@ -24,13 +24,19 @@ public:                                                \
     template<typename T>                               \
     void add_##iname(std::unique_ptr<T> iname)         \
     {                                                  \
-        iplural[T::id()] = std::move(iname);             \
+        iplural[T::id()] = std::move(iname);           \
+    }                                                  \
+                                                       \
+    template<typename T>                               \
+    void remove_##iname(std::unique_ptr<T> iname)      \
+    {                                                  \
+        iplural.erase(T::id());                        \
     }                                                  \
                                                        \
     template<typename T>                               \
     inline bool has_##iname()                          \
     {                                                  \
-        return has_##iname(T::id());                     \
+        return has_##iname(T::id());                   \
     }                                                  \
                                                        \
     bool has_##iname(itype::ID id)                     \
@@ -40,7 +46,7 @@ public:                                                \
                                                        \
     template<typename T> T* get_##iname()              \
     {                                                  \
-        return static_cast<T*>(iplural[T::id()].get());  \
+        return static_cast<T*>(iplural[T::id()].get());\
     }                                                  \
 protected:                                             \
     std::map<itype::ID, std::unique_ptr<itype>> iplural	

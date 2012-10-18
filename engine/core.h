@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glm/glm.hpp>
 #include "core/typedefs.h"
 #include "core/Vec2.h"
 #include "core/Vec3.h"

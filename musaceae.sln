@@ -9,6 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "balls", "balls\balls.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcxproj", "{969892C5-2972-2EF3-15B9-D61708D8B939}"
 	ProjectSection(ProjectDependencies) = postProject
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D} = {BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}
 		{6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7} = {6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7}
 	EndProjectSection
 EndProject
@@ -29,6 +30,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "balls3d", "balls\balls3d.vc
 		{6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7} = {6BCBDA5C-61CC-417C-9EBF-ADAE6DC434B7}
 		{969892C5-2972-2EF3-15B9-D61708D8B939} = {969892C5-2972-2EF3-15B9-D61708D8B939}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glm", "glm\glm.vcxproj", "{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,11 +91,20 @@ Global
 		{AD9CCB96-3607-4FE2-A58B-2B9DF6096073}.Release|x64.Build.0 = Release|x64
 		{AD9CCB96-3607-4FE2-A58B-2B9DF6096073}.Release|x86.ActiveCfg = Release|Win32
 		{AD9CCB96-3607-4FE2-A58B-2B9DF6096073}.Release|x86.Build.0 = Release|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Debug|Win32.Build.0 = Debug|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Debug|x64.ActiveCfg = Debug|x64
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Debug|x64.Build.0 = Debug|x64
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Debug|x86.ActiveCfg = Debug|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Debug|x86.Build.0 = Debug|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Release|Win32.ActiveCfg = Release|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Release|Win32.Build.0 = Release|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Release|x64.ActiveCfg = Release|x64
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Release|x64.Build.0 = Release|x64
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Release|x86.ActiveCfg = Release|Win32
+		{BA7D2F27-D6A1-4FC2-A088-5D0200FA7D6D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
