@@ -246,7 +246,7 @@ void GLImmediateRenderer::unmorph(PerspectiveCamera const*)
 
 void GLImmediateRenderer::paint(SolidColourBrush const* brush)
 {
-	glColor4f(brush->colour.red, brush->colour.green, brush->colour.blue, brush->colour.alpha);
+	glColor4fv(&brush->colour[0]);
 }
 
 void GLImmediateRenderer::draw(SpriteMesh const* mesh)

@@ -17,7 +17,7 @@ public:
 	ResourceManager();
 	~ResourceManager();
 
-	IMaterial* load_brush(Colour4F);
+	IMaterial* load_brush(glm::vec4);
 	IModel* load_primitive(SolidColourBrush*, Primitive, void*);
 	IModel* load_model(IMaterial*);
 };

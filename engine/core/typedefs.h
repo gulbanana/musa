@@ -36,18 +36,17 @@
 // C4146 is a warning for unary negation of unsigned types
 // TODO: maybe i really shouldn't use an unsigned type here? the problem is that SDL_GetTicks() returns uint32..
 #pragma warning(disable:4146)
-CHECKED_TYPEDEF(uint64_t,microseconds)
-CHECKED_TYPEDEF(uint32_t,milliseconds)
+CHECKED_TYPEDEF(glm::highp_uint, microseconds)
+CHECKED_TYPEDEF(glm::lowp_uint, milliseconds)
 #pragma warning(default:4146)
+CHECKED_TYPEDEF(glm::highp_float, seconds)
 
-#ifdef DOUBLE_PRECISION
-	CHECKED_TYPEDEF(double,degrees)
-	CHECKED_TYPEDEF(double,radians)
-    CHECKED_TYPEDEF(double,seconds)
-    CHECKED_TYPEDEF(double,coord)
+CHECKED_TYPEDEF(glm::mediump_float, degrees);
+CHECKED_TYPEDEF(glm::mediump_float, radians);
+#if defined(GLM_PRECISION_HIGHP_FLOAT)
+    CHECKED_TYPEDEF(glm::highp_float,coord)
 #else
-	CHECKED_TYPEDEF(float,degrees)
-	CHECKED_TYPEDEF(float,radians)
-    CHECKED_TYPEDEF(float,seconds)
-    CHECKED_TYPEDEF(float,coord)
+    CHECKED_TYPEDEF(glm::mediump_float,coord)
 #endif
+
+CHECKED_TYPEDEF(glm::lowp_vec4, colour)

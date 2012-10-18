@@ -107,7 +107,7 @@ void EngineImpl::play()
 		frame();
         
         now = SDL_GetTicks();
-        _state->last_frame_time = min(now - _state->last_frame, clamp);
+        _state->last_frame_time = min<milliseconds>(now - _state->last_frame, clamp);
         _state->last_frame = now;
         
         if (_state->last_frame_time < mspf)

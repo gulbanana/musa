@@ -55,9 +55,9 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 	ballgame.add_entity(view);
 
 	//immobiles
-	auto whitePaint = ballpit.load_brush(Colour4F::WHITE);
-	auto redPaint = ballpit.load_brush(Colour4F::RED);
-	auto bluePaint = ballpit.load_brush(Colour4F::BLUE);
+	auto whitePaint = ballpit.load_brush(Colour::WHITE);
+	auto redPaint = ballpit.load_brush(Colour::RED);
+	auto bluePaint = ballpit.load_brush(Colour::BLUE);
 
 	auto smallBox = Box6<coord>((coord)-50, (coord)-150, (coord)-30, (coord)50, (coord)150, (coord)30);
 	auto bigBox = Box6<coord>((coord)-500, (coord)-500, (coord)-500, (coord)500, (coord)500, (coord)500);
@@ -73,14 +73,14 @@ void setup_world(EntityGraph& ballgame, ResourceManager& ballpit)
 
 	//fixed balls
 	auto big = (coord)35;
-	auto bigBall = [&](Colour4F c){ return ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(c), Primitive::Sphere, &big); };
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::CYAN), LOC(800,800,0), VEL(100,-100,0), ROT(0,0,0)));
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::MAGENTA), LOC(200,500,0), VEL(100,100,0), ROT(0,0,0)));
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::YELLOW), LOC(800,200,0), VEL(-100,100,0), ROT(0,0,0)));
+	auto bigBall = [&](colour c){ return ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(c), Primitive::Sphere, &big); };
+	view->children.push_back(make_shared<Ball>(bigBall(Colour::CYAN), LOC(800,800,0), VEL(100,-100,0), ROT(0,0,0)));
+	view->children.push_back(make_shared<Ball>(bigBall(Colour::MAGENTA), LOC(200,500,0), VEL(100,100,0), ROT(0,0,0)));
+	view->children.push_back(make_shared<Ball>(bigBall(Colour::YELLOW), LOC(800,200,0), VEL(-100,100,0), ROT(0,0,0)));
 	
 	//random balls
 	auto small = (coord)15;
-	auto smallGreenBall = ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(Colour4F(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &small);
+	auto smallGreenBall = ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(colour(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &small);
 
 	for (int i = 0; i < 50; i++) {
 		view->children.push_back(

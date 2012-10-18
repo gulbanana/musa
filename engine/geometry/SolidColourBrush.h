@@ -3,9 +3,9 @@
 
 struct SolidColourBrush : public IMaterial
 {
-	Colour4F colour;
+	glm::vec4 colour;
 
-	SolidColourBrush(Colour4F c) : colour(c) {}
+	SolidColourBrush(glm::vec4 c) : colour(c) {}
 
 	virtual void accept(IRenderer* renderer) const override
 	{ 

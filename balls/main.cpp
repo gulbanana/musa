@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
 	ballgame.add_entity(view);
 
 	//immobiles
-	auto redPaint = ballpit.load_brush(Colour4F::RED);
-	auto whitePaint = ballpit.load_brush(Colour4F::WHITE);
+	auto redPaint = ballpit.load_brush(Colour::RED);
+	auto whitePaint = ballpit.load_brush(Colour::WHITE);
 
 	auto smallBox = Box6<coord>((coord)-50, (coord)-80, (coord)-30, (coord)50, (coord)80, (coord)30);
 
@@ -56,14 +56,14 @@ int main(int argc, char *argv[])
 
 	//fixed balls
 	auto big = (coord)35;
-	auto bigBall = [&](Colour4F c){ return ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(c), Primitive::Sphere, &big); };
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::CYAN), LOC(800,800), VEL(100,-100), ROT(0)));
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::MAGENTA), LOC(200,500), VEL(100,100), ROT(0)));
-	view->children.push_back(make_shared<Ball>(bigBall(Colour4F::YELLOW), LOC(800,200), VEL(-100,100), ROT(0)));
+	auto bigBall = [&](colour c){ return ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(c), Primitive::Sphere, &big); };
+	view->children.push_back(make_shared<Ball>(bigBall(Colour::CYAN), LOC(800,800), VEL(100,-100), ROT(0)));
+	view->children.push_back(make_shared<Ball>(bigBall(Colour::MAGENTA), LOC(200,500), VEL(100,100), ROT(0)));
+	view->children.push_back(make_shared<Ball>(bigBall(Colour::YELLOW), LOC(800,200), VEL(-100,100), ROT(0)));
 	
 	//random balls
 	auto small = (coord)15;
-	auto smallGreenBall = ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(Colour4F(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &small);
+	auto smallGreenBall = ballpit.load_primitive((SolidColourBrush*)ballpit.load_brush(colour(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &small);
 
 	for (int i = 0; i < 35; i++) {
 		view->children.push_back(

@@ -43,9 +43,6 @@
     <ClCompile Include="geometry\PrimitiveFactory.cpp" />
     <ClCompile Include="geometry\FVMesh.cpp" />
     <ClCompile Include="geometry\SpriteMesh.cpp" />
-    <ClCompile Include="core\Colour4F.cpp">
-      <Filter>core</Filter>
-    </ClCompile>
     <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp">
       <Filter>systems\Display</Filter>
@@ -72,6 +69,9 @@
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="core\maths.cpp" />
     <ClCompile Include="core.cpp" />
+    <ClCompile Include="core\Colour.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -141,9 +141,6 @@
     <ClInclude Include="geometry\IMaterial.h" />
     <ClInclude Include="geometry\SpriteMesh.h" />
     <ClInclude Include="geometry\SolidColourBrush.h" />
-    <ClInclude Include="core\Colour4F.h">
-      <Filter>core</Filter>
-    </ClInclude>
     <ClInclude Include="systems\EntityManagingSystemBase.h" />
     <ClInclude Include="systems\RenderSystem.h">
       <Filter>systems\Display</Filter>
@@ -181,5 +178,8 @@
     <ClInclude Include="core\maths.h" />
     <ClInclude Include="components\CPlayer.h" />
     <ClInclude Include="core\platform.h" />
+    <ClInclude Include="core\Colour.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

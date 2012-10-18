@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include "ResourceManager.h"
 using namespace std;
+using namespace glm;
 
 #pragma region pimpl
 class ResourceManagerImpl
@@ -13,13 +14,13 @@ public:
 	ResourceManagerImpl();
 	~ResourceManagerImpl();
 
-	IMaterial* load_brush(Colour4F);
+	IMaterial* load_brush(vec4);
 	IModel* load_primitive(SolidColourBrush*, Primitive, void*);
 	IModel* load_model(IMaterial*);
 };
 ResourceManager::ResourceManager() : _pimpl(new ResourceManagerImpl()) {}
 ResourceManager::~ResourceManager() { delete _pimpl; }
-IMaterial* ResourceManager::load_brush(Colour4F c) { return _pimpl->load_brush(c); }
+IMaterial* ResourceManager::load_brush(vec4 c) { return _pimpl->load_brush(c); }
 IModel* ResourceManager::load_primitive(SolidColourBrush* m, Primitive p, void* arg) { return _pimpl->load_primitive(m, p, arg); }
 IModel* ResourceManager::load_model(IMaterial* m) { return _pimpl->load_model(m); }
 #pragma endregion
@@ -36,7 +37,7 @@ ResourceManagerImpl::~ResourceManagerImpl()
 }
 
 
-IMaterial* ResourceManagerImpl::load_brush(Colour4F c)
+IMaterial* ResourceManagerImpl::load_brush(vec4 c)
 {
 	auto material = new SolidColourBrush(c);
 	_deletionPool.push_back(material);
