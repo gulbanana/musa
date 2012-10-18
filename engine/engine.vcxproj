@@ -228,7 +228,7 @@
     <ClInclude Include="geometry\OrthographicCamera.h" />
     <ClInclude Include="geometry\PerspectiveCamera.h" />
     <ClInclude Include="geometry\ScaleMethod.h" />
-    <ClInclude Include="platform.h" />
+    <ClInclude Include="core\platform.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="scene\LambdaWalker.h" />
     <ClInclude Include="scene\RootNode.h" />
@@ -272,7 +272,6 @@
     <ClInclude Include="systems\UISystem.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="core\IEntity.h" />
-    <ClInclude Include="core\Vec2.h" />
     <ClInclude Include="core\Vec3.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />

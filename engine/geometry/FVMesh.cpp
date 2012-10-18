@@ -3,6 +3,7 @@
 #include <numeric>
 #include "FVMesh.h"
 using namespace std;
+using namespace glm;
 
 FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices) : 
 		sides(sides), groups(groups), vertices(vertices), uv_map(), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
@@ -10,7 +11,7 @@ FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coo
 	validate_mesh();
 }
 
-FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs) :
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<vec2>&& uvs) :
 		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
@@ -22,7 +23,7 @@ FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coo
 	validate_mesh();
 }
 
-FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs, std::vector<Vec3<coord>>&& normals) :
+FVMesh::FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<vec2>&& uvs, std::vector<Vec3<coord>>&& normals) :
 		sides(sides), groups(groups), vertices(vertices), uv_map(uvs), normal_map(normals), _bounds_cache(calc_bounds()), wireframe(false)
 {
 	validate_mesh();
@@ -59,12 +60,12 @@ Box6<coord> FVMesh::calc_bounds()
 
 	for (auto v : vertices)
 	{
-		minX = min(v.x, minX);
-		minY = min(v.y, minY);
-		minZ = min(v.z, minZ);
-		maxX = max(v.x, maxX);
-		maxY = max(v.y, maxY);
-		maxZ = max(v.z, maxZ);
+		minX = std::min(v.x, minX);
+		minY = std::min(v.y, minY);
+		minZ = std::min(v.z, minZ);
+		maxX = std::max(v.x, maxX);
+		maxY = std::max(v.y, maxY);
+		maxZ = std::max(v.z, maxZ);
 	}
 	
 	return Box6<coord>(minX, minY, minZ, maxX, maxY, maxZ);

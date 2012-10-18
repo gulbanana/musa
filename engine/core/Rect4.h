@@ -1,6 +1,5 @@
 #pragma once
 #include <algorithm>
-#include "Vec2.h"
 #include "Box6.h"
 
 template <typename T>
@@ -13,26 +12,26 @@ struct Rect4
 	T bottom() const	{ return y1; }
 	T right() const		{ return x2; }
 	T top() const		{ return y2; }
-	Vec2<T> bottomLeft() const { return Vec2<T>(x1,y1); }
-	Vec2<T> topRight() const	{ return Vec2<T>(x2,y2); }
-	Vec2<T> origin() const		{ return bottomLeft(); }
+	glm::vec2 bottomLeft() const { return glm::vec2(x1,y1); }
+	glm::vec2 topRight() const	{ return glm::vec2(x2,y2); }
+	glm::vec2 origin() const		{ return bottomLeft(); }
 	T width() const		{ return x2-x1; }
 	T height() const	{ return y2-y1; }
 
 	///constructors
 	Rect4(T left, T bottom, T right, T top) : x1(left), y1(bottom), x2(right), y2(top) {}
-	Rect4(Vec2<T> bottomLeft, Vec2<T> topRight) : x1(bottomLeft.x), y1(bottomLeft.y), x2(topRight.x), y2(topRight.y) {}
-	Rect4(Vec2<T> origin, T width, T height) : x1(origin.x), y1(origin.y), x2(origin.x + width), y2(origin.y + height) {}
+	Rect4(glm::vec2 bottomLeft, glm::vec2 topRight) : x1(bottomLeft.x), y1(bottomLeft.y), x2(topRight.x), y2(topRight.y) {}
+	Rect4(glm::vec2 origin, T width, T height) : x1(origin.x), y1(origin.y), x2(origin.x + width), y2(origin.y + height) {}
 	explicit Rect4(Box6<T> box) : x1(box.x1), y1(box.y1), x2(box.x2), y2(box.y2) {}
 
 #pragma region arithmetic
-	Rect4 operator+(Vec2<T> const& p) const { return Rect4<T>(x1 + p.x, y1 + p.y, x2 + p.x, y2 + p.y); }
-	Rect4 operator-(Vec2<T> const& p) const { return Rect4<T>(x1 - p.x, y1 - p.y, x2 - p.x, y2 - p.y); }
+	Rect4 operator+(glm::vec2 const& p) const { return Rect4<T>(x1 + p.x, y1 + p.y, x2 + p.x, y2 + p.y); }
+	Rect4 operator-(glm::vec2 const& p) const { return Rect4<T>(x1 - p.x, y1 - p.y, x2 - p.x, y2 - p.y); }
 #pragma endregion
 	
 #pragma region utility
 	bool contains(T x, T y) const { return (x >= x1) && (x < x2) && (y >= y1) && (y < y2); }
-	bool contains(Vec2<T> const& point) const { return contains(point.x, point.y); }
+	bool contains(glm::vec2 const& point) const { return contains(point.x, point.y); }
 	bool intersects(Rect4 const& rectangle) const
 	{
 		Rect4 intersection((coord)0,(coord)0,(coord)0,(coord)0);

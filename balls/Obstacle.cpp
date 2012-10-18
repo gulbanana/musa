@@ -9,7 +9,7 @@ Obstacle::Obstacle(IModel* mesh, Vec3<coord> position, Vec3<degrees> rotation, b
 {
 	add_component(make_unique<CPosition>(position));
 	add_component(make_unique<CMesh>(mesh));
-	add_component(make_unique<CVelocity>(Vec2<coord>(), rotation));
+	add_component(make_unique<CVelocity>(Vec3<coord>(0.0, 0.0, 0.0), rotation));
 
 	if (solid)
 	{

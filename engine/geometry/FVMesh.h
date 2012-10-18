@@ -38,7 +38,7 @@ struct FVMesh : public IModel
 
 	std::vector<Group> groups;
 	std::vector<Vec3<coord>> vertices;
-	std::vector<Vec2<coord>> uv_map;
+	std::vector<glm::vec2> uv_map;
 	std::vector<Vec3<coord>> normal_map;
 
 	unsigned sides;
@@ -48,9 +48,9 @@ struct FVMesh : public IModel
 
 	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices);
 	FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std::vector<Vec3<coord>>&& vertices);
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<glm::vec2>&& uvs);
 	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec3<coord>>&& normals);
-	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<Vec2<coord>>&& uvs, std::vector<Vec3<coord>>&& normals);
+	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<Vec3<coord>>&& vertices, std::vector<glm::vec2>&& uvs, std::vector<Vec3<coord>>&& normals);
 
 	void accept(IRenderer* renderer) const override; 
 	Box6<coord> bounds() const override; 
