@@ -3,7 +3,7 @@
 #include "ResizingBouncer.h"
 using namespace std;
 
-ResizingBouncer::ResizingBouncer(std::shared_ptr<Camera2D> cam, int x, int y, int z) : Bouncer(x, y, z), _camera(cam)
+ResizingBouncer::ResizingBouncer(std::shared_ptr<IEntity> camera, int x, int y, int z) : Bouncer(x, y, z), _camera(camera)
 {
 }
 
@@ -13,7 +13,9 @@ bool ResizingBouncer::on_event(SDL_Event& event)
 	{
 		_width = (coord)event.resize.w;
 		_height = (coord)event.resize.h;
-		_camera->resize(_width, _height, _depth);
+
+		((OrthographicCamera*)_camera->get_component<CTransform>()->matrix)->range = box6(maths::origin, _width, _height, _depth);
+		_camera->get_component<CPosition>()->location = point(_width/2, _height/2, _depth);
 
 		for (auto weakentity : entities)
 		{

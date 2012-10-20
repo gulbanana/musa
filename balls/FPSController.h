@@ -10,6 +10,7 @@ private:
 
 public:
 	std::vector<IComponent::ID> required_components() const override;
+	std::vector<ISystem::ID> required_systems() const override;
 	FPSController();
 	bool on_event(SDL_Event& event) override;
 };

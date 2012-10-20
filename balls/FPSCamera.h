@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/entities.h>
+#include <engine/archetypes.h>
 
 class FPSCamera : public Camera3D
 {

@@ -25,6 +25,7 @@
     <ClCompile Include="FPSController.cpp" />
     <ClCompile Include="main3d.cpp" />
     <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="FPSCamera.h" />
     <ClInclude Include="FPSController.h" />
     <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCTargetsPath Condition="'$(VCTargetsPath11)' != '' and '$(VSVersion)' == '' and '$(VisualStudioVersion)' == ''">$(VCTargetsPath11)</VCTargetsPath>

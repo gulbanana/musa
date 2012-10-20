@@ -1,9 +1,9 @@
 #pragma once
-#include <engine/scene.h>
+#include <engine/archetypes.h>
 
-class Ball : public LeafNode
+class Ball : public PresetArchetype
 {
 public:
-	Ball(IModel* mesh, point position, point acceleration, angles rotation);
+	Ball(IModel* mesh);
 };
 

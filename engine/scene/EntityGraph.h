@@ -12,7 +12,7 @@ public:
 	EntityGraph();
 
 	//adds a node to the scene graph
-	void add_entity(std::shared_ptr<IGraphNode> entity);
+	void add_entity(std::shared_ptr<IEntity> entity, bool branch);
 
 	//returns a "flat" copy of the scene graph in traversal order
 	std::vector<std::shared_ptr<IEntity>> entity_list();

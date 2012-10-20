@@ -39,7 +39,6 @@
     <ClCompile Include="systems\MotionSystem.cpp">
       <Filter>systems\Movement</Filter>
     </ClCompile>
-    <ClCompile Include="entities\DataDrivenEntity.cpp" />
     <ClCompile Include="geometry\PrimitiveFactory.cpp" />
     <ClCompile Include="geometry\FVMesh.cpp" />
     <ClCompile Include="geometry\SpriteMesh.cpp" />
@@ -59,13 +58,9 @@
     <ClCompile Include="scene\LambdaWalker.cpp" />
     <ClCompile Include="scene\LeafNode.cpp" />
     <ClCompile Include="scene\BranchNode.cpp" />
-    <ClCompile Include="core\IEntity.cpp" />
-    <ClCompile Include="core\ISystem.cpp" />
     <ClCompile Include="scene\IGraphNode.cpp" />
     <ClCompile Include="scene\IGraphWalker.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="entities\Camera2D.cpp" />
-    <ClCompile Include="entities\Camera3D.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="core\maths.cpp" />
     <ClCompile Include="core.cpp" />
@@ -73,6 +68,14 @@
       <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="core\box6.cpp" />
+    <ClCompile Include="core\ManagedEntity.cpp" />
+    <ClCompile Include="core\AutonomousEntity.cpp" />
+    <ClCompile Include="core\AutonomousEntityFactory.cpp" />
+    <ClCompile Include="core\ManagedEntityFactory.cpp" />
+    <ClCompile Include="archetypes\Camera2D.cpp" />
+    <ClCompile Include="archetypes\Camera3D.cpp" />
+    <ClCompile Include="archetypes\PresetArchetype.cpp" />
+    <ClCompile Include="systems\ThreadedSystemBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -81,12 +84,10 @@
     <ClInclude Include="core.h">
       <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="misc.h" />
     <ClInclude Include="components\CLabel.h">
       <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="systems.h" />
-    <ClInclude Include="entities.h" />
     <ClInclude Include="core\identifiable.h">
       <Filter>core</Filter>
     </ClInclude>
@@ -126,7 +127,6 @@
     <ClInclude Include="core\IEntity.h">
       <Filter>entities</Filter>
     </ClInclude>
-    <ClInclude Include="entities\DataDrivenEntity.h" />
     <ClInclude Include="core\IComponent.h">
       <Filter>components</Filter>
     </ClInclude>
@@ -162,15 +162,12 @@
     <ClInclude Include="geometry\OrthographicCamera.h" />
     <ClInclude Include="geometry\IModel.h" />
     <ClInclude Include="geometry\PerspectiveCamera.h" />
-    <ClInclude Include="entities\Camera2D.h" />
     <ClInclude Include="geometry\ScaleMethod.h" />
-    <ClInclude Include="entities\Camera3D.h" />
     <ClInclude Include="systems\collision\AABBDetector.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="windows\msvc.h" />
     <ClInclude Include="mac\clang.h" />
     <ClInclude Include="core\maths.h" />
-    <ClInclude Include="components\CPlayer.h" />
     <ClInclude Include="core\platform.h" />
     <ClInclude Include="core\rect4.h">
       <Filter>core</Filter>
@@ -179,5 +176,19 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\box6.h" />
+    <ClInclude Include="components\CInput.h" />
+    <ClInclude Include="core\IMessage.h" />
+    <ClInclude Include="core\IEntityFactory.h" />
+    <ClInclude Include="core\ManagedEntity.h" />
+    <ClInclude Include="core\AutonomousEntity.h" />
+    <ClInclude Include="core\AutonomousEntityFactory.h" />
+    <ClInclude Include="core\ManagedEntityFactory.h" />
+    <ClInclude Include="archetypes\Camera2D.h" />
+    <ClInclude Include="archetypes\Camera3D.h" />
+    <ClInclude Include="archetypes.h" />
+    <ClInclude Include="core\IArchetype.h" />
+    <ClInclude Include="archetypes\PresetArchetype.h" />
+    <ClInclude Include="core\misc.h" />
+    <ClInclude Include="systems\ThreadedSystemBase.h" />
   </ItemGroup>
 </Project>

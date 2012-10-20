@@ -180,6 +180,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="archetypes\PresetArchetype.cpp" />
     <ClCompile Include="core.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core.h</PrecompiledHeaderFile>
@@ -187,13 +188,14 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">core.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="core\box6.cpp" />
+    <ClCompile Include="core\ManagedEntity.cpp" />
+    <ClCompile Include="core\AutonomousEntityFactory.cpp" />
+    <ClCompile Include="core\ManagedEntityFactory.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
-    <ClCompile Include="entities\Camera3D.cpp" />
-    <ClCompile Include="entities\Camera2D.cpp" />
-    <ClCompile Include="core\IEntity.cpp" />
-    <ClCompile Include="core\ISystem.cpp" />
+    <ClCompile Include="archetypes\Camera3D.cpp" />
+    <ClCompile Include="archetypes\Camera2D.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="entities\DataDrivenEntity.cpp" />
+    <ClCompile Include="core\AutonomousEntity.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="scene\BranchNode.cpp" />
     <ClCompile Include="scene\IGraphNode.cpp" />
@@ -217,14 +219,22 @@
     <ClCompile Include="scene\EntityGraph.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp" />
+    <ClCompile Include="systems\ThreadedSystemBase.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="components\CPlayer.h" />
+    <ClInclude Include="archetypes\PresetArchetype.h" />
+    <ClInclude Include="core\IArchetype.h" />
+    <ClInclude Include="components\CInput.h" />
+    <ClInclude Include="core\IEntityFactory.h" />
+    <ClInclude Include="core\IMessage.h" />
+    <ClInclude Include="core\AutonomousEntityFactory.h" />
+    <ClInclude Include="core\ManagedEntityFactory.h" />
     <ClInclude Include="mac\clang.h" />
+    <ClInclude Include="core\ManagedEntity.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="systems\collision\AABBDetector.h" />
-    <ClInclude Include="entities\Camera3D.h" />
-    <ClInclude Include="entities\Camera2D.h" />
+    <ClInclude Include="archetypes\Camera3D.h" />
+    <ClInclude Include="archetypes\Camera2D.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CScene.h" />
     <ClInclude Include="geometry\ITransform.h" />
@@ -250,8 +260,8 @@
     <ClInclude Include="systems\EntityManagingSystemBase.h" />
     <ClInclude Include="geometry\IMaterial.h" />
     <ClInclude Include="geometry\IModel.h" />
-    <ClInclude Include="entities.h" />
-    <ClInclude Include="entities\DataDrivenEntity.h" />
+    <ClInclude Include="archetypes.h" />
+    <ClInclude Include="core\AutonomousEntity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="geometry\PrimitiveFactory.h" />
@@ -280,10 +290,11 @@
     <ClInclude Include="scene\EntityGraph.h" />
     <ClInclude Include="systems\ControlSystem.h" />
     <ClInclude Include="core\ISystem.h" />
-    <ClInclude Include="misc.h" />
+    <ClInclude Include="core\misc.h" />
     <ClInclude Include="core\IComponent.h" />
     <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="components\CPosition.h" />
+    <ClInclude Include="systems\ThreadedSystemBase.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

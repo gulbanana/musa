@@ -6,11 +6,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Bouncer.cpp" />
     <ClCompile Include="ResizingBouncer.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="FPSCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Bouncer.h" />
     <ClInclude Include="ResizingBouncer.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="FPSCamera.h" />
   </ItemGroup>
 </Project>

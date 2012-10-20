@@ -5,8 +5,8 @@ enum class CMP
 {
 	Acceleration,
 	Label,
+	Input,
     Mesh,
-	Player,
 	Physics,
 	Position,
 	Scene,
@@ -18,5 +18,6 @@ enum class CMP
 class IComponent : public Identifiable<CMP>
 {
 public:
-	~IComponent() {}
+	virtual ~IComponent() {}
+	virtual std::unique_ptr<IComponent> clone() const = 0;
 };

@@ -7,5 +7,7 @@ public:
 	ITransform* matrix;
 
 	CTransform(ITransform* spec) : matrix(spec) {}
+
+	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CTransform(*this)); }
 };
 

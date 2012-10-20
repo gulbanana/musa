@@ -1,10 +1,9 @@
 #include <engine/core.h>
 #include <engine/components.h>
-#include <engine/misc.h>
 #include "Camera2D.h"
-
 using namespace std;
 
+//create a camera in front of the world, looking back at it
 Camera2D::Camera2D(coord width, coord height, coord depth, bool anamorphic) : 
 	_camera_matrix(
 		new OrthographicCamera(
@@ -13,16 +12,10 @@ Camera2D::Camera2D(coord width, coord height, coord depth, bool anamorphic) :
 		)
 	)
 {
-	//in front of the world, looking back at it
-	add_component(make_unique<CPosition>(
+	_components.emplace_back(make_unique<CPosition>(
 		point(width/(coord)2, height/(coord)2, depth), 
 		maths::backward_rotation
 	));
-	add_component(make_unique<CTransform>(_camera_matrix.get()));
-}
 
-void Camera2D::resize(coord width, coord height, coord depth)
-{
-	_camera_matrix->range = box6(maths::origin, width, height, depth);
-	get_component<CPosition>()->location = point(width/(coord)2, height/(coord)2, depth);
+	_components.emplace_back(make_unique<CTransform>(_camera_matrix.get()));
 }

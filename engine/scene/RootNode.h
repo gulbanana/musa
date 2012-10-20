@@ -6,7 +6,7 @@
 class RootNode : public BranchNode
 {
 public:
-	RootNode(); 
+	RootNode(std::shared_ptr<IEntity>); 
 	~RootNode();
 
 	virtual void accept(IGraphWalker* visitor);

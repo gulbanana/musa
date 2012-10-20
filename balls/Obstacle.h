@@ -1,9 +1,9 @@
 #pragma once
-#include <engine/scene.h>
+#include <engine/archetypes.h>
 
-class Obstacle : public LeafNode
+class Obstacle : public PresetArchetype
 {
 public:
-	Obstacle(IModel* mesh, point position, angles rotation, bool solid = true);
+	Obstacle(IModel* mesh, bool solid = true);
 };
 

@@ -1,14 +1,16 @@
 #pragma once
 #include <engine/geometry.h>
 #include <engine/scene.h>
+#include "ThreadedSystemBase.h"
 
-class RenderSystem : public Identified<ISystem,SYS::Render>, public IGraphWalker
+class RenderSystem : public Identified<ISystem,SYS::Render,ThreadedSystemBase>, public IGraphWalker
 {
 	std::shared_ptr<IRenderer> _renderer;
 	std::weak_ptr<RootNode> _scene;
 
 	void add_entity(std::weak_ptr<IEntity> entity) override;
-	void on_frame() override;
+	void set_root(std::shared_ptr<IGraphNode> node);
+	void on_wake() override;
 	bool on_event(SDL_Event& event) override;
 
 public:

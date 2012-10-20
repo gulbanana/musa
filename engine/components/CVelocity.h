@@ -11,5 +11,7 @@ public:
 	CVelocity(point vector) : vector(vector), rotation((degrees)0.0,(degrees)0.0,(degrees)0.0) {}
 	CVelocity(point vector, degrees zRotation) : vector(vector), rotation((degrees)0.0,(degrees)0.0,zRotation) {}
 	CVelocity(point vector, angles rotation) : vector(vector), rotation(rotation) {}
+
+	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CVelocity(*this)); }
 };
 

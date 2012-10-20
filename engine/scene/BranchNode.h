@@ -4,6 +4,7 @@
 class BranchNode : public IGraphNode
 {
 public:
+	BranchNode(std::shared_ptr<IEntity>);
 	virtual ~BranchNode() {}
 
 	virtual void accept(IGraphWalker* visitor);

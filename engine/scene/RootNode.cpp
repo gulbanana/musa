@@ -1,12 +1,11 @@
 #include <engine/core.h>
 #include <engine/components.h>
-#include <engine/misc.h>
 #include "RootNode.h"
 using namespace std;
 
-RootNode::RootNode()
+RootNode::RootNode(shared_ptr<IEntity> entity) : BranchNode(entity)
 { 
-	add_component(make_unique<CScene>());
+	_entity->add_component(make_unique<CScene>());
 }
 
 RootNode::~RootNode()

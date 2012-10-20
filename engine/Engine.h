@@ -13,7 +13,7 @@ public:
 	~Engine();
 
 	void play();
-	void load_scene(EntityGraph& level);
+	void load_scene(std::vector<std::shared_ptr<IEntity>> level);
 };
 
 #define main SDL_main

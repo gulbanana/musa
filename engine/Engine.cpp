@@ -1,11 +1,10 @@
 #include <engine/core.h>
+#include <engine/systems.h>
+#include <engine/systems/render/GLImmediateRenderer.h>
 #include <algorithm>
 #include <SDL.h>
-#include "misc.h"
-#include "systems.h"
-#include "systems/render/GLImmediateRenderer.h"
-#include "Engine.h"
 #include "GameState.h"
+#include "Engine.h"
 using namespace std;
 
 #pragma region pimpl
@@ -21,7 +20,7 @@ class EngineImpl
 	
 public:
 	EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic);
-	void load_scene(EntityGraph& level);
+	void load_scene(vector<shared_ptr<IEntity>> levelEntities);
 	void play();
 	void frame();
 	void add_system(unique_ptr<ISystem> system);
@@ -29,7 +28,7 @@ public:
 
 Engine::Engine(Settings& settings, vector<unique_ptr<ISystem>> customLogic) : _pimpl(new EngineImpl(settings, move(customLogic))) {}
 Engine::~Engine() { delete _pimpl; }
-void Engine::load_scene(EntityGraph& level) { _pimpl->load_scene(level); }
+void Engine::load_scene(vector<shared_ptr<IEntity>> level) { _pimpl->load_scene(level); }
 void Engine::play() { _pimpl->play(); }
 #pragma endregion
 
@@ -74,9 +73,9 @@ void EngineImpl::add_system(unique_ptr<ISystem> system)
 	//sort(begin(systems), end(systems));
 }
 
-void EngineImpl::load_scene(EntityGraph& level)
+void EngineImpl::load_scene(vector<shared_ptr<IEntity>> entities)
 {
-	for (auto& entity : level.entity_list())
+	for (auto& entity : entities)
 	{
 		for (auto& system : systems)
 		{

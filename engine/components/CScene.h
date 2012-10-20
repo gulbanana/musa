@@ -12,5 +12,7 @@ public:
 	//camera??
 
 	CScene() {}
+
+	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CScene(*this)); }
 };
 

@@ -22,7 +22,11 @@ RenderSystem::RenderSystem(shared_ptr<IRenderer> r) : _renderer(r) {}
 
 void RenderSystem::add_entity(weak_ptr<IEntity> new_entity)
 { 
-	_scene = static_pointer_cast<RootNode>(new_entity.lock()); 
+}
+
+void RenderSystem::set_root(shared_ptr<IGraphNode> node)
+{ 
+	_scene = static_pointer_cast<RootNode>(node); 
 }
 
 bool RenderSystem::on_event(SDL_Event& event)
@@ -33,7 +37,7 @@ bool RenderSystem::on_event(SDL_Event& event)
 	return false;
 }
 
-void RenderSystem::on_frame()
+void RenderSystem::on_wake()
 {
 	auto graph = _scene.lock();
 
@@ -42,42 +46,42 @@ void RenderSystem::on_frame()
 	_renderer->end_frame();
 }
 
-void RenderSystem::visit(IGraphNode* entity)
+void RenderSystem::visit(IGraphNode* node)
 {
-	if (entity->has_component<CPosition>())
+	if (node->_entity->has_component<CPosition>())
 	{
-		auto position = entity->get_component<CPosition>();
+		auto position = node->_entity->get_component<CPosition>();
 		_renderer->with_position(position->location, position->orientation);
 	}
 }
 
-void RenderSystem::visit(BranchNode* entity)
+void RenderSystem::visit(BranchNode* node)
 {
-	visit(static_cast<IGraphNode*>(entity));
+	visit(static_cast<IGraphNode*>(node));
 
-	if (entity->has_component<CTransform>())
+	if (node->_entity->has_component<CTransform>())
 	{
-		auto transformNode = entity->get_component<CTransform>();
+		auto transformNode = node->_entity->get_component<CTransform>();
 		transformNode->matrix->accept(_renderer.get());
 	}
 
-	for (auto child : entity->children)
+	for (auto child : node->children)
 		child->accept(this);
 
-	if (entity->has_component<CTransform>())
+	if (node->_entity->has_component<CTransform>())
 	{
-		auto transformNode = entity->get_component<CTransform>();
+		auto transformNode = node->_entity->get_component<CTransform>();
 		transformNode->matrix->eject(_renderer.get());
 	}
 }
 
-void RenderSystem::visit(LeafNode* entity)
+void RenderSystem::visit(LeafNode* node)
 {
-	visit(static_cast<IGraphNode*>(entity));
+	visit(static_cast<IGraphNode*>(node));
 
-	if (entity->has_component<CMesh>())
+	if (node->_entity->has_component<CMesh>())
 	{
-		auto renderNode = entity->get_component<CMesh>();
+		auto renderNode = node->_entity->get_component<CMesh>();
 		renderNode->geometry->accept(_renderer.get());
 	}
 }

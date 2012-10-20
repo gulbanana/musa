@@ -1,17 +1,19 @@
 #pragma once
 #include <engine/GameState.h>
+#include "ThreadedSystemBase.h"
 
 class UISystemImpl;
 
-class UISystem : public Identified<ISystem,SYS::UI>
+class UISystem : public Identified<ISystem,SYS::UI,ThreadedSystemBase>
 {
 	UISystemImpl* _pimpl;
 public:
 	UISystem(std::shared_ptr<GameState> s);
 
-	virtual std::vector<ISystem::ID> required_systems() const override;
+	std::vector<IComponent::ID> required_components() const final;
+	std::vector<ISystem::ID> required_systems() const final;
 
-	void on_frame() override;
+	void on_wake() override;
 	bool on_event(SDL_Event& event) override;
 };
 

@@ -1,6 +1,7 @@
 #pragma once
+#include "ThreadedSystemBase.h"
 
-class EntityManagingSystemBase : public ISystem
+class EntityManagingSystemBase : public ThreadedSystemBase
 {
 private:
 	virtual void pre_frame() {}
@@ -11,7 +12,7 @@ protected:
 	std::vector<std::weak_ptr<IEntity>> entities;
 
 public:
-	virtual void add_entity(std::weak_ptr<IEntity> new_entity) override;
-	virtual void on_frame() override;
+	void add_entity(std::weak_ptr<IEntity> new_entity) override;
+	void on_wake() final;
 };
 

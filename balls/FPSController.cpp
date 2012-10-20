@@ -5,8 +5,14 @@ using namespace std;
 
 vector<CMP> FPSController::required_components() const 
 {
-	array<CMP,2> compTypes = {CMP::Player, CMP::Position};
+	array<CMP,2> compTypes = {CMP::Input, CMP::Position};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
+}
+
+vector<SYS> FPSController::required_systems() const 
+{
+	array<SYS,0> sysTypes = {};
+	return vector<SYS>(sysTypes.begin(), sysTypes.end());
 }
 
 FPSController::FPSController()
@@ -18,7 +24,7 @@ bool FPSController::on_event(SDL_Event& event)
 {
 	auto character = entities[0].lock();
 	auto position = character->get_component<CPosition>();
-	auto player = character->get_component<CPlayer>();
+	auto player = character->get_component<CInput>();
 
 	switch (event.type)
 	{

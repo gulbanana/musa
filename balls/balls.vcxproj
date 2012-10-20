@@ -174,15 +174,19 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bouncer.cpp" />
+    <ClCompile Include="FPSCamera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="ResizingBouncer.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FPSCamera.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bouncer.h" />
     <ClInclude Include="ResizingBouncer.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,15 +17,15 @@ class ISystem : public Identifiable<SYS>
 {
 public:
 	//Systems can optionally process frames or SDL events
-	virtual ~ISystem() = 0;
-	virtual void on_frame();
-	virtual bool on_event(SDL_Event& event);
+	virtual ~ISystem() {}
+	virtual void on_frame() = 0;
+	virtual void on_message() = 0;
+	virtual bool on_event(SDL_Event& event) = 0;
 
-public:
 	//an ISystem implementation registers required components; the game engine supplies entities meeting the specification
-	virtual std::vector<IComponent::ID> required_components() const;
-	virtual void add_entity(std::weak_ptr<IEntity> new_entity);
+	virtual std::vector<IComponent::ID> required_components() const = 0;
+	virtual void add_entity(std::weak_ptr<IEntity> new_entity) = 0;
 
 	//system dependencies are used for ordering
-	virtual std::vector<ISystem::ID> required_systems() const;
+	virtual std::vector<ISystem::ID> required_systems() const = 0;
 };

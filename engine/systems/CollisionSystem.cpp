@@ -1,11 +1,10 @@
 #include <engine/core.h>
+#include <engine/components.h>
 #include <array>
 #include <algorithm>
 #include <iterator>
 #include <typeinfo>
 #include <tuple>
-#include <engine/misc.h>
-#include <engine/components.h>
 #include "CollisionSystem.h"
 #include "collision/AABBDetector.h"
 using namespace std;

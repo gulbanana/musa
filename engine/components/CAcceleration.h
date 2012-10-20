@@ -1,6 +1,6 @@
 #pragma once
 
-class CAcceleration : public Identified<IComponent, CMP::Acceleration>
+class CAcceleration final : public Identified<IComponent, CMP::Acceleration>
 {
 public:
 	point vector_change;
@@ -10,5 +10,7 @@ public:
 	CAcceleration(coord x, coord y, coord z) : vector_change(x,y,z), rotation_change((degrees)0,(degrees)0,degrees(0)) {}
 	CAcceleration(point vector_change) : vector_change(vector_change), rotation_change((degrees)0,(degrees)0,degrees(0)) {}
 	CAcceleration(point vector_change, angles rotation_change) : vector_change(vector_change), rotation_change(rotation_change) {}
+
+	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CAcceleration(*this)); }
 };
 

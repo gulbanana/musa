@@ -1,4 +1,6 @@
-remove scene graph
+remove scene graph or move it to the renderer
+system multithreading - dependency semaphores
+messages as a performance optimisation of polling
 textures, brush/mesh distinction SOMEHOW
 auto-fov - maybe impossible
 double viewport (balls unification)
@@ -9,8 +11,6 @@ fullscreen
 wrangle gl extensions
 make collision detection pairwise
 flat/sprite mesh
-multithreaded systems
-dynamic system sort
 obb collision detection
 make aabb detection spatial (octree)
 mesh collision detection?
