@@ -6,4 +6,4 @@
 #include "scene/LeafNode.h"
 #include "scene/IGraphWalker.h"
 #include "scene/LambdaWalker.h"
-#include "scene/EntityGraph.h"
+#include "scene/SceneGraph.h"

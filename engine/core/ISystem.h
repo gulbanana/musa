@@ -22,10 +22,6 @@ public:
 	virtual void on_message() = 0;
 	virtual bool on_event(SDL_Event& event) = 0;
 
-	//an ISystem implementation registers required components; the game engine supplies entities meeting the specification
-	virtual std::vector<IComponent::ID> required_components() const = 0;
+	//systems are notified of all entities; subclasses manage requirements
 	virtual void add_entity(std::weak_ptr<IEntity> new_entity) = 0;
-
-	//system dependencies are used for ordering
-	virtual std::vector<ISystem::ID> required_systems() const = 0;
 };

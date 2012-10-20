@@ -3,9 +3,18 @@
 #include "EntityManagingSystemBase.h"
 using namespace std;
 
-void EntityManagingSystemBase::add_entity(weak_ptr<IEntity> new_entity)
+void EntityManagingSystemBase::add_entity(weak_ptr<IEntity> entity)
 { 
-	entities.push_back(new_entity); 
+	auto const& comps = required_components();
+	auto owned = entity.lock();
+
+	auto matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
+	{
+		return owned->has_component(requirement);
+	});
+
+	if (matches == comps.size())
+		entities.push_back(entity); 
 }
 
 void EntityManagingSystemBase::on_wake()
@@ -15,12 +24,12 @@ void EntityManagingSystemBase::on_wake()
 		return entity.expired();
 	});
 
-	pre_frame();
+	on_frame_start();
 
 	for (auto weakEntity : entities)
 	{
-		on_entity(weakEntity.lock());
+		on_frame_entity(weakEntity.lock());
 	}
 
-	post_frame();
+	on_frame_end();
 }

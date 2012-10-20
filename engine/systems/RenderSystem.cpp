@@ -1,16 +1,9 @@
 #include <engine/core.h>
-#include <array>
+#include <engine/components.h>
 #include <iterator>
 #include <SDL_opengl.h>
-#include <engine/components.h>
 #include "RenderSystem.h"
 using namespace std;
-
-vector<CMP> RenderSystem::required_components() const 
-{
-	array<CMP,1> compTypes = {CMP::Scene};
-	return vector<CMP>(compTypes.begin(), compTypes.end());
-}
 
 vector<SYS> RenderSystem::required_systems() const 
 {
@@ -21,12 +14,14 @@ vector<SYS> RenderSystem::required_systems() const
 RenderSystem::RenderSystem(shared_ptr<IRenderer> r) : _renderer(r) {}
 
 void RenderSystem::add_entity(weak_ptr<IEntity> new_entity)
-{ 
-}
+{
+	auto owned = new_entity.lock();
 
-void RenderSystem::set_root(shared_ptr<IGraphNode> node)
-{ 
-	_scene = static_pointer_cast<RootNode>(node); 
+	if (owned->has_component<CTransform>())
+		_scene.add_branch(owned);
+
+	if (owned->has_component<CModel>())
+		_scene.add_leaf(owned);
 }
 
 bool RenderSystem::on_event(SDL_Event& event)
@@ -39,49 +34,52 @@ bool RenderSystem::on_event(SDL_Event& event)
 
 void RenderSystem::on_wake()
 {
-	auto graph = _scene.lock();
-
 	_renderer->begin_frame();
-	graph->accept(this);
+	_scene.node_tree()->accept(this);
 	_renderer->end_frame();
 }
 
-void RenderSystem::visit(IGraphNode* node)
+void RenderSystem::visit(RootNode* node)
 {
-	if (node->_entity->has_component<CPosition>())
-	{
-		auto position = node->_entity->get_component<CPosition>();
-		_renderer->with_position(position->location, position->orientation);
-	}
+	for (auto& child : node->children)
+		child->accept(this);
 }
 
 void RenderSystem::visit(BranchNode* node)
 {
-	visit(static_cast<IGraphNode*>(node));
-
-	if (node->_entity->has_component<CTransform>())
+	if (node->entity->has_component<CPosition>())
 	{
-		auto transformNode = node->_entity->get_component<CTransform>();
-		transformNode->matrix->accept(_renderer.get());
+		auto position = node->entity->get_component<CPosition>();
+		_renderer->with_position(position->location, position->orientation);
 	}
 
-	for (auto child : node->children)
+	if (node->entity->has_component<CTransform>())
+	{
+		auto transformNode = node->entity->get_component<CTransform>();
+		transformNode->view->invite(_renderer.get());
+	}
+
+	for (auto& child : node->children)
 		child->accept(this);
 
-	if (node->_entity->has_component<CTransform>())
+	if (node->entity->has_component<CTransform>())
 	{
-		auto transformNode = node->_entity->get_component<CTransform>();
-		transformNode->matrix->eject(_renderer.get());
+		auto transformNode = node->entity->get_component<CTransform>();
+		transformNode->view->accept(_renderer.get());
 	}
 }
 
 void RenderSystem::visit(LeafNode* node)
 {
-	visit(static_cast<IGraphNode*>(node));
-
-	if (node->_entity->has_component<CMesh>())
+	if (node->entity->has_component<CPosition>())
 	{
-		auto renderNode = node->_entity->get_component<CMesh>();
+		auto position = node->entity->get_component<CPosition>();
+		_renderer->with_position(position->location, position->orientation);
+	}
+
+	if (node->entity->has_component<CModel>())
+	{
+		auto renderNode = node->entity->get_component<CModel>();
 		renderNode->geometry->accept(_renderer.get());
 	}
 }

@@ -1,6 +1,6 @@
-remove scene graph or move it to the renderer
 system multithreading - dependency semaphores
-messages as a performance optimisation of polling
+messages, as a performance optimisation of polling
+polling
 textures, brush/mesh distinction SOMEHOW
 auto-fov - maybe impossible
 double viewport (balls unification)
@@ -15,9 +15,10 @@ obb collision detection
 make aabb detection spatial (octree)
 mesh collision detection?
 better bounce physics - forces?
+change entity ownership logic (why are they shared)
 gui - get fonts in
 gui/renderer - labels 
-gui / control - add/subtract ball
+gui / control - add/subtract ball (this will involve safely destroying entities)
 expiring entities
 state - controllable game clock
 gl3/VBO renderer

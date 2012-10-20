@@ -1,13 +1,6 @@
 #include <engine/core.h>
-#include <array>
 #include "ControlSystem.h"
 using namespace std;
-
-vector<CMP> ControlSystem::required_components() const 
-{
-	array<CMP,0> compTypes = {};
-	return vector<CMP>(compTypes.begin(), compTypes.end());
-}
 
 vector<SYS> ControlSystem::required_systems() const 
 {

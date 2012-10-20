@@ -76,21 +76,8 @@ void EngineImpl::add_system(unique_ptr<ISystem> system)
 void EngineImpl::load_scene(vector<shared_ptr<IEntity>> entities)
 {
 	for (auto& entity : entities)
-	{
 		for (auto& system : systems)
-		{
-			auto const& comps = system->required_components();
-			if (comps.size() == 0) continue;
-
-			auto matches = count_if(comps.begin(), comps.end(), [&](IComponent::ID requirement)
-			{
-				return entity->has_component(requirement);
-			});
-
-			if (matches == comps.size())
-				system->add_entity(entity);
-		}
-	}
+			system->add_entity(entity);
 }
 
 void EngineImpl::play()

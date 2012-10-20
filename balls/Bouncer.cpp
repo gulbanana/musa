@@ -1,6 +1,5 @@
 #include <engine/core.h>
 #include <engine/components.h>
-#include <array>
 #include <iostream>
 #include "Bouncer.h"
 using namespace std;
@@ -8,7 +7,7 @@ using namespace glm;
 
 vector<IComponent::ID> Bouncer::required_components() const
 {
-	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Position, CMP::Mesh};
+	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Position, CMP::Model};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 
@@ -22,14 +21,14 @@ Bouncer::Bouncer(int r) : _width((coord)r), _height((coord)r), _depth((coord)r) 
 
 Bouncer::Bouncer(int x, int y, int z) : _width((coord)x), _height((coord)y), _depth((coord)z)  {}
 
-void Bouncer::on_entity(std::shared_ptr<IEntity> entity)
+void Bouncer::on_frame_entity(std::shared_ptr<IEntity> entity)
 {
 	auto physics = entity->get_component<CPhysics>();
 	if (!physics->can_collide) return;
 
 	auto position = entity->get_component<CPosition>();
 	auto velocity = entity->get_component<CVelocity>();
-	auto mesh = entity->get_component<CMesh>();
+	auto mesh = entity->get_component<CModel>();
 
 	//Bounce type #1: walls, reflect by component inversion
 	auto sourceBox = mesh->geometry->bounds();

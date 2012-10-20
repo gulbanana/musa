@@ -53,13 +53,6 @@
       <Filter>systems\Collisions</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="scene\EntityGraph.cpp" />
-    <ClCompile Include="scene\RootNode.cpp" />
-    <ClCompile Include="scene\LambdaWalker.cpp" />
-    <ClCompile Include="scene\LeafNode.cpp" />
-    <ClCompile Include="scene\BranchNode.cpp" />
-    <ClCompile Include="scene\IGraphNode.cpp" />
-    <ClCompile Include="scene\IGraphWalker.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="core\maths.cpp" />
@@ -76,6 +69,8 @@
     <ClCompile Include="archetypes\Camera3D.cpp" />
     <ClCompile Include="archetypes\PresetArchetype.cpp" />
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
+    <ClCompile Include="systems\render\scene\LambdaWalker.cpp" />
+    <ClCompile Include="systems\render\scene\SceneGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -146,21 +141,8 @@
       <Filter>systems\Collisions</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h" />
-    <ClInclude Include="scene\IGraphWalker.h" />
-    <ClInclude Include="scene\IGraphNode.h" />
-    <ClInclude Include="scene.h" />
-    <ClInclude Include="scene\BranchNode.h" />
-    <ClInclude Include="scene\LeafNode.h" />
-    <ClInclude Include="scene\EntityGraph.h" />
-    <ClInclude Include="scene\RootNode.h" />
-    <ClInclude Include="components\CScene.h" />
-    <ClInclude Include="scene\LambdaWalker.h" />
     <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="components\CMesh.h" />
-    <ClInclude Include="components\CTransform.h" />
-    <ClInclude Include="geometry\ITransform.h" />
     <ClInclude Include="geometry\OrthographicCamera.h" />
-    <ClInclude Include="geometry\IModel.h" />
     <ClInclude Include="geometry\PerspectiveCamera.h" />
     <ClInclude Include="geometry\ScaleMethod.h" />
     <ClInclude Include="systems\collision\AABBDetector.h" />
@@ -190,5 +172,17 @@
     <ClInclude Include="archetypes\PresetArchetype.h" />
     <ClInclude Include="core\misc.h" />
     <ClInclude Include="systems\ThreadedSystemBase.h" />
+    <ClInclude Include="systems\render\scene\BranchNode.h" />
+    <ClInclude Include="systems\render\scene\IGraphNode.h" />
+    <ClInclude Include="systems\render\scene\IGraphWalker.h" />
+    <ClInclude Include="systems\render\scene\LambdaWalker.h" />
+    <ClInclude Include="systems\render\scene\LeafNode.h" />
+    <ClInclude Include="systems\render\scene.h" />
+    <ClInclude Include="systems\render\scene\SceneGraph.h" />
+    <ClInclude Include="geometry\IRenderable.h" />
+    <ClInclude Include="geometry\IModel.h" />
+    <ClInclude Include="components\CModel.h" />
+    <ClInclude Include="components\CTransform.h" />
+    <ClInclude Include="systems\render\scene\RootNode.h" />
   </ItemGroup>
 </Project>

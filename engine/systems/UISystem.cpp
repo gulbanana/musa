@@ -1,14 +1,7 @@
 #include <engine/core.h>
-#include <array>
 #include "UISystem.h"
 #include "ui/UISystemImpl.h"
 using namespace std;
-
-vector<CMP> UISystem::required_components() const 
-{
-	array<CMP,0> compTypes = {};
-	return vector<CMP>(compTypes.begin(), compTypes.end());
-}
 
 vector<SYS> UISystem::required_systems() const 
 {

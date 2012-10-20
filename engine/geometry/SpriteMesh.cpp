@@ -5,7 +5,7 @@ using namespace std;
 
 void SpriteMesh::accept(IRenderer* renderer) const
 { 
-	renderer->draw(this); 
+	renderer->visit(this); 
 }
 
 box6 SpriteMesh::bounds() const

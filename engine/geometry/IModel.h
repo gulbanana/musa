@@ -1,13 +1,11 @@
 #pragma once
-#include "IRenderer.h"
+#include "IRenderable.h"
 
-class IModel
+class IModel : public IRenderable
 {
 public:
 	virtual ~IModel() {}
 	
-	virtual void accept(IRenderer* renderer) const = 0;
-
 	virtual box6 bounds() const = 0;
 	virtual size_t polygons() const = 0;
 };

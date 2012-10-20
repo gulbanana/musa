@@ -1,5 +1,6 @@
 #pragma once
 #include <engine/geometry.h>
+#include "scene.h"
 
 class GLImmediateRenderer : public IRenderer
 {
@@ -16,20 +17,24 @@ public:
 	GLImmediateRenderer(bool wireframe);
 	~GLImmediateRenderer();
 
-	virtual void set_viewport(int width, int height) override;
-	virtual void with_position(point location, angles orientation) override;
+	void set_viewport(int width, int height) final;
+	void with_position(point location, angles orientation) final;
+	void begin_frame() final;
+	void end_frame() final;
 
-	virtual void begin_frame() override;
-	virtual void end_frame() override;
+	//models
+	void arrive(SpriteMesh const*) final;
+	void visit(SpriteMesh const*) final;
+	void arrive(FVMesh const*) final;
+	void visit(FVMesh const*) final;
 
-	virtual void morph(OrthographicCamera const*) override;
-	virtual void unmorph(OrthographicCamera const*) override;
-	virtual void morph(PerspectiveCamera const*) override;
-	virtual void unmorph(PerspectiveCamera const*) override;
+	//transforms
+	void arrive(OrthographicCamera const*) final;
+	void visit(OrthographicCamera const*) final;
+	void arrive(PerspectiveCamera const*) final;
+	void visit(PerspectiveCamera const*) final;
 
-	virtual void paint(SolidColourBrush const*) override;
-
-	virtual void draw(SpriteMesh const*) override;
-	virtual void draw(FVMesh const*) override;
+	//materials
+	void visit(SolidColourBrush const*) final;
 };
 

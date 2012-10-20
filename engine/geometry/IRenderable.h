@@ -1,10 +1,11 @@
 #pragma once
 #include "IRenderer.h"
 
-class ITransform
+class IRenderable
 {
 public:
-	virtual ~ITransform() {}
+	virtual ~IRenderable() {}
+	
+	virtual void invite(IRenderer* renderer) const = 0;
 	virtual void accept(IRenderer* renderer) const = 0;
-	virtual void eject(IRenderer* renderer) const = 0;
 };

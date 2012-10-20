@@ -1,5 +1,5 @@
 #pragma once
-#include "ITransform.h"
+#include "IRenderable.h"
 #include "ScaleMethod.h"
 
 /* 
@@ -18,13 +18,13 @@ from behind:
 	.....
 This is not a typical orthographic projection but is designed to be attached to an entity and positioned like a frustum camera.
 */
-struct OrthographicCamera : public ITransform
+struct OrthographicCamera : public IRenderable
 {
 	box6 range;
 	ScaleMethod widescreen;
 
 	OrthographicCamera(box6 bounds, ScaleMethod widescreen = ScaleMethod::HorPlus) : range(bounds), widescreen(widescreen) {}
 
-	virtual void accept(IRenderer* renderer) const override { renderer->morph(this); }
-	virtual void eject(IRenderer* renderer) const override { renderer->unmorph(this); }
+	virtual void invite(IRenderer* renderer) const override { renderer->arrive(this); }
+	virtual void accept(IRenderer* renderer) const override { renderer->visit(this); }
 };

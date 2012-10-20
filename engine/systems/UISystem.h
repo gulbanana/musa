@@ -10,7 +10,6 @@ class UISystem : public Identified<ISystem,SYS::UI,ThreadedSystemBase>
 public:
 	UISystem(std::shared_ptr<GameState> s);
 
-	std::vector<IComponent::ID> required_components() const final;
 	std::vector<ISystem::ID> required_systems() const final;
 
 	void on_wake() override;

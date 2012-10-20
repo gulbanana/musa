@@ -1,5 +1,4 @@
 #pragma once
-#include <engine/scene.h>
 #include "Settings.h"
 
 class EngineImpl;

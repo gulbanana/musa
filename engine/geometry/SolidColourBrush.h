@@ -9,6 +9,6 @@ struct SolidColourBrush : public IMaterial
 
 	virtual void accept(IRenderer* renderer) const override
 	{ 
-		renderer->paint(this); 
+		renderer->visit(this); 
 	}
 };

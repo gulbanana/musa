@@ -6,6 +6,6 @@ using namespace std;
 Ball::Ball(IModel* mesh)
 {
 	_components.emplace_back(make_unique<CLabel>("ball"));
-	_components.emplace_back(make_unique<CMesh>(mesh));
+	_components.emplace_back(make_unique<CModel>(mesh));
 	_components.emplace_back(make_unique<CPhysics>(true, true));
 }

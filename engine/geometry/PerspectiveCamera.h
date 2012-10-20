@@ -1,7 +1,7 @@
 #pragma once
-#include "ITransform.h"
+#include "IRenderable.h"
 
-struct PerspectiveCamera : public ITransform
+struct PerspectiveCamera : public IRenderable
 {
 	ScaleMethod widescreen;
 	degrees fov;
@@ -9,6 +9,6 @@ struct PerspectiveCamera : public ITransform
 
 	PerspectiveCamera(ScaleMethod widescreen, degrees fieldOfView, coord depthOfField) : widescreen(widescreen), fov(fieldOfView), dof(depthOfField) {}
 
-	virtual void accept(IRenderer* renderer) const override { renderer->morph(this); }
-	virtual void eject(IRenderer* renderer) const override { renderer->unmorph(this); }
+	virtual void invite(IRenderer* renderer) const override { renderer->arrive(this); }
+	virtual void accept(IRenderer* renderer) const override { renderer->visit(this); }
 };

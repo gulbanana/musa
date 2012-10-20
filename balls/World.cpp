@@ -77,15 +77,15 @@ World::World(bool is3d)
 	_archetypes.emplace_back(yellowBall);
 	
 	entities.emplace_back(factory->create(cyanBall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(800, 800, 0)));
+	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(800, 800, 300)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(100, -100, 0)));
 
 	entities.emplace_back(factory->create(magentaBall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(200, 500, 0)));
+	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(200, 500, 500)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(100, 100, 0)));
 
 	entities.emplace_back(factory->create(yellowBall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(800, 200, 0)));
+	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(800, 200, 700)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(-100, 100, 0)));
 	
 	//random balls

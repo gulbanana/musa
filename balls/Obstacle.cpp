@@ -6,7 +6,7 @@ using namespace std;
 
 Obstacle::Obstacle(IModel* mesh, bool solid)
 {
-	_components.emplace_back(make_unique<CMesh>(mesh));
+	_components.emplace_back(make_unique<CModel>(mesh));
 
 	if (solid)
 	{

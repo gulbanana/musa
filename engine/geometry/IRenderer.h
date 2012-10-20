@@ -20,16 +20,18 @@ public:
 	virtual void begin_frame() {}
 	virtual void end_frame() {}
 
-	//objects
-	virtual void draw(SpriteMesh const*) = 0;
-	virtual void draw(FVMesh const*) = 0;
-
-	//materials
-	virtual void paint(SolidColourBrush const*) = 0;
+	//models
+	virtual void arrive(SpriteMesh const*) = 0;
+	virtual void visit(SpriteMesh const*) = 0;
+	virtual void arrive(FVMesh const*) = 0;
+	virtual void visit(FVMesh const*) = 0;
 
 	//transforms
-	virtual void morph(OrthographicCamera const*) = 0;
-	virtual void unmorph(OrthographicCamera const*)  = 0;
-	virtual void morph(PerspectiveCamera const*) = 0;
-	virtual void unmorph(PerspectiveCamera const*)  = 0;
+	virtual void arrive(OrthographicCamera const*) = 0;
+	virtual void visit(OrthographicCamera const*)  = 0;
+	virtual void arrive(PerspectiveCamera const*) = 0;
+	virtual void visit(PerspectiveCamera const*)  = 0;
+
+	//materials
+	virtual void visit(SolidColourBrush const*) = 0;
 };

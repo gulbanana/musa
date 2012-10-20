@@ -5,6 +5,7 @@
 #define _USE_MATH_DEFINES
 #include <memory>
 #include <string>
+#include <array>
 #include <vector>
 #include <map>
 

@@ -1,7 +1,6 @@
 #include <engine/core.h>
 #include <engine/components.h>
 #include <SDL_timer.h>
-#include <array>
 #include <cmath>
 #include <list>
 #include "MotionSystem.h"
@@ -21,12 +20,12 @@ vector<SYS> MotionSystem::required_systems() const
 
 MotionSystem::MotionSystem(shared_ptr<GameState> s) : _state(s) {}
 
-void MotionSystem::pre_frame()
+void MotionSystem::on_frame_start()
 {
 	elapsedTime = _state->last_frame_time * (seconds)0.001;
 }
 
-void MotionSystem::on_entity(shared_ptr<IEntity> entity)
+void MotionSystem::on_frame_entity(shared_ptr<IEntity> entity)
 {
 	auto position = entity->get_component<CPosition>();
 	auto velocity = entity->get_component<CVelocity>();

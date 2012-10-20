@@ -6,7 +6,7 @@ enum class CMP
 	Acceleration,
 	Label,
 	Input,
-    Mesh,
+    Model,
 	Physics,
 	Position,
 	Scene,

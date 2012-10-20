@@ -107,7 +107,7 @@ void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::morph(OrthographicCamera const* camera) 
+void GLImmediateRenderer::arrive(OrthographicCamera const* camera) 
 {
 	glEnable(GL_BLEND);
 	glDisable(GL_DEPTH_TEST);
@@ -166,7 +166,7 @@ void GLImmediateRenderer::morph(OrthographicCamera const* camera)
 aspect ratio  =  ---  =  ---------------------
 				  x      tan(horizontal FOV/2)
 */
-void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
+void GLImmediateRenderer::arrive(PerspectiveCamera const* camera)
 {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
@@ -216,7 +216,7 @@ void GLImmediateRenderer::morph(PerspectiveCamera const* camera)
 #endif
 }
 
-void GLImmediateRenderer::unmorph(OrthographicCamera const*)
+void GLImmediateRenderer::visit(OrthographicCamera const*)
 {
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
@@ -225,7 +225,7 @@ void GLImmediateRenderer::unmorph(OrthographicCamera const*)
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::unmorph(PerspectiveCamera const*)
+void GLImmediateRenderer::visit(PerspectiveCamera const*)
 {
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
@@ -234,19 +234,27 @@ void GLImmediateRenderer::unmorph(PerspectiveCamera const*)
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::paint(SolidColourBrush const* brush)
+void GLImmediateRenderer::visit(SolidColourBrush const* brush)
 {
 	glColor4fv(&brush->colour[0]);
 }
 
-void GLImmediateRenderer::draw(SpriteMesh const* mesh)
+void GLImmediateRenderer::arrive(SpriteMesh const* mesh)
+{
+}
+
+void GLImmediateRenderer::visit(SpriteMesh const* mesh)
 {
 	with_modelobject([=]
 	{
 	});
 }
 
-void GLImmediateRenderer::draw(FVMesh const* mesh)
+void GLImmediateRenderer::arrive(FVMesh const* mesh)
+{
+}
+
+void GLImmediateRenderer::visit(FVMesh const* mesh)
 {
 	with_modelobject([=]
 	{

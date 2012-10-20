@@ -4,9 +4,9 @@
 class CTransform : public Identified<IComponent, CMP::Transform>
 {
 public:
-	ITransform* matrix;
+	IRenderable* view;
 
-	CTransform(ITransform* spec) : matrix(spec) {}
+	CTransform(IRenderable* camera) : view(camera) {}
 
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CTransform(*this)); }
 };
