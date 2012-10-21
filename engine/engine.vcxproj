@@ -231,7 +231,6 @@
     <ClInclude Include="systems\collision\AABBDetector.h" />
     <ClInclude Include="archetypes\Camera3D.h" />
     <ClInclude Include="archetypes\Camera2D.h" />
-    <ClInclude Include="components\CCamera.h" />
     <ClInclude Include="geometry\OrthographicCamera.h" />
     <ClInclude Include="geometry\PerspectiveCamera.h" />
     <ClInclude Include="geometry\ScaleMethod.h" />
@@ -243,7 +242,7 @@
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="core\box6.h" />
     <ClInclude Include="components\CPhysics.h" />
-    <ClInclude Include="components\CModel.h" />
+    <ClInclude Include="components\CRenderable.h" />
     <ClInclude Include="systems\render\scene\IGraphNode.h" />
     <ClInclude Include="systems\render\scene\IGraphWalker.h" />
     <ClInclude Include="core\Identified.h" />

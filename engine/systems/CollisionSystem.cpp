@@ -10,7 +10,7 @@ using namespace std;
 
 vector<CMP> CollisionSystem::required_components() const 
 {
-	return IComponent::require(CMP::Transform, CMP::Model, CMP::Physics);
+	return IComponent::require(CMP::Transform, CMP::Renderable, CMP::Physics);
 }
 
 vector<SYS> CollisionSystem::required_systems() const 

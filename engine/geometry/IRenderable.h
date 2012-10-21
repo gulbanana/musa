@@ -11,4 +11,5 @@ public:
 
 	virtual box6 bounds() const = 0;
 	virtual size_t polygons() const = 0;
+	virtual bool is_camera() const = 0;
 };

@@ -4,11 +4,10 @@
 enum class CMP
 {
 	Acceleration,
-	Camera,
 	Input,
 	Label,
-    Model,
 	Physics,
+    Renderable,
 	Transform,
 	Velocity,
 	Last = Velocity

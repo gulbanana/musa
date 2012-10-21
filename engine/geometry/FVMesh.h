@@ -54,8 +54,9 @@ struct FVMesh : public IRenderable
 	void accept_enter(IRenderer* renderer) const final; 
 	void accept_leave(IRenderer* renderer) const final; 
 
-	box6 bounds() const override; 
-	size_t polygons() const override; 
+	virtual box6 bounds() const final; 
+	virtual size_t polygons() const final; 
+	virtual bool is_camera() const final;
 	
 private:
 	box6 _bounds_cache;

@@ -18,3 +18,13 @@ box6 SpriteMesh::bounds() const
 	//nominal depth
 	return box6(width/(coord)2, height/(coord)2, (coord)-1, width/(coord)2, height/(coord)2, (coord)1);
 }
+
+size_t SpriteMesh::polygons() const
+{
+	return 0;
+}
+
+bool SpriteMesh::is_camera() const
+{
+	return false;
+}

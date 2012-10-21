@@ -177,11 +177,10 @@
     <ClInclude Include="systems\render\scene.h" />
     <ClInclude Include="systems\render\scene\SceneGraph.h" />
     <ClInclude Include="geometry\IRenderable.h" />
-    <ClInclude Include="components\CModel.h" />
     <ClInclude Include="systems\render\scene\RootNode.h" />
-    <ClInclude Include="components\CCamera.h" />
     <ClInclude Include="components\CTransform.h">
       <Filter>components</Filter>
     </ClInclude>
+    <ClInclude Include="components\CRenderable.h" />
   </ItemGroup>
 </Project>

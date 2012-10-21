@@ -58,6 +58,11 @@ size_t FVMesh::polygons() const
 	});
 }
 
+bool FVMesh::is_camera() const
+{
+	return false;
+}
+
 box6 FVMesh::calc_bounds()
 {
 	coord minX, minY, minZ, maxX, maxY, maxZ;

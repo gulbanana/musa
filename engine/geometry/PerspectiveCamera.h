@@ -11,7 +11,8 @@ struct PerspectiveCamera : public IRenderable
 
 	virtual void accept_enter(IRenderer* renderer) const override { renderer->visit_enter(this); }
 	virtual void accept_leave(IRenderer* renderer) const override { renderer->visit_leave(this); }
-	//XXXmake this contain the precalculated frustum
-	virtual box6 bounds() const override     { return box6(0,0,0,0,0,0); } 
-	virtual size_t polygons() const override { return 0; }
+	//XXX make this contain the precalculated frustum
+	virtual box6 bounds() const final     { return box6(0,0,0,0,0,0); } 
+	virtual size_t polygons() const final { return 0; }
+	virtual bool is_camera() const final  { return true; }
 };

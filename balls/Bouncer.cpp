@@ -7,7 +7,7 @@ using namespace glm;
 
 vector<IComponent::ID> Bouncer::required_components() const
 {
-	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Transform, CMP::Model};
+	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Transform, CMP::Renderable};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 
@@ -28,7 +28,7 @@ void Bouncer::on_frame_entity(std::shared_ptr<IEntity> entity)
 
 	auto position = entity->get_component<CTransform>();
 	auto velocity = entity->get_component<CVelocity>();
-	auto mesh = entity->get_component<CModel>();
+	auto mesh = entity->get_component<CRenderable>();
 
 	//Bounce type #1: walls, reflect by component inversion
 	auto sourceBox = mesh->geometry->bounds();

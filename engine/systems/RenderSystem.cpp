@@ -16,11 +16,14 @@ void RenderSystem::add_entity(weak_ptr<IEntity> new_entity)
 {
 	auto owned = new_entity.lock();
 
-	if (owned->has_component<CCamera>())
-		_scene.add_branch(owned);
-
-	if (owned->has_component<CModel>())
-		_scene.add_leaf(owned);
+	if (owned->has_component<CRenderable>())
+	{
+		auto renderNode = owned->get_component<CRenderable>();
+		if (renderNode->geometry->is_camera())
+			_scene.add_branch(owned);
+		else
+			_scene.add_leaf(owned);
+	}
 }
 
 bool RenderSystem::on_event(SDL_Event& event)
@@ -49,13 +52,13 @@ void RenderSystem::visit(BranchNode* node)
 	auto matrix = node->entity->get_component<CTransform>();
 	_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);
 
-	auto renderable = node->entity->get_component<CCamera>();
-	renderable->view->accept_enter(_renderer.get());
+	auto renderable = node->entity->get_component<CRenderable>();
+	renderable->geometry->accept_enter(_renderer.get());
 
 	for (auto& child : node->children)
 		child->accept(this);
 
-	renderable->view->accept_leave(_renderer.get());
+	renderable->geometry->accept_leave(_renderer.get());
 }
 
 void RenderSystem::visit(LeafNode* node)
@@ -63,7 +66,7 @@ void RenderSystem::visit(LeafNode* node)
 	auto matrix = node->entity->get_component<CTransform>();
 	_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);
 
-	auto renderNode = node->entity->get_component<CModel>();
+	auto renderNode = node->entity->get_component<CRenderable>();
 	renderNode->geometry->accept_enter(_renderer.get());
 	renderNode->geometry->accept_leave(_renderer.get());
 }
