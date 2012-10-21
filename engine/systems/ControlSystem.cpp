@@ -9,7 +9,7 @@ vector<SYS> ControlSystem::required_systems() const
 
 ControlSystem::ControlSystem(std::shared_ptr<GameState> s) : _state(s)
 {
-	SDL_EnableKeyRepeat(1, 0);
+	SDL_EnableKeyRepeat(0, 0);	//disable
 }
 
 bool ControlSystem::on_event(SDL_Event& event)

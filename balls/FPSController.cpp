@@ -23,8 +23,9 @@ FPSController::FPSController()
 bool FPSController::on_event(SDL_Event& event)
 {
 	auto character = entities[0].lock();
-	auto position = character->get_component<CTransform>();
-	auto player = character->get_component<CInput>();
+	auto transform = character->get_component<CTransform>();
+	auto velocity = character->get_component<CVelocity>();
+	auto input = character->get_component<CInput>();
 
 	switch (event.type)
 	{
@@ -35,37 +36,65 @@ bool FPSController::on_event(SDL_Event& event)
 				return true;
 			}
 
-			position->rotate = glm::rotate(position->rotate, event.motion.xrel / 5, maths::y_axis);
-			position->rotate = glm::rotate(position->rotate, event.motion.yrel / 5, -maths::x_axis);
+			transform->rotate = glm::rotate(transform->rotate, event.motion.xrel / (coord)4.0, maths::y_axis);
+			transform->rotate = glm::rotate(transform->rotate, event.motion.yrel / (coord)4.0, -maths::x_axis);
 			return true;
 
 		case SDL_KEYDOWN:
-			if (event.key.keysym.sym == SDLK_w)
-			{
-				position->translate.z -= player->speed;
-				return true;
-			}
-			else if (event.key.keysym.sym == SDLK_a)
-			{
-				position->translate.x += player->speed;
-				return true;
-			}
-			else if (event.key.keysym.sym == SDLK_s)
-			{
-				position->translate.z += player->speed;
-				return true;
-			}
-			else if (event.key.keysym.sym == SDLK_d)
-			{
-				position->translate.x -= player->speed;
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			_keys.insert(event.key.keysym.sym);
+			velocity->vector.x = _calc_lr(input->speed);
+			velocity->vector.z = _calc_fb(input->speed);
+			velocity->vector.y = _calc_ud(input->speed);
+			return true;
+
+		case SDL_KEYUP:
+			_keys.erase(event.key.keysym.sym);
+			velocity->vector.x = _calc_lr(input->speed);
+			velocity->vector.z = _calc_fb(input->speed);
+			velocity->vector.y = _calc_ud(input->speed);
+			return true;
 
 		default:
 			return false;
 	}
+}
+
+bool FPSController::_key(SDLKey k)
+{
+	return _keys.find(k) != _keys.end();
+}
+
+coord FPSController::_calc_lr(coord speed)
+{
+	coord result = 0;
+
+	if (_key(SDLK_a))
+		result += speed;
+	if (_key(SDLK_d))
+		result -= speed;
+
+	return result;
+}
+
+coord FPSController::_calc_fb(coord speed)
+{
+	coord result = 0;
+
+	if (_key(SDLK_w))
+		result -= speed;
+	if (_key(SDLK_s))
+		result += speed;
+
+	return result;
+}
+
+coord FPSController::_calc_ud(coord speed)
+{
+	coord result = 0;
+	if (_key(SDLK_SPACE))
+		result += speed;
+	if (_key(SDLK_LSHIFT))
+		result -= speed;
+
+	return result;
 }

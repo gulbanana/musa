@@ -1,12 +1,19 @@
 #pragma once
 #include <engine/GameState.h>
 #include <engine/systems/EntityManagingSystemBase.h>
+#include <set>
 
 class FPSController : public Identified<ISystem,SYS::Control,EntityManagingSystemBase>
 {
 private:
 	std::shared_ptr<GameState> _state;
 	bool _firstMouse;
+	std::set<SDLKey> _keys;
+
+	bool _key(SDLKey);
+	coord _calc_lr(coord speed);
+	coord _calc_fb(coord speed);
+	coord _calc_ud(coord speed);
 
 public:
 	std::vector<IComponent::ID> required_components() const override;

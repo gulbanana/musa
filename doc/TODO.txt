@@ -4,7 +4,7 @@ polling
 textures, brush/mesh distinction SOMEHOW
 auto-fov - maybe impossible
 double viewport (balls unification)
-rotation: quaternions
+clamped rotation & camera
 model loader/better resource loader in general
 lighting
 fullscreen
