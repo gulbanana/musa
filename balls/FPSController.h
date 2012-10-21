@@ -11,9 +11,9 @@ private:
 	std::set<SDLKey> _keys;
 
 	bool _key(SDLKey);
-	coord _calc_lr(coord speed);
-	coord _calc_fb(coord speed);
-	coord _calc_ud(coord speed);
+	coord _calc_lr();
+	coord _calc_fb();
+	coord _calc_ud();
 
 public:
 	std::vector<IComponent::ID> required_components() const override;

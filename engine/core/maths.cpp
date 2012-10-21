@@ -10,6 +10,10 @@ const lnseg maths::x_axis(1, 0, 0);
 const lnseg maths::y_axis(0, 1, 0);
 const lnseg maths::z_axis(0, 0, 1);
 
+const angle maths::left_rotation(1, 0, 0, 0);
+const angle maths::right_rotation(0, 0, 1, 0);
+const angle maths::up_rotation(1, 0, 0, 0);
+const angle maths::down_rotation(0, 0, 1, 0);
 const angle maths::forward_rotation(1, 0, 0, 0);
 const angle maths::backward_rotation(0, 0, 1, 0);
 
@@ -47,6 +51,12 @@ angle maths::vec2rot(lnseg front)
 
 	return result;
 }
+
+lnseg maths::rot2vec(angle rotation)
+{
+	return rotation * z_axis;
+}
+
 
 box6 maths::vertical_perspective(degrees vFOV, coord aspectRatio, coord zNear, coord zFar)
 {

@@ -9,9 +9,14 @@ namespace maths
 	extern const lnseg y_axis;
 	extern const lnseg z_axis;
 
+	extern const angle left_rotation;
+	extern const angle right_rotation;
+	extern const angle up_rotation;
+	extern const angle down_rotation;
 	extern const angle forward_rotation;
 	extern const angle backward_rotation;
 
+	lnseg rot2vec(angle direction);
 	angle vec2rot(lnseg direction);
 	angle rotation_between(point from, point to);
 

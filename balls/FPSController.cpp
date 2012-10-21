@@ -2,6 +2,7 @@
 #include <engine/components.h>
 #include "FPSController.h"
 using namespace std;
+using namespace maths;
 
 vector<CMP> FPSController::required_components() const 
 {
@@ -26,7 +27,12 @@ bool FPSController::on_event(SDL_Event& event)
 	auto transform = character->get_component<CTransform>();
 	auto velocity = character->get_component<CVelocity>();
 	auto input = character->get_component<CInput>();
+	
+	auto forward = rot2vec(transform->rotate);
+	auto right = glm::cross(y_axis, forward);
+	auto up = glm::cross(forward, right);
 
+	glm::vec3 direction;
 	switch (event.type)
 	{
 		case SDL_MOUSEMOTION:
@@ -42,16 +48,18 @@ bool FPSController::on_event(SDL_Event& event)
 
 		case SDL_KEYDOWN:
 			_keys.insert(event.key.keysym.sym);
-			velocity->vector.x = _calc_lr(input->speed);
-			velocity->vector.z = _calc_fb(input->speed);
-			velocity->vector.y = _calc_ud(input->speed);
+			direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
+			if (glm::length(direction) > 0)
+				direction = glm::normalize(direction) * input->speed;
+			velocity->vector = direction;
 			return true;
 
 		case SDL_KEYUP:
 			_keys.erase(event.key.keysym.sym);
-			velocity->vector.x = _calc_lr(input->speed);
-			velocity->vector.z = _calc_fb(input->speed);
-			velocity->vector.y = _calc_ud(input->speed);
+			direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
+			if (glm::length(direction) > 0)
+				direction = glm::normalize(direction) * input->speed;
+			velocity->vector = direction;
 			return true;
 
 		default:
@@ -64,37 +72,38 @@ bool FPSController::_key(SDLKey k)
 	return _keys.find(k) != _keys.end();
 }
 
-coord FPSController::_calc_lr(coord speed)
+coord FPSController::_calc_lr()
 {
 	coord result = 0;
 
 	if (_key(SDLK_a))
-		result += speed;
+		result -= 1;
 	if (_key(SDLK_d))
-		result -= speed;
+		result += 1;
 
 	return result;
 }
 
-coord FPSController::_calc_fb(coord speed)
+coord FPSController::_calc_fb()
 {
 	coord result = 0;
 
-	if (_key(SDLK_w))
-		result -= speed;
 	if (_key(SDLK_s))
-		result += speed;
+		result -= 1;
+	if (_key(SDLK_w))
+		result += 1;
 
 	return result;
 }
 
-coord FPSController::_calc_ud(coord speed)
+coord FPSController::_calc_ud()
 {
 	coord result = 0;
-	if (_key(SDLK_SPACE))
-		result += speed;
+
 	if (_key(SDLK_LSHIFT))
-		result -= speed;
+		result -= 1;
+	if (_key(SDLK_SPACE))
+		result += 1;
 
 	return result;
 }
