@@ -35,8 +35,8 @@ bool FPSController::on_event(SDL_Event& event)
 				return true;
 			}
 
-			position->rotate.y += event.motion.xrel / 5;
-			position->rotate.x += event.motion.yrel / 5;
+			position->rotate = glm::rotate(position->rotate, event.motion.xrel / 5, maths::y_axis);
+			position->rotate = glm::rotate(position->rotate, event.motion.yrel / 5, -maths::x_axis);
 			return true;
 
 		case SDL_KEYDOWN:

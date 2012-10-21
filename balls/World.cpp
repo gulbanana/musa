@@ -57,14 +57,14 @@ World::World(bool is3d)
 
 	entities.emplace_back(factory->create(decorativeWall));
 	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(400, 500, WIDTH/2)));
-	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), angles(0, 45, 0)));
+	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), eulers(0, glm::radians(45.0), 0)));
 
 	entities.emplace_back(factory->create(solidWall));
 	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(600, 500, WIDTH/2)));
 
 	entities.emplace_back(factory->create(decorativeWall));
 	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(800, 500, WIDTH/2)));
-	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), angles(45, 0, 0)));
+	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), eulers(glm::radians(45.0), 0, 0)));
 
 	//fixed balls
 	coord smallBall = 15;

@@ -15,7 +15,7 @@ public:
 
 	//optional operations
 	virtual void set_viewport(int width, int height) {}
-	virtual void set_transform(point translation, angles rotation, glm::vec3 scale) {}
+	virtual void set_transform(point translation, angle rotation, lnseg scale) {}
 
 	virtual void begin_frame() {}
 	virtual void end_frame() {}

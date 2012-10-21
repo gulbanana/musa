@@ -31,12 +31,17 @@ void MotionSystem::on_frame_entity(shared_ptr<IEntity> entity)
 	if (entity->has_component<CAcceleration>())
 	{
 		auto acceleration = entity->get_component<CAcceleration>();
+		
 		velocity->vector += acceleration->vector_change * (coord)elapsedTime;
-		velocity->rotation += acceleration->rotation_change * (degrees)elapsedTime;
+
+		auto rotated = acceleration->rotation_change * velocity->rotation;
+		velocity->rotation = glm::mix(velocity->rotation, rotated, (coord)elapsedTime);
+		velocity->rotation = glm::normalize(velocity->rotation);
 	}
 	
 	position->translate += velocity->vector * (coord)elapsedTime;
-	
-	position->rotate += velocity->rotation * (degrees)elapsedTime;
-	position->rotate = maths::vmod(position->rotate , (degrees)360);
+
+	auto rotated = velocity->rotation * position->rotate;
+	position->rotate = glm::mix(position->rotate, rotated, (coord)elapsedTime);
+	position->rotate = glm::normalize(position->rotate);
 }

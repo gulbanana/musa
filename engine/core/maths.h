@@ -5,13 +5,15 @@ namespace maths
 {
     extern const point origin;
 
-	extern const angles up_rotation;
-	extern const angles forward_rotation;
-	extern const angles backward_rotation;
+	extern const lnseg x_axis;
+	extern const lnseg y_axis;
+	extern const lnseg z_axis;
 
-	angles vec2rot(point direction);
+	extern const angle forward_rotation;
+	extern const angle backward_rotation;
 
-	angles rotation_from(point from, point to);
+	angle vec2rot(lnseg direction);
+	angle rotation_between(point from, point to);
 
 	coord aspect_ratio(int width, int height);
 
@@ -20,5 +22,5 @@ namespace maths
 
 	point midpoint(point x, point y);
 
-	angles vmod(angles v, degrees d);
+	eulers vmod(eulers v, degrees d);
 }

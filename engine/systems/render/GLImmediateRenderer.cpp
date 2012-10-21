@@ -7,6 +7,11 @@
 using namespace std;
 using namespace glm;
 
+#pragma region extensions
+//typedef void (APIENTRY* glLoadMatrixfv_t)(GLfloat*);
+//glLoadMatrixfv_t glLoadMatrixfv = nullptr;
+#pragma endregion
+
 #pragma region lifecycle
 GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe)
 {
@@ -20,6 +25,8 @@ GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe)
 	if (rc != 0) throw runtime_error("failed to init multisampling");
 	rc = SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16); 
 	if (rc != 0) throw runtime_error("failed to init depth buffer");
+
+	//glLoadMatrixfv = (glLoadMatrixfv_t)SDL_GL_GetProcAddress("glLoadMatrixfv");
 }
 
 
@@ -84,7 +91,7 @@ void GLImmediateRenderer::end_frame()
 	//glGetError()
 }
 
-void GLImmediateRenderer::set_transform(point location, angles orientation, vec3 scaling) 
+void GLImmediateRenderer::set_transform(point location, angle orientation, vec3 scaling) 
 {
 	_at = location;
 	_facing = orientation;
@@ -205,10 +212,12 @@ void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 			break;
 	}
 
-	//add rotation matrices to the projection
-	glRotatef(_facing.x, 1.0, 0.0, 0.0);
-	glRotatef(_facing.y, 0.0, 1.0, 0.0);
-	glRotatef(_facing.z, 0.0, 0.0, 1.0);
+	//add camera rotation matrix to the projection
+#ifdef GLM_PRECISION_HIGHP_FLOAT
+	glMultMatrixd(&glm::mat4_cast(_facing)[0][0]);
+#else
+	glMultMatrixf(&glm::mat4_cast(_facing)[0][0]);
+#endif
 
 	//move models to the "eye level" plane
 	glMatrixMode(GL_MODELVIEW);	
@@ -249,14 +258,12 @@ void GLImmediateRenderer::visit_enter(FVMesh const* mesh)
 #ifdef GLM_PRECISION_HIGHP_FLOAT 
 	glTranslated(_at.x, _at.y, _at.z);
 	glScaled(_scale.x, _scale.y, _scale.z);
+	glMultMatrixd(&(mat4_cast(_facing))[0][0]);
 #else
 	glTranslatef(_at.x, _at.y, _at.z);
 	glScalef(_scale.x, _scale.y, _scale.z);
+	glMultMatrixf(&(mat4_cast(_facing))[0][0]);
 #endif
-
-	glRotatef(_at.x, 1.f, 0.f, 0.f);
-	glRotatef(_at.y, 0.f, 1.f, 0.f);
-	glRotatef(_at.z, 0.f, 0.f, 1.f);
 }
 
 void GLImmediateRenderer::visit_leave(FVMesh const* mesh)

@@ -11,15 +11,15 @@ class GLImmediateRenderer : public IRenderer
 
 	//current transform
 	point _at;
-	glm::vec3 _scale;
-	angles _facing;
+	angle _facing;
+	lnseg _scale;
 
 public:
 	GLImmediateRenderer(bool wireframe);
 	~GLImmediateRenderer();
 
 	void set_viewport(int width, int height) final;
-	void set_transform(point translation, angles rotation, glm::vec3 scale) final;
+	void set_transform(point translation, angle rotation, lnseg scaling) final;
 	void begin_frame() final;
 	void end_frame() final;
 

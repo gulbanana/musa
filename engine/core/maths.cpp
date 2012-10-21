@@ -4,35 +4,48 @@
 #include "maths.h"
 using namespace std;
 
-const point maths::origin = point((coord)0, (coord)0, (coord)0);
+const point maths::origin(0, 0, 0);
 
-const angles maths::forward_rotation = angles((degrees)0, (degrees)0, (degrees)0);	//360
-const angles maths::up_rotation = angles((degrees)0, (degrees)-90, (degrees)0);
-const angles maths::backward_rotation = angles((degrees)0, (degrees)180, (degrees)0);
+const lnseg maths::x_axis(1, 0, 0);
+const lnseg maths::y_axis(0, 1, 0);
+const lnseg maths::z_axis(0, 0, 1);
+
+const angle maths::forward_rotation(1, 0, 0, 0);
+const angle maths::backward_rotation(0, 0, 1, 0);
 
 coord maths::aspect_ratio(int width, int height)
 {
 	return (coord)width / (coord)height;
 }
 
-angles maths::rotation_from(point from, point to)
+angle maths::rotation_between(point from, point to)
 {
-	auto angle = [&](function<coord(point)> a1, function<coord(point)> a2)
-	{
-		auto d1 = a1(to) - a1(from);
-		auto d2 = a2(to) - a2(from);
-		return glm::degrees(atan2(d2, d1));
-	};
+	auto direction = glm::normalize(to - from);
+	return vec2rot(direction);
+}
 
-	auto x = [](point c){return c.x;};
-	auto y = [](point c){return c.y;};
-	auto z = [](point c){return c.z;};
+angle maths::vec2rot(lnseg front)
+{
+	//calculate normals
+	auto right = glm::cross(y_axis, front);
+	auto up = glm::cross(front, right);
 
-	degrees xangle = angle(y, z);
-	degrees yangle = angle(z, x);
-	degrees zangle = angle(x, y);
+	//create a unit quaternion
+	angle result;
 
-	return angles(xangle, yangle, zangle);
+#ifdef GLM_PRECISION_HIGHP_FLOAT
+	result.w = sqrt(1.0 + right.x + up.y + front.z) / 2.0;
+	coord scale = result.w * 4.0;	
+#else
+	result.w = sqrtf(1.f + right.x + up.y + front.z) / 2.f;
+	coord scale = result.w * 4.f;	
+#endif
+
+	result.x = (up.z - front.y) / scale;
+	result.y = (front.x - right.z) / scale;
+	result.z = (right.y - up.x) / scale;
+
+	return result;
 }
 
 box6 maths::vertical_perspective(degrees vFOV, coord aspectRatio, coord zNear, coord zFar)
@@ -70,7 +83,7 @@ point maths::midpoint(point x, point y)
 	return (x + y) / (coord)2.0;
 }
 
-angles maths::vmod(angles v, degrees d)
+eulers maths::vmod(eulers v, degrees d)
 {
-	return angles(fmod(v.x,d), fmod(v.y,d), fmod(v.z,d));
+	return eulers(fmod(v.x,d), fmod(v.y,d), fmod(v.z,d));
 }
