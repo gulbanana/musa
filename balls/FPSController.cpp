@@ -3,6 +3,7 @@
 #include "FPSController.h"
 using namespace std;
 using namespace maths;
+using namespace glm;
 
 vector<CMP> FPSController::required_components() const 
 {
@@ -29,6 +30,8 @@ bool FPSController::on_event(SDL_Event& event)
 	auto input = character->get_component<CInput>();
 	
 	auto forward = transform->rotate * z_axis;
+	//quat qkq = transform->rotate * quat(0,0,0,1) * conjugate(transform->rotate);
+	//vec3 forward(qkq.x, qkq.y, qkq.z);
 	auto right = glm::cross(y_axis, forward);
 	auto up = glm::cross(forward, right);
 
