@@ -20,6 +20,7 @@ vector<SYS> FPSController::required_systems() const
 FPSController::FPSController()
 {
 	_firstMouse = true;
+	_yclamp = 0;
 }
 
 bool FPSController::on_event(SDL_Event& event)
