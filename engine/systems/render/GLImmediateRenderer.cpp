@@ -212,19 +212,14 @@ void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 			break;
 	}
 
-	//add camera rotation matrix to the projection
-#ifdef GLM_PRECISION_HIGHP_FLOAT
-	glMultMatrixd(&glm::mat4_cast(_facing)[0][0]);
-#else
-	glMultMatrixf(&glm::mat4_cast(_facing)[0][0]);
-#endif
-
-	//move models to the "eye level" plane
+	//move models to the "eye level" plane and rotate them around the origin
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();
 #ifdef GLM_PRECISION_HIGHP_FLOAT
+	glMultMatrixd(&glm::mat4_cast(_facing)[0][0]);
 	glTranslated(-_at.x, -_at.y, _at.z - camera->dof/2);
 #else
+	glMultMatrixf(&glm::mat4_cast(_facing)[0][0]);
 	glTranslatef(-_at.x, -_at.y, _at.z - camera->dof/2);
 #endif
 }

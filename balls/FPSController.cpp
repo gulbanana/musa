@@ -28,7 +28,7 @@ bool FPSController::on_event(SDL_Event& event)
 	auto velocity = character->get_component<CVelocity>();
 	auto input = character->get_component<CInput>();
 	
-	auto forward = rot2vec(transform->rotate);
+	auto forward = transform->rotate * z_axis;
 	auto right = glm::cross(y_axis, forward);
 	auto up = glm::cross(forward, right);
 
@@ -36,20 +36,25 @@ bool FPSController::on_event(SDL_Event& event)
 	switch (event.type)
 	{
 		case SDL_MOUSEMOTION:
+		{
 			if (_firstMouse)
 			{
 				_firstMouse = false;
 				return true;
 			}
 
-			transform->rotate = glm::rotate(transform->rotate, event.motion.xrel / (coord)4.0, maths::y_axis);
-			transform->rotate = glm::rotate(transform->rotate, event.motion.yrel / (coord)4.0, -maths::x_axis);
+			//rotate around *global* Up, then around *local* Right
+			angle pitch(eulers(event.motion.yrel / (coord)120.0, 0, 0));
+			angle yaw(eulers(0, event.motion.xrel / (coord)120.0, 0));
+			transform->rotate = glm::normalize(pitch * transform->rotate * yaw); 
+
 			return true;
+		}
 
 		case SDL_KEYDOWN:
 			_keys.insert(event.key.keysym.sym);
 			direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
-			if (glm::length(direction) > 0)
+			if (glm::length(direction) != 0)
 				direction = glm::normalize(direction) * input->speed;
 			velocity->vector = direction;
 			return true;
@@ -57,7 +62,7 @@ bool FPSController::on_event(SDL_Event& event)
 		case SDL_KEYUP:
 			_keys.erase(event.key.keysym.sym);
 			direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
-			if (glm::length(direction) > 0)
+			if (glm::length(direction) != 0)
 				direction = glm::normalize(direction) * input->speed;
 			velocity->vector = direction;
 			return true;
