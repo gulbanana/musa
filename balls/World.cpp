@@ -56,7 +56,7 @@ World::World(bool is3d)
 	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(200, 500, WIDTH/2)));
 
 	entities.emplace_back(factory->create(decorativeWall));
-	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(400, 500, WIDTH/2)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(400, 400, WIDTH/2)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), eulers(0, glm::radians(45.0), 0)));
 
 	entities.emplace_back(factory->create(solidWall));
