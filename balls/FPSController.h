@@ -9,6 +9,7 @@ private:
 	std::shared_ptr<GameState> _state;
 	bool _firstMouse;
 	std::set<SDLKey> _keys;
+	coord _yclamp;
 
 	bool _key(SDLKey);
 	coord _calc_lr();

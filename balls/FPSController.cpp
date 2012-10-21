@@ -44,8 +44,17 @@ bool FPSController::on_event(SDL_Event& event)
 			}
 
 			//rotate around *global* Up, then around *local* Right
-			angle pitch(eulers(event.motion.yrel / (coord)120.0, 0, 0));
-			angle yaw(eulers(0, event.motion.xrel / (coord)120.0, 0));
+			coord yrads = event.motion.yrel / (coord)120.0;
+			coord xrads = event.motion.xrel / (coord)120.0;
+			
+			if (_yclamp + yrads > M_PI/2)
+				yrads = (coord)M_PI/2 - (_yclamp + yrads);
+			if (_yclamp + yrads < -M_PI/2)
+				yrads = -((coord)M_PI/2 - (-_yclamp - yrads));
+			_yclamp += yrads;
+
+			angle pitch(eulers(yrads, 0, 0));
+			angle yaw(eulers(0, xrads, 0));
 			transform->rotate = glm::normalize(pitch * transform->rotate * yaw); 
 
 			return true;
