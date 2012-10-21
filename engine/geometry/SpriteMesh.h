@@ -10,8 +10,8 @@ struct SpriteMesh : public IModel
 	std::shared_ptr<IMaterial> brush;
 	
 	SpriteMesh(coord width, coord height/*, texture*/);
-	void invite(IRenderer* renderer) const final;
-	void accept(IRenderer* renderer) const final;
+	void accept_enter(IRenderer* renderer) const final;
+	void accept_leave(IRenderer* renderer) const final;
 	box6 bounds() const;
 };
 

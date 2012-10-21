@@ -8,14 +8,12 @@ using namespace std;
 
 vector<CMP> MotionSystem::required_components() const 
 {
-	array<CMP,2> cmpTypes = {CMP::Position, CMP::Velocity};
-	return vector<CMP>(cmpTypes.begin(), cmpTypes.end());
+	return IComponent::require(CMP::Transform, CMP::Velocity);
 }
 
 vector<SYS> MotionSystem::required_systems() const 
 {
-	array<SYS,1> sysTypes = {SYS::Control};
-	return vector<SYS>(sysTypes.begin(), sysTypes.end());
+	return ISystem::require(SYS::Control);
 }
 
 MotionSystem::MotionSystem(shared_ptr<GameState> s) : _state(s) {}
@@ -27,7 +25,7 @@ void MotionSystem::on_frame_start()
 
 void MotionSystem::on_frame_entity(shared_ptr<IEntity> entity)
 {
-	auto position = entity->get_component<CPosition>();
+	auto position = entity->get_component<CTransform>();
 	auto velocity = entity->get_component<CVelocity>();
 
 	if (entity->has_component<CAcceleration>())
@@ -36,11 +34,9 @@ void MotionSystem::on_frame_entity(shared_ptr<IEntity> entity)
 		velocity->vector += acceleration->vector_change * (coord)elapsedTime;
 		velocity->rotation += acceleration->rotation_change * (degrees)elapsedTime;
 	}
-
-	position->previous_location = position->location;
 	
-	position->location += velocity->vector * (coord)elapsedTime;
+	position->translate += velocity->vector * (coord)elapsedTime;
 	
-	position->orientation += velocity->rotation * (degrees)elapsedTime;
-	position->orientation = maths::vmod(position->orientation, (degrees)360);
+	position->rotate += velocity->rotation * (degrees)elapsedTime;
+	position->rotate = maths::vmod(position->rotate , (degrees)360);
 }

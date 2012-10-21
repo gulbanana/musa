@@ -11,6 +11,7 @@ public:
 	CAcceleration(point vector_change) : vector_change(vector_change), rotation_change((degrees)0,(degrees)0,degrees(0)) {}
 	CAcceleration(point vector_change, angles rotation_change) : vector_change(vector_change), rotation_change(rotation_change) {}
 
+	std::vector<CMP> required_components() const { return std::vector<CMP>(); }
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CAcceleration(*this)); }
 };
 

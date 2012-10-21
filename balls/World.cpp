@@ -53,17 +53,17 @@ World::World(bool is3d)
 	_archetypes.emplace_back(decorativeWall);
 
 	entities.emplace_back(factory->create(solidWall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(200, 500, WIDTH/2)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(200, 500, WIDTH/2)));
 
 	entities.emplace_back(factory->create(decorativeWall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(400, 500, WIDTH/2)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(400, 500, WIDTH/2)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), angles(0, 45, 0)));
 
 	entities.emplace_back(factory->create(solidWall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(600, 500, WIDTH/2)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(600, 500, WIDTH/2)));
 
 	entities.emplace_back(factory->create(decorativeWall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(800, 500, WIDTH/2)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(800, 500, WIDTH/2)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), angles(45, 0, 0)));
 
 	//fixed balls
@@ -77,15 +77,15 @@ World::World(bool is3d)
 	_archetypes.emplace_back(yellowBall);
 	
 	entities.emplace_back(factory->create(cyanBall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(800, 800, 300)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(800, 800, 300)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(100, -100, 0)));
 
 	entities.emplace_back(factory->create(magentaBall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(200, 500, 500)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(200, 500, 500)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(100, 100, 0)));
 
 	entities.emplace_back(factory->create(yellowBall));
-	entities.back()->add_component<CPosition>(make_unique<CPosition>(point(800, 200, 700)));
+	entities.back()->add_component<CTransform>(make_unique<CTransform>(point(800, 200, 700)));
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(-100, 100, 0)));
 	
 	//random balls
@@ -97,12 +97,12 @@ World::World(bool is3d)
 		entities.emplace_back(factory->create(greenBall));
 		if (is3d)
 		{
-		entities.back()->add_component<CPosition>(make_unique<CPosition>(point(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT, zero2one(generator) * DEPTH)));
+		entities.back()->add_component<CTransform>(make_unique<CTransform>(point(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT, zero2one(generator) * DEPTH)));
 		entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(half2half(generator) * 500, half2half(generator) * 500, half2half(generator) * 500)));
 		}
 		else
 		{
-		entities.back()->add_component<CPosition>(make_unique<CPosition>(point(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT, 0)));
+		entities.back()->add_component<CTransform>(make_unique<CTransform>(point(zero2one(generator) * WIDTH, zero2one(generator) * HEIGHT, 0)));
 		entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(half2half(generator) * 500, half2half(generator) * 500, 0)));
 		}
 	}
@@ -113,6 +113,6 @@ World::World(bool is3d)
 		auto whiteBox = _loader.load_primitive(brush(Colour::WHITE), Primitive::Prism, &bigBox);
 		Obstacle skybox(whiteBox, false);
 		entities.emplace_back(factory->create(&skybox));
-		entities.back()->add_component<CPosition>(make_unique<CPosition>(point(500, 500, 500)));
+		entities.back()->add_component<CTransform>(make_unique<CTransform>(point(500, 500, 500)));
 	}
 }

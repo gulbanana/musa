@@ -5,13 +5,13 @@
 bool RectIntersectionDetector::collide(std::shared_ptr<IEntity> source, std::shared_ptr<IEntity> target)
 {
 	auto sourceMesh = source->get_component<CModel>();
-	auto sourcePosition = source->get_component<CPosition>();
+	auto sourcePosition = source->get_component<CTransform>();
 
 	auto targetMesh = target->get_component<CModel>();
-	auto targetPosition = target->get_component<CPosition>();
+	auto targetPosition = target->get_component<CTransform>();
 
-	rect4 sourceBounds = rect4(sourceMesh->geometry->bounds()) + glm::vec2(sourcePosition->location.x, sourcePosition->location.y);
-	rect4 targetBounds = rect4(targetMesh->geometry->bounds()) + glm::vec2(targetPosition->location.x, targetPosition->location.y);
+	rect4 sourceBounds = rect4(sourceMesh->geometry->bounds()) + glm::vec2(sourcePosition->translate.x, sourcePosition->translate.y);
+	rect4 targetBounds = rect4(targetMesh->geometry->bounds()) + glm::vec2(targetPosition->translate.x, targetPosition->translate.y);
 
 	if (sourceBounds.intersects(targetBounds))
 	{

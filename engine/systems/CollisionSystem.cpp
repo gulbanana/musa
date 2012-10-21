@@ -10,14 +10,12 @@ using namespace std;
 
 vector<CMP> CollisionSystem::required_components() const 
 {
-	array<CMP,3> compTypes = {CMP::Position, CMP::Model, CMP::Physics};
-	return vector<CMP>(compTypes.begin(), compTypes.end());
+	return IComponent::require(CMP::Transform, CMP::Model, CMP::Physics);
 }
 
 vector<SYS> CollisionSystem::required_systems() const 
 {
-	array<SYS,1> sysTypes = {SYS::Motion};
-	return vector<SYS>(sysTypes.begin(), sysTypes.end());
+	return ISystem::require(SYS::Motion);
 }
 
 CollisionSystem::CollisionSystem() : targets(), detectors()

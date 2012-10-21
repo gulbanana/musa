@@ -14,8 +14,8 @@ bool ResizingBouncer::on_event(SDL_Event& event)
 		_width = (coord)event.resize.w;
 		_height = (coord)event.resize.h;
 
-		((OrthographicCamera*)_camera->get_component<CTransform>()->view)->range = box6(maths::origin, _width, _height, _depth);
-		_camera->get_component<CPosition>()->location = point(_width/2, _height/2, _depth);
+		((OrthographicCamera*)_camera->get_component<CCamera>()->view)->range = box6(maths::origin, _width, _height, _depth);
+		_camera->get_component<CTransform>()->translate = point(_width/2, _height/2, _depth);
 
 		for (auto weakentity : entities)
 		{
@@ -23,12 +23,12 @@ bool ResizingBouncer::on_event(SDL_Event& event)
 
 			if (entity->has_component<CVelocity>() && entity->get_component<CVelocity>()->vector != maths::origin)
 			{
-				auto position = entity->get_component<CPosition>();
+				auto position = entity->get_component<CTransform>();
 				auto mesh = entity->get_component<CModel>();
 				auto box = mesh->geometry->bounds();
 
-				position->location.x = min(position->location.x, _width - box.right());
-				position->location.y = min(position->location.y, _width - box.top());
+				position->translate.x = min(position->translate.x, _width - box.right());
+				position->translate.y = min(position->translate.y, _width - box.top());
 			}
 		}
 	}

@@ -109,9 +109,6 @@
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="geometry.h" />
-    <ClInclude Include="components\CPosition.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="systems\MotionSystem.h">
       <Filter>systems\Movement</Filter>
     </ClInclude>
@@ -182,7 +179,10 @@
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="geometry\IModel.h" />
     <ClInclude Include="components\CModel.h" />
-    <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="systems\render\scene\RootNode.h" />
+    <ClInclude Include="components\CCamera.h" />
+    <ClInclude Include="components\CTransform.h">
+      <Filter>components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

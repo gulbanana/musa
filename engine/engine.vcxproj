@@ -232,7 +232,7 @@
     <ClInclude Include="systems\collision\AABBDetector.h" />
     <ClInclude Include="archetypes\Camera3D.h" />
     <ClInclude Include="archetypes\Camera2D.h" />
-    <ClInclude Include="components\CTransform.h" />
+    <ClInclude Include="components\CCamera.h" />
     <ClInclude Include="geometry\OrthographicCamera.h" />
     <ClInclude Include="geometry\PerspectiveCamera.h" />
     <ClInclude Include="geometry\ScaleMethod.h" />
@@ -287,7 +287,7 @@
     <ClInclude Include="core\misc.h" />
     <ClInclude Include="core\IComponent.h" />
     <ClInclude Include="systems\MotionSystem.h" />
-    <ClInclude Include="components\CPosition.h" />
+    <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="systems\ThreadedSystemBase.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>

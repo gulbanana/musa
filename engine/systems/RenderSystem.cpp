@@ -7,8 +7,7 @@ using namespace std;
 
 vector<SYS> RenderSystem::required_systems() const 
 {
-	array<SYS,2> sysTypes = {SYS::Motion, SYS::Logic};
-	return vector<SYS>(sysTypes.begin(), sysTypes.end());
+	return require(SYS::Motion, SYS::Logic);
 }
 
 RenderSystem::RenderSystem(shared_ptr<IRenderer> r) : _renderer(r) {}
@@ -17,7 +16,7 @@ void RenderSystem::add_entity(weak_ptr<IEntity> new_entity)
 {
 	auto owned = new_entity.lock();
 
-	if (owned->has_component<CTransform>())
+	if (owned->has_component<CCamera>())
 		_scene.add_branch(owned);
 
 	if (owned->has_component<CModel>())
@@ -47,39 +46,40 @@ void RenderSystem::visit(RootNode* node)
 
 void RenderSystem::visit(BranchNode* node)
 {
-	if (node->entity->has_component<CPosition>())
-	{
-		auto position = node->entity->get_component<CPosition>();
-		_renderer->with_position(position->location, position->orientation);
-	}
-
 	if (node->entity->has_component<CTransform>())
 	{
-		auto transformNode = node->entity->get_component<CTransform>();
-		transformNode->view->invite(_renderer.get());
+		auto matrix = node->entity->get_component<CTransform>();
+		_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);
+	}
+
+	if (node->entity->has_component<CCamera>())
+	{
+		auto transformNode = node->entity->get_component<CCamera>();
+		transformNode->view->accept_enter(_renderer.get());
 	}
 
 	for (auto& child : node->children)
 		child->accept(this);
 
-	if (node->entity->has_component<CTransform>())
+	if (node->entity->has_component<CCamera>())
 	{
-		auto transformNode = node->entity->get_component<CTransform>();
-		transformNode->view->accept(_renderer.get());
+		auto transformNode = node->entity->get_component<CCamera>();
+		transformNode->view->accept_leave(_renderer.get());
 	}
 }
 
 void RenderSystem::visit(LeafNode* node)
 {
-	if (node->entity->has_component<CPosition>())
+	if (node->entity->has_component<CTransform>())
 	{
-		auto position = node->entity->get_component<CPosition>();
-		_renderer->with_position(position->location, position->orientation);
+		auto matrix = node->entity->get_component<CTransform>();
+		_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);	
 	}
 
 	if (node->entity->has_component<CModel>())
 	{
 		auto renderNode = node->entity->get_component<CModel>();
-		renderNode->geometry->accept(_renderer.get());
+		renderNode->geometry->accept_enter(_renderer.get());
+		renderNode->geometry->accept_leave(_renderer.get());
 	}
 }

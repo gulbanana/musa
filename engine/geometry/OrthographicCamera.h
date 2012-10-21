@@ -25,6 +25,6 @@ struct OrthographicCamera : public IRenderable
 
 	OrthographicCamera(box6 bounds, ScaleMethod widescreen = ScaleMethod::HorPlus) : range(bounds), widescreen(widescreen) {}
 
-	virtual void invite(IRenderer* renderer) const override { renderer->arrive(this); }
-	virtual void accept(IRenderer* renderer) const override { renderer->visit(this); }
+	virtual void accept_enter(IRenderer* renderer) const override { renderer->visit_enter(this); }
+	virtual void accept_leave(IRenderer* renderer) const override { renderer->visit_leave(this); }
 };

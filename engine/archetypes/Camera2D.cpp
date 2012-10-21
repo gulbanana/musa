@@ -12,10 +12,10 @@ Camera2D::Camera2D(coord width, coord height, coord depth, bool anamorphic) :
 		)
 	)
 {
-	_components.emplace_back(make_unique<CPosition>(
-		point(width/(coord)2, height/(coord)2, depth), 
+	_components.emplace_back(make_unique<CTransform>(
+		point(width/2, height/2, depth), 
 		maths::backward_rotation
 	));
 
-	_components.emplace_back(make_unique<CTransform>(_camera_matrix.get()));
+	_components.emplace_back(make_unique<CCamera>(_camera_matrix.get()));
 }

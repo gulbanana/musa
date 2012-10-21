@@ -51,8 +51,8 @@ struct FVMesh : public IModel
 	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<glm::vec3>&& normals);
 	FVMesh(unsigned sides, std::vector<Group>&& groups, std::vector<point>&& vertices, std::vector<glm::vec2>&& uvs, std::vector<glm::vec3>&& normals);
 
-	void invite(IRenderer* renderer) const final; 
-	void accept(IRenderer* renderer) const final; 
+	void accept_enter(IRenderer* renderer) const final; 
+	void accept_leave(IRenderer* renderer) const final; 
 
 	box6 bounds() const override; 
 	size_t polygons() const override; 

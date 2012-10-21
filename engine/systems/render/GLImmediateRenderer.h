@@ -8,31 +8,32 @@ class GLImmediateRenderer : public IRenderer
 	bool _wireframe;	
 	int _viewport_width;
 	int _viewport_height;
-	point _at_location;
-	angles _at_orientation;
 
-	void with_modelobject(std::function<void(void)>);
+	//current transform
+	point _at;
+	glm::vec3 _scale;
+	angles _facing;
 
 public:
 	GLImmediateRenderer(bool wireframe);
 	~GLImmediateRenderer();
 
 	void set_viewport(int width, int height) final;
-	void with_position(point location, angles orientation) final;
+	void set_transform(point translation, angles rotation, glm::vec3 scale) final;
 	void begin_frame() final;
 	void end_frame() final;
 
 	//models
-	void arrive(SpriteMesh const*) final;
-	void visit(SpriteMesh const*) final;
-	void arrive(FVMesh const*) final;
-	void visit(FVMesh const*) final;
+	void visit_enter(SpriteMesh const*) final;
+	void visit_leave(SpriteMesh const*) final;
+	void visit_enter(FVMesh const*) final;
+	void visit_leave(FVMesh const*) final;
 
 	//transforms
-	void arrive(OrthographicCamera const*) final;
-	void visit(OrthographicCamera const*) final;
-	void arrive(PerspectiveCamera const*) final;
-	void visit(PerspectiveCamera const*) final;
+	void visit_enter(OrthographicCamera const*) final;
+	void visit_leave(OrthographicCamera const*) final;
+	void visit_enter(PerspectiveCamera const*) final;
+	void visit_leave(PerspectiveCamera const*) final;
 
 	//materials
 	void visit(SolidColourBrush const*) final;

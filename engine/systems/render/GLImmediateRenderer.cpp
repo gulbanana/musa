@@ -5,9 +5,10 @@
 #include <SDL_opengl.h>
 #include "GLImmediateRenderer.h"
 using namespace std;
+using namespace glm;
 
-GLImmediateRenderer::GLImmediateRenderer(bool wireframe) 
-	: _wireframe(wireframe), _at_location((coord)0,(coord)0,(coord)0), _at_orientation((degrees)0,(degrees)0,(degrees)0)
+#pragma region lifecycle
+GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe)
 {
 	//SDL init
 	int rc; 
@@ -25,7 +26,9 @@ GLImmediateRenderer::GLImmediateRenderer(bool wireframe)
 GLImmediateRenderer::~GLImmediateRenderer()
 {
 }
+#pragma endregion
 
+#pragma region IRenderer misc
 void GLImmediateRenderer::set_viewport(int width, int height)
 {
 	_viewport_width = width;
@@ -81,33 +84,25 @@ void GLImmediateRenderer::end_frame()
 	//glGetError()
 }
 
-void GLImmediateRenderer::with_position(point location, angles orientation) 
+void GLImmediateRenderer::set_transform(point location, angles orientation, vec3 scaling) 
 {
-	_at_location = location;
-	_at_orientation = orientation;
+	_at = location;
+	_facing = orientation;
+	_scale = scaling;
+}
+#pragma endregion
+
+#pragma region materials
+
+void GLImmediateRenderer::visit(SolidColourBrush const* brush)
+{
+	glColor4fv(&brush->colour[0]);
 }
 
-void GLImmediateRenderer::with_modelobject(std::function<void(void)> f)
-{
-	glMatrixMode(GL_MODELVIEW);
-	glPushMatrix();
+#pragma endregion
 
-#ifdef GLM_PRECISION_HIGHP_FLOAT 
-	glTranslated(_at_location.x, _at_location.y, _at_location.z);
-#else
-	glTranslatef(_at_location.x, _at_location.y, _at_location.z);
-#endif
-
-	glRotatef(_at_orientation.x, 1.f, 0.f, 0.f);
-	glRotatef(_at_orientation.y, 0.f, 1.f, 0.f);
-	glRotatef(_at_orientation.z, 0.f, 0.f, 1.f);
-
-	f();
-
-	glPopMatrix();
-}
-
-void GLImmediateRenderer::arrive(OrthographicCamera const* camera) 
+#pragma region renderables
+void GLImmediateRenderer::visit_enter(OrthographicCamera const* camera) 
 {
 	glEnable(GL_BLEND);
 	glDisable(GL_DEPTH_TEST);
@@ -154,11 +149,20 @@ void GLImmediateRenderer::arrive(OrthographicCamera const* camera)
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 #ifdef GLM_PRECISION_HIGHP_FLOAT
-	glTranslated(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
+	glTranslated(camera->range.right()/2 -_at.x, camera->range.top()/2 -_at.y, -_at.z);	
 #else
-	glTranslatef(camera->range.right()/2 -_at_location.x, camera->range.top()/2 -_at_location.y, -_at_location.z);	
+	glTranslatef(camera->range.right()/2 -_at.x, camera->range.top()/2 -_at.y, -_at.z);	
 #endif
 	//TODO: rotation?
+}
+
+void GLImmediateRenderer::visit_leave(OrthographicCamera const*)
+{
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	glMatrixMode(GL_MODELVIEW);	
+	glPopMatrix();
 }
 
 /*
@@ -166,7 +170,7 @@ void GLImmediateRenderer::arrive(OrthographicCamera const* camera)
 aspect ratio  =  ---  =  ---------------------
 				  x      tan(horizontal FOV/2)
 */
-void GLImmediateRenderer::arrive(PerspectiveCamera const* camera)
+void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
@@ -202,21 +206,21 @@ void GLImmediateRenderer::arrive(PerspectiveCamera const* camera)
 	}
 
 	//add rotation matrices to the projection
-	glRotatef(_at_orientation.x, 1.0, 0.0, 0.0);
-	glRotatef(_at_orientation.y, 0.0, 1.0, 0.0);
-	glRotatef(_at_orientation.z, 0.0, 0.0, 1.0);
+	glRotatef(_facing.x, 1.0, 0.0, 0.0);
+	glRotatef(_facing.y, 0.0, 1.0, 0.0);
+	glRotatef(_facing.z, 0.0, 0.0, 1.0);
 
 	//move models to the "eye level" plane
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();
 #ifdef GLM_PRECISION_HIGHP_FLOAT
-	glTranslated(-_at_location.x, -_at_location.y, _at_location.z - camera->dof/2);
+	glTranslated(-_at.x, -_at.y, _at.z - camera->dof/2);
 #else
-	glTranslatef(-_at_location.x, -_at_location.y, _at_location.z - camera->dof/2);
+	glTranslatef(-_at.x, -_at.y, _at.z - camera->dof/2);
 #endif
 }
 
-void GLImmediateRenderer::visit(OrthographicCamera const*)
+void GLImmediateRenderer::visit_leave(PerspectiveCamera const*)
 {
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
@@ -225,69 +229,70 @@ void GLImmediateRenderer::visit(OrthographicCamera const*)
 	glPopMatrix();
 }
 
-void GLImmediateRenderer::visit(PerspectiveCamera const*)
+void GLImmediateRenderer::visit_enter(SpriteMesh const* mesh)
 {
-	glMatrixMode(GL_PROJECTION);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+}
+
+void GLImmediateRenderer::visit_leave(SpriteMesh const* mesh)
+{
+	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
-
-	glMatrixMode(GL_MODELVIEW);	
-	glPopMatrix();
 }
 
-void GLImmediateRenderer::visit(SolidColourBrush const* brush)
+void GLImmediateRenderer::visit_enter(FVMesh const* mesh)
 {
-	glColor4fv(&brush->colour[0]);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+
+#ifdef GLM_PRECISION_HIGHP_FLOAT 
+	glTranslated(_at.x, _at.y, _at.z);
+	glScaled(_scale.x, _scale.y, _scale.z);
+#else
+	glTranslatef(_at.x, _at.y, _at.z);
+	glScalef(_scale.x, _scale.y, _scale.z);
+#endif
+
+	glRotatef(_at.x, 1.f, 0.f, 0.f);
+	glRotatef(_at.y, 0.f, 1.f, 0.f);
+	glRotatef(_at.z, 0.f, 0.f, 1.f);
 }
 
-void GLImmediateRenderer::arrive(SpriteMesh const* mesh)
+void GLImmediateRenderer::visit_leave(FVMesh const* mesh)
 {
-}
+	if (_wireframe || mesh->wireframe)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-void GLImmediateRenderer::visit(SpriteMesh const* mesh)
-{
-	with_modelobject([=]
+	if (mesh->sides == 3)
+		glBegin(GL_TRIANGLES);
+	else if (mesh->sides == 4)
+		glBegin(GL_QUADS);
+	else
+		throw runtime_error("FVMesh has erroneous sides per face");	//TODO: or just do nothing?
+
+	for (auto& group : mesh->groups)
 	{
-	});
-}
+		group.brush->accept(this);
 
-void GLImmediateRenderer::arrive(FVMesh const* mesh)
-{
-}
-
-void GLImmediateRenderer::visit(FVMesh const* mesh)
-{
-	with_modelobject([=]
-	{
-		if (_wireframe || mesh->wireframe)
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		else
-			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-		if (mesh->sides == 3)
-			glBegin(GL_TRIANGLES);
-		else if (mesh->sides == 4)
-			glBegin(GL_QUADS);
-		else
-			throw runtime_error("FVMesh has erroneous sides per face");	//TODO: or just do nothing?
-
-		for (auto& group : mesh->groups)
+		for (auto& face : group.faces)
 		{
-			group.brush->accept(this);
-
-			for (auto& face : group.faces)
+			for (auto index : face.vertex_indices)
 			{
-				for (auto index : face.vertex_indices)
-				{
-					#ifdef GLM_PRECISION_HIGHP_FLOAT
-					glVertex3d(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
-					#else
-					glVertex3f(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
-					#endif
-				}
+				#ifdef GLM_PRECISION_HIGHP_FLOAT
+				glVertex3d(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
+				#else
+				glVertex3f(mesh->vertices[index].x, mesh->vertices[index].y, mesh->vertices[index].z);
+				#endif
 			}
 		}
+	}
 
-		glEnd();
-	});
+	glEnd();
+
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
 }
-
+#pragma endregion

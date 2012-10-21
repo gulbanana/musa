@@ -36,14 +36,14 @@ FVMesh::FVMesh(unsigned sides, IMaterial* brush, std::vector<Face>&& faces, std:
 	validate_mesh();
 }
 
-void FVMesh::invite(IRenderer* renderer) const 
+void FVMesh::accept_enter(IRenderer* renderer) const 
 { 
-	renderer->arrive(this); 
+	renderer->visit_enter(this); 
 }
 
-void FVMesh::accept(IRenderer* renderer) const 
+void FVMesh::accept_leave(IRenderer* renderer) const 
 { 
-	renderer->visit(this); 
+	renderer->visit_leave(this); 
 }
 
 box6 FVMesh::bounds() const 

@@ -3,9 +3,14 @@
 #include "SpriteMesh.h"
 using namespace std;
 
-void SpriteMesh::accept(IRenderer* renderer) const
+void SpriteMesh::accept_enter(IRenderer* renderer) const
 { 
-	renderer->visit(this); 
+	renderer->visit_enter(this); 
+}
+
+void SpriteMesh::accept_leave(IRenderer* renderer) const
+{ 
+	renderer->visit_leave(this); 
 }
 
 box6 SpriteMesh::bounds() const

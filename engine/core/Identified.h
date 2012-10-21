@@ -13,7 +13,37 @@ template<typename TEnumClass>
 class Identifiable
 {	
 public:
+	typedef TEnumClass ID;
+
     virtual ~Identifiable() {}
 	virtual TEnumClass id() const = 0;
-    typedef TEnumClass ID;
+
+    static std::vector<ID> require()
+	{
+		return std::vector<ID>();
+	}
+
+    static std::vector<ID> require(ID one)
+	{
+		std::vector<ID> requirements;
+		requirements.push_back(one);
+		return requirements;
+	}
+
+    static std::vector<ID> require(ID one, ID two)
+	{
+		std::vector<ID> requirements;
+		requirements.push_back(one);
+		requirements.push_back(two);
+		return requirements;
+	}
+
+    static std::vector<ID> require(ID one, ID two, ID three)
+	{
+		std::vector<ID> requirements;
+		requirements.push_back(one);
+		requirements.push_back(two);
+		requirements.push_back(three);
+		return requirements;
+	}
 };

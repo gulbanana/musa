@@ -7,7 +7,7 @@ using namespace glm;
 
 vector<IComponent::ID> Bouncer::required_components() const
 {
-	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Position, CMP::Model};
+	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Transform, CMP::Model};
 	return vector<CMP>(compTypes.begin(), compTypes.end());
 }
 
@@ -26,38 +26,38 @@ void Bouncer::on_frame_entity(std::shared_ptr<IEntity> entity)
 	auto physics = entity->get_component<CPhysics>();
 	if (!physics->can_collide) return;
 
-	auto position = entity->get_component<CPosition>();
+	auto position = entity->get_component<CTransform>();
 	auto velocity = entity->get_component<CVelocity>();
 	auto mesh = entity->get_component<CModel>();
 
 	//Bounce type #1: walls, reflect by component inversion
 	auto sourceBox = mesh->geometry->bounds();
-	bool outOfBoundsX = sourceBox.left() + position->location.x <= (coord)0.0 ||
-						sourceBox.right() + position->location.x >= _width;
-	bool outOfBoundsY = sourceBox.bottom() + position->location.y <= (coord)0.0 ||
-						sourceBox.top() + position->location.y >= _height;
-	bool outOfBoundsZ = sourceBox.back() + position->location.z <= (coord)0.0 ||
-						sourceBox.front() + position->location.z >= _depth;
+	bool outOfBoundsX = sourceBox.left() + position->translate.x <= (coord)0.0 ||
+						sourceBox.right() + position->translate.x >= _width;
+	bool outOfBoundsY = sourceBox.bottom() + position->translate.y <= (coord)0.0 ||
+						sourceBox.top() + position->translate.y >= _height;
+	bool outOfBoundsZ = sourceBox.back() + position->translate.z <= (coord)0.0 ||
+						sourceBox.front() + position->translate.z >= _depth;
 
 	if (outOfBoundsX) 
 	{
 		velocity->vector.x *= -1;
-        position->location.x = glm::max(position->location.x, sourceBox.right());
-        position->location.x = glm::min(position->location.x, _width - sourceBox.right());
+        position->translate.x = glm::max(position->translate.x, sourceBox.right());
+        position->translate.x = glm::min(position->translate.x, _width - sourceBox.right());
 	}
 		
 	if (outOfBoundsY) 
 	{
 		velocity->vector.y *= -1;
-        position->location.y = glm::max(position->location.y, sourceBox.top());
-        position->location.y = glm::min(position->location.y, _height - sourceBox.top());
+        position->translate.y = glm::max(position->translate.y, sourceBox.top());
+        position->translate.y = glm::min(position->translate.y, _height - sourceBox.top());
 	}
 
 	if (outOfBoundsZ) 
 	{
 		velocity->vector.z *= -1;
-        position->location.z = glm::max(position->location.z, sourceBox.front());
-        position->location.z = glm::min(position->location.z, _depth - sourceBox.front());
+        position->translate.z = glm::max(position->translate.z, sourceBox.front());
+        position->translate.z = glm::min(position->translate.z, _depth - sourceBox.front());
 	}
 
 	if (outOfBoundsX || outOfBoundsY || outOfBoundsZ)
@@ -68,11 +68,11 @@ void Bouncer::on_frame_entity(std::shared_ptr<IEntity> entity)
 	//Bounce type #2: objects, reflect by angle of target
 	for (auto target : physics->collisions)
 	{		
-		auto targetPosition = target->get_component<CPosition>();
+		auto targetPosition = target->get_component<CTransform>();
 
 		//calculate angle of collision
 		auto speed = length(velocity->vector);
-		auto angleOfCollision = normalize(targetPosition->location - position->location);
+		auto angleOfCollision = normalize(targetPosition->translate - position->translate);
 
 		velocity->vector = angleOfCollision * (coord)-1 * (coord)speed;
 
