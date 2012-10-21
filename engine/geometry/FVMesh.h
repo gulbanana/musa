@@ -1,9 +1,9 @@
 #pragma once
-#include "IModel.h"
+#include "IRenderable.h"
 #include "IMaterial.h"
 
 //"Face-Vertex" mesh- small storage, fast rendering, no dynamic edits. quad or tri faces.
-struct FVMesh : public IModel
+struct FVMesh : public IRenderable
 {
 	struct Face
 	{

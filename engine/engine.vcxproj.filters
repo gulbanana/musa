@@ -177,7 +177,6 @@
     <ClInclude Include="systems\render\scene.h" />
     <ClInclude Include="systems\render\scene\SceneGraph.h" />
     <ClInclude Include="geometry\IRenderable.h" />
-    <ClInclude Include="geometry\IModel.h" />
     <ClInclude Include="components\CModel.h" />
     <ClInclude Include="systems\render\scene\RootNode.h" />
     <ClInclude Include="components\CCamera.h" />

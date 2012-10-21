@@ -4,6 +4,6 @@
 class Obstacle : public PresetArchetype
 {
 public:
-	Obstacle(IModel* mesh, bool solid = true);
+	Obstacle(IRenderable* mesh, bool solid = true);
 };
 

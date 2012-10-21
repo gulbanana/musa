@@ -27,4 +27,6 @@ struct OrthographicCamera : public IRenderable
 
 	virtual void accept_enter(IRenderer* renderer) const override { renderer->visit_enter(this); }
 	virtual void accept_leave(IRenderer* renderer) const override { renderer->visit_leave(this); }
+	virtual box6 bounds() const override { return range; }
+	virtual size_t polygons() const override { return 0; }
 };

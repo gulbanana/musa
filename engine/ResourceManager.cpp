@@ -8,21 +8,21 @@ using namespace glm;
 class ResourceManagerImpl
 {
 	vector<IMaterial*> _deletionPool;
-	map<string, unique_ptr<IModel>> _meshCache;
+	map<string, unique_ptr<IRenderable>> _meshCache;
 
 public:
 	ResourceManagerImpl();
 	~ResourceManagerImpl();
 
 	IMaterial* load_brush(vec4);
-	IModel* load_primitive(SolidColourBrush*, Primitive, void*);
-	IModel* load_model(IMaterial*);
+	IRenderable* load_primitive(SolidColourBrush*, Primitive, void*);
+	IRenderable* load_model(IMaterial*);
 };
 ResourceManager::ResourceManager() : _pimpl(new ResourceManagerImpl()) {}
 ResourceManager::~ResourceManager() { delete _pimpl; }
 IMaterial* ResourceManager::load_brush(vec4 c) { return _pimpl->load_brush(c); }
-IModel* ResourceManager::load_primitive(SolidColourBrush* m, Primitive p, void* arg) { return _pimpl->load_primitive(m, p, arg); }
-IModel* ResourceManager::load_model(IMaterial* m) { return _pimpl->load_model(m); }
+IRenderable* ResourceManager::load_primitive(SolidColourBrush* m, Primitive p, void* arg) { return _pimpl->load_primitive(m, p, arg); }
+IRenderable* ResourceManager::load_model(IMaterial* m) { return _pimpl->load_model(m); }
 #pragma endregion
 
 
@@ -44,7 +44,7 @@ IMaterial* ResourceManagerImpl::load_brush(vec4 c)
 	return material;
 }
 
-IModel* ResourceManagerImpl::load_primitive(SolidColourBrush* brush, Primitive shape, void* arg)
+IRenderable* ResourceManagerImpl::load_primitive(SolidColourBrush* brush, Primitive shape, void* arg)
 {
 	string hash;	//this works but sucks
 	coord radius;
@@ -83,7 +83,7 @@ IModel* ResourceManagerImpl::load_primitive(SolidColourBrush* brush, Primitive s
 	return _meshCache[hash].get();
 }
 
-IModel* ResourceManagerImpl::load_model(IMaterial*)
+IRenderable* ResourceManagerImpl::load_model(IMaterial*)
 {
 	return nullptr;
 }

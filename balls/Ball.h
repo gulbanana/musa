@@ -4,6 +4,6 @@
 class Ball : public PresetArchetype
 {
 public:
-	Ball(IModel* mesh);
+	Ball(IRenderable* mesh);
 };
 

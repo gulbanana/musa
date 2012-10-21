@@ -1,9 +1,9 @@
 #pragma once
-#include "IModel.h"
+#include "IRenderable.h"
 #include "IMaterial.h"
 
 //Flat/quad mesh- 2d sprite chunked into ^2 fragments
-struct SpriteMesh : public IModel
+struct SpriteMesh : public IRenderable
 {
 	coord width;
 	coord height;
@@ -12,6 +12,8 @@ struct SpriteMesh : public IModel
 	SpriteMesh(coord width, coord height/*, texture*/);
 	void accept_enter(IRenderer* renderer) const final;
 	void accept_leave(IRenderer* renderer) const final;
-	box6 bounds() const;
+
+	box6 bounds() const override;
+	size_t polygons() const override; 
 };
 

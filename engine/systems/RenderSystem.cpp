@@ -46,40 +46,24 @@ void RenderSystem::visit(RootNode* node)
 
 void RenderSystem::visit(BranchNode* node)
 {
-	if (node->entity->has_component<CTransform>())
-	{
-		auto matrix = node->entity->get_component<CTransform>();
-		_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);
-	}
+	auto matrix = node->entity->get_component<CTransform>();
+	_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);
 
-	if (node->entity->has_component<CCamera>())
-	{
-		auto transformNode = node->entity->get_component<CCamera>();
-		transformNode->view->accept_enter(_renderer.get());
-	}
+	auto renderable = node->entity->get_component<CCamera>();
+	renderable->view->accept_enter(_renderer.get());
 
 	for (auto& child : node->children)
 		child->accept(this);
 
-	if (node->entity->has_component<CCamera>())
-	{
-		auto transformNode = node->entity->get_component<CCamera>();
-		transformNode->view->accept_leave(_renderer.get());
-	}
+	renderable->view->accept_leave(_renderer.get());
 }
 
 void RenderSystem::visit(LeafNode* node)
 {
-	if (node->entity->has_component<CTransform>())
-	{
-		auto matrix = node->entity->get_component<CTransform>();
-		_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);	
-	}
+	auto matrix = node->entity->get_component<CTransform>();
+	_renderer->set_transform(matrix->translate, matrix->rotate, matrix->scale);
 
-	if (node->entity->has_component<CModel>())
-	{
-		auto renderNode = node->entity->get_component<CModel>();
-		renderNode->geometry->accept_enter(_renderer.get());
-		renderNode->geometry->accept_leave(_renderer.get());
-	}
+	auto renderNode = node->entity->get_component<CModel>();
+	renderNode->geometry->accept_enter(_renderer.get());
+	renderNode->geometry->accept_leave(_renderer.get());
 }

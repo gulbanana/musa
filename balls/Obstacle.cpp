@@ -4,7 +4,7 @@
 #include "Obstacle.h"
 using namespace std;
 
-Obstacle::Obstacle(IModel* mesh, bool solid)
+Obstacle::Obstacle(IRenderable* mesh, bool solid)
 {
 	_components.emplace_back(make_unique<CModel>(mesh));
 

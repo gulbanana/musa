@@ -3,7 +3,7 @@
 #include "Ball.h"
 using namespace std;
 
-Ball::Ball(IModel* mesh)
+Ball::Ball(IRenderable* mesh)
 {
 	_components.emplace_back(make_unique<CLabel>("ball"));
 	_components.emplace_back(make_unique<CModel>(mesh));

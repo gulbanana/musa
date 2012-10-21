@@ -4,13 +4,13 @@
 using namespace std;
 using namespace glm;
 
-unique_ptr<IModel> PrimitiveFactory::create_cube(IMaterial* brush, coord radius)
+unique_ptr<IRenderable> PrimitiveFactory::create_cube(IMaterial* brush, coord radius)
 {
 	auto mesh = create_prism(brush, box6(-radius, -radius, -radius, radius, radius, radius));
 	return mesh;
 }
 
-unique_ptr<IModel> PrimitiveFactory::create_prism(IMaterial* brush, box6 bounds)
+unique_ptr<IRenderable> PrimitiveFactory::create_prism(IMaterial* brush, box6 bounds)
 {
 	vector<point> vertices;
 	vertices.emplace_back(bounds.left(), bounds.bottom(), bounds.back());
@@ -35,7 +35,7 @@ unique_ptr<IModel> PrimitiveFactory::create_prism(IMaterial* brush, box6 bounds)
 	return move(mesh);
 }
 
-unique_ptr<IModel> PrimitiveFactory::create_sphere(IMaterial* brush, coord radius, int refinements)
+unique_ptr<IRenderable> PrimitiveFactory::create_sphere(IMaterial* brush, coord radius, int refinements)
 {
 	//generate initial icosahedron
 	auto t = (coord)((1.0 + sqrt(5.0)) / 2.0);

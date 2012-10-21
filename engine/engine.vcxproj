@@ -224,7 +224,6 @@
     <ClInclude Include="core\IMessage.h" />
     <ClInclude Include="core\AutonomousEntityFactory.h" />
     <ClInclude Include="core\ManagedEntityFactory.h" />
-    <ClInclude Include="geometry\IModel.h" />
     <ClInclude Include="mac\clang.h" />
     <ClInclude Include="core\ManagedEntity.h" />
     <ClInclude Include="systems\render\scene\RootNode.h" />
