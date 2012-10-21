@@ -43,7 +43,7 @@ bool FPSController::on_event(SDL_Event& event)
 				return true;
 			}
 
-			//rotate around *global* Up, then around *local* Right
+			//convert mouse delta to radians, clamping the y-axis to 180 degrees
 			coord yrads = event.motion.yrel / (coord)120.0;
 			coord xrads = event.motion.xrel / (coord)120.0;
 			
@@ -53,6 +53,7 @@ bool FPSController::on_event(SDL_Event& event)
 				yrads = -((coord)M_PI/2 - (-_yclamp - yrads));
 			_yclamp += yrads;
 
+			//rotate around *global* Up, then around *local* Right
 			angle pitch(eulers(yrads, 0, 0));
 			angle yaw(eulers(0, xrads, 0));
 			transform->rotate = glm::normalize(pitch * transform->rotate * yaw); 
