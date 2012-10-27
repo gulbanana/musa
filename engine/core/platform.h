@@ -1,5 +1,7 @@
 #pragma once
 
+void debug(std::string output);
+
 #ifdef _MSC_VER
 	#include "../windows/msvc.h"
 #endif

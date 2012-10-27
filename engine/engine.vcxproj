@@ -216,6 +216,7 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
     <ClCompile Include="core\to_string.cpp" />
+    <ClCompile Include="windows\platform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archetypes\PresetArchetype.h" />

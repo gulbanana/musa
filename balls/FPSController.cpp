@@ -20,27 +20,26 @@ FPSController::FPSController()
 {
 	_firstMouse = true;
 	_yclamp = 0;
-	SDL_WM_GrabInput(SDL_GRAB_ON);
 }
 
 bool FPSController::on_event(SDL_Event& event)
 {
-	auto character = entities[0].lock();
-	auto transform = character->get_component<CTransform>();
-	auto velocity = character->get_component<CVelocity>();
-	auto input = character->get_component<CInput>();
-
-	vec3 forward = transform->direction_vector();
-	auto right = cross(forward, constants::y_axis);
-	auto up = cross(right, forward);
-
 	switch (event.type)
 	{
 		case SDL_MOUSEMOTION:
 		{
+			//XXX change this to an init message
 			if (_firstMouse)
 			{
 				_firstMouse = false;
+
+				SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
+				SDL_WarpMouse(500, 500);
+				SDL_WM_GrabInput(SDL_GRAB_ON);
+				SDL_EnableKeyRepeat(0, 0);	//disable
+				SDL_ShowCursor(SDL_DISABLE);
+				SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
+
 				return true;
 			}
 
@@ -57,13 +56,20 @@ bool FPSController::on_event(SDL_Event& event)
 			//rotate around *global* Up, then around *local* Right
 			quat pitch(eulers(yrads, 0, 0));
 			quat yaw(eulers(0, -xrads, 0));
-			transform->rotate = normalize(yaw * transform->rotate * pitch); 
+
+			for (auto& entity : entities)
+			{
+				CTransform* xform = entity.lock()->get_component<CTransform>();
+				xform->rotate = normalize(yaw * xform->rotate * pitch); 
+			}
+
+			//apply the rotation to any existing movement
+			_set_velocity();
 
 			//move the cursor somewhere it can't bother us
 			SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
 			SDL_WarpMouse(500, 500);
 			SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
-			SDL_ShowCursor(SDL_DISABLE);
 
 			return true;
 		}
@@ -71,26 +77,37 @@ bool FPSController::on_event(SDL_Event& event)
 		case SDL_KEYDOWN:
 		{
 			_keys.insert(event.key.keysym.sym);
-			vec3 direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
-			if (length(direction) != 0)
-				direction = normalize(direction) * input->speed;
-			velocity->vector = direction;
+			_set_velocity();
 			return true;
 		}
 
 		case SDL_KEYUP:
 		{
 			_keys.erase(event.key.keysym.sym);
-			vec3 direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
-			if (glm::length(direction) != 0)
-				direction = normalize(direction) * input->speed;
-			velocity->vector = direction;
+			_set_velocity();
 			return true;
 		}
 
 		default:
 			return false;
 	}
+}
+
+void FPSController::_set_velocity()
+{
+	auto character = entities[0].lock();
+	auto transform = character->get_component<CTransform>();
+	auto velocity = character->get_component<CVelocity>();
+	auto input = character->get_component<CInput>();
+
+	vec3 forward = transform->direction_vector();
+	auto right = cross(forward, constants::y_axis);
+	auto up = cross(right, forward);
+
+	vec3 direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
+	if (length(direction) != 0)
+		direction = normalize(direction) * input->speed;
+	velocity->vector = direction;
 }
 
 bool FPSController::_key(SDLKey k)

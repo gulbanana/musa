@@ -15,6 +15,7 @@ private:
 	coord _calc_lr();
 	coord _calc_fb();
 	coord _calc_ud();
+	void _set_velocity();
 
 public:
 	std::vector<IComponent::ID> required_components() const override;
