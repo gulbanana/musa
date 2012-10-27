@@ -1,7 +1,6 @@
 #include <engine/core.h>
 #include <engine/components.h>
 #include "FPSController.h"
-#include "Windows.h"
 using namespace std;
 using namespace glm;
 
@@ -21,8 +20,9 @@ FPSController::FPSController()
 {
 	_firstMouse = true;
 	_yclamp = 0;
-	_xclamp = 0;
+	SDL_WM_GrabInput(SDL_GRAB_ON);
 }
+
 bool FPSController::on_event(SDL_Event& event)
 {
 	auto character = entities[0].lock();
@@ -31,8 +31,8 @@ bool FPSController::on_event(SDL_Event& event)
 	auto input = character->get_component<CInput>();
 
 	vec3 forward = transform->direction_vector();
-	auto right = cross(constants::y_axis, forward);
-	auto up = cross(forward, right);
+	auto right = cross(forward, constants::y_axis);
+	auto up = cross(right, forward);
 
 	switch (event.type)
 	{
@@ -53,25 +53,17 @@ bool FPSController::on_event(SDL_Event& event)
 			if (_yclamp + yrads < -M_PI/2)
 				yrads = -((coord)M_PI/2 - (-_yclamp - yrads));
 			_yclamp += yrads;
-			_xclamp += xrads;
 
 			//rotate around *global* Up, then around *local* Right
-			yrads = 0;
 			quat pitch(eulers(yrads, 0, 0));
-			quat yaw(eulers(0, xrads, 0));
-			transform->rotate = normalize(pitch * transform->rotate * yaw); 
+			quat yaw(eulers(0, -xrads, 0));
+			transform->rotate = normalize(yaw * transform->rotate * pitch); 
 
-			forward = transform->direction_vector();
-			auto out = string("pitch: ") 
-				+ to_string(glm::degrees(_yclamp))
-				+ " yaw: " 
-				+ to_string(glm::degrees(_xclamp))
-				+ "\nq: "
-				+ to_string(transform->rotate)
-				+ "\nforward: "
-				+ to_string(forward)
-				+ "\n\n";
-			OutputDebugStringA(out.c_str());
+			//move the cursor somewhere it can't bother us
+			SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
+			SDL_WarpMouse(500, 500);
+			SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
+			SDL_ShowCursor(SDL_DISABLE);
 
 			return true;
 		}

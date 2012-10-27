@@ -8,7 +8,7 @@ using namespace std;
 
 //in the centre of the world, looking forward
 Camera3D::Camera3D() : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)2048))
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (angle)60, (coord)2048))
 {
 	_components.emplace_back(make_unique<CRenderable>(_camera_matrix.get()));
 	_components.emplace_back(make_unique<CTransform>(constants::origin, constants::forward_orientation));
@@ -16,14 +16,14 @@ Camera3D::Camera3D() :
 
 //in front of the world, looking back at it
 Camera3D::Camera3D(point initialLocation) : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)2048))
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (angle)60, (coord)2048))
 {
 	_components.emplace_back(make_unique<CRenderable>(_camera_matrix.get()));
 	_components.emplace_back(make_unique<CTransform>(initialLocation, constants::rotation_between(initialLocation, constants::origin)));
 }
 
 Camera3D::Camera3D(point initialLocation, rotation initialOrientation) : 
-	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (degrees)60, (coord)2048))
+	_camera_matrix(new PerspectiveCamera(ScaleMethod::HorPlus, (angle)60, (coord)2048))
 {
 	_components.emplace_back(make_unique<CRenderable>(_camera_matrix.get()));
 	_components.emplace_back(make_unique<CTransform>(initialLocation, initialOrientation));

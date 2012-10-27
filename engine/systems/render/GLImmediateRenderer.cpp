@@ -108,7 +108,7 @@ void GLImmediateRenderer::visit(SolidColourBrush const* brush)
 
 #pragma endregion
 
-#pragma region renderables
+#pragma region camera
 void GLImmediateRenderer::visit_enter(OrthographicCamera const* camera) 
 {
 	glEnable(GL_BLEND);
@@ -177,6 +177,36 @@ void GLImmediateRenderer::visit_leave(OrthographicCamera const*)
 aspect ratio  =  ---  =  ---------------------
 				  x      tan(horizontal FOV/2)
 */
+box6 vertical_perspective(angle vFOV, coord aspectRatio, coord zNear, coord zFar)
+{
+	auto clipHeightTangent = (coord)tan(glm::radians(vFOV / 2));
+
+	auto height = zNear * clipHeightTangent;// / (coord)2;
+	auto width = height * aspectRatio;
+
+	auto clipLeft = -width;
+	auto clipRight = width;
+	auto clipBottom = -height;
+	auto clipTop = height;
+
+	return box6(clipLeft, clipBottom, zFar, clipRight, clipTop, zNear);
+}
+
+box6 horizontal_perspective(angle hFOV, coord aspectRatio, coord zNear, coord zFar)
+{
+	auto clipWidthTangent = (coord)tan(glm::radians(hFOV / 2));
+
+	auto width = zNear * clipWidthTangent; // / (coord)2;	
+	auto height = width / aspectRatio;			
+
+	auto clipLeft = -width;
+	auto clipRight = width;
+	auto clipBottom = -height;
+	auto clipTop = height;
+
+	return box6(clipLeft, clipBottom, zFar, clipRight, clipTop, zNear);
+}
+
 void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 {
 	glDisable(GL_BLEND);
@@ -193,14 +223,14 @@ void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 	{
 		case ScaleMethod::HorPlus:
 		{
-			auto planes = constants::vertical_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
+			auto planes = vertical_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
 			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
 			break;
 		}
 
 		case ScaleMethod::VertMinus:
 		{
-			auto planes = constants::horizontal_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
+			auto planes = horizontal_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
 			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
 			break;
 		}
@@ -211,28 +241,28 @@ void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 			throw runtime_error("scaling method not implemented by 3d renderer");
 			break;
 	}
-	
-	//move models to the "eye level" plane and rotate them around the origin
-	glMatrixMode(GL_MODELVIEW);	
-	glPushMatrix();
-#ifdef GLM_PRECISION_HIGHP_FLOAT
-	glMultMatrixd(&glm::mat4_cast(_facing)[0][0]);
-	glTranslated(-_at.x, -_at.y, _at.z - camera->dof/2);
-#else
-	glMultMatrixf(&glm::mat4_cast(_facing)[0][0]);
-	glTranslatef(-_at.x, -_at.y, _at.z - camera->dof/2);
-#endif
+
+	//Invert the camera's worldspace transform
+	//the rotation by -z is necessary because of opengl's flipped z axis camera space
+	#ifdef GLM_PRECISION_HIGHP_FLOAT
+		glScaled(_scale.x, _scale.y, _scale.z);
+		glMultMatrixd(&glm::mat4_cast(conjugate(_facing * constants::backward_orientation))[0][0]);	
+		glTranslated(-_at.x, -_at.y, -_at.z);
+	#else
+		glScalef(_scale.x, _scale.y, _scale.z);
+		glMultMatrixf(&glm::mat4_cast(conjugate(_facing * constants::backward_orientation))[0][0]);	
+		glTranslatef(-_at.x, -_at.y, -_at.z);
+	#endif
 }
 
 void GLImmediateRenderer::visit_leave(PerspectiveCamera const*)
 {
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
-
-	glMatrixMode(GL_MODELVIEW);	
-	glPopMatrix();
 }
+#pragma endregion
 
+#pragma region meshes
 void GLImmediateRenderer::visit_enter(SpriteMesh const* mesh)
 {
 	glMatrixMode(GL_MODELVIEW);

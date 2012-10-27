@@ -21,12 +21,7 @@ namespace constants
 	rotation vec2rot(lnseg direction);
 	rotation rotation_between(point from, point to);
 
-	box6 vertical_perspective(degrees vFOV, coord aspectRatio, coord front, coord back);
-	box6 horizontal_perspective(degrees hFOV, coord aspectRatio, coord front, coord back);
-
 	point midpoint(point x, point y);
-
-	eulers vmod(eulers v, degrees d);
 }
 
 namespace Colour

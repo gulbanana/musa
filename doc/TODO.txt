@@ -2,12 +2,12 @@ system multithreading - dependency semaphores
 messages, as a performance optimisation of polling
 polling
 textures, brush/mesh distinction SOMEHOW
-auto-fov - maybe impossible
 double viewport (balls unification)
-clamped rotation on camera
-oriented movement of camera
+6dof controller
 model loader/better resource loader in general
 lighting
+restore collision
+skybox texture
 fullscreen
 wrangle gl extensions
 make collision detection pairwise

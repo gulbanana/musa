@@ -16,6 +16,14 @@ bool ControlSystem::on_event(SDL_Event& event)
 {
 	switch (event.type)
 	{
+		case SDL_KEYDOWN:
+			if (event.key.keysym.sym == SDLK_ESCAPE)
+			{
+				_state->shouldQuit = true;
+				return true;
+			}
+			return false;
+
 		case SDL_QUIT:
 			_state->shouldQuit = true;
 			return true;

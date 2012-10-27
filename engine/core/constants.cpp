@@ -20,7 +20,7 @@ const lnseg constants::y_axis(0, 1, 0);
 const lnseg constants::z_axis(0, 0, 1);
 
 const rotation constants::forward_orientation(constants::identity_rotation);
-const rotation constants::backward_orientation(0, 0, 1, 0);
+const rotation constants::backward_orientation(0,0,1,0);
 const rotation constants::left_orientation(eulers(0, -90, 0));
 const rotation constants::right_orientation(eulers(0, 90, 0));
 const rotation constants::up_orientation(eulers(-90, 0, 0));
@@ -58,42 +58,7 @@ rotation constants::vec2rot(lnseg front)
 	return result;
 }
 
-box6 constants::vertical_perspective(degrees vFOV, coord aspectRatio, coord zNear, coord zFar)
-{
-	auto clipHeightTangent = (coord)tan(glm::radians(vFOV / 2));
-
-	auto height = zNear * clipHeightTangent;// / (coord)2;
-	auto width = height * aspectRatio;
-
-	auto clipLeft = -width;
-	auto clipRight = width;
-	auto clipBottom = -height;
-	auto clipTop = height;
-
-	return box6(clipLeft, clipBottom, zFar, clipRight, clipTop, zNear);
-}
-
-box6 constants::horizontal_perspective(degrees hFOV, coord aspectRatio, coord zNear, coord zFar)
-{
-	auto clipWidthTangent = (coord)tan(glm::radians(hFOV / 2));
-
-	auto width = zNear * clipWidthTangent; // / (coord)2;	
-	auto height = width / aspectRatio;			
-
-	auto clipLeft = -width;
-	auto clipRight = width;
-	auto clipBottom = -height;
-	auto clipTop = height;
-
-	return box6(clipLeft, clipBottom, zFar, clipRight, clipTop, zNear);
-}
-
 point constants::midpoint(point x, point y)
 {
 	return (x + y) / (coord)2.0;
-}
-
-eulers constants::vmod(eulers v, degrees d)
-{
-	return eulers(fmod(v.x,d), fmod(v.y,d), fmod(v.z,d));
 }

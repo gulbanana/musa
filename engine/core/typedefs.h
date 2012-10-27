@@ -20,8 +20,7 @@ typedef glm::highp_float seconds;
 #endif
 
 //raw orientation
-typedef glm::mediump_float degrees;
-typedef glm::mediump_float radians;
+typedef glm::mediump_float angle;
 typedef glm::mediump_vec3 eulers;
 
 //Material

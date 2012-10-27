@@ -10,7 +10,6 @@ private:
 	bool _firstMouse;
 	std::set<SDLKey> _keys;
 	coord _yclamp;
-	coord _xclamp;
 
 	bool _key(SDLKey);
 	coord _calc_lr();
