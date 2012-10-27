@@ -181,6 +181,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="archetypes\PresetArchetype.cpp" />
+    <ClCompile Include="components\CTransform.cpp" />
     <ClCompile Include="core.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core.h</PrecompiledHeaderFile>
@@ -205,16 +206,16 @@
     <ClCompile Include="geometry\SpriteMesh.cpp" />
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\CollisionSystem.cpp" />
-    <ClCompile Include="core\colour.cpp" />
     <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
-    <ClCompile Include="core\maths.cpp" />
+    <ClCompile Include="core\constants.cpp" />
     <ClCompile Include="systems\UISystem.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="systems\render\scene\SceneGraph.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp" />
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
+    <ClCompile Include="core\to_string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archetypes\PresetArchetype.h" />
@@ -263,7 +264,6 @@
     <ClInclude Include="gl\IDrawable.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="systems\CollisionSystem.h" />
-    <ClInclude Include="core\colour.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="components\CVelocity.h" />
     <ClInclude Include="components\CLabel.h" />
@@ -273,7 +273,7 @@
     <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
     <ClInclude Include="geometry\IRenderer.h" />
     <ClInclude Include="systems\RenderSystem.h" />
-    <ClInclude Include="core\maths.h" />
+    <ClInclude Include="core\constants.h" />
     <ClInclude Include="systems\UISystem.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="core\IEntity.h" />
@@ -287,6 +287,7 @@
     <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="systems\ThreadedSystemBase.h" />
+    <ClInclude Include="core\to_string.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -15,7 +15,7 @@ public:
 
 	//optional operations
 	virtual void set_viewport(int width, int height) {}
-	virtual void set_transform(point translation, angle rotation, lnseg scale) {}
+	virtual void set_transform(point translation, rotation r, lnseg scale) {}
 
 	virtual void begin_frame() {}
 	virtual void end_frame() {}

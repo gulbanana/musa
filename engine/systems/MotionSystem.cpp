@@ -34,14 +34,14 @@ void MotionSystem::on_frame_entity(shared_ptr<IEntity> entity)
 		
 		velocity->vector += acceleration->vector_change * (coord)elapsedTime;
 
-		auto rotated = acceleration->rotation_change * velocity->rotation;
-		velocity->rotation = glm::mix(velocity->rotation, rotated, (coord)elapsedTime);
-		velocity->rotation = glm::normalize(velocity->rotation);
+		auto rotated = acceleration->versor_change * velocity->versor;
+		velocity->versor = glm::mix(velocity->versor, rotated, (coord)elapsedTime);
+		velocity->versor = glm::normalize(velocity->versor);
 	}
 	
 	position->translate += velocity->vector * (coord)elapsedTime;
 
-	auto rotated = velocity->rotation * position->rotate;
+	auto rotated = velocity->versor * position->rotate;
 	position->rotate = glm::mix(position->rotate, rotated, (coord)elapsedTime);
 	position->rotate = glm::normalize(position->rotate);
 }

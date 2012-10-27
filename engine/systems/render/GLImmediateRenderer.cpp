@@ -91,7 +91,7 @@ void GLImmediateRenderer::end_frame()
 	//glGetError()
 }
 
-void GLImmediateRenderer::set_transform(point location, angle orientation, vec3 scaling) 
+void GLImmediateRenderer::set_transform(point location, rotation orientation, vec3 scaling) 
 {
 	_at = location;
 	_facing = orientation;
@@ -188,19 +188,19 @@ void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 	const coord eyeDistance = camera->dof / 1024;
 
 	//Select clipping planes based on FOV and scaling method
-	auto aspect = maths::aspect_ratio(_viewport_width, _viewport_height);
+	auto aspect = (coord)_viewport_width / (coord)_viewport_height;
 	switch (camera->widescreen)
 	{
 		case ScaleMethod::HorPlus:
 		{
-			auto planes = maths::vertical_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
+			auto planes = constants::vertical_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
 			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
 			break;
 		}
 
 		case ScaleMethod::VertMinus:
 		{
-			auto planes = maths::horizontal_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
+			auto planes = constants::horizontal_perspective(camera->fov, aspect, eyeDistance, eyeDistance + camera->dof);
 			glFrustum(planes.left(), planes.right(), planes.bottom(), planes.top(), planes.front(), planes.back());
 			break;
 		}
@@ -211,7 +211,7 @@ void GLImmediateRenderer::visit_enter(PerspectiveCamera const* camera)
 			throw runtime_error("scaling method not implemented by 3d renderer");
 			break;
 	}
-
+	
 	//move models to the "eye level" plane and rotate them around the origin
 	glMatrixMode(GL_MODELVIEW);	
 	glPushMatrix();

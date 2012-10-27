@@ -1,8 +1,8 @@
 #include <engine/core.h>
 #include <engine/components.h>
 #include "FPSController.h"
+#include "Windows.h"
 using namespace std;
-using namespace maths;
 using namespace glm;
 
 vector<CMP> FPSController::required_components() const 
@@ -21,22 +21,18 @@ FPSController::FPSController()
 {
 	_firstMouse = true;
 	_yclamp = 0;
+	_xclamp = 0;
 }
-
 bool FPSController::on_event(SDL_Event& event)
 {
 	auto character = entities[0].lock();
 	auto transform = character->get_component<CTransform>();
 	auto velocity = character->get_component<CVelocity>();
 	auto input = character->get_component<CInput>();
-	
-	auto forward = transform->rotate * z_axis;
-	if (forward.z < 0)
-		forward.y *= -1;
-	//quat qkq = transform->rotate * quat(0,0,0,1) * conjugate(transform->rotate);
-	//vec3 forward(qkq.x, qkq.y, qkq.z);
-	auto right = glm::cross(y_axis, forward);
-	auto up = glm::cross(forward, right);
+
+	vec3 forward = transform->direction_vector();
+	auto right = cross(constants::y_axis, forward);
+	auto up = cross(forward, right);
 
 	switch (event.type)
 	{
@@ -57,11 +53,25 @@ bool FPSController::on_event(SDL_Event& event)
 			if (_yclamp + yrads < -M_PI/2)
 				yrads = -((coord)M_PI/2 - (-_yclamp - yrads));
 			_yclamp += yrads;
+			_xclamp += xrads;
 
 			//rotate around *global* Up, then around *local* Right
-			angle pitch(eulers(yrads, 0, 0));
-			angle yaw(eulers(0, xrads, 0));
+			yrads = 0;
+			quat pitch(eulers(yrads, 0, 0));
+			quat yaw(eulers(0, xrads, 0));
 			transform->rotate = normalize(pitch * transform->rotate * yaw); 
+
+			forward = transform->direction_vector();
+			auto out = string("pitch: ") 
+				+ to_string(glm::degrees(_yclamp))
+				+ " yaw: " 
+				+ to_string(glm::degrees(_xclamp))
+				+ "\nq: "
+				+ to_string(transform->rotate)
+				+ "\nforward: "
+				+ to_string(forward)
+				+ "\n\n";
+			OutputDebugStringA(out.c_str());
 
 			return true;
 		}

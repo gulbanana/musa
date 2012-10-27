@@ -116,7 +116,7 @@ unique_ptr<IRenderable> PrimitiveFactory::create_sphere(IMaterial* brush, coord 
 		{
 			auto makevertex = [&](int vi1, int vi2)
 			{
-				return maths::midpoint(vertices[face.vertex_indices[vi1]], vertices[face.vertex_indices[vi2]]);
+				return constants::midpoint(vertices[face.vertex_indices[vi1]], vertices[face.vertex_indices[vi2]]);
 			};
 
 			int aix = addvertex(makevertex(0,1));

@@ -7,14 +7,14 @@ using namespace std;
 Camera2D::Camera2D(coord width, coord height, coord depth, bool anamorphic) : 
 	_camera_matrix(
 		new OrthographicCamera(
-			box6(maths::origin, width, height, depth), 
+			box6(constants::origin, width, height, depth), 
 			anamorphic ? ScaleMethod::Anamorphic : ScaleMethod::HorPlus
 		)
 	)
 {
 	_components.emplace_back(make_unique<CTransform>(
 		point(width/2, height/2, depth), 
-		maths::backward_rotation
+		constants::backward_orientation
 	));
 
 	_components.emplace_back(make_unique<CRenderable>(_camera_matrix.get()));

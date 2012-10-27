@@ -22,8 +22,10 @@
 //mathematical
 #include "core/rect4.h"
 #include "core/box6.h"
-#include "core/colour.h"
-#include "core/maths.h"
+
+//utility
+#include "core/constants.h"
+#include "core/to_string.h"
 
 //architectural
 #include "core/Identified.h"

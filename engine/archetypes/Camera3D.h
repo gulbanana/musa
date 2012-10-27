@@ -10,7 +10,7 @@ class Camera3D : public PresetArchetype
 public:
 	Camera3D();
 	Camera3D(point initialLocation);
-	Camera3D(point initialLocation, angle initialOrientation);
+	Camera3D(point initialLocation, rotation initialOrientation);
 
 	//XXX these should be messages or something
 	static void move_to(IEntity* camera, point location);

@@ -26,7 +26,7 @@ World::World(bool is3d)
 	//camera
 	if (is3d)
 	{
-		auto camera = new FPSCamera(point(WIDTH/2, HEIGHT/2, DEPTH));
+		auto camera = new FPSCamera(point(WIDTH/2, HEIGHT/2, DEPTH * 1.5));
 		entities.emplace_back(factory->create(camera));
 		cameraEntity = entities.back();
 		_archetypes.emplace_back(camera);

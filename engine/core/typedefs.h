@@ -16,7 +16,7 @@ typedef glm::highp_float seconds;
 	typedef glm::mediump_vec3 point;
 	typedef glm::mediump_vec2 point2;
 	typedef glm::mediump_vec3 lnseg;
-	typedef glm::mediump_quat angle;
+	typedef glm::mediump_quat rotation;
 #endif
 
 //raw orientation

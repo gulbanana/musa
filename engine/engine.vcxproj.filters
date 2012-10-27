@@ -55,11 +55,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
-    <ClCompile Include="core\maths.cpp" />
     <ClCompile Include="core.cpp" />
-    <ClCompile Include="core\colour.cpp">
-      <Filter>core</Filter>
-    </ClCompile>
     <ClCompile Include="core\box6.cpp" />
     <ClCompile Include="core\ManagedEntity.cpp" />
     <ClCompile Include="core\AutonomousEntity.cpp" />
@@ -71,6 +67,9 @@
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
     <ClCompile Include="systems\render\scene\LambdaWalker.cpp" />
     <ClCompile Include="systems\render\scene\SceneGraph.cpp" />
+    <ClCompile Include="components\CTransform.cpp" />
+    <ClCompile Include="core\constants.cpp" />
+    <ClCompile Include="core\to_string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -146,12 +145,8 @@
     <ClInclude Include="Settings.h" />
     <ClInclude Include="windows\msvc.h" />
     <ClInclude Include="mac\clang.h" />
-    <ClInclude Include="core\maths.h" />
     <ClInclude Include="core\platform.h" />
     <ClInclude Include="core\rect4.h">
-      <Filter>core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\colour.h">
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\box6.h" />
@@ -182,5 +177,7 @@
       <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="components\CRenderable.h" />
+    <ClInclude Include="core\constants.h" />
+    <ClInclude Include="core\to_string.h" />
   </ItemGroup>
 </Project>
