@@ -189,6 +189,7 @@
     <ClCompile Include="core\ManagedEntity.cpp" />
     <ClCompile Include="core\AutonomousEntityFactory.cpp" />
     <ClCompile Include="core\ManagedEntityFactory.cpp" />
+    <ClCompile Include="sdl\SDLPlatformBase.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="archetypes\Camera3D.cpp" />
     <ClCompile Include="archetypes\Camera2D.cpp" />
@@ -213,7 +214,8 @@
     <ClCompile Include="systems\MotionSystem.cpp" />
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
     <ClCompile Include="core\to_string.cpp" />
-    <ClCompile Include="windows\platform.cpp" />
+    <ClCompile Include="windows\main.cpp" />
+    <ClCompile Include="windows\MicrosoftPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archetypes\PresetArchetype.h" />
@@ -222,10 +224,10 @@
     <ClInclude Include="core\IEntityFactory.h" />
     <ClInclude Include="core\IMessage.h" />
     <ClInclude Include="core\AutonomousEntityFactory.h" />
+    <ClInclude Include="core\IPlatform.h" />
     <ClInclude Include="core\ManagedEntityFactory.h" />
-    <ClInclude Include="mac\clang.h" />
     <ClInclude Include="core\ManagedEntity.h" />
-    <ClInclude Include="platform.h" />
+    <ClInclude Include="sdl\SDLPlatformBase.h" />
     <ClInclude Include="systems\render\scene\RootNode.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="systems\collision\AABBDetector.h" />
@@ -286,6 +288,7 @@
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="systems\ThreadedSystemBase.h" />
     <ClInclude Include="core\to_string.h" />
+    <ClInclude Include="windows\MicrosoftPlatform.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

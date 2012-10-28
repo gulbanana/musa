@@ -21,5 +21,5 @@ public:
 };
 
 //global platform access and entry point
-int _main(int argc, char** argv);
+extern "C" int _main(int argc, char** argv);
 extern IPlatform* platform;

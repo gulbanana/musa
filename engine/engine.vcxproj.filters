@@ -71,6 +71,9 @@
     <ClCompile Include="core\to_string.cpp" />
     <ClCompile Include="windows\platform.cpp" />
     <ClCompile Include="core\core.cpp" />
+    <ClCompile Include="windows\MicrosoftPlatform.cpp" />
+    <ClCompile Include="sdl\SDLPlatformBase.cpp" />
+    <ClCompile Include="windows\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -145,7 +148,6 @@
     <ClInclude Include="systems\collision\AABBDetector.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="windows\msvc.h" />
-    <ClInclude Include="mac\clang.h" />
     <ClInclude Include="core\rect4.h">
       <Filter>core</Filter>
     </ClInclude>
@@ -179,6 +181,8 @@
     <ClInclude Include="components\CRenderable.h" />
     <ClInclude Include="core\constants.h" />
     <ClInclude Include="core\to_string.h" />
-    <ClInclude Include="platform.h" />
+    <ClInclude Include="windows\MicrosoftPlatform.h" />
+    <ClInclude Include="core\IPlatform.h" />
+    <ClInclude Include="sdl\SDLPlatformBase.h" />
   </ItemGroup>
 </Project>

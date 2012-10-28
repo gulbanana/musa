@@ -1,9 +1,17 @@
 #pragma once
-#include <core/IPlatform.h>
+#include <engine/sdl/SDLPlatformBase.h>
 
 class MicrosoftPlatform : public SDLPlatformBase
 {
+private:
+	milliseconds _tick_offset;
+
 public:
-    virtual void set_environment_variable(std::string variable, std::string value) final;
-    virtual void print(std::string output) final;
-}
+	MicrosoftPlatform();
+	~MicrosoftPlatform();
+
+    std::string get_environment_variable(std::string variable) final;
+	void set_environment_variable(std::string variable, std::string value) final;
+    void print(std::string output) final;
+	milliseconds get_ticks() final;
+};

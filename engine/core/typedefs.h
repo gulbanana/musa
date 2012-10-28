@@ -1,9 +1,9 @@
 #pragma once
 
 //Time
-typedef glm::highp_uint  microseconds;
-typedef glm::lowp_uint   milliseconds;
-typedef glm::highp_float seconds;
+typedef glm::highp_uint   microseconds;
+typedef glm::mediump_uint milliseconds;
+typedef glm::highp_float  seconds;
 
 //Position
 #if defined(GLM_PRECISION_HIGHP_FLOAT)
