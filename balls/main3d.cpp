@@ -12,9 +12,8 @@ using namespace std;
 extern "C"
 int main(int argc, char *argv[])
 {
-    char env[28];
-    strcpy(env, "SDL_VIDEO_WINDOW_POS=center");
-	SDL_putenv(env);
+    string env("SDL_VIDEO_WINDOW_POS=center");
+	SDL_putenv(env.c_str());
 
 	vector<unique_ptr<ISystem>> customs;
 	customs.push_back(make_unique<Bouncer>(WIDTH, HEIGHT, DEPTH));

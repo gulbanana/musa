@@ -55,7 +55,6 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
-    <ClCompile Include="core.cpp" />
     <ClCompile Include="core\box6.cpp" />
     <ClCompile Include="core\ManagedEntity.cpp" />
     <ClCompile Include="core\AutonomousEntity.cpp" />
@@ -71,6 +70,7 @@
     <ClCompile Include="core\constants.cpp" />
     <ClCompile Include="core\to_string.cpp" />
     <ClCompile Include="windows\platform.cpp" />
+    <ClCompile Include="core\core.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -146,7 +146,6 @@
     <ClInclude Include="Settings.h" />
     <ClInclude Include="windows\msvc.h" />
     <ClInclude Include="mac\clang.h" />
-    <ClInclude Include="core\platform.h" />
     <ClInclude Include="core\rect4.h">
       <Filter>core</Filter>
     </ClInclude>
@@ -180,5 +179,6 @@
     <ClInclude Include="components\CRenderable.h" />
     <ClInclude Include="core\constants.h" />
     <ClInclude Include="core\to_string.h" />
+    <ClInclude Include="platform.h" />
   </ItemGroup>
 </Project>

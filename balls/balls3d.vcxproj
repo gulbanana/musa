@@ -23,7 +23,6 @@
     <ClCompile Include="Bouncer.cpp" />
     <ClCompile Include="FPSCamera.cpp" />
     <ClCompile Include="FPSController.cpp" />
-    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main3d.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="World.cpp" />
@@ -33,7 +32,6 @@
     <ClInclude Include="Bouncer.h" />
     <ClInclude Include="FPSCamera.h" />
     <ClInclude Include="FPSController.h" />
-    <ClInclude Include="Logger.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
