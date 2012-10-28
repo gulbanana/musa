@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E56EDE40163CDED0001C2F36 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E56EDE3E163CDED0001C2F36 /* World.cpp */; };
+		E56EDE41163CDED0001C2F36 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E56EDE3E163CDED0001C2F36 /* World.cpp */; };
+		E56EDE73163CE146001C2F36 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E56EDE4A163CDFBD001C2F36 /* libengine.a */; };
+		E56EDE75163CE146001C2F36 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E56EDE74163CE146001C2F36 /* libguichan.a */; };
+		E56EDE76163CE158001C2F36 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E56EDE4A163CDFBD001C2F36 /* libengine.a */; };
+		E56EDE77163CE158001C2F36 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E56EDE74163CE146001C2F36 /* libguichan.a */; };
+		E56EDF29163CE61E001C2F36 /* FPSCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A76751629D4BF00AE0CB0 /* FPSCamera.cpp */; };
 		E59A762E16296A5900AE0CB0 /* Bouncer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A762C16296A5900AE0CB0 /* Bouncer.cpp */; };
 		E59A763216296A6600AE0CB0 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1616184BCC0007CDB1 /* Ball.cpp */; };
 		E59A763416296A6600AE0CB0 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */; };
 		E59A763516296A6600AE0CB0 /* Bouncer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A762C16296A5900AE0CB0 /* Bouncer.cpp */; };
 		E59A763716296A6600AE0CB0 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
-		E59A763816296A6600AE0CB0 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2416184C5C0007CDB1 /* libguichan.a */; };
-		E59A763916296A6600AE0CB0 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C1216184A330007CDB1 /* libengine.a */; };
 		E59A763A16296A6600AE0CB0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63BEA16183C210007CDB1 /* Cocoa.framework */; };
 		E59A763B16296A6600AE0CB0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
 		E59A763D16296A6600AE0CB0 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
@@ -23,12 +28,10 @@
 		E59A76791629D4BF00AE0CB0 /* FPSCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A76751629D4BF00AE0CB0 /* FPSCamera.cpp */; };
 		E59A767A1629D4BF00AE0CB0 /* FPSController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A76771629D4BF00AE0CB0 /* FPSController.cpp */; };
 		E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63BEA16183C210007CDB1 /* Cocoa.framework */; };
-		E5A63C1316184A330007CDB1 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C1216184A330007CDB1 /* libengine.a */; };
 		E5A63C1E16184BCC0007CDB1 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1616184BCC0007CDB1 /* Ball.cpp */; };
 		E5A63C2016184BCC0007CDB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1A16184BCC0007CDB1 /* main.cpp */; };
 		E5A63C2116184BCC0007CDB1 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */; };
 		E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
-		E5A63C2516184C5C0007CDB1 /* libguichan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2416184C5C0007CDB1 /* libguichan.a */; };
 		E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
 		E5D03FD1161887B200FE0F56 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
 		E5D03FD2161887E300FE0F56 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
@@ -58,6 +61,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E56EDE3E163CDED0001C2F36 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		E56EDE3F163CDED0001C2F36 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		E56EDE4A163CDFBD001C2F36 /* libengine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libengine.a; path = "/Users/banana/Documents/Programming/musaceae/balls/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug/libengine.a"; sourceTree = "<absolute>"; };
+		E56EDE74163CE146001C2F36 /* libguichan.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libguichan.a; path = "/Users/banana/Documents/Programming/musaceae/balls/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug/libguichan.a"; sourceTree = "<absolute>"; };
 		E59A762C16296A5900AE0CB0 /* Bouncer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bouncer.cpp; sourceTree = "<group>"; };
 		E59A762D16296A5900AE0CB0 /* Bouncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bouncer.h; sourceTree = "<group>"; };
 		E59A764316296A6600AE0CB0 /* balls3d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balls3d.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,14 +81,12 @@
 		E5A63BEE16183C210007CDB1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E5A63BEF16183C210007CDB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E5A63BF216183C210007CDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5A63C1216184A330007CDB1 /* libengine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libengine.a; path = "../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug/libengine.a"; sourceTree = "<group>"; };
 		E5A63C1616184BCC0007CDB1 /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
 		E5A63C1716184BCC0007CDB1 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		E5A63C1A16184BCC0007CDB1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 		E5A63C1C16184BCC0007CDB1 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		E5A63C2216184C450007CDB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
-		E5A63C2416184C5C0007CDB1 /* libguichan.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libguichan.a; path = ../guichan/build/Release/libguichan.a; sourceTree = "<group>"; };
 		E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = SDLMain.nib; path = /Users/banana/Documents/Programming/musaceae/engine/mac/../../../../../../../Library/Frameworks/SDL.framework/Versions/A/Resources/SDLMain.nib; sourceTree = "<absolute>"; };
 		E5D03FD0161887B200FE0F56 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -91,9 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56EDE76163CE158001C2F36 /* libengine.a in Frameworks */,
+				E56EDE77163CE158001C2F36 /* libguichan.a in Frameworks */,
 				E59A763716296A6600AE0CB0 /* SDL.framework in Frameworks */,
-				E59A763816296A6600AE0CB0 /* libguichan.a in Frameworks */,
-				E59A763916296A6600AE0CB0 /* libengine.a in Frameworks */,
 				E59A763A16296A6600AE0CB0 /* Cocoa.framework in Frameworks */,
 				E59A763B16296A6600AE0CB0 /* OpenGL.framework in Frameworks */,
 			);
@@ -103,9 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56EDE75163CE146001C2F36 /* libguichan.a in Frameworks */,
+				E56EDE73163CE146001C2F36 /* libengine.a in Frameworks */,
 				E5D03FD1161887B200FE0F56 /* SDL.framework in Frameworks */,
-				E5A63C2516184C5C0007CDB1 /* libguichan.a in Frameworks */,
-				E5A63C1316184A330007CDB1 /* libengine.a in Frameworks */,
 				E5A63BEB16183C210007CDB1 /* Cocoa.framework in Frameworks */,
 				E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */,
 			);
@@ -117,6 +122,9 @@
 		E5A63BDB16183C210007CDB1 = {
 			isa = PBXGroup;
 			children = (
+				E5A63BF216183C210007CDB1 /* Info.plist */,
+				E56EDE3E163CDED0001C2F36 /* World.cpp */,
+				E56EDE3F163CDED0001C2F36 /* World.h */,
 				E59A76751629D4BF00AE0CB0 /* FPSCamera.cpp */,
 				E59A76761629D4BF00AE0CB0 /* FPSCamera.h */,
 				E59A76771629D4BF00AE0CB0 /* FPSController.cpp */,
@@ -127,11 +135,11 @@
 				E59A764616296AB500AE0CB0 /* main3d.cpp */,
 				E59A762C16296A5900AE0CB0 /* Bouncer.cpp */,
 				E59A762D16296A5900AE0CB0 /* Bouncer.h */,
-				E5BE5C8D16186C7F0095BE77 /* mac */,
 				E5A63C1616184BCC0007CDB1 /* Ball.cpp */,
 				E5A63C1716184BCC0007CDB1 /* Ball.h */,
 				E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */,
 				E5A63C1C16184BCC0007CDB1 /* Obstacle.h */,
+				E5BE5C8D16186C7F0095BE77 /* Dependencies */,
 				E5A63BE916183C210007CDB1 /* Frameworks */,
 				E5A63BE716183C210007CDB1 /* Products */,
 			);
@@ -167,16 +175,15 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		E5BE5C8D16186C7F0095BE77 /* mac */ = {
+		E5BE5C8D16186C7F0095BE77 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				E5A63C2416184C5C0007CDB1 /* libguichan.a */,
-				E5A63C1216184A330007CDB1 /* libengine.a */,
-				E5A63BF216183C210007CDB1 /* Info.plist */,
+				E56EDE74163CE146001C2F36 /* libguichan.a */,
+				E56EDE4A163CDFBD001C2F36 /* libengine.a */,
 				E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */,
 			);
-			name = mac;
-			sourceTree = "<group>";
+			name = Dependencies;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -274,6 +281,7 @@
 				E59A764716296AB500AE0CB0 /* main3d.cpp in Sources */,
 				E59A76791629D4BF00AE0CB0 /* FPSCamera.cpp in Sources */,
 				E59A767A1629D4BF00AE0CB0 /* FPSController.cpp in Sources */,
+				E56EDE41163CDED0001C2F36 /* World.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +294,8 @@
 				E5A63C2116184BCC0007CDB1 /* Obstacle.cpp in Sources */,
 				E59A762E16296A5900AE0CB0 /* Bouncer.cpp in Sources */,
 				E59A764A16296AD000AE0CB0 /* ResizingBouncer.cpp in Sources */,
+				E56EDE40163CDED0001C2F36 /* World.cpp in Sources */,
+				E56EDF29163CE61E001C2F36 /* FPSCamera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +342,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"@rpath/Frameworks/Versions/A/SDL",
-					/Library/Frameworks,
-				);
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -372,10 +379,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"@rpath/Frameworks/Versions/A/SDL",
-					/Library/Frameworks,
-				);
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

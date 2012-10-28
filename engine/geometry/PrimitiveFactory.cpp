@@ -43,7 +43,7 @@ unique_ptr<IRenderable> PrimitiveFactory::create_sphere(IMaterial* brush, coord 
 	vector<point> vertices;
 	vertices.reserve(12 * (unsigned long)pow((coord)4, refinements));
 
-	auto addvertex = [&](point v)
+	auto addvertex = [&](point v)->int
 	{
 		v = normalize(v);
 		v *= radius;

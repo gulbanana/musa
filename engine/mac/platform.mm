@@ -1,8 +1,8 @@
 #include <engine/core.h>
-#include "Windows.h"
+#import <Cocoa/Cocoa.h>
 using namespace std;
 
 void debug::print(string output)
 {
-	OutputDebugStringA(output.c_str());
+    NSLog(@"%s", output.c_str());
 }

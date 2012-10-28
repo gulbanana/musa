@@ -67,7 +67,6 @@ World::World(bool is3d)
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(), eulers(glm::radians(45.0), 0, 0)));
 
 	//fixed balls
-	coord smallBall = 15;
 	coord bigBall = 35;
 	auto cyanBall = new Ball(_loader.load_primitive(brush(Colour::CYAN), Primitive::Sphere, &bigBall));
 	auto magentaBall = new Ball(_loader.load_primitive(brush(Colour::MAGENTA), Primitive::Sphere, &bigBall));
@@ -89,7 +88,7 @@ World::World(bool is3d)
 	entities.back()->add_component<CVelocity>(make_unique<CVelocity>(point(-100, 100, 0)));
 	
 	//random balls
-	auto small = (coord)15;
+	coord smallBall = 15;
 	auto greenBall = new Ball(_loader.load_primitive(brush(colour(0.f, 1.f, 0.f, 0.75f)), Primitive::Sphere, &smallBall));
 	_archetypes.emplace_back(greenBall);
 

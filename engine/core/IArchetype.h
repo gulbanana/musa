@@ -4,6 +4,6 @@
 class IArchetype
 {
 public:
-	~IArchetype() {}
+	virtual ~IArchetype() {}
 	virtual std::vector<IComponent*> components() = 0;
 };

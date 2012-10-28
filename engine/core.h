@@ -15,7 +15,7 @@
 #include <glm/gtc/quaternion.hpp>
 
 //internal
-#include "core/platform.h"
+#include "platform.h"       //let's hope this doesn't change too often
 #include "core/misc.h"
 #include "core/typedefs.h"
 
