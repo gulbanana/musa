@@ -13,29 +13,25 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-//internal
-#include "platform.h"       //let's hope this doesn't change too often
+//internal types
 #include "core/misc.h"
 #include "core/typedefs.h"
-
-//mathematical
 #include "core/rect4.h"
 #include "core/box6.h"
-
-//utility
 #include "core/constants.h"
 #include "core/to_string.h"
 
-//architectural
+//core architecture layer 1
+#include "core/IPlatform.h"
 #include "core/Identified.h"
 #include "core/IComponent.h"
-
+//layer 2
 #include "core/IEntity.h"
-#include "core/IArchetype.h"
 #include "core/IEntityFactory.h"
+#include "core/IArchetype.h"
+#include "core/ISystem.h"
+//layer 3
 #include "core/AutonomousEntity.h"
 #include "core/AutonomousEntityFactory.h"
 #include "core/ManagedEntity.h"
 #include "core/ManagedEntityFactory.h"
-
-#include "core/ISystem.h"

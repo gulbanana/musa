@@ -2,6 +2,31 @@
 <Workspace
    version = "1.0">
    <Group
+      location = "group:doc"
+      name = "doc">
+      <FileRef
+         location = "group:architecture.graffle">
+      </FileRef>
+      <FileRef
+         location = "group:architecture.png">
+      </FileRef>
+      <FileRef
+         location = "group:coordinates.txt">
+      </FileRef>
+      <FileRef
+         location = "group:LICENSE.txt">
+      </FileRef>
+      <FileRef
+         location = "group:renderables.txt">
+      </FileRef>
+      <FileRef
+         location = "group:systems.txt">
+      </FileRef>
+      <FileRef
+         location = "group:TODO.txt">
+      </FileRef>
+   </Group>
+   <Group
       location = "group:glm"
       name = "glm">
       <Group

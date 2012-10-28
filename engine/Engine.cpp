@@ -36,20 +36,7 @@ EngineImpl::EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLog
 	: _state(make_shared<GameState>())
 {
 	
-#ifdef _DEBUG
-	Uint32 flags = SDL_INIT_EVERYTHING | SDL_INIT_NOPARACHUTE;
-#else
-	Uint32 flags = SDL_INIT_EVERYTHING;
-#endif
-
-    int rc = SDL_Init(flags);
-    if (rc != 0)
-    {
-        SDL_Error(SDL_LASTERROR);
-        throw runtime_error("SDL_Init failed");
-    }
-    
-	SDL_WM_SetCaption(settings.window_title.c_str(), nullptr);	
+    platform->set_window_title(settings.window_title);
 
 	_renderer = make_unique<GLImmediateRenderer>(settings.mode == GraphicsMode::THREE_D);
 	_renderer->set_viewport(settings.initial_width, settings.initial_height);
@@ -99,8 +86,6 @@ void EngineImpl::play()
         if (_state->last_frame_time < mspf)
             SDL_Delay(mspf - _state->last_frame_time);
 	}
-
-	SDL_Quit();
 }
 
 void EngineImpl::frame()

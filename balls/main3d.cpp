@@ -10,11 +10,8 @@ using namespace std;
 #define DEPTH 1000
 
 extern "C"
-int main(int argc, char *argv[])
+int _main(int argc, char *argv[])
 {
-    string env("SDL_VIDEO_WINDOW_POS=center");
-	SDL_putenv(env.c_str());
-
 	vector<unique_ptr<ISystem>> customs;
 	customs.push_back(make_unique<Bouncer>(WIDTH, HEIGHT, DEPTH));
 	customs.push_back(make_unique<FPSController>());

@@ -9,10 +9,8 @@ using namespace std;
 #define DEPTH HEIGHT
 
 extern "C"
-int main(int argc, char *argv[])
+int _main(int argc, char *argv[])
 {
-	SDL_putenv("SDL_VIDEO_WINDOW_POS=center");
-
 	World scene(false);
 
 	vector<unique_ptr<ISystem>> customs;

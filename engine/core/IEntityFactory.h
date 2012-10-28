@@ -1,5 +1,6 @@
 #pragma once
 #include "IEntity.h"
+#include "IArchetype.h"
 
 //produces some kind of entities, somehow
 class IEntityFactory

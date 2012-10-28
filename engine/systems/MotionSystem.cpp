@@ -1,6 +1,5 @@
 #include <engine/core.h>
 #include <engine/components.h>
-#include <SDL_timer.h>
 #include <cmath>
 #include <list>
 #include "MotionSystem.h"

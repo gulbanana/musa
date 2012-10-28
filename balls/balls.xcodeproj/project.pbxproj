@@ -21,7 +21,6 @@
 		E59A763716296A6600AE0CB0 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
 		E59A763A16296A6600AE0CB0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63BEA16183C210007CDB1 /* Cocoa.framework */; };
 		E59A763B16296A6600AE0CB0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
-		E59A763D16296A6600AE0CB0 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
 		E59A763F16296A6600AE0CB0 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
 		E59A764716296AB500AE0CB0 /* main3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A764616296AB500AE0CB0 /* main3d.cpp */; };
 		E59A764A16296AD000AE0CB0 /* ResizingBouncer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E59A764816296AD000AE0CB0 /* ResizingBouncer.cpp */; };
@@ -32,7 +31,6 @@
 		E5A63C2016184BCC0007CDB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1A16184BCC0007CDB1 /* main.cpp */; };
 		E5A63C2116184BCC0007CDB1 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */; };
 		E5A63C2316184C450007CDB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A63C2216184C450007CDB1 /* OpenGL.framework */; };
-		E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */; };
 		E5D03FD1161887B200FE0F56 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
 		E5D03FD2161887E300FE0F56 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5D03FD0161887B200FE0F56 /* SDL.framework */; };
 /* End PBXBuildFile section */
@@ -87,7 +85,6 @@
 		E5A63C1B16184BCC0007CDB1 /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 		E5A63C1C16184BCC0007CDB1 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		E5A63C2216184C450007CDB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
-		E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = SDLMain.nib; path = /Users/banana/Documents/Programming/musaceae/engine/mac/../../../../../../../Library/Frameworks/SDL.framework/Versions/A/Resources/SDLMain.nib; sourceTree = "<absolute>"; };
 		E5D03FD0161887B200FE0F56 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = /Library/Frameworks/SDL.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -180,7 +177,6 @@
 			children = (
 				E56EDE74163CE146001C2F36 /* libguichan.a */,
 				E56EDE4A163CDFBD001C2F36 /* libengine.a */,
-				E5BE5C8B16186C7B0095BE77 /* SDLMain.nib */,
 			);
 			name = Dependencies;
 			sourceTree = SOURCE_ROOT;
@@ -256,7 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E59A763D16296A6600AE0CB0 /* SDLMain.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +259,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5BE5C8C16186C7B0095BE77 /* SDLMain.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

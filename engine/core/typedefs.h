@@ -25,7 +25,3 @@ typedef glm::mediump_vec3 eulers;
 
 //Material
 typedef glm::lowp_vec4 colour;
-
-#ifdef DEBUG
-	#pragma warning(default:4146)
-#endif

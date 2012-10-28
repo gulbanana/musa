@@ -42,7 +42,6 @@
 		E56EDEC0163CE2F3001C2F36 /* to_string.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDEA7163CE2F3001C2F36 /* to_string.h */; };
 		E56EDEC1163CE2F3001C2F36 /* typedefs.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDEA8163CE2F3001C2F36 /* typedefs.h */; };
 		E56EDEC3163CE315001C2F36 /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E56EDEC2163CE315001C2F36 /* core.cpp */; };
-		E56EDEC5163CE335001C2F36 /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDEC4163CE335001C2F36 /* platform.h */; };
 		E56EDED3163CE3BD001C2F36 /* FVMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E56EDEC6163CE3BD001C2F36 /* FVMesh.cpp */; };
 		E56EDED4163CE3BD001C2F36 /* FVMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDEC7163CE3BD001C2F36 /* FVMesh.h */; };
 		E56EDED5163CE3BD001C2F36 /* IMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDEC8163CE3BD001C2F36 /* IMaterial.h */; };
@@ -56,7 +55,7 @@
 		E56EDEDD163CE3BD001C2F36 /* SolidColourBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDED0163CE3BD001C2F36 /* SolidColourBrush.h */; };
 		E56EDEDE163CE3BD001C2F36 /* SpriteMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E56EDED1163CE3BD001C2F36 /* SpriteMesh.cpp */; };
 		E56EDEDF163CE3BD001C2F36 /* SpriteMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDED2163CE3BD001C2F36 /* SpriteMesh.h */; };
-		E56EDEE2163CE3F8001C2F36 /* platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = E56EDEE1163CE3F8001C2F36 /* platform.mm */; };
+		E56EDEE2163CE3F8001C2F36 /* ApplePlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = E56EDEE1163CE3F8001C2F36 /* ApplePlatform.mm */; };
 		E56EDF08163CE5F0001C2F36 /* AABBDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E56EDEE4163CE5F0001C2F36 /* AABBDetector.cpp */; };
 		E56EDF09163CE5F0001C2F36 /* AABBDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDEE5163CE5F0001C2F36 /* AABBDetector.h */; };
 		E56EDF0A163CE5F0001C2F36 /* ICollisionDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDEE6163CE5F0001C2F36 /* ICollisionDetector.h */; };
@@ -95,13 +94,15 @@
 		E58E6008162065C900EB3F0D /* Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = E58E6006162065C900EB3F0D /* Engine.h */; };
 		E58E601F1620B5C300EB3F0D /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */; };
 		E58E60201620B5C300EB3F0D /* ResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E58E601E1620B5C300EB3F0D /* ResourceManager.h */; };
+		E592BB09163D52100088BC0B /* ApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5E72272163D421D009A1099 /* ApplicationDelegate.mm */; };
 		E59A766816296B9B00AE0CB0 /* Settings.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A766716296B9A00AE0CB0 /* Settings.h */; };
 		E59A76741629D42800AE0CB0 /* CTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = E59A76711629D42800AE0CB0 /* CTransform.h */; };
-		E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* SDLMain.m */; };
-		E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C7D161863A60095BE77 /* SDLApplication.h */; };
-		E5BE5C80161864060095BE77 /* SDLApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE5C7F161864060095BE77 /* SDLApplication.m */; };
-		E5BE5C82161864350095BE77 /* NSString_ReplaceSubString.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BE5C81161864350095BE77 /* NSString_ReplaceSubString.h */; };
+		E5A63C111618492B0007CDB1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5A63C0F1618492B0007CDB1 /* main.mm */; };
 		E5DDE53A16183230008179BF /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4BB16182B7A008179BF /* GameState.cpp */; };
+		E5E72269163D3261009A1099 /* SDLPlatformBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E72268163D3261009A1099 /* SDLPlatformBase.cpp */; };
+		E5E7226B163D36C3009A1099 /* ApplePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E7226A163D36C3009A1099 /* ApplePlatform.h */; };
+		E5E7226D163D3822009A1099 /* SDLPlatformBase.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E7226C163D3822009A1099 /* SDLPlatformBase.h */; };
+		E5E72275163D4C6F009A1099 /* IPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E72274163D4C6F009A1099 /* IPlatform.h */; };
 		E5EE0E1E161A3254008B9D2E /* CAcceleration.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E16161A3254008B9D2E /* CAcceleration.h */; };
 		E5EE0E21161A3254008B9D2E /* CLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E19161A3254008B9D2E /* CLabel.h */; };
 		E5EE0E23161A3254008B9D2E /* CPhysics.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EE0E1B161A3254008B9D2E /* CPhysics.h */; };
@@ -145,7 +146,6 @@
 		E56EDEA7163CE2F3001C2F36 /* to_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = to_string.h; sourceTree = "<group>"; };
 		E56EDEA8163CE2F3001C2F36 /* typedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typedefs.h; sourceTree = "<group>"; };
 		E56EDEC2163CE315001C2F36 /* core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core.cpp; sourceTree = "<group>"; };
-		E56EDEC4163CE335001C2F36 /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
 		E56EDEC6163CE3BD001C2F36 /* FVMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FVMesh.cpp; sourceTree = "<group>"; };
 		E56EDEC7163CE3BD001C2F36 /* FVMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVMesh.h; sourceTree = "<group>"; };
 		E56EDEC8163CE3BD001C2F36 /* IMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMaterial.h; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 		E56EDED0163CE3BD001C2F36 /* SolidColourBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolidColourBrush.h; sourceTree = "<group>"; };
 		E56EDED1163CE3BD001C2F36 /* SpriteMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteMesh.cpp; sourceTree = "<group>"; };
 		E56EDED2163CE3BD001C2F36 /* SpriteMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteMesh.h; sourceTree = "<group>"; };
-		E56EDEE0163CE3DA001C2F36 /* platform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = platform.cpp; sourceTree = "<group>"; };
-		E56EDEE1163CE3F8001C2F36 /* platform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = platform.mm; sourceTree = "<group>"; };
+		E56EDEE0163CE3DA001C2F36 /* MicrosoftPlatform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MicrosoftPlatform.cpp; sourceTree = "<group>"; };
+		E56EDEE1163CE3F8001C2F36 /* ApplePlatform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApplePlatform.mm; sourceTree = "<group>"; };
 		E56EDEE4163CE5F0001C2F36 /* AABBDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AABBDetector.cpp; sourceTree = "<group>"; };
 		E56EDEE5163CE5F0001C2F36 /* AABBDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABBDetector.h; sourceTree = "<group>"; };
 		E56EDEE6163CE5F0001C2F36 /* ICollisionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICollisionDetector.h; sourceTree = "<group>"; };
@@ -199,20 +199,23 @@
 		E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
 		E58E601E1620B5C300EB3F0D /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		E59A766716296B9A00AE0CB0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		E59A766A1629700F00AE0CB0 /* msvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = msvc.h; sourceTree = "<group>"; };
+		E59A766A1629700F00AE0CB0 /* MicrosoftPlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MicrosoftPlatform.h; sourceTree = "<group>"; };
 		E59A76711629D42800AE0CB0 /* CTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTransform.h; sourceTree = "<group>"; };
-		E5A63C0E1618492B0007CDB1 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
-		E5A63C0F1618492B0007CDB1 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
-		E5BE5C7D161863A60095BE77 /* SDLApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLApplication.h; sourceTree = "<group>"; };
-		E5BE5C7F161864060095BE77 /* SDLApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLApplication.m; sourceTree = "<group>"; };
-		E5BE5C81161864350095BE77 /* NSString_ReplaceSubString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_ReplaceSubString.h; sourceTree = "<group>"; };
-		E5BE5C831618671C0095BE77 /* NSApplication_SDLMissingMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSApplication_SDLMissingMethods.h; sourceTree = "<group>"; };
+		E5A63C0E1618492B0007CDB1 /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
+		E5A63C0F1618492B0007CDB1 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		E5BE5C831618671C0095BE77 /* NSApplication_SetAppleMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSApplication_SetAppleMenu.h; sourceTree = "<group>"; };
 		E5DDE49D16182B7A008179BF /* components.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = components.h; sourceTree = "<group>"; };
 		E5DDE4B016182B7A008179BF /* core.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = core.h; sourceTree = "<group>"; };
 		E5DDE4BB16182B7A008179BF /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
 		E5DDE4BC16182B7A008179BF /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		E5DDE4DE16182B7A008179BF /* systems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
 		E5DDE52D1618315D008179BF /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E72268163D3261009A1099 /* SDLPlatformBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SDLPlatformBase.cpp; sourceTree = "<group>"; };
+		E5E7226A163D36C3009A1099 /* ApplePlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplePlatform.h; sourceTree = "<group>"; };
+		E5E7226C163D3822009A1099 /* SDLPlatformBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLPlatformBase.h; sourceTree = "<group>"; };
+		E5E72270163D3EE1009A1099 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../main.c; sourceTree = "<group>"; };
+		E5E72272163D421D009A1099 /* ApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApplicationDelegate.mm; sourceTree = "<group>"; };
+		E5E72274163D4C6F009A1099 /* IPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPlatform.h; sourceTree = "<group>"; };
 		E5EE0E16161A3254008B9D2E /* CAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAcceleration.h; sourceTree = "<group>"; };
 		E5EE0E19161A3254008B9D2E /* CLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLabel.h; sourceTree = "<group>"; };
 		E5EE0E1B161A3254008B9D2E /* CPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPhysics.h; sourceTree = "<group>"; };
@@ -295,8 +298,9 @@
 		E59A76691629700E00AE0CB0 /* windows */ = {
 			isa = PBXGroup;
 			children = (
-				E59A766A1629700F00AE0CB0 /* msvc.h */,
-				E56EDEE0163CE3DA001C2F36 /* platform.cpp */,
+				E5E72270163D3EE1009A1099 /* main.c */,
+				E59A766A1629700F00AE0CB0 /* MicrosoftPlatform.h */,
+				E56EDEE0163CE3DA001C2F36 /* MicrosoftPlatform.cpp */,
 			);
 			path = windows;
 			sourceTree = "<group>";
@@ -304,13 +308,12 @@
 		E5A63C09161849030007CDB1 /* mac */ = {
 			isa = PBXGroup;
 			children = (
-				E5A63C0E1618492B0007CDB1 /* SDLMain.h */,
-				E5A63C0F1618492B0007CDB1 /* SDLMain.m */,
-				E5BE5C7D161863A60095BE77 /* SDLApplication.h */,
-				E5BE5C7F161864060095BE77 /* SDLApplication.m */,
-				E5BE5C81161864350095BE77 /* NSString_ReplaceSubString.h */,
-				E5BE5C831618671C0095BE77 /* NSApplication_SDLMissingMethods.h */,
-				E56EDEE1163CE3F8001C2F36 /* platform.mm */,
+				E5A63C0F1618492B0007CDB1 /* main.mm */,
+				E5BE5C831618671C0095BE77 /* NSApplication_SetAppleMenu.h */,
+				E5A63C0E1618492B0007CDB1 /* ApplicationDelegate.h */,
+				E5E72272163D421D009A1099 /* ApplicationDelegate.mm */,
+				E56EDEE1163CE3F8001C2F36 /* ApplePlatform.mm */,
+				E5E7226A163D36C3009A1099 /* ApplePlatform.h */,
 			);
 			path = mac;
 			sourceTree = "<group>";
@@ -326,9 +329,9 @@
 				E5DDE49E16182B7A008179BF /* core */,
 				E5EE0F06161A32BA008B9D2E /* geometry.h */,
 				E5EE0EF3161A32AE008B9D2E /* geometry */,
-				E56EDEC4163CE335001C2F36 /* platform.h */,
 				E5A63C09161849030007CDB1 /* mac */,
 				E59A76691629700E00AE0CB0 /* windows */,
+				E5E72266163D324E009A1099 /* sdl */,
 				E5DDE4DE16182B7A008179BF /* systems.h */,
 				E5DDE4C816182B7A008179BF /* systems */,
 				E58E6006162065C900EB3F0D /* Engine.h */,
@@ -391,6 +394,7 @@
 				E56EDE9B163CE2F3001C2F36 /* IEntity.h */,
 				E56EDE9C163CE2F3001C2F36 /* IEntityFactory.h */,
 				E56EDE9D163CE2F3001C2F36 /* IMessage.h */,
+				E5E72274163D4C6F009A1099 /* IPlatform.h */,
 				E56EDE9E163CE2F3001C2F36 /* ISystem.h */,
 				E56EDE9F163CE2F3001C2F36 /* ManagedEntity.cpp */,
 				E56EDEA0163CE2F3001C2F36 /* ManagedEntity.h */,
@@ -429,6 +433,15 @@
 			path = systems;
 			sourceTree = "<group>";
 		};
+		E5E72266163D324E009A1099 /* sdl */ = {
+			isa = PBXGroup;
+			children = (
+				E5E72268163D3261009A1099 /* SDLPlatformBase.cpp */,
+				E5E7226C163D3822009A1099 /* SDLPlatformBase.h */,
+			);
+			path = sdl;
+			sourceTree = "<group>";
+		};
 		E5EE0EF3161A32AE008B9D2E /* geometry */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,8 +469,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5BE5C7E161863A60095BE77 /* SDLApplication.h in Headers */,
-				E5BE5C82161864350095BE77 /* NSString_ReplaceSubString.h in Headers */,
 				E5EE0E1E161A3254008B9D2E /* CAcceleration.h in Headers */,
 				E5EE0E21161A3254008B9D2E /* CLabel.h in Headers */,
 				E5EE0E23161A3254008B9D2E /* CPhysics.h in Headers */,
@@ -490,7 +501,6 @@
 				E56EDEBE163CE2F3001C2F36 /* rect4.h in Headers */,
 				E56EDEC0163CE2F3001C2F36 /* to_string.h in Headers */,
 				E56EDEC1163CE2F3001C2F36 /* typedefs.h in Headers */,
-				E56EDEC5163CE335001C2F36 /* platform.h in Headers */,
 				E56EDED4163CE3BD001C2F36 /* FVMesh.h in Headers */,
 				E56EDED5163CE3BD001C2F36 /* IMaterial.h in Headers */,
 				E56EDED6163CE3BD001C2F36 /* IRenderable.h in Headers */,
@@ -522,6 +532,9 @@
 				E56EDF26163CE5F0001C2F36 /* UISystemImpl.h in Headers */,
 				E56EDF28163CE5F0001C2F36 /* UISystem.h in Headers */,
 				E56EDF2A163CECF6001C2F36 /* core.h in Headers */,
+				E5E7226B163D36C3009A1099 /* ApplePlatform.h in Headers */,
+				E5E7226D163D3822009A1099 /* SDLPlatformBase.h in Headers */,
+				E5E72275163D4C6F009A1099 /* IPlatform.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,8 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5DDE53A16183230008179BF /* GameState.cpp in Sources */,
-				E5A63C111618492B0007CDB1 /* SDLMain.m in Sources */,
-				E5BE5C80161864060095BE77 /* SDLApplication.m in Sources */,
+				E5A63C111618492B0007CDB1 /* main.mm in Sources */,
 				E58E6007162065C900EB3F0D /* Engine.cpp in Sources */,
 				E58E601F1620B5C300EB3F0D /* ResourceManager.cpp in Sources */,
 				E56EDE7F163CE193001C2F36 /* Camera2D.cpp in Sources */,
@@ -596,7 +608,7 @@
 				E56EDED3163CE3BD001C2F36 /* FVMesh.cpp in Sources */,
 				E56EDEDA163CE3BD001C2F36 /* PrimitiveFactory.cpp in Sources */,
 				E56EDEDE163CE3BD001C2F36 /* SpriteMesh.cpp in Sources */,
-				E56EDEE2163CE3F8001C2F36 /* platform.mm in Sources */,
+				E56EDEE2163CE3F8001C2F36 /* ApplePlatform.mm in Sources */,
 				E56EDF08163CE5F0001C2F36 /* AABBDetector.cpp in Sources */,
 				E56EDF0B163CE5F0001C2F36 /* RectIntersectionDetector.cpp in Sources */,
 				E56EDF0D163CE5F0001C2F36 /* CollisionSystem.cpp in Sources */,
@@ -610,6 +622,8 @@
 				E56EDF23163CE5F0001C2F36 /* ThreadedSystemBase.cpp in Sources */,
 				E56EDF25163CE5F0001C2F36 /* UISystemImpl.cpp in Sources */,
 				E56EDF27163CE5F0001C2F36 /* UISystem.cpp in Sources */,
+				E5E72269163D3261009A1099 /* SDLPlatformBase.cpp in Sources */,
+				E592BB09163D52100088BC0B /* ApplicationDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

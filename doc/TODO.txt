@@ -26,6 +26,8 @@ gl3/VBO renderer
 linux port
 wizards game
 windows: sdl version which static links to msvcrt, maybe 2.0
+get rid of sdlmain
+longer term: get rid of sdl
 remove sdl?
 windows: directx renderer
 Bullet physics

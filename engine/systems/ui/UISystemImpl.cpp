@@ -8,6 +8,8 @@ UISystemImpl::UISystemImpl(shared_ptr<GameState> s)
 	_state = s;
 
 	//prepare sdl to be used with guichan
+    //XXX these probably aren't being called - no init event
+    //and for the keyrepeat one that's a good thing
 	SDL_EnableUNICODE(1);
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 	
