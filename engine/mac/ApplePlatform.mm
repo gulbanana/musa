@@ -81,7 +81,7 @@ static void setupWindowMenu(void)
     [windowMenuItem release];
 }
 
-ApplePlatform::ApplePlatform()
+ApplePlatform::ApplePlatform() : SDLPlatformBase()
 {
     set_environment_variable("SDL_VIDEO_WINDOW_POS", "center");
     

@@ -13,6 +13,8 @@ SDLPlatformBase::SDLPlatformBase()
         SDL_Error(SDL_LASTERROR);
         throw runtime_error("SDL_Init failed");
     }
+    
+    SDL_EnableUNICODE(1);   //for guichan
 }
 
 SDLPlatformBase::~SDLPlatformBase()
@@ -39,4 +41,14 @@ void SDLPlatformBase::quit()
     SDL_Event event;
     event.type = SDL_QUIT;
     SDL_PushEvent(&event);
+}
+
+milliseconds SDLPlatformBase::get_ticks()
+{
+    return SDL_GetTicks();
+}
+
+void SDLPlatformBase::sleep_ticks(milliseconds atLeast)
+{
+    SDL_Delay(atLeast);
 }

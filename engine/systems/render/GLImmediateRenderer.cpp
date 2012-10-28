@@ -13,10 +13,10 @@ using namespace glm;
 #pragma endregion
 
 #pragma region lifecycle
-GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe)
+GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe), _surface(nullptr)
 {
 	//SDL init
-	int rc; 
+	int rc;
 	rc = SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	if (rc != 0) throw runtime_error("failed to init doublebuffering");
 	rc = SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); 
@@ -32,6 +32,7 @@ GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe)
 
 GLImmediateRenderer::~GLImmediateRenderer()
 {
+    SDL_FreeSurface(_surface);
 }
 #pragma endregion
 
@@ -42,6 +43,7 @@ void GLImmediateRenderer::set_viewport(int width, int height)
 	_viewport_height = height;
 
     //might be able to avoid this with sdl 2.0..
+    if (_surface != nullptr) SDL_FreeSurface(_surface);
 	_surface = SDL_SetVideoMode(_viewport_width, _viewport_height, 32, SDL_OPENGL | SDL_RESIZABLE);
 	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
     

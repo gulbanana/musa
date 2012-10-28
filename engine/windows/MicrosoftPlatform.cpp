@@ -2,12 +2,26 @@
 #include "Windows.h"
 using namespace std;
 
-void platform::print(string output)
+MicrosoftPlatform::MicrosoftPlatform() : SDLPlatformBase()
 {
-	OutputDebugStringA(output.c_str());
+    set_environment_variable("SDL_VIDEO_WINDOW_POS", "center");
 }
 
-void platform::setenv(string variable, string value)
+MicrosoftPlatform::~MicrosoftPlatform()
 {
-#pragma error "implement putenv() for windows"
+}
+
+void MicrosoftPlatform::print(string output)
+{
+    OutputDebugStringA(output.c_str());
+}
+
+void MicrosoftPlatform::set_environment_variable(string variable, string value)
+{
+
+}
+
+string MicrosoftPlatform::get_environment_variable(string cpp_var)
+{
+
 }

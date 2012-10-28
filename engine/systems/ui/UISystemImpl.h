@@ -2,8 +2,6 @@
 #include <engine/GameState.h>
 #include <SDL_events.h>
 #include <guichan/guichan.hpp>
-#include <guichan/sdl/sdlinput.hpp>
-#include <guichan/opengl/openglgraphics.hpp>
 
 class UISystemImpl
 {
@@ -11,8 +9,8 @@ class UISystemImpl
 
 	//guichan objects
 	std::unique_ptr<gcn::Gui> _gui;
-	std::unique_ptr<gcn::SDLInput> _input;
-	std::unique_ptr<gcn::OpenGLGraphics> _graphics;
+	std::unique_ptr<gcn::Input> _input;
+	std::unique_ptr<gcn::Graphics> _graphics;
 	
 	//the entire gui!
 	std::unique_ptr<gcn::Label> _fpsLabel;

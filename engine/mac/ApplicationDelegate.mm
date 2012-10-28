@@ -17,7 +17,7 @@
     return self;
 }
 
-//from SDLMain.m
+//XXX check whether this is correct someday
 - (void)resetWorkingDirectory
 {
     char parentdir[MAXPATHLEN];

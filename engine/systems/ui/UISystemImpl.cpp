@@ -1,17 +1,13 @@
 #include <engine/core.h>
 #include "UISystemImpl.h"
+#include <guichan/sdl/sdlinput.hpp>
+#include <guichan/opengl/openglgraphics.hpp>
 using namespace std;
 using namespace gcn;
 
 UISystemImpl::UISystemImpl(shared_ptr<GameState> s)
 {
 	_state = s;
-
-	//prepare sdl to be used with guichan
-    //XXX these probably aren't being called - no init event
-    //and for the keyrepeat one that's a good thing
-	SDL_EnableUNICODE(1);
-    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 	
 	//dependency injection
 	_gui = make_unique<Gui>();
@@ -40,6 +36,6 @@ void UISystemImpl::on_frame()
 bool UISystemImpl::on_event(SDL_Event& event)
 {
 	//on resize, _graphics->setTargetPlane
-	_input->pushInput(event);
+	static_cast<SDLInput*>(_input.get())->pushInput(event);
 	return true;
 }

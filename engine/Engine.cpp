@@ -2,7 +2,6 @@
 #include <engine/systems.h>
 #include <engine/systems/render/GLImmediateRenderer.h>
 #include <algorithm>
-#include <SDL.h>
 #include "GameState.h"
 #include "Engine.h"
 using namespace std;
@@ -73,18 +72,18 @@ void EngineImpl::play()
 	mspf = 1000 / maxFPS;
 	clamp = 1000 / minFPS;
 
-	_state->last_frame = SDL_GetTicks();
+	_state->last_frame = platform->get_ticks();
 	
 	while (!_state->shouldQuit)
 	{
 		frame();
         
-        now = SDL_GetTicks();
+        now = platform->get_ticks();
         _state->last_frame_time = min<milliseconds>(now - _state->last_frame, clamp);
         _state->last_frame = now;
         
         if (_state->last_frame_time < mspf)
-            SDL_Delay(mspf - _state->last_frame_time);
+            platform->sleep_ticks(mspf - _state->last_frame_time);
 	}
 }
 

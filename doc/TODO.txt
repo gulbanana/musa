@@ -9,7 +9,7 @@ lighting
 restore collision
 skybox texture
 fullscreen
-wrangle gl extensions
+wrangle gl extensions (glew/etc), and use this to get rid of more SDL dependencies
 make collision detection pairwise
 flat/sprite mesh
 obb collision detection
@@ -28,6 +28,5 @@ wizards game
 windows: sdl version which static links to msvcrt, maybe 2.0
 get rid of sdlmain
 longer term: get rid of sdl
-remove sdl?
 windows: directx renderer
 Bullet physics

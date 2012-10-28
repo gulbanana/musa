@@ -213,7 +213,7 @@
 		E5E72268163D3261009A1099 /* SDLPlatformBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SDLPlatformBase.cpp; sourceTree = "<group>"; };
 		E5E7226A163D36C3009A1099 /* ApplePlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplePlatform.h; sourceTree = "<group>"; };
 		E5E7226C163D3822009A1099 /* SDLPlatformBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLPlatformBase.h; sourceTree = "<group>"; };
-		E5E72270163D3EE1009A1099 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../main.c; sourceTree = "<group>"; };
+		E5E72270163D3EE1009A1099 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../main.cpp; sourceTree = "<group>"; };
 		E5E72272163D421D009A1099 /* ApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApplicationDelegate.mm; sourceTree = "<group>"; };
 		E5E72274163D4C6F009A1099 /* IPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPlatform.h; sourceTree = "<group>"; };
 		E5EE0E16161A3254008B9D2E /* CAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAcceleration.h; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		E59A76691629700E00AE0CB0 /* windows */ = {
 			isa = PBXGroup;
 			children = (
-				E5E72270163D3EE1009A1099 /* main.c */,
+				E5E72270163D3EE1009A1099 /* main.cpp */,
 				E59A766A1629700F00AE0CB0 /* MicrosoftPlatform.h */,
 				E56EDEE0163CE3DA001C2F36 /* MicrosoftPlatform.cpp */,
 			);
