@@ -1,4 +1,3 @@
-//precompiled header file
 #pragma once
 
 //STL

@@ -90,6 +90,7 @@
 		E56EDF26163CE5F0001C2F36 /* UISystemImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDF05163CE5F0001C2F36 /* UISystemImpl.h */; };
 		E56EDF27163CE5F0001C2F36 /* UISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E56EDF06163CE5F0001C2F36 /* UISystem.cpp */; };
 		E56EDF28163CE5F0001C2F36 /* UISystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E56EDF07163CE5F0001C2F36 /* UISystem.h */; };
+		E56EDF2A163CECF6001C2F36 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DDE4B016182B7A008179BF /* core.h */; };
 		E58E6007162065C900EB3F0D /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E58E6005162065C900EB3F0D /* Engine.cpp */; };
 		E58E6008162065C900EB3F0D /* Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = E58E6006162065C900EB3F0D /* Engine.h */; };
 		E58E601F1620B5C300EB3F0D /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E58E601D1620B5C300EB3F0D /* ResourceManager.cpp */; };
@@ -207,7 +208,7 @@
 		E5BE5C81161864350095BE77 /* NSString_ReplaceSubString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_ReplaceSubString.h; sourceTree = "<group>"; };
 		E5BE5C831618671C0095BE77 /* NSApplication_SDLMissingMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSApplication_SDLMissingMethods.h; sourceTree = "<group>"; };
 		E5DDE49D16182B7A008179BF /* components.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = components.h; sourceTree = "<group>"; };
-		E5DDE4B016182B7A008179BF /* core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		E5DDE4B016182B7A008179BF /* core.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = core.h; sourceTree = "<group>"; };
 		E5DDE4BB16182B7A008179BF /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
 		E5DDE4BC16182B7A008179BF /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		E5DDE4DE16182B7A008179BF /* systems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
@@ -520,6 +521,7 @@
 				E56EDF24163CE5F0001C2F36 /* ThreadedSystemBase.h in Headers */,
 				E56EDF26163CE5F0001C2F36 /* UISystemImpl.h in Headers */,
 				E56EDF28163CE5F0001C2F36 /* UISystem.h in Headers */,
+				E56EDF2A163CECF6001C2F36 /* core.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +696,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
@@ -712,7 +714,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/musaceae-hecnohonuvgithbcbvbdfikvclay/Build/Products/Debug\"",
