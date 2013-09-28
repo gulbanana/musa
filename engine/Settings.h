@@ -16,7 +16,7 @@ struct Settings
 
 	GraphicsMode mode;
 
-	Settings(std::string title, int width, int height, GraphicsMode mode) 
-		: window_title(title), initial_width(width), initial_height(height), mode(mode)
+	Settings(std::string title, int width, int height) 
+		: window_title(title), initial_width(width), initial_height(height), mode(GraphicsMode::TWO_D)
 	{}
 };

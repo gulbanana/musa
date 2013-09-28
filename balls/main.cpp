@@ -12,8 +12,7 @@ int _main(int argc, char *argv[])
 	World scene(false);
 
 	vector<unique_ptr<ISystem>> customs;
-	Settings config("scape", WIDTH, HEIGHT, GraphicsMode::TWO_D);
-	Engine game(config, move(customs));
+	Engine game(Settings("scape", WIDTH, HEIGHT), move(customs));
 	
 	game.load_scene(scene.entities);
 	game.play();

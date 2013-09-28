@@ -8,7 +8,7 @@ class Engine
 	EngineImpl* _pimpl;
 
 public:
-	Engine(Settings& settings, std::vector<std::unique_ptr<ISystem>> customLogic);
+	Engine(Settings settings, std::vector<std::unique_ptr<ISystem>> customLogic);
 	~Engine();
 
 	void play();

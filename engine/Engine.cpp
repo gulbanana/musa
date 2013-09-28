@@ -18,20 +18,20 @@ class EngineImpl
 	shared_ptr<IRenderer> _renderer;
 	
 public:
-	EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic);
+	EngineImpl(Settings settings, vector<unique_ptr<ISystem>> customLogic);
 	void load_scene(vector<shared_ptr<IEntity>> levelEntities);
 	void play();
 	void frame();
 	void add_system(unique_ptr<ISystem> system);
 };
 
-Engine::Engine(Settings& settings, vector<unique_ptr<ISystem>> customLogic) : _pimpl(new EngineImpl(settings, move(customLogic))) {}
+Engine::Engine(Settings settings, vector<unique_ptr<ISystem>> customLogic) : _pimpl(new EngineImpl(settings, move(customLogic))) {}
 Engine::~Engine() { delete _pimpl; }
 void Engine::load_scene(vector<shared_ptr<IEntity>> level) { _pimpl->load_scene(level); }
 void Engine::play() { _pimpl->play(); }
 #pragma endregion
 
-EngineImpl::EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic)
+EngineImpl::EngineImpl(Settings settings, vector<unique_ptr<ISystem>> customLogic)
 	: _state(make_shared<GameState>())
 {
 	
