@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/mesh/archetypes.h>
+#include <mesh/archetypes.h>
 
 class FPSCamera : public Camera3D
 {

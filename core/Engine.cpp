@@ -1,7 +1,6 @@
 #include <core/stdafx.h>
 #include <mesh/systems.h>
 #include <mesh/systems/render/GLImmediateRenderer.h>
-#include "framework.h"
 #include "systems.h"
 #include "misc.h"
 #include "GameState.h"

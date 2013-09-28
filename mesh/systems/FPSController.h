@@ -1,7 +1,6 @@
 #pragma once
-#include <engine/GameState.h>
-#include <engine/systems/EntityManagingSystemBase.h>
-#include <set>
+#include <core/GameState.h>
+#include <core/framework.h>
 
 class FPSController : public Identified<ISystem,SYS::Control,EntityManagingSystemBase>
 {

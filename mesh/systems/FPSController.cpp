@@ -1,5 +1,6 @@
-#include <engine/core.h>
-#include <engine/components.h>
+#include "stdafx.h"
+#include <mesh/components.h>
+#include <array>
 #include "FPSController.h"
 using namespace std;
 using namespace glm;

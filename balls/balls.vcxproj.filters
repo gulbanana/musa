@@ -8,6 +8,7 @@
     <ClCompile Include="ResizingBouncer.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="FPSCamera.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -16,5 +17,6 @@
     <ClInclude Include="ResizingBouncer.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="FPSCamera.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
 </Project>

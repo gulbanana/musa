@@ -1,5 +1,5 @@
-#include <engine/mesh/core.h>
-#include <engine/mesh/components.h>
+#include "stdafx.h"
+#include <mesh/components.h>
 #include "ResizingBouncer.h"
 using namespace std;
 

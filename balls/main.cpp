@@ -1,6 +1,7 @@
-#include <engine/core.h>
-#include <engine/Engine.h>
-#include <balls/ResizingBouncer.h>
+#include "stdafx.h"
+#include <core/misc.h>
+#include <core/Engine.h>
+#include "ResizingBouncer.h"
 #include "World.h"
 using namespace std;
 

@@ -1,6 +1,7 @@
-#include <engine/mesh/core.h>
-#include <engine/mesh/archetypes.h>
-#include <engine/mesh/components.h>
+#include "stdafx.h"
+#include <core/misc.h>
+#include <mesh/archetypes.h>
+#include <mesh/components.h>
 #include <random>
 #include "World.h"
 #include "FPSCamera.h"

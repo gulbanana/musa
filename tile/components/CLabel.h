@@ -16,7 +16,7 @@ namespace std
 	string to_string(CLabel l)
 	{
 		return string("Label{") 
-			+ "text: " + to_string(l.text) 
+			+ "text: " + l.text 
 		+ "}";
 	}
 }

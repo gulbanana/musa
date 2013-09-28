@@ -155,6 +155,7 @@
     <ClCompile Include="archetypes\Camera3D.cpp" />
     <ClCompile Include="components\CTransform.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="systems\FPSController.cpp" />
     <ClCompile Include="types\box6.cpp" />
     <ClCompile Include="types\constants.cpp" />
     <ClCompile Include="types\to_string.cpp" />
@@ -164,6 +165,8 @@
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="systems\collision\CollisionSystem.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
@@ -189,6 +192,7 @@
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="systems\FPSController.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="types\box6.h" />
     <ClInclude Include="types\constants.h" />

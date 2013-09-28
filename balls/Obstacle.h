@@ -1,7 +1,8 @@
 #pragma once
-#include <engine/mesh/archetypes.h>
+#include <core/framework.h>
+#include <mesh/geometry.h>
 
-class Obstacle : public PresetArchetype
+class Obstacle : public ArchetypeBase
 {
 public:
 	Obstacle(IRenderable* mesh, bool solid = true);

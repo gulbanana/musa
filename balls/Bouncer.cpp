@@ -1,6 +1,7 @@
-#include <engine/mesh/core.h>
-#include <engine/mesh/components.h>
+#include "stdafx.h"
+#include <mesh/components.h>
 #include <iostream>
+#include <array>
 #include "Bouncer.h"
 using namespace std;
 using namespace glm;

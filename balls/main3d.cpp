@@ -1,8 +1,9 @@
-#include <engine/core.h>
-#include <engine/Engine.h>
+#include "stdafx.h"
+#include <core/Engine.h>
+#include <core/misc.h>
+#include <mesh/systems.h>
 #include "World.h"
 #include "Bouncer.h"
-#include "FPSController.h"
 using namespace std;
 
 #define WIDTH 1000

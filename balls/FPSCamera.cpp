@@ -1,5 +1,6 @@
-#include <engine/mesh/core.h>
-#include <engine/mesh/components.h>
+#include "stdafx.h"
+#include <core/misc.h>
+#include <mesh/components.h>
 #include "FPSCamera.h"
 using namespace std;
 

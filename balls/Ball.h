@@ -1,5 +1,6 @@
 #pragma once
-#include <engine/mesh/archetypes.h>
+#include <core/framework.h>
+#include <mesh/geometry.h>
 
 class Ball : public ArchetypeBase
 {

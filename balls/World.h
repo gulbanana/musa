@@ -1,6 +1,6 @@
 #pragma once
-#include <engine/mesh/core.h>
-#include <engine/ResourceManager.h>
+#include <core/framework.h>
+#include <mesh/ResourceManager.h>
 
 class World
 {
