@@ -1,6 +1,6 @@
-#include <engine/core.h>
-#include <engine/systems.h>
-#include <engine/systems/render/GLImmediateRenderer.h>
+#include <engine/mesh/core.h>
+#include "mesh/systems.h"
+#include "mesh/systems/render/GLImmediateRenderer.h"
 #include <algorithm>
 #include "GameState.h"
 #include "Engine.h"
@@ -37,7 +37,7 @@ EngineImpl::EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLog
 	
     platform->set_window_title(settings.window_title);
 
-	_renderer = make_unique<GLImmediateRenderer>(settings.mode == GraphicsMode::THREE_D);
+	_renderer = make_unique<GLImmediateRenderer>(settings.mode == GraphicsMode::MESH_3D);
 	_renderer->set_viewport(settings.initial_width, settings.initial_height);
 
 	add_system(make_unique<ControlSystem>(_state));

@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/archetypes.h>
+#include <engine/mesh/archetypes.h>
 
 class Obstacle : public PresetArchetype
 {

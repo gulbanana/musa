@@ -1,6 +1,6 @@
 #pragma once
-#include <engine/geometry.h>
-#include <engine/systems/EntityManagingSystemBase.h>
+#include <engine/mesh/geometry.h>
+#include <engine/mesh/systems/EntityManagingSystemBase.h>
 
 class Bouncer : public Identified<ISystem,ISystem::ID::Logic,EntityManagingSystemBase>
 {

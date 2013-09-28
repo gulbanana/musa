@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 //provides access to nonportable facilities
 class IPlatform
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/geometry.h>
+#include <engine/mesh/geometry.h>
 
 enum class Primitive
 {

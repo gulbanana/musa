@@ -1,6 +1,6 @@
 #pragma once
 #include "Bouncer.h"
-#include <engine/archetypes.h>
+#include <engine/mesh/archetypes.h>
 
 class ResizingBouncer : public Bouncer
 {

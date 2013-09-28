@@ -125,7 +125,7 @@
       <PreprocessorDefinitions>WIN32;SFML_STATIC;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>engine/core.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>engine/mesh/core.h</PrecompiledHeaderFile>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
@@ -168,7 +168,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>engine/core.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>engine/mesh/core.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -180,49 +180,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="archetypes\PresetArchetype.cpp" />
+    <ClCompile Include="mesh\archetypes\PresetArchetype.cpp" />
     <ClCompile Include="assets\AssetManager.cpp" />
-    <ClCompile Include="components\CTransform.cpp" />
-    <ClCompile Include="core\box6.cpp" />
-    <ClCompile Include="core\core.cpp">
+    <ClCompile Include="mesh\components\CTransform.cpp" />
+    <ClCompile Include="mesh\core\box6.cpp" />
+    <ClCompile Include="mesh\core\core.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="framework\ManagedEntity.cpp" />
     <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
     <ClCompile Include="framework\ManagedEntityFactory.cpp" />
     <ClCompile Include="sdl\SDLPlatformBase.cpp" />
-    <ClCompile Include="systems\collision\AABBDetector.cpp" />
-    <ClCompile Include="archetypes\Camera3D.cpp" />
-    <ClCompile Include="archetypes\Camera2D.cpp" />
+    <ClCompile Include="mesh\systems\collision\AABBDetector.cpp" />
+    <ClCompile Include="mesh\archetypes\Camera3D.cpp" />
+    <ClCompile Include="mesh\archetypes\Camera2D.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="framework\AutonomousEntity.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="systems\render\scene\LambdaWalker.cpp" />
-    <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
+    <ClCompile Include="mesh\systems\render\scene\LambdaWalker.cpp" />
+    <ClCompile Include="mesh\systems\EntityManagingSystemBase.cpp" />
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="geometry\FVMesh.cpp" />
-    <ClCompile Include="geometry\PrimitiveFactory.cpp" />
-    <ClCompile Include="geometry\SpriteMesh.cpp" />
-    <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
-    <ClCompile Include="systems\CollisionSystem.cpp" />
-    <ClCompile Include="systems\collision\RectIntersectionDetector.cpp" />
-    <ClCompile Include="systems\RenderSystem.cpp" />
-    <ClCompile Include="core\constants.cpp" />
-    <ClCompile Include="systems\UISystem.cpp" />
-    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
-    <ClCompile Include="systems\render\scene\SceneGraph.cpp" />
-    <ClCompile Include="systems\ControlSystem.cpp" />
-    <ClCompile Include="systems\MotionSystem.cpp" />
-    <ClCompile Include="systems\ThreadedSystemBase.cpp" />
-    <ClCompile Include="core\to_string.cpp" />
+    <ClCompile Include="mesh\geometry\FVMesh.cpp" />
+    <ClCompile Include="mesh\geometry\PrimitiveFactory.cpp" />
+    <ClCompile Include="mesh\geometry\SpriteMesh.cpp" />
+    <ClCompile Include="mesh\systems\render\GLImmediateRenderer.cpp" />
+    <ClCompile Include="mesh\systems\CollisionSystem.cpp" />
+    <ClCompile Include="mesh\systems\collision\RectIntersectionDetector.cpp" />
+    <ClCompile Include="mesh\systems\RenderSystem.cpp" />
+    <ClCompile Include="mesh\core\constants.cpp" />
+    <ClCompile Include="mesh\systems\UISystem.cpp" />
+    <ClCompile Include="mesh\systems\ui\UISystemImpl.cpp" />
+    <ClCompile Include="mesh\systems\render\scene\SceneGraph.cpp" />
+    <ClCompile Include="mesh\systems\ControlSystem.cpp" />
+    <ClCompile Include="mesh\systems\MotionSystem.cpp" />
+    <ClCompile Include="mesh\systems\ThreadedSystemBase.cpp" />
+    <ClCompile Include="mesh\core\to_string.cpp" />
     <ClCompile Include="windows\main.cpp" />
     <ClCompile Include="windows\MicrosoftPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="archetypes\PresetArchetype.h" />
+    <ClInclude Include="framework\time.h" />
+    <ClInclude Include="mesh\archetypes\PresetArchetype.h" />
     <ClInclude Include="assets\AssetManager.h" />
     <ClInclude Include="framework\IArchetype.h" />
-    <ClInclude Include="components\CInput.h" />
+    <ClInclude Include="mesh\components\CInput.h" />
     <ClInclude Include="framework\IComponentManager.h" />
     <ClInclude Include="framework\IEntityFactory.h" />
     <ClInclude Include="framework\IEvent.h" />
@@ -231,66 +232,66 @@
     <ClInclude Include="framework\ManagedEntityFactory.h" />
     <ClInclude Include="framework\ManagedEntity.h" />
     <ClInclude Include="sdl\SDLPlatformBase.h" />
-    <ClInclude Include="systems\render\scene\RootNode.h" />
+    <ClInclude Include="mesh\systems\render\scene\RootNode.h" />
     <ClInclude Include="Settings.h" />
-    <ClInclude Include="systems\collision\AABBDetector.h" />
-    <ClInclude Include="archetypes\Camera3D.h" />
-    <ClInclude Include="archetypes\Camera2D.h" />
-    <ClInclude Include="geometry\OrthographicCamera.h" />
-    <ClInclude Include="geometry\PerspectiveCamera.h" />
-    <ClInclude Include="geometry\ScaleMethod.h" />
+    <ClInclude Include="mesh\systems\collision\AABBDetector.h" />
+    <ClInclude Include="mesh\archetypes\Camera3D.h" />
+    <ClInclude Include="mesh\archetypes\Camera2D.h" />
+    <ClInclude Include="mesh\geometry\OrthographicCamera.h" />
+    <ClInclude Include="mesh\geometry\PerspectiveCamera.h" />
+    <ClInclude Include="mesh\geometry\ScaleMethod.h" />
     <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="systems\render\scene\LambdaWalker.h" />
-    <ClInclude Include="systems\render\scene\LeafNode.h" />
-    <ClInclude Include="systems\render\scene\BranchNode.h" />
-    <ClInclude Include="components\CAcceleration.h" />
-    <ClInclude Include="core\box6.h" />
-    <ClInclude Include="components\CPhysics.h" />
-    <ClInclude Include="components\CRenderable.h" />
-    <ClInclude Include="systems\render\scene\IGraphNode.h" />
-    <ClInclude Include="systems\render\scene\IGraphWalker.h" />
+    <ClInclude Include="mesh\systems\render\scene\LambdaWalker.h" />
+    <ClInclude Include="mesh\systems\render\scene\LeafNode.h" />
+    <ClInclude Include="mesh\systems\render\scene\BranchNode.h" />
+    <ClInclude Include="mesh\components\CAcceleration.h" />
+    <ClInclude Include="mesh\core\box6.h" />
+    <ClInclude Include="mesh\components\CPhysics.h" />
+    <ClInclude Include="mesh\components\CRenderable.h" />
+    <ClInclude Include="mesh\systems\render\scene\IGraphNode.h" />
+    <ClInclude Include="mesh\systems\render\scene\IGraphWalker.h" />
     <ClInclude Include="framework\Identifiable.h" />
-    <ClInclude Include="core\typedefs.h" />
+    <ClInclude Include="mesh\core\typedefs.h" />
     <ClInclude Include="Engine.h" />
-    <ClInclude Include="systems\render\scene.h" />
-    <ClInclude Include="systems\EntityManagingSystemBase.h" />
-    <ClInclude Include="geometry\IMaterial.h" />
-    <ClInclude Include="geometry\IRenderable.h" />
-    <ClInclude Include="archetypes.h" />
+    <ClInclude Include="mesh\systems\render\scene.h" />
+    <ClInclude Include="mesh\systems\EntityManagingSystemBase.h" />
+    <ClInclude Include="mesh\geometry\IMaterial.h" />
+    <ClInclude Include="mesh\geometry\IRenderable.h" />
+    <ClInclude Include="mesh\archetypes.h" />
     <ClInclude Include="framework\AutonomousEntity.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="geometry.h" />
-    <ClInclude Include="geometry\PrimitiveFactory.h" />
-    <ClInclude Include="geometry\SolidColourBrush.h" />
-    <ClInclude Include="geometry\SpriteMesh.h" />
-    <ClInclude Include="systems\render\GLImmediateRenderer.h" />
+    <ClInclude Include="mesh\geometry.h" />
+    <ClInclude Include="mesh\geometry\PrimitiveFactory.h" />
+    <ClInclude Include="mesh\geometry\SolidColourBrush.h" />
+    <ClInclude Include="mesh\geometry\SpriteMesh.h" />
+    <ClInclude Include="mesh\systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="gl\IDrawable.h" />
-    <ClInclude Include="systems.h" />
-    <ClInclude Include="systems\CollisionSystem.h" />
-    <ClInclude Include="components.h" />
-    <ClInclude Include="components\CVelocity.h" />
-    <ClInclude Include="components\CLabel.h" />
-    <ClInclude Include="systems\collision\ICollisionDetector.h" />
+    <ClInclude Include="mesh\systems.h" />
+    <ClInclude Include="mesh\systems\CollisionSystem.h" />
+    <ClInclude Include="mesh\components.h" />
+    <ClInclude Include="mesh\components\CVelocity.h" />
+    <ClInclude Include="mesh\components\CLabel.h" />
+    <ClInclude Include="mesh\systems\collision\ICollisionDetector.h" />
     <ClInclude Include="core\identifiable.h" />
-    <ClInclude Include="core\rect4.h" />
-    <ClInclude Include="systems\collision\RectIntersectionDetector.h" />
-    <ClInclude Include="geometry\IRenderer.h" />
-    <ClInclude Include="systems\RenderSystem.h" />
-    <ClInclude Include="core\constants.h" />
-    <ClInclude Include="systems\UISystem.h" />
-    <ClInclude Include="core.h" />
+    <ClInclude Include="mesh\core\rect4.h" />
+    <ClInclude Include="mesh\systems\collision\RectIntersectionDetector.h" />
+    <ClInclude Include="mesh\geometry\IRenderer.h" />
+    <ClInclude Include="mesh\systems\RenderSystem.h" />
+    <ClInclude Include="mesh\core\constants.h" />
+    <ClInclude Include="mesh\systems\UISystem.h" />
+    <ClInclude Include="mesh\core.h" />
     <ClInclude Include="framework\IEntity.h" />
-    <ClInclude Include="geometry\FVMesh.h" />
-    <ClInclude Include="systems\ui\UISystemImpl.h" />
-    <ClInclude Include="systems\render\scene\SceneGraph.h" />
-    <ClInclude Include="systems\ControlSystem.h" />
+    <ClInclude Include="mesh\geometry\FVMesh.h" />
+    <ClInclude Include="mesh\systems\ui\UISystemImpl.h" />
+    <ClInclude Include="mesh\systems\render\scene\SceneGraph.h" />
+    <ClInclude Include="mesh\systems\ControlSystem.h" />
     <ClInclude Include="framework\ISystem.h" />
-    <ClInclude Include="core\misc.h" />
+    <ClInclude Include="mesh\core\misc.h" />
     <ClInclude Include="framework\IComponent.h" />
-    <ClInclude Include="systems\MotionSystem.h" />
-    <ClInclude Include="components\CTransform.h" />
-    <ClInclude Include="systems\ThreadedSystemBase.h" />
-    <ClInclude Include="core\to_string.h" />
+    <ClInclude Include="mesh\systems\MotionSystem.h" />
+    <ClInclude Include="mesh\components\CTransform.h" />
+    <ClInclude Include="mesh\systems\ThreadedSystemBase.h" />
+    <ClInclude Include="mesh\core\to_string.h" />
     <ClInclude Include="windows\MicrosoftPlatform.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>

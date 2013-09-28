@@ -17,10 +17,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{D55B7620-0FED-4EBB-8888-9B7FCF3570F0}"
 	ProjectSection(SolutionItems) = preProject
 		doc\architecture.png = doc\architecture.png
-		coordinates.txt = coordinates.txt
 		doc\LICENSE.txt = doc\LICENSE.txt
-		doc\renderables.txt = doc\renderables.txt
-		doc\systems.txt = doc\systems.txt
+		doc\mesh-coordinates.txt = doc\mesh-coordinates.txt
+		doc\mesh-renderables.txt = doc\mesh-renderables.txt
+		doc\mesh-systems.txt = doc\mesh-systems.txt
+		doc\tile-art.txt = doc\tile-art.txt
+		doc\tile-renderables.txt = doc\tile-renderables.txt
+		doc\tile-systems.txt = doc\tile-systems.txt
 		doc\TODO.txt = doc\TODO.txt
 	EndProjectSection
 EndProject

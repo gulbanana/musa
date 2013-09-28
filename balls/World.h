@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/core.h>
+#include <engine/mesh/core.h>
 #include <engine/ResourceManager.h>
 
 class World

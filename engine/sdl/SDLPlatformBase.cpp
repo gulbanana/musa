@@ -1,4 +1,4 @@
-#include <engine/core.h>
+#include <engine/mesh/core.h>
 #include "SDLPlatformBase.h"
 #include <SDL.h>
 using namespace std;

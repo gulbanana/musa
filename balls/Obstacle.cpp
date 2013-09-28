@@ -1,5 +1,5 @@
-#include <engine/core.h>
-#include <engine/components.h>
+#include <engine/mesh/core.h>
+#include <engine/mesh/components.h>
 #include <random>
 #include "Obstacle.h"
 using namespace std;
