@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include <mesh/stdafx.h>
 #include <mesh/components.h>
 #include <array>
 #include "FPSController.h"
