@@ -17,6 +17,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{D55B7620-0FED-4EBB-8888-9B7FCF3570F0}"
 	ProjectSection(SolutionItems) = preProject
 		doc\coordinates.txt = doc\coordinates.txt
+		art.txt = art.txt
 		doc\LICENSE.txt = doc\LICENSE.txt
 		doc\renderables.txt = doc\renderables.txt
 		doc\systems.txt = doc\systems.txt
