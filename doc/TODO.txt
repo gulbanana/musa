@@ -1,33 +1,32 @@
-split ECS framework from game-mode engines to allow a text-mode game
-system multithreading - dependency semaphores
-messages, as a performance optimisation of polling
-polling
-textures, brush/mesh distinction SOMEHOW
-double viewport (balls unification)
+tile: implement tile mode
+mesh: textures, brush/mesh distinction SOMEHOW
+mesh: lighting
+mesh: restore collision
+mesh: flat/sprite meshes
+mesh: obb collision detection
+mesh: make aabb detection spatial (octree)
+mesh: mesh collision detection?
+mesh: better bounce physics - forces? or just go straight to Bullet
+mesh: gl3/VBO renderer
+mesh: make collision detection pairwise
+mesh: skybox 
+core: fullscreen
+core: sdl 2.0
+core: system multithreading - dependency semaphores
+core: messages, as a performance optimisation of polling
+core: polling
+core: change entity ownership logic (why are they shared)
+core: double viewport (balls unification)
+core: get rid of sdl? or is it too useful (for input)
 6dof controller
 model loader/better resource loader in general
-lighting
-restore collision
-skybox texture
-fullscreen
-wrangle gl extensions (glew/etc), and use this to get rid of more SDL dependencies
-make collision detection pairwise
-flat/sprite mesh
-obb collision detection
-make aabb detection spatial (octree)
-mesh collision detection?
-better bounce physics - forces? or just go straight to Bullet
-change entity ownership logic (why are they shared)
+linux: port to linux
+windows: if possible, static link to msvcrt
+windows: directx renderer
 gui - get fonts in
 gui/renderer - labels 
 gui / control - add/subtract ball (this will involve safely destroying entities)
 expiring entities
 state - controllable game clock
-gl3/VBO renderer
-linux port
 wizards game
-windows: sdl version which static links to msvcrt, maybe 2.0
-get rid of sdlmain
-longer term: get rid of sdl
-windows: directx renderer
-Bullet physics
+wrangle gl extensions (glew/etc), and use this to get rid of more SDL dependencies
