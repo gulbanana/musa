@@ -26,6 +26,7 @@ locations are always a fixed tile index, to simplify many other subsystems. move
 this means that vectors have to be accumulated until they result in an actual change of position.
 */
 #pragma once
+#include "orientation.h"
 
 typedef int coord;
 typedef float dist;
@@ -46,7 +47,7 @@ struct vec2
 	vec2 operator/(float c) const { return vec2(x / c, y / c); }
 
 	angle direction();
-	float magnitude();
+	dist magnitude();
 
 	static const vec2 ZERO;
 };

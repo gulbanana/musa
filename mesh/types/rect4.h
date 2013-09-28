@@ -1,5 +1,4 @@
 #pragma once
-#include <algorithm>
 #include "box6.h"
 
 struct rect4

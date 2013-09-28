@@ -1,6 +1,5 @@
 #include <mesh/stdafx.h>
 #include <core/misc.h>
-#include <algorithm>
 #include "SceneGraph.h"
 #include "LambdaWalker.h"
 #include "LeafNode.h"

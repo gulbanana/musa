@@ -1,4 +1,6 @@
 #pragma once
+#include <core/framework.h>
+#include <tile/types.h>
 
 class CAcceleration final : public Identified<IComponent, CMP::Acceleration>
 {

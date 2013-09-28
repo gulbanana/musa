@@ -1,12 +1,11 @@
+#include <tile/stdafx.h>
 #include "orientation.h"
 #include "location.h"
-#define _USE_MATH_DEFINES
 #include <cmath>
-
 
 angle vec2::direction()
 {
-	return atan2f(y, x) * 180.f / M_PI;
+	return atan2f(y, x) * 180.f / (float)M_PI;
 }
 
 dist vec2::magnitude()

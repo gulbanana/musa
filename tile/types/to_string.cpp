@@ -1,4 +1,6 @@
-#include "engine/core.h"
+#include <tile/stdafx.h>
+#include "location.h"
+#include "orientation.h"
 
 namespace std 
 {

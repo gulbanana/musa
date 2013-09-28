@@ -1,5 +1,4 @@
 #include <core/stdafx.h>
-#include <algorithm>
 #include <mesh/systems.h>
 #include <mesh/systems/render/GLImmediateRenderer.h>
 #include "framework.h"

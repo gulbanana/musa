@@ -1,5 +1,4 @@
 #include <mesh/stdafx.h>
-#include <algorithm>
 #include <numeric>
 #include "FVMesh.h"
 using namespace std;

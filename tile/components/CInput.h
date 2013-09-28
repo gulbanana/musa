@@ -1,4 +1,6 @@
 #pragma once
+#include <core/framework.h>
+#include <tile/types.h>
 
 class CInput : public Identified<IComponent, CMP::Input>
 {

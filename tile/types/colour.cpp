@@ -1,3 +1,4 @@
+#include <tile/stdafx.h>
 #include "colour.h"
 
 const colour colour::RED =         colour(1.f, 0.f, 0.f, 1.f);

@@ -1,10 +1,9 @@
 #include <mesh/stdafx.h>
 #include <mesh/components.h>
 #include <core/misc.h>
-#include <algorithm>
-#include <iterator>
-#include <typeinfo>
-#include <tuple>
+//#include <iterator>
+//#include <typeinfo>
+//#include <tuple>
 #include "CollisionSystem.h"
 #include "AABBDetector.h"
 using namespace std;

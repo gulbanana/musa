@@ -91,6 +91,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>tile/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -102,6 +104,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>tile/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -116,6 +120,8 @@
       <SDLCheck>
       </SDLCheck>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>tile/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -131,6 +137,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>tile/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -139,25 +147,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="components.h" />
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="components\CInput.h" />
     <ClInclude Include="components\CLabel.h" />
     <ClInclude Include="components\CPhysics.h" />
-    <ClInclude Include="components\CRenderable.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
-    <ClInclude Include="core\colour.h" />
-    <ClInclude Include="core\location.h" />
-    <ClInclude Include="core\misc.h" />
-    <ClInclude Include="core\orientation.h" />
-    <ClInclude Include="core\time.h" />
-    <ClInclude Include="core\to_string.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="types\colour.h" />
+    <ClInclude Include="types\location.h" />
+    <ClInclude Include="types\orientation.h" />
+    <ClInclude Include="types\to_string.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="core\colour.cpp" />
-    <ClCompile Include="core\core.cpp" />
-    <ClCompile Include="core\location.cpp" />
-    <ClCompile Include="core\to_string.cpp" />
+    <ClCompile Include="types\colour.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="types\location.cpp" />
+    <ClCompile Include="types\to_string.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
