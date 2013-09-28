@@ -129,3 +129,13 @@ string ApplePlatform::get_environment_variable(string cpp_var)
     
     return cpp_val;
 }
+
+milliseconds MicrosoftPlatform::get_ticks()
+{
+    return GetTickCount() - _tick_offset;
+}
+
+void MicrosoftPlatform::sleep_ticks(milliseconds ttw)
+{
+	Sleep(ttw);
+}

@@ -40,3 +40,8 @@ milliseconds MicrosoftPlatform::get_ticks()
 {
     return GetTickCount() - _tick_offset;
 }
+
+void MicrosoftPlatform::sleep_ticks(milliseconds ttw)
+{
+	Sleep(ttw);
+}

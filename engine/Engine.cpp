@@ -82,6 +82,7 @@ void EngineImpl::play()
         _state->last_frame_time = min<milliseconds>(now - _state->last_frame, clamp);
         _state->last_frame = now;
         
+		//XXX it would be better to rely on vsync, perhaps
         if (_state->last_frame_time < mspf)
             platform->sleep_ticks(mspf - _state->last_frame_time);
 	}
