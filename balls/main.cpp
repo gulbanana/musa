@@ -16,7 +16,7 @@ int _main(int argc, char *argv[])
 	vector<unique_ptr<ISystem>> customs;
 	customs.push_back(make_unique<ResizingBouncer>(scene.cameraEntity, WIDTH, HEIGHT, DEPTH));
 
-	Settings settings("balls 3d!", WIDTH, 800, GraphicsMode::TWO_D);
+	Settings settings("balls!", WIDTH, 800, GraphicsMode::MESH_2D);
 
 	Engine game(settings, move(customs));
 	

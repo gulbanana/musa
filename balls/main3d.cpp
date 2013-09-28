@@ -16,7 +16,7 @@ int _main(int argc, char *argv[])
 	customs.push_back(make_unique<Bouncer>(WIDTH, HEIGHT, DEPTH));
 	customs.push_back(make_unique<FPSController>());
 
-	Settings settings("balls 3d!", 1200, 675, GraphicsMode::THREE_D);
+	Settings settings("balls 3d!", 1200, 675, GraphicsMode::MESH_3D);
 
 	Engine game(settings, move(customs));
 	

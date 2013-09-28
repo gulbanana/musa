@@ -3,8 +3,9 @@
 
 enum class GraphicsMode
 {
-	TWO_D,
-	THREE_D
+	MESH_2D,
+	MESH_3D,
+	TILE
 };
 
 struct Settings
