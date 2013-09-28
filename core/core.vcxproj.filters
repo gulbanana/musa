@@ -43,6 +43,8 @@
     </ClCompile>
     <ClCompile Include="framework\EntityManagingSystemBase.cpp" />
     <ClCompile Include="framework\ThreadedSystemBase.cpp" />
+    <ClCompile Include="systems\ui\UISystem.cpp" />
+    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
@@ -112,5 +114,8 @@
     </ClInclude>
     <ClInclude Include="framework\ThreadedSystemBase.h" />
     <ClInclude Include="framework\EntityManagingSystemBase.h" />
+    <ClInclude Include="systems\ui\UISystem.h" />
+    <ClInclude Include="systems\ui\UISystemImpl.h" />
+    <ClInclude Include="IGameFactory.h" />
   </ItemGroup>
 </Project>

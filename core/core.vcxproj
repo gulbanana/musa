@@ -198,13 +198,18 @@
     <ClCompile Include="systems\ControlSystem.cpp" />
     <ClCompile Include="framework\EntityManagingSystemBase.cpp" />
     <ClCompile Include="framework\ThreadedSystemBase.cpp" />
+    <ClCompile Include="systems\ui\UISystem.cpp" />
+    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="windows\main.cpp" />
     <ClCompile Include="windows\MicrosoftPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework\ArchetypeBase.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="IGameFactory.h" />
     <ClInclude Include="systems.h" />
+    <ClInclude Include="systems\ui\UISystem.h" />
+    <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="time.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="framework\IArchetype.h" />

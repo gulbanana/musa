@@ -176,8 +176,6 @@
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\render\scene\LambdaWalker.cpp" />
     <ClCompile Include="systems\render\scene\SceneGraph.cpp" />
-    <ClCompile Include="systems\ui\UISystem.cpp" />
-    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archetypes.h" />
@@ -227,8 +225,6 @@
     <ClInclude Include="systems\render\scene\LeafNode.h" />
     <ClInclude Include="systems\render\scene\RootNode.h" />
     <ClInclude Include="systems\render\scene\SceneGraph.h" />
-    <ClInclude Include="systems\ui\UISystem.h" />
-    <ClInclude Include="systems\ui\UISystemImpl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

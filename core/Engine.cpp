@@ -17,7 +17,6 @@ class EngineImpl
 	vector<unique_ptr<ISystem>> systems;
 
 	shared_ptr<GameState> _state;
-	shared_ptr<IRenderer> _renderer;
 	
 public:
 	EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic);
@@ -25,6 +24,11 @@ public:
 	void play();
 	void frame();
 	void add_system(unique_ptr<ISystem> system);
+
+private:
+	void init_mesh2D(Settings&);
+	void init_mesh3D(Settings&);
+	void init_tiles(Settings&);
 };
 
 Engine::Engine(Settings& settings, vector<unique_ptr<ISystem>> customLogic) : _pimpl(new EngineImpl(settings, move(customLogic))) {}
@@ -33,19 +37,26 @@ void Engine::load_scene(vector<shared_ptr<IEntity>> level) { _pimpl->load_scene(
 void Engine::play() { _pimpl->play(); }
 #pragma endregion
 
-EngineImpl::EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic)
-	: _state(make_shared<GameState>())
+EngineImpl::EngineImpl(Settings& settings, vector<unique_ptr<ISystem>> customLogic) : _state(make_shared<GameState>())
 {
-	
     platform->set_window_title(settings.window_title);
 
-	_renderer = make_unique<GLImmediateRenderer>(settings.mode == GraphicsMode::MESH_3D);
-	_renderer->set_viewport(settings.initial_width, settings.initial_height);
-
 	add_system(make_unique<ControlSystem>(_state));
-	add_system(make_unique<MotionSystem>(_state));
-	add_system(make_unique<CollisionSystem>());
-	add_system(make_unique<RenderSystem>(_renderer));
+
+	switch (settings.mode)
+	{
+	case GraphicsMode::MESH_2D:
+		init_mesh2D(settings);
+		break;
+
+	case GraphicsMode::MESH_3D:
+		init_mesh3D(settings);
+		break;
+
+	case GraphicsMode::TILE:
+		init_tiles(settings);
+		break;
+	}
 
 	for (auto& customSystem : customLogic)
 	{
@@ -101,4 +112,28 @@ void EngineImpl::frame()
 
 	for(auto& system : systems)
 		system->on_frame();
+}
+
+void EngineImpl::init_mesh2D(Settings& settings)
+{
+	shared_ptr<IRenderer> renderer = make_unique<GLImmediateRenderer>(false);
+	renderer->set_viewport(settings.initial_width, settings.initial_height);
+
+	add_system(make_unique<MotionSystem>(_state));
+	add_system(make_unique<CollisionSystem>());
+	add_system(make_unique<RenderSystem>(renderer));
+}
+
+void EngineImpl::init_mesh3D(Settings& settings)
+{
+	shared_ptr<IRenderer> renderer = make_unique<GLImmediateRenderer>(true);	//wireframe mode
+	renderer->set_viewport(settings.initial_width, settings.initial_height);
+
+	add_system(make_unique<MotionSystem>(_state));
+	add_system(make_unique<CollisionSystem>());
+	add_system(make_unique<RenderSystem>(renderer));
+}
+
+void EngineImpl::init_tiles(Settings& settings)
+{
 }
