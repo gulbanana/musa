@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="framework\AutonomousEntity.cpp">
       <Filter>framework</Filter>
@@ -45,11 +44,11 @@
     <ClCompile Include="framework\ThreadedSystemBase.cpp" />
     <ClCompile Include="systems\ui\UISystem.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="CustomEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="Settings.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="framework\IEntity.h">
@@ -116,6 +115,9 @@
     <ClInclude Include="framework\EntityManagingSystemBase.h" />
     <ClInclude Include="systems\ui\UISystem.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
-    <ClInclude Include="IGameFactory.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="IGameEngine.h" />
+    <ClInclude Include="GameSettings.h" />
+    <ClInclude Include="CustomEngine.h" />
   </ItemGroup>
 </Project>

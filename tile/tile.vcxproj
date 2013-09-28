@@ -155,6 +155,7 @@
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TilesEngine.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="types\colour.h" />
     <ClInclude Include="types\location.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="types\to_string.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TilesEngine.cpp" />
     <ClCompile Include="types\colour.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

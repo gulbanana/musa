@@ -154,6 +154,7 @@
     <ClCompile Include="archetypes\Camera2D.cpp" />
     <ClCompile Include="archetypes\Camera3D.cpp" />
     <ClCompile Include="components\CTransform.cpp" />
+    <ClCompile Include="MeshEngine.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="systems\FPSController.cpp" />
     <ClCompile Include="types\box6.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="components\CRenderable.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
+    <ClInclude Include="MeshEngine.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="systems\FPSController.h" />
     <ClInclude Include="types.h" />

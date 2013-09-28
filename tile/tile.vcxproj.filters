@@ -14,11 +14,13 @@
     <ClInclude Include="types.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TilesEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
     <ClCompile Include="types\location.cpp" />
     <ClCompile Include="types\to_string.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TilesEngine.cpp" />
   </ItemGroup>
 </Project>

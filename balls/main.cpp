@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include <core/misc.h>
-#include <core/Engine.h>
+#include <core/Game.h>
+#include <core/CustomEngine.h>
+#include <mesh/MeshEngine.h>
 #include "ResizingBouncer.h"
 #include "World.h"
 using namespace std;
@@ -14,13 +16,11 @@ int _main(int argc, char *argv[])
 {
 	World scene(false);
 
-	vector<unique_ptr<ISystem>> customs;
-	customs.push_back(make_unique<ResizingBouncer>(scene.cameraEntity, WIDTH, HEIGHT, DEPTH));
+	auto settings = GameSettings("balls!", WIDTH, 800);
+	auto engine = make_unique<CustomEngine>(make_unique<MeshEngine>(false));
+	engine->add_system(make_unique<ResizingBouncer>(scene.cameraEntity, WIDTH, HEIGHT, DEPTH));
 
-	Settings settings("balls!", WIDTH, 800, GraphicsMode::MESH_2D);
-
-	Engine game(settings, move(customs));
-	
+	Game game(settings, move(engine));
 	
 	game.load_scene(scene.entities);
 	game.play();

@@ -1,14 +1,15 @@
 #include "stdafx.h"
 #include <core/misc.h>
-#include <core/Engine.h>
+#include <core/Game.h>
+#include <tile/TilesEngine.h>
 using namespace std;
 
 extern "C"
 int _main(int argc, char *argv[])
 {
-	vector<unique_ptr<ISystem>> customs;
+	auto engine = make_unique<TilesEngine>();
 
-	Engine game(Settings("scape techdemo", 1600, 900, GraphicsMode::TILE), move(customs));	
+	Game game(GameSettings("scape techdemo", 1600, 900), move(engine));	
 	game.play();
 
 	return 0;
