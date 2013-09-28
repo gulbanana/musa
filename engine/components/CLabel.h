@@ -10,3 +10,12 @@ public:
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CLabel(*this)); }
 };
 
+namespace std
+{
+	string to_string(CLabel l)
+	{
+		return string("Label{") 
+			+ "text: " + to_string(l.text) 
+		+ "}";
+	}
+}

@@ -13,3 +13,14 @@ public:
 
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CVelocity(*this)); }
 };
+
+namespace std
+{
+	string to_string(CVelocity v)
+	{
+		return string("Velocity{") 
+			+ "vector: " + to_string(v.vector) + ", "
+			+ "versor: " + to_string(v.versor) 
+		+ "}";
+	}
+}

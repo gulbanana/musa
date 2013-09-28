@@ -12,3 +12,10 @@ public:
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CRenderable(*this)); }
 };
 
+namespace std
+{
+	string to_string(CRenderable p)
+	{
+		return string("Renderable{}");
+	}
+}

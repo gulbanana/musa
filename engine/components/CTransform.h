@@ -15,3 +15,14 @@ public:
 
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CTransform(*this)); }
 };
+
+namespace std
+{
+	string to_string(CTransform t)
+	{
+		return string("Transform{") 
+			+ "translate: " + to_string(t.translate) + ","
+			+ "rotate: " + to_string(t.rotate) 
+		+ "}";
+	}
+}
