@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="framework">
+      <UniqueIdentifier>{bfa3d7c2-685e-4cb7-872a-3c9b2b85a77d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win">
+      <UniqueIdentifier>{1919edd4-d1f0-4be0-968e-75127a0e2c0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sdl">
+      <UniqueIdentifier>{00951623-86a7-435a-b77a-f248869bde82}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="framework\AutonomousEntity.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\AutonomousEntityFactory.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="sdl\SDLPlatformBase.cpp">
+      <Filter>sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\PresetArchetype.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="windows\main.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="windows\MicrosoftPlatform.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\ManagedEntity.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\ManagedEntityFactory.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="systems\ThreadedSystemBase.cpp" />
+    <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
+    <ClCompile Include="systems\ControlSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="framework\IEntity.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IEntityFactory.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IEvent.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\ISystem.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IComponent.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\AutonomousEntity.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\AutonomousEntityFactory.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IArchetype.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IComponentManager.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\Identifiable.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IPlatform.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\misc.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\time.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="sdl\SDLPlatformBase.h">
+      <Filter>sdl</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\PresetArchetype.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="windows\MicrosoftPlatform.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\ManagedEntityFactory.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\ManagedEntity.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="windows\msvc.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="systems\ThreadedSystemBase.h" />
+    <ClInclude Include="systems\EntityManagingSystemBase.h" />
+    <ClInclude Include="systems\ControlSystem.h" />
+  </ItemGroup>
+</Project>

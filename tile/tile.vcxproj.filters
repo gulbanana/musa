@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="components\CAcceleration.h" />
+    <ClInclude Include="components\CInput.h" />
+    <ClInclude Include="components\CLabel.h" />
+    <ClInclude Include="components\CPhysics.h" />
+    <ClInclude Include="components\CRenderable.h" />
+    <ClInclude Include="components\CTransform.h" />
+    <ClInclude Include="components\CVelocity.h" />
+    <ClInclude Include="core\colour.h" />
+    <ClInclude Include="core\location.h" />
+    <ClInclude Include="core\misc.h" />
+    <ClInclude Include="core\orientation.h" />
+    <ClInclude Include="core\time.h" />
+    <ClInclude Include="core\to_string.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\colour.cpp" />
+    <ClCompile Include="core\core.cpp" />
+    <ClCompile Include="core\location.cpp" />
+    <ClCompile Include="core\to_string.cpp" />
+  </ItemGroup>
+</Project>
