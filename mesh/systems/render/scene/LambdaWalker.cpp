@@ -1,4 +1,4 @@
-#include <engine/mesh/core.h>
+#include <mesh/stdafx.h>
 #include "LambdaWalker.h"
 #include "RootNode.h"
 #include "BranchNode.h"

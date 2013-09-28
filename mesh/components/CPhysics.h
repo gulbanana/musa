@@ -1,4 +1,5 @@
 #pragma once
+#include <core/framework.h>
 
 class CPhysics : public Identified<IComponent, CMP::Physics>
 {

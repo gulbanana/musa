@@ -1,5 +1,6 @@
-#include <engine/mesh/core.h>
-#include "../components.h"
+#include <mesh/stdafx.h>
+#include <mesh/components.h>
+#include <core/misc.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include "Camera3D.h"

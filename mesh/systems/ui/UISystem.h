@@ -1,7 +1,5 @@
 #pragma once
-
 #include <core/framework.h>
-#include <core/systems/ThreadedSystemBase.h>
 #include <core/GameState.h>
 
 class UISystemImpl;

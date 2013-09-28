@@ -1,9 +1,9 @@
 #pragma once
+#include <core/framework.h>
 #include <mesh/geometry.h>
-#include "PresetArchetype.h"
 
 //conceptually, a camera entity is positioned and oriented in world-space like any other
-class Camera3D : public PresetArchetype
+class Camera3D : public ArchetypeBase
 {
 	std::unique_ptr<PerspectiveCamera> _camera_matrix; //XXX the archetype should not own this renderable
 

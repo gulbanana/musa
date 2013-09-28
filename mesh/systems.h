@@ -1,7 +1,6 @@
 #pragma once
 
-#include "systems/CollisionSystem.h"
-#include "systems/ControlSystem.h"
+#include "systems/collision/CollisionSystem.h"
+#include "systems/render/RenderSystem.h"
+#include "systems/ui/UISystem.h"
 #include "systems/MotionSystem.h"
-#include "systems/RenderSystem.h"
-#include "systems/UISystem.h"

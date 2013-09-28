@@ -1,7 +1,7 @@
 #pragma once
 #include <engine/mesh/archetypes.h>
 
-class Ball : public PresetArchetype
+class Ball : public ArchetypeBase
 {
 public:
 	Ball(IRenderable* mesh);

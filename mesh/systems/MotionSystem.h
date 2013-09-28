@@ -1,6 +1,6 @@
 #pragma once
+#include <core/framework.h>
 #include <core/GameState.h>
-#include <core/systems/EntityManagingSystemBase.h>
 
 //provides "realistic" physical motion, no game-specific logic
 class MotionSystem : public Identified<ISystem,SYS::Motion,EntityManagingSystemBase>

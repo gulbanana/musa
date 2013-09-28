@@ -1,11 +1,12 @@
-#include <engine/mesh/core.h>
-#include "../components.h"
+#include <mesh/stdafx.h>
+#include <mesh/components.h>
+#include <core/misc.h>
 #include <algorithm>
 #include <iterator>
 #include <typeinfo>
 #include <tuple>
 #include "CollisionSystem.h"
-#include "collision/AABBDetector.h"
+#include "AABBDetector.h"
 using namespace std;
 
 vector<CMP> CollisionSystem::required_components() const 

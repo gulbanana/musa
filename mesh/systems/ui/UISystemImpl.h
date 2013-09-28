@@ -1,5 +1,5 @@
 #pragma once
-#include <engine/GameState.h>
+#include <core/GameState.h>
 #include <SDL_events.h>
 #include <guichan/guichan.hpp>
 

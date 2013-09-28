@@ -1,4 +1,4 @@
-#include <engine/mesh/core.h>
+#include <mesh/stdafx.h>
 #include <cmath>
 #include "constants.h"
 using namespace std;

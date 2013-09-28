@@ -180,7 +180,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="framework\PresetArchetype.cpp" />
+    <ClCompile Include="framework\ArchetypeBase.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="framework\ManagedEntity.cpp" />
     <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
@@ -193,14 +193,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="systems\ControlSystem.cpp" />
-    <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
-    <ClCompile Include="systems\ThreadedSystemBase.cpp" />
+    <ClCompile Include="framework\EntityManagingSystemBase.cpp" />
+    <ClCompile Include="framework\ThreadedSystemBase.cpp" />
     <ClCompile Include="windows\main.cpp" />
     <ClCompile Include="windows\MicrosoftPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework\PresetArchetype.h" />
+    <ClInclude Include="framework\ArchetypeBase.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="systems.h" />
     <ClInclude Include="time.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="framework\IArchetype.h" />
@@ -223,8 +224,8 @@
     <ClInclude Include="framework\IComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="systems\ControlSystem.h" />
-    <ClInclude Include="systems\EntityManagingSystemBase.h" />
-    <ClInclude Include="systems\ThreadedSystemBase.h" />
+    <ClInclude Include="framework\EntityManagingSystemBase.h" />
+    <ClInclude Include="framework\ThreadedSystemBase.h" />
     <ClInclude Include="windows\MicrosoftPlatform.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>

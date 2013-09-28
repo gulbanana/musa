@@ -1,4 +1,5 @@
 #pragma once
+#include <mesh/types.h>
 
 class CInput : public Identified<IComponent, CMP::Input>
 {

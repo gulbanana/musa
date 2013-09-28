@@ -1,7 +1,4 @@
-#include <stdexcept>
-#include <memory>
-#include <map>
-#include <vector>
+#include <mesh/stdafx.h>
 #include "ResourceManager.h"
 
 using namespace std;

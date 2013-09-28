@@ -1,4 +1,5 @@
-#include <engine/mesh/core.h>
+#include <mesh/stdafx.h>
+#include <core/misc.h>
 #include "UISystemImpl.h"
 #include <guichan/sdl/sdlinput.hpp>
 #include <guichan/opengl/openglgraphics.hpp>

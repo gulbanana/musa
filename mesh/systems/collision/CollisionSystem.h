@@ -1,7 +1,6 @@
 #pragma once
 #include <core/framework.h>
-#include <core/systems/EntityManagingSystemBase.h>
-#include "collision/ICollisionDetector.h"
+#include "ICollisionDetector.h"
 
 class CollisionSystem final : public Identified<ISystem,SYS::Collision,EntityManagingSystemBase>
 {

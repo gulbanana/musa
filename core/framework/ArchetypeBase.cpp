@@ -1,12 +1,12 @@
 #include <core/stdafx.h>
-#include "PresetArchetype.h"
+#include "ArchetypeBase.h"
 using namespace std;
 
-PresetArchetype::~PresetArchetype()
+ArchetypeBase::~ArchetypeBase()
 {
 }
 
-vector<IComponent*> PresetArchetype::components()
+vector<IComponent*> ArchetypeBase::components()
 {
 	vector<IComponent*> pointers;
 

@@ -1,5 +1,4 @@
 #pragma once
-
 #include <mesh/types.h>
 #include "IRenderer.h"
 

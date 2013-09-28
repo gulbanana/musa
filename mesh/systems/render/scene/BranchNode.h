@@ -1,4 +1,5 @@
 #pragma once
+#include <core/framework.h>
 #include "IGraphNode.h"
 
 class BranchNode : public IGraphNode

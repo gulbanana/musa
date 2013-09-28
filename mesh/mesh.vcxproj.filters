@@ -13,15 +13,15 @@
     <ClCompile Include="systems\render\scene\SceneGraph.cpp" />
     <ClCompile Include="systems\render\GLImmediateRenderer.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
-    <ClCompile Include="systems\CollisionSystem.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp" />
-    <ClCompile Include="systems\RenderSystem.cpp" />
-    <ClCompile Include="systems\UISystem.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="types\box6.cpp" />
     <ClCompile Include="types\constants.cpp" />
     <ClCompile Include="types\to_string.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="systems\render\RenderSystem.cpp" />
+    <ClCompile Include="systems\collision\CollisionSystem.cpp" />
+    <ClCompile Include="systems\ui\UISystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archetypes\Camera2D.h" />
@@ -60,10 +60,7 @@
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="systems\render\scene.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
-    <ClInclude Include="systems\CollisionSystem.h" />
     <ClInclude Include="systems\MotionSystem.h" />
-    <ClInclude Include="systems\RenderSystem.h" />
-    <ClInclude Include="systems\UISystem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="types\box6.h" />
     <ClInclude Include="types\constants.h" />
@@ -72,5 +69,8 @@
     <ClInclude Include="types\typedefs.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="systems\render\RenderSystem.h" />
+    <ClInclude Include="systems\collision\CollisionSystem.h" />
+    <ClInclude Include="systems\ui\UISystem.h" />
   </ItemGroup>
 </Project>

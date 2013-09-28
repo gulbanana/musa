@@ -1,9 +1,7 @@
 #pragma once
-
 #include <core/framework.h>
-#include <core/systems/ThreadedSystemBase.h>
-#include "../geometry.h"
-#include "render/scene.h"
+#include <mesh/geometry.h>
+#include "scene.h"
 
 class RenderSystem final : public Identified<ISystem,SYS::Render,ThreadedSystemBase>, public IGraphWalker
 {

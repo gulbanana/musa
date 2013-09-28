@@ -1,4 +1,5 @@
-#include <engine/mesh/core.h>
+#include <mesh/stdafx.h>
+#include <core/misc.h>
 #include <algorithm>
 #include "SceneGraph.h"
 #include "LambdaWalker.h"

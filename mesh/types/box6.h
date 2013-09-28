@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include "typedefs.h"
 
 struct box6
 {

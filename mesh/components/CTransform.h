@@ -1,4 +1,6 @@
 #pragma once
+#include <core/framework.h>
+#include <mesh/types.h>
 
 class CTransform : public Identified<IComponent, CMP::Transform>
 {

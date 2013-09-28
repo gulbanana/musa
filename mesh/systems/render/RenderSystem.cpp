@@ -1,5 +1,5 @@
-#include <engine/mesh/core.h>
-#include "../components.h"
+#include <mesh/stdafx.h>
+#include <mesh/components.h>
 #include <iterator>
 #include <SDL_opengl.h>
 #include "RenderSystem.h"

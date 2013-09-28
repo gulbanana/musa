@@ -1,5 +1,5 @@
-#include <engine/mesh/core.h>
-#include "../../components.h"
+#include <mesh/stdafx.h>
+#include <mesh/components.h>
 #include "AABBDetector.h"
 
 bool AABBDetector::collide(std::shared_ptr<IEntity> source, std::shared_ptr<IEntity> target)

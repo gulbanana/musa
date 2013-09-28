@@ -2,12 +2,12 @@
 #include "IComponent.h"
 #include "IArchetype.h"
 
-class PresetArchetype : public IArchetype
+class ArchetypeBase : public IArchetype
 {
 protected:
 	std::vector<std::unique_ptr<IComponent>> _components;
 
 public:
-	virtual ~PresetArchetype() = 0;
+	virtual ~ArchetypeBase() = 0;
 	std::vector<IComponent*> components() final;
 };

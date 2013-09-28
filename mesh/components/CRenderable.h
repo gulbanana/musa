@@ -1,5 +1,6 @@
 #pragma once
-#include "../geometry.h"
+#include <core/framework.h>
+#include <mesh/geometry.h>
 
 // a modelobject renderer node 
 class CRenderable : public Identified<IComponent, CMP::Renderable>

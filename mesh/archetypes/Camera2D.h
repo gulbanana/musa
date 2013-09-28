@@ -1,8 +1,8 @@
 #pragma once
+#include <core/framework.h>
 #include "../geometry.h"
-#include "PresetArchetype.h"
 
-class Camera2D final: public PresetArchetype
+class Camera2D final: public ArchetypeBase
 {
 	std::unique_ptr<OrthographicCamera> _camera_matrix;	//XXX the archetype should not own this renderable
 

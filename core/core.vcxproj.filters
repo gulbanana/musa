@@ -24,9 +24,6 @@
     <ClCompile Include="sdl\SDLPlatformBase.cpp">
       <Filter>sdl</Filter>
     </ClCompile>
-    <ClCompile Include="framework\PresetArchetype.cpp">
-      <Filter>framework</Filter>
-    </ClCompile>
     <ClCompile Include="windows\main.cpp">
       <Filter>win</Filter>
     </ClCompile>
@@ -39,10 +36,13 @@
     <ClCompile Include="framework\ManagedEntityFactory.cpp">
       <Filter>framework</Filter>
     </ClCompile>
-    <ClCompile Include="systems\ThreadedSystemBase.cpp" />
-    <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="framework\ArchetypeBase.cpp">
+      <Filter>framework</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\EntityManagingSystemBase.cpp" />
+    <ClCompile Include="framework\ThreadedSystemBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
@@ -86,9 +86,6 @@
     <ClInclude Include="sdl\SDLPlatformBase.h">
       <Filter>sdl</Filter>
     </ClInclude>
-    <ClInclude Include="framework\PresetArchetype.h">
-      <Filter>framework</Filter>
-    </ClInclude>
     <ClInclude Include="windows\MicrosoftPlatform.h">
       <Filter>win</Filter>
     </ClInclude>
@@ -101,8 +98,6 @@
     <ClInclude Include="windows\msvc.h">
       <Filter>win</Filter>
     </ClInclude>
-    <ClInclude Include="systems\ThreadedSystemBase.h" />
-    <ClInclude Include="systems\EntityManagingSystemBase.h" />
     <ClInclude Include="systems\ControlSystem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="misc.h">
@@ -111,5 +106,11 @@
     <ClInclude Include="time.h">
       <Filter>framework</Filter>
     </ClInclude>
+    <ClInclude Include="systems.h" />
+    <ClInclude Include="framework\ArchetypeBase.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\ThreadedSystemBase.h" />
+    <ClInclude Include="framework\EntityManagingSystemBase.h" />
   </ItemGroup>
 </Project>

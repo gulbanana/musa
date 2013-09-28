@@ -1,5 +1,5 @@
-#include <engine/mesh/core.h>
-#include <engine/mesh/components.h>
+#include <mesh/stdafx.h>
+#include <mesh/components.h>
 #include <cmath>
 #include <list>
 #include "MotionSystem.h"

@@ -1,7 +1,6 @@
 #pragma once
 #include <core/framework.h>
 #include <core/GameState.h>
-#include "ThreadedSystemBase.h"
 
 class ControlSystem : public Identified<ISystem,SYS::Control,ThreadedSystemBase>
 {

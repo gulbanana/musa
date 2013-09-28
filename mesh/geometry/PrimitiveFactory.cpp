@@ -1,4 +1,5 @@
-#include <engine/mesh/core.h>
+#include <mesh/stdafx.h>
+#include <core/misc.h>
 #include "PrimitiveFactory.h"
 #include "FVMesh.h"
 using namespace std;
@@ -48,7 +49,7 @@ unique_ptr<IRenderable> PrimitiveFactory::create_sphere(IMaterial* brush, coord 
 		v = normalize(v);
 		v *= radius;
 
-		int i, vix = -1;
+		unsigned int i, vix = -1;
 		for (i = 0; i < vertices.size(); i++)
 		{
 			if (vertices[i] == v)

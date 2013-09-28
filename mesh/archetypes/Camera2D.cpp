@@ -1,5 +1,6 @@
-#include <engine/mesh/core.h>
-#include "../components.h"
+#include <mesh/stdafx.h>
+#include <mesh/components.h>
+#include <core/misc.h>
 #include "Camera2D.h"
 using namespace std;
 
