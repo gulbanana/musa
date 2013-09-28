@@ -215,6 +215,10 @@
     <ClCompile Include="mesh\systems\MotionSystem.cpp" />
     <ClCompile Include="mesh\systems\ThreadedSystemBase.cpp" />
     <ClCompile Include="mesh\core\to_string.cpp" />
+    <ClCompile Include="tile\core\colour.cpp" />
+    <ClCompile Include="tile\core\core.cpp" />
+    <ClCompile Include="tile\core\location.cpp" />
+    <ClCompile Include="tile\core\to_string.cpp" />
     <ClCompile Include="windows\main.cpp" />
     <ClCompile Include="windows\MicrosoftPlatform.cpp" />
   </ItemGroup>
@@ -292,6 +296,19 @@
     <ClInclude Include="mesh\components\CTransform.h" />
     <ClInclude Include="mesh\systems\ThreadedSystemBase.h" />
     <ClInclude Include="mesh\core\to_string.h" />
+    <ClInclude Include="tile\components\CAcceleration.h" />
+    <ClInclude Include="tile\components\CInput.h" />
+    <ClInclude Include="tile\components\CLabel.h" />
+    <ClInclude Include="tile\components\CPhysics.h" />
+    <ClInclude Include="tile\components\CRenderable.h" />
+    <ClInclude Include="tile\components\CTransform.h" />
+    <ClInclude Include="tile\components\CVelocity.h" />
+    <ClInclude Include="tile\core\colour.h" />
+    <ClInclude Include="tile\core\location.h" />
+    <ClInclude Include="tile\core\misc.h" />
+    <ClInclude Include="tile\core\orientation.h" />
+    <ClInclude Include="tile\core\time.h" />
+    <ClInclude Include="tile\core\to_string.h" />
     <ClInclude Include="windows\MicrosoftPlatform.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>
