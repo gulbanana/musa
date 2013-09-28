@@ -72,6 +72,7 @@
     <ClCompile Include="framework\AutonomousEntity.cpp" />
     <ClCompile Include="framework\ManagedEntity.cpp" />
     <ClCompile Include="framework\ManagedEntityFactory.cpp" />
+    <ClCompile Include="assets\AssetManager.cpp" />
     <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@
     <ClInclude Include="framework\ManagedEntity.h" />
     <ClInclude Include="framework\ManagedEntityFactory.h" />
     <ClInclude Include="framework\Identifiable.h" />
+    <ClInclude Include="assets\AssetManager.h" />
     <ClInclude Include="framework\IEntityFactory.h" />
     <ClInclude Include="framework\AutonomousEntityFactory.h" />
   </ItemGroup>
