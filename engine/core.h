@@ -22,16 +22,16 @@
 #include "core/to_string.h"
 
 //core architecture layer 1
-#include "core/IPlatform.h"
-#include "core/Identified.h"
-#include "core/IComponent.h"
+#include "framework/IPlatform.h"
+#include "framework/Identifiable.h"
+#include "framework/IComponent.h"
 //layer 2
-#include "core/IEntity.h"
-#include "core/IEntityFactory.h"
-#include "core/IArchetype.h"
-#include "core/ISystem.h"
+#include "framework/IEntity.h"
+#include "framework/IEntityFactory.h"
+#include "framework/IArchetype.h"
+#include "framework/ISystem.h"
 //layer 3
-#include "core/AutonomousEntity.h"
-#include "core/AutonomousEntityFactory.h"
-#include "core/ManagedEntity.h"
-#include "core/ManagedEntityFactory.h"
+#include "framework/AutonomousEntity.h"
+#include "framework/AutonomousEntityFactory.h"
+#include "framework/ManagedEntity.h"
+#include "framework/ManagedEntityFactory.h"

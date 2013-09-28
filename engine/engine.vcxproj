@@ -186,15 +186,15 @@
     <ClCompile Include="core\core.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="core\ManagedEntity.cpp" />
-    <ClCompile Include="core\AutonomousEntityFactory.cpp" />
-    <ClCompile Include="core\ManagedEntityFactory.cpp" />
+    <ClCompile Include="framework\ManagedEntity.cpp" />
+    <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
+    <ClCompile Include="framework\ManagedEntityFactory.cpp" />
     <ClCompile Include="sdl\SDLPlatformBase.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="archetypes\Camera3D.cpp" />
     <ClCompile Include="archetypes\Camera2D.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="core\AutonomousEntity.cpp" />
+    <ClCompile Include="framework\AutonomousEntity.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="systems\render\scene\LambdaWalker.cpp" />
     <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
@@ -219,14 +219,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archetypes\PresetArchetype.h" />
-    <ClInclude Include="core\IArchetype.h" />
+    <ClInclude Include="framework\IArchetype.h" />
     <ClInclude Include="components\CInput.h" />
-    <ClInclude Include="core\IEntityFactory.h" />
-    <ClInclude Include="core\IMessage.h" />
-    <ClInclude Include="core\AutonomousEntityFactory.h" />
-    <ClInclude Include="core\IPlatform.h" />
-    <ClInclude Include="core\ManagedEntityFactory.h" />
-    <ClInclude Include="core\ManagedEntity.h" />
+    <ClInclude Include="framework\IComponentManager.h" />
+    <ClInclude Include="framework\IEntityFactory.h" />
+    <ClInclude Include="framework\IEvent.h" />
+    <ClInclude Include="framework\AutonomousEntityFactory.h" />
+    <ClInclude Include="framework\IPlatform.h" />
+    <ClInclude Include="framework\ManagedEntityFactory.h" />
+    <ClInclude Include="framework\ManagedEntity.h" />
     <ClInclude Include="sdl\SDLPlatformBase.h" />
     <ClInclude Include="systems\render\scene\RootNode.h" />
     <ClInclude Include="Settings.h" />
@@ -246,7 +247,7 @@
     <ClInclude Include="components\CRenderable.h" />
     <ClInclude Include="systems\render\scene\IGraphNode.h" />
     <ClInclude Include="systems\render\scene\IGraphWalker.h" />
-    <ClInclude Include="core\Identified.h" />
+    <ClInclude Include="framework\Identifiable.h" />
     <ClInclude Include="core\typedefs.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="systems\render\scene.h" />
@@ -254,7 +255,7 @@
     <ClInclude Include="geometry\IMaterial.h" />
     <ClInclude Include="geometry\IRenderable.h" />
     <ClInclude Include="archetypes.h" />
-    <ClInclude Include="core\AutonomousEntity.h" />
+    <ClInclude Include="framework\AutonomousEntity.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="geometry\PrimitiveFactory.h" />
@@ -276,14 +277,14 @@
     <ClInclude Include="core\constants.h" />
     <ClInclude Include="systems\UISystem.h" />
     <ClInclude Include="core.h" />
-    <ClInclude Include="core\IEntity.h" />
+    <ClInclude Include="framework\IEntity.h" />
     <ClInclude Include="geometry\FVMesh.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="systems\render\scene\SceneGraph.h" />
     <ClInclude Include="systems\ControlSystem.h" />
-    <ClInclude Include="core\ISystem.h" />
+    <ClInclude Include="framework\ISystem.h" />
     <ClInclude Include="core\misc.h" />
-    <ClInclude Include="core\IComponent.h" />
+    <ClInclude Include="framework\IComponent.h" />
     <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="systems\ThreadedSystemBase.h" />

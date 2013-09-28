@@ -56,10 +56,6 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="systems\collision\AABBDetector.cpp" />
     <ClCompile Include="core\box6.cpp" />
-    <ClCompile Include="core\ManagedEntity.cpp" />
-    <ClCompile Include="core\AutonomousEntity.cpp" />
-    <ClCompile Include="core\AutonomousEntityFactory.cpp" />
-    <ClCompile Include="core\ManagedEntityFactory.cpp" />
     <ClCompile Include="archetypes\Camera2D.cpp" />
     <ClCompile Include="archetypes\Camera3D.cpp" />
     <ClCompile Include="archetypes\PresetArchetype.cpp" />
@@ -69,11 +65,14 @@
     <ClCompile Include="components\CTransform.cpp" />
     <ClCompile Include="core\constants.cpp" />
     <ClCompile Include="core\to_string.cpp" />
-    <ClCompile Include="windows\platform.cpp" />
     <ClCompile Include="core\core.cpp" />
     <ClCompile Include="windows\MicrosoftPlatform.cpp" />
     <ClCompile Include="sdl\SDLPlatformBase.cpp" />
     <ClCompile Include="windows\main.cpp" />
+    <ClCompile Include="framework\AutonomousEntity.cpp" />
+    <ClCompile Include="framework\ManagedEntity.cpp" />
+    <ClCompile Include="framework\ManagedEntityFactory.cpp" />
+    <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -101,7 +100,6 @@
     </ClInclude>
     <ClInclude Include="GameState.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
-    <ClInclude Include="core\Identified.h" />
     <ClInclude Include="systems\render\GLImmediateRenderer.h" />
     <ClInclude Include="components\CVelocity.h">
       <Filter>components</Filter>
@@ -116,15 +114,6 @@
       <Filter>systems\Movement</Filter>
     </ClInclude>
     <ClInclude Include="components\CAcceleration.h" />
-    <ClInclude Include="core\ISystem.h">
-      <Filter>systems</Filter>
-    </ClInclude>
-    <ClInclude Include="core\IEntity.h">
-      <Filter>entities</Filter>
-    </ClInclude>
-    <ClInclude Include="core\IComponent.h">
-      <Filter>components</Filter>
-    </ClInclude>
     <ClInclude Include="geometry\PrimitiveFactory.h" />
     <ClInclude Include="core\typedefs.h" />
     <ClInclude Include="geometry\IMaterial.h" />
@@ -153,16 +142,9 @@
     </ClInclude>
     <ClInclude Include="core\box6.h" />
     <ClInclude Include="components\CInput.h" />
-    <ClInclude Include="core\IMessage.h" />
-    <ClInclude Include="core\IEntityFactory.h" />
-    <ClInclude Include="core\ManagedEntity.h" />
-    <ClInclude Include="core\AutonomousEntity.h" />
-    <ClInclude Include="core\AutonomousEntityFactory.h" />
-    <ClInclude Include="core\ManagedEntityFactory.h" />
     <ClInclude Include="archetypes\Camera2D.h" />
     <ClInclude Include="archetypes\Camera3D.h" />
     <ClInclude Include="archetypes.h" />
-    <ClInclude Include="core\IArchetype.h" />
     <ClInclude Include="archetypes\PresetArchetype.h" />
     <ClInclude Include="core\misc.h" />
     <ClInclude Include="systems\ThreadedSystemBase.h" />
@@ -182,7 +164,25 @@
     <ClInclude Include="core\constants.h" />
     <ClInclude Include="core\to_string.h" />
     <ClInclude Include="windows\MicrosoftPlatform.h" />
-    <ClInclude Include="core\IPlatform.h" />
     <ClInclude Include="sdl\SDLPlatformBase.h" />
+    <ClInclude Include="framework\AutonomousEntity.h" />
+    <ClInclude Include="framework\IArchetype.h" />
+    <ClInclude Include="framework\IComponent.h">
+      <Filter>components</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IComponentManager.h" />
+    <ClInclude Include="framework\IEntity.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\IEvent.h" />
+    <ClInclude Include="framework\IPlatform.h" />
+    <ClInclude Include="framework\ISystem.h">
+      <Filter>systems</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\ManagedEntity.h" />
+    <ClInclude Include="framework\ManagedEntityFactory.h" />
+    <ClInclude Include="framework\Identifiable.h" />
+    <ClInclude Include="framework\IEntityFactory.h" />
+    <ClInclude Include="framework\AutonomousEntityFactory.h" />
   </ItemGroup>
 </Project>

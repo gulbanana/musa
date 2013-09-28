@@ -10,7 +10,7 @@ enum class SYS
     Motion,
     Render,
     UI,
-	Last = UI
+	COUNT
 };
 
 class ISystem : public Identifiable<SYS>
