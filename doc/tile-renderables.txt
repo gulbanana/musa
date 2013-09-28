@@ -1,0 +1,3 @@
+this is all to be replaced with a gltext system. 
+renderer should initially support fast text grids and then later effects like particles, glows, etc.
+they could simply the be the same object if necessary

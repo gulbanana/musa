@@ -1,3 +1,4 @@
+split ECS framework from game-mode engines to allow a text-mode game
 system multithreading - dependency semaphores
 messages, as a performance optimisation of polling
 polling
