@@ -221,6 +221,7 @@
   <ItemGroup>
     <ClInclude Include="archetypes\PresetArchetype.h" />
     <ClInclude Include="assets\AssetManager.h" />
+    <ClInclude Include="core\coord.h" />
     <ClInclude Include="framework\IArchetype.h" />
     <ClInclude Include="components\CInput.h" />
     <ClInclude Include="framework\IComponentManager.h" />

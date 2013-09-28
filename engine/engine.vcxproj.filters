@@ -186,5 +186,6 @@
     <ClInclude Include="assets\AssetManager.h" />
     <ClInclude Include="framework\IEntityFactory.h" />
     <ClInclude Include="framework\AutonomousEntityFactory.h" />
+    <ClInclude Include="core\coord.h" />
   </ItemGroup>
 </Project>

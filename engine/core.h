@@ -15,6 +15,7 @@
 
 //internal types
 #include "core/misc.h"
+//#include "core/coord.h"
 #include "core/typedefs.h"
 #include "core/rect4.h"
 #include "core/box6.h"
