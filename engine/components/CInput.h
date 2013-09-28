@@ -3,9 +3,10 @@
 class CInput : public Identified<IComponent, CMP::Input>
 {
 public:
-	coord speed;
+	dist speed;
+	angle direction;
 	
-	CInput(coord speed) : speed(speed) {}
+	CInput(dist speed, angle direction) : speed(speed), direction(direction) {}
 
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CInput(*this)); }
 };

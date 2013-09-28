@@ -62,8 +62,6 @@
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
     <ClCompile Include="systems\render\scene\LambdaWalker.cpp" />
     <ClCompile Include="systems\render\scene\SceneGraph.cpp" />
-    <ClCompile Include="components\CTransform.cpp" />
-    <ClCompile Include="core\constants.cpp" />
     <ClCompile Include="core\to_string.cpp" />
     <ClCompile Include="core\core.cpp" />
     <ClCompile Include="windows\MicrosoftPlatform.cpp" />
@@ -74,6 +72,8 @@
     <ClCompile Include="framework\ManagedEntityFactory.cpp" />
     <ClCompile Include="assets\AssetManager.cpp" />
     <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
+    <ClCompile Include="core\colour.cpp" />
+    <ClCompile Include="core\location.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components.h">
@@ -116,7 +116,6 @@
     </ClInclude>
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="geometry\PrimitiveFactory.h" />
-    <ClInclude Include="core\typedefs.h" />
     <ClInclude Include="geometry\IMaterial.h" />
     <ClInclude Include="geometry\SpriteMesh.h" />
     <ClInclude Include="geometry\SolidColourBrush.h" />
@@ -162,7 +161,6 @@
       <Filter>components</Filter>
     </ClInclude>
     <ClInclude Include="components\CRenderable.h" />
-    <ClInclude Include="core\constants.h" />
     <ClInclude Include="core\to_string.h" />
     <ClInclude Include="windows\MicrosoftPlatform.h" />
     <ClInclude Include="sdl\SDLPlatformBase.h" />
@@ -186,6 +184,9 @@
     <ClInclude Include="assets\AssetManager.h" />
     <ClInclude Include="framework\IEntityFactory.h" />
     <ClInclude Include="framework\AutonomousEntityFactory.h" />
-    <ClInclude Include="core\coord.h" />
+    <ClInclude Include="core\orientation.h" />
+    <ClInclude Include="core\colour.h" />
+    <ClInclude Include="core\location.h" />
+    <ClInclude Include="core\time.h" />
   </ItemGroup>
 </Project>

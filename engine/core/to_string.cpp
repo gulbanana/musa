@@ -1,29 +1,42 @@
 #include "engine/core.h"
-#include "to_string.h"
-using namespace std;
 
-string std::to_string(glm::quat q)
+namespace std 
 {
-	return string("(") 
-	+ to_string(q.w) + "+"
-	+ to_string(q.x) + "i+"
-	+ to_string(q.y) + "j+"
-	+ to_string(q.z) + "k)";
-}
+	string to_string(vec2 v)
+	{
+		return string("[") 
+			+ to_string(v.x) + ","
+			+ to_string(v.y) 
+		+ "]";
+	}
 
-string std::to_string(glm::vec3 v)
-{
-	return string("[") 
-	+ to_string(v.x) + ","
-	+ to_string(v.y) + ","
-	+ to_string(v.z) + "]";
-}
+	string to_string(point p)
+	{
+		return string("(") 
+			+ to_string(p.x) + ","
+			+ to_string(p.y) + ","
+			+ to_string(p.z) 
+		+ ")";	
+	}
 
-string std::to_string(glm::vec4 v)
-{
-	return string("[") 
-	+ to_string(v.x) + ","
-	+ to_string(v.y) + ","
-	+ to_string(v.y) + ","
-	+ to_string(v.w) + "]";
+	string to_string(dir d)
+	{
+		switch (d)
+		{
+		case dir::UP:
+			return "up";
+
+		case dir::DOWN:
+			return "down";
+
+		case dir::LEFT:
+			return "left";
+
+		case dir::RIGHT:
+			return "right";
+
+		default:
+			return "unknown-direction";
+		}
+	}
 }

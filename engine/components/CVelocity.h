@@ -3,15 +3,13 @@
 class CVelocity : public Identified<IComponent, CMP::Velocity>
 {
 public:
-	point vector;
-	rotation versor;
+	vec2 vector;
+	angle versor;
 	
-	CVelocity()                              : vector(),       versor(0,0,0,0) {}
-	CVelocity(coord x, coord y, coord z)     : vector(x,y,z),  versor(0,0,0,0) {}
-	CVelocity(point vector)                  : vector(vector), versor(0,0,0,0) {}
-	CVelocity(point vector, rotation versor)  : vector(vector), versor(versor) {}
-	CVelocity(point vector, eulers versor) : vector(vector), versor(versor) {}
+	CVelocity()                          : vector(vec2::ZERO), versor(0) {}
+	CVelocity(dist x, dist y)            : vector(vec2(x,y)),  versor(0) {}
+	CVelocity(vec2 vector)               : vector(vector),     versor(0) {}
+	CVelocity(vec2 vector, angle versor) : vector(vector),     versor(versor) {}
 
 	std::unique_ptr<IComponent> clone() const { return std::unique_ptr<IComponent>(new CVelocity(*this)); }
 };
-

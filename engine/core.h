@@ -13,16 +13,17 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-//internal types
+//core geometry model types
 #include "core/misc.h"
-//#include "core/coord.h"
-#include "core/typedefs.h"
+#include "core/time.h"
+#include "core/orientation.h"
+#include "core/location.h"
+#include "core/colour.h"
 #include "core/rect4.h"
 #include "core/box6.h"
-#include "core/constants.h"
 #include "core/to_string.h"
 
-//core architecture layer 1
+//ECS architecture layer 1
 #include "framework/IPlatform.h"
 #include "framework/Identifiable.h"
 #include "framework/IComponent.h"

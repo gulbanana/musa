@@ -7,30 +7,30 @@ struct rect4
 	coord x1, y1, x2, y2;
 
 	//accessors - interface with the rect any way you like
-	coord left() const		{ return x1; }
-	coord bottom() const	{ return y1; }
-	coord right() const		{ return x2; }
-	coord top() const		{ return y2; }
-	point2 bottomLeft() const { return point2(x1,y1); }
-	point2 topRight() const	{ return point2(x2,y2); }
-	point2 origin() const		{ return bottomLeft(); }
-	coord width() const		{ return x2-x1; }
-	coord height() const	{ return y2-y1; }
+	coord left() const		 { return x1; }
+	coord bottom() const	 { return y1; }
+	coord right() const		 { return x2; }
+	coord top() const		 { return y2; }
+	point bottomLeft() const { return point(x1,y1); }
+	point topRight() const	 { return point(x2,y2); }
+	point origin() const	 { return bottomLeft(); }
+	coord width() const		 { return x2-x1; }
+	coord height() const	 { return y2-y1; }
 
 	///constructors
 	rect4(coord left, coord bottom, coord right, coord top) : x1(left), y1(bottom), x2(right), y2(top) {}
-	rect4(glm::vec2 bottomLeft, glm::vec2 topRight) : x1(bottomLeft.x), y1(bottomLeft.y), x2(topRight.x), y2(topRight.y) {}
-	rect4(glm::vec2 origin, coord width, coord height) : x1(origin.x), y1(origin.y), x2(origin.x + width), y2(origin.y + height) {}
+	rect4(point bottomLeft, point topRight) : x1(bottomLeft.x), y1(bottomLeft.y), x2(topRight.x), y2(topRight.y) {}
+	rect4(point origin, coord width, coord height) : x1(origin.x), y1(origin.y), x2(origin.x + width), y2(origin.y + height) {}
 	explicit rect4(box6 box) : x1(box.x1), y1(box.y1), x2(box.x2), y2(box.y2) {}
 
 #pragma region arithmetic
-	rect4 operator+(glm::vec2 const& p) const { return rect4(x1 + (coord)p.x, y1 + (coord)p.y, x2 + (coord)p.x, y2 + (coord)p.y); }
-	rect4 operator-(glm::vec2 const& p) const { return rect4(x1 - (coord)p.x, y1 - (coord)p.y, x2 - (coord)p.x, y2 - (coord)p.y); }
+	rect4 operator+(point const& p) const { return rect4(x1 + (coord)p.x, y1 + (coord)p.y, x2 + (coord)p.x, y2 + (coord)p.y); }
+	rect4 operator-(point const& p) const { return rect4(x1 - (coord)p.x, y1 - (coord)p.y, x2 - (coord)p.x, y2 - (coord)p.y); }
 #pragma endregion
 	
 #pragma region utility
 	bool contains(coord x, coord y) const { return (x >= x1) && (x < x2) && (y >= y1) && (y < y2); }
-	bool contains(glm::vec2 const& point) const { return contains((coord)point.x, (coord)point.y); }
+	bool contains(point const& p) const { return contains((coord)p.x, (coord)p.y); }
 	bool intersects(rect4 const& rectangle) const
 	{
 		rect4 intersection((coord)0,(coord)0,(coord)0,(coord)0);
