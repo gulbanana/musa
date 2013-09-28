@@ -1,3 +1,4 @@
+#include <core/stdafx.h>
 #include "GameState.h"
 
 GameState::GameState()

@@ -1,16 +1,5 @@
 #pragma once
 
-//STL
-#define _USE_MATH_DEFINES
-#include <memory>
-#include <string>
-#include <array>
-#include <vector>
-#include <map>
-
-#include <core/framework/misc.h>
-#include <core/framework/time.h>
-
 //ECS architecture layer 1
 #include <core/framework/IPlatform.h>
 #include <core/framework/Identifiable.h>

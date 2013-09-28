@@ -1,4 +1,5 @@
-#include <core/framework.h>
+#include <core/stdafx.h>
+#include "PresetArchetype.h"
 using namespace std;
 
 PresetArchetype::~PresetArchetype()

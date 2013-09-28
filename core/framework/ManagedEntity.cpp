@@ -1,4 +1,6 @@
-#include "../framework.h"
+#include <core/stdafx.h>
+#include "ManagedEntity.h"
+#include "ManagedEntityFactory.h"
 using namespace std;
 
 ManagedEntity::ManagedEntity(unsigned long long id, ManagedEntityFactory* factory)

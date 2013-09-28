@@ -1,5 +1,6 @@
 #pragma once
 #include "Identifiable.h"
+#include "IComponent.h"
 
 // implementation-agnostic meta-entity class
 // a reference to an IEntity constitutes an entity ID

@@ -1,9 +1,12 @@
-#include "framework.h"
+#include <core/stdafx.h>
+#include <algorithm>
 #include <mesh/systems.h>
 #include <mesh/systems/render/GLImmediateRenderer.h>
-#include <algorithm>
+#include "framework.h"
+#include "misc.h"
 #include "GameState.h"
 #include "Engine.h"
+
 using namespace std;
 
 #pragma region pimpl

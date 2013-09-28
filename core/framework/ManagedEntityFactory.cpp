@@ -1,4 +1,6 @@
-#include "../framework.h"
+#include <core/stdafx.h>
+#include "ManagedEntityFactory.h"
+#include "ManagedEntity.h"
 using namespace std;
 
 ManagedEntityFactory::ManagedEntityFactory()

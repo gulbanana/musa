@@ -42,6 +42,7 @@
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
     <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
     <ClCompile Include="systems\ControlSystem.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
@@ -82,12 +83,6 @@
     <ClInclude Include="framework\IPlatform.h">
       <Filter>framework</Filter>
     </ClInclude>
-    <ClInclude Include="framework\misc.h">
-      <Filter>framework</Filter>
-    </ClInclude>
-    <ClInclude Include="framework\time.h">
-      <Filter>framework</Filter>
-    </ClInclude>
     <ClInclude Include="sdl\SDLPlatformBase.h">
       <Filter>sdl</Filter>
     </ClInclude>
@@ -109,5 +104,12 @@
     <ClInclude Include="systems\ThreadedSystemBase.h" />
     <ClInclude Include="systems\EntityManagingSystemBase.h" />
     <ClInclude Include="systems\ControlSystem.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="misc.h">
+      <Filter>framework</Filter>
+    </ClInclude>
+    <ClInclude Include="time.h">
+      <Filter>framework</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

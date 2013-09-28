@@ -1,4 +1,4 @@
-#include "../framework.h"
+#include <core/stdafx.h>
 #include "ControlSystem.h"
 using namespace std;
 

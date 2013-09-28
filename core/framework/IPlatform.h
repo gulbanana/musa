@@ -1,6 +1,6 @@
 #pragma once
-
 #include <string>
+#include <core/time.h>
 
 //provides access to nonportable facilities
 class IPlatform

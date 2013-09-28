@@ -1,4 +1,5 @@
 #pragma once
+#include <core/framework/IPlatform.h>
 
 class SDLPlatformBase : public IPlatform
 {

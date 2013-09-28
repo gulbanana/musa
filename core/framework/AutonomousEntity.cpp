@@ -1,4 +1,4 @@
-#include "../framework.h"
+#include <core/stdafx.h>
 #include "AutonomousEntity.h"
 using namespace std;
 

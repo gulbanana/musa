@@ -1,4 +1,5 @@
 #pragma once
+#include <core/framework.h>
 #include "ThreadedSystemBase.h"
 
 class EntityManagingSystemBase : public ThreadedSystemBase

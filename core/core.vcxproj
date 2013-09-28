@@ -100,13 +100,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;SFML_STATIC;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>musaceae.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>core/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -119,13 +119,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;SFML_STATIC;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>engine/mesh/core.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>core/stdafx.h</PrecompiledHeaderFile>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
@@ -140,14 +140,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;SFML_STATIC;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>musaceae.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>core/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -161,14 +161,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\;C:\Users\banana\Documents\code\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeaderFile>engine/mesh/core.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>core/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -189,6 +189,9 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="framework\AutonomousEntity.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="systems\ControlSystem.cpp" />
     <ClCompile Include="systems\EntityManagingSystemBase.cpp" />
     <ClCompile Include="systems\ThreadedSystemBase.cpp" />
@@ -198,7 +201,7 @@
   <ItemGroup>
     <ClInclude Include="framework\PresetArchetype.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="framework\time.h" />
+    <ClInclude Include="time.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="framework\IArchetype.h" />
     <ClInclude Include="framework\IComponentManager.h" />
@@ -208,7 +211,7 @@
     <ClInclude Include="framework\IPlatform.h" />
     <ClInclude Include="framework\ManagedEntityFactory.h" />
     <ClInclude Include="framework\ManagedEntity.h" />
-    <ClInclude Include="framework\misc.h" />
+    <ClInclude Include="misc.h" />
     <ClInclude Include="sdl\SDLPlatformBase.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="framework\Identifiable.h" />
@@ -218,6 +221,7 @@
     <ClInclude Include="framework\IEntity.h" />
     <ClInclude Include="framework\ISystem.h" />
     <ClInclude Include="framework\IComponent.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="systems\ControlSystem.h" />
     <ClInclude Include="systems\EntityManagingSystemBase.h" />
     <ClInclude Include="systems\ThreadedSystemBase.h" />

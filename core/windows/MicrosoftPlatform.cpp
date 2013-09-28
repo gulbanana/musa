@@ -1,4 +1,4 @@
-#include "../framework.h"
+#include <core/stdafx.h>
 #include "MicrosoftPlatform.h"
 #include "Windows.h"
 using namespace std;

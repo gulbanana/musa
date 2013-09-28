@@ -1,4 +1,6 @@
 #pragma once
+#include "IComponent.h"
+#include "IArchetype.h"
 
 class PresetArchetype : public IArchetype
 {

@@ -1,4 +1,6 @@
-#include "../framework.h"
+#include <core/stdafx.h>
+#include "AutonomousEntityFactory.h"
+#include "AutonomousEntity.h"
 using namespace std;
 
 unique_ptr<IEntity> AutonomousEntityFactory::create(IArchetype* archetype)

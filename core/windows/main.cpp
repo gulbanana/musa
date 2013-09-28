@@ -1,4 +1,4 @@
-#include <core/framework.h>
+#include <core/stdafx.h>
 #include "MicrosoftPlatform.h"
 #include "Windows.h"
 

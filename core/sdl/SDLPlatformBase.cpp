@@ -1,6 +1,6 @@
-#include "../framework.h"
-#include "SDLPlatformBase.h"
+#include <core/stdafx.h>
 #include <SDL.h>
+#include "SDLPlatformBase.h"
 using namespace std;
 
 SDLPlatformBase::SDLPlatformBase()

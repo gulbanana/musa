@@ -1,5 +1,5 @@
+#include <core/stdafx.h>
 #include <algorithm>
-#include "../framework.h"
 #include "EntityManagingSystemBase.h"
 using namespace std;
 

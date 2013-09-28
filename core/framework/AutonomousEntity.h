@@ -1,4 +1,5 @@
 #pragma once
+#include "IComponent.h"
 #include "IEntity.h"
 
 class AutonomousEntityFactory;
