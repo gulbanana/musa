@@ -1,1 +1,1 @@
-No license is granted to use or make derivative works of this code, only to read and study it.
+Copyright Thomas Castiglione 2013. No license is granted to use or make derivative works of this code, only to read and study it.

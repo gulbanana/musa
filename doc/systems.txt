@@ -1,16 +1,19 @@
-first cut 2d/3d engine systems
+tile world systems
 
-CONTROL system
+CONTROL system - controller/dual stick primary input?
 components: anything controllable
 
 RENDER system
 components: position, mesh, brush
 
 (TIME and?) MOTION system
-components: position, velocity, expiry?
+components: position, velocity, expiry? time it takes to move a tile
 
 COLLISION system
 components: position, mesh, physics
 
 UI system
 components: position, label
+
+ASSET system
+streaming
