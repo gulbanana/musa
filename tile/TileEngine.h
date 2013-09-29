@@ -1,13 +1,13 @@
 #pragma once
 #include <core/IGameEngine.h>
 
-class TilesEngine : public IGameEngine
+class TileEngine : public IGameEngine
 {
 private:
 
 public:
-	TilesEngine();
-	~TilesEngine();
+	TileEngine();
+	~TileEngine();
 
 	std::vector<std::unique_ptr<ISystem>> get_systems(GameSettings settings, std::shared_ptr<GameState> state) override;
 };

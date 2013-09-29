@@ -16,8 +16,8 @@
 		E511B85217F84EE900CF17CB /* components.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83E17F84EE900CF17CB /* components.h */; };
 		E511B85317F84EE900CF17CB /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B83F17F84EE900CF17CB /* stdafx.cpp */; };
 		E511B85417F84EE900CF17CB /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84017F84EE900CF17CB /* stdafx.h */; };
-		E511B85517F84EE900CF17CB /* TilesEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84117F84EE900CF17CB /* TilesEngine.cpp */; };
-		E511B85617F84EE900CF17CB /* TilesEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84217F84EE900CF17CB /* TilesEngine.h */; };
+		E511B85517F84EE900CF17CB /* TileEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84117F84EE900CF17CB /* TileEngine.cpp */; };
+		E511B85617F84EE900CF17CB /* TileEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84217F84EE900CF17CB /* TileEngine.h */; };
 		E511B85717F84EE900CF17CB /* colour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84417F84EE900CF17CB /* colour.cpp */; };
 		E511B85817F84EE900CF17CB /* colour.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84517F84EE900CF17CB /* colour.h */; };
 		E511B85917F84EE900CF17CB /* location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84617F84EE900CF17CB /* location.cpp */; };
@@ -39,8 +39,8 @@
 		E511B83E17F84EE900CF17CB /* components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = components.h; sourceTree = "<group>"; };
 		E511B83F17F84EE900CF17CB /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
 		E511B84017F84EE900CF17CB /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
-		E511B84117F84EE900CF17CB /* TilesEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TilesEngine.cpp; sourceTree = "<group>"; };
-		E511B84217F84EE900CF17CB /* TilesEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilesEngine.h; sourceTree = "<group>"; };
+		E511B84117F84EE900CF17CB /* TileEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileEngine.cpp; sourceTree = "<group>"; };
+		E511B84217F84EE900CF17CB /* TileEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileEngine.h; sourceTree = "<group>"; };
 		E511B84417F84EE900CF17CB /* colour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = colour.cpp; sourceTree = "<group>"; };
 		E511B84517F84EE900CF17CB /* colour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colour.h; sourceTree = "<group>"; };
 		E511B84617F84EE900CF17CB /* location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = location.cpp; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 				E511B83E17F84EE900CF17CB /* components.h */,
 				E511B83F17F84EE900CF17CB /* stdafx.cpp */,
 				E511B84017F84EE900CF17CB /* stdafx.h */,
-				E511B84117F84EE900CF17CB /* TilesEngine.cpp */,
-				E511B84217F84EE900CF17CB /* TilesEngine.h */,
+				E511B84117F84EE900CF17CB /* TileEngine.cpp */,
+				E511B84217F84EE900CF17CB /* TileEngine.h */,
 				E511B84317F84EE900CF17CB /* types */,
 				E511B84B17F84EE900CF17CB /* types.h */,
 				E511B82B17F84EAF00CF17CB /* Products */,
@@ -127,7 +127,7 @@
 				E511B85117F84EE900CF17CB /* CVelocity.h in Headers */,
 				E511B85217F84EE900CF17CB /* components.h in Headers */,
 				E511B85417F84EE900CF17CB /* stdafx.h in Headers */,
-				E511B85617F84EE900CF17CB /* TilesEngine.h in Headers */,
+				E511B85617F84EE900CF17CB /* TileEngine.h in Headers */,
 				E511B85817F84EE900CF17CB /* colour.h in Headers */,
 				E511B85A17F84EE900CF17CB /* location.h in Headers */,
 				E511B85B17F84EE900CF17CB /* orientation.h in Headers */,
@@ -188,7 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E511B85317F84EE900CF17CB /* stdafx.cpp in Sources */,
-				E511B85517F84EE900CF17CB /* TilesEngine.cpp in Sources */,
+				E511B85517F84EE900CF17CB /* TileEngine.cpp in Sources */,
 				E511B85717F84EE900CF17CB /* colour.cpp in Sources */,
 				E511B85917F84EE900CF17CB /* location.cpp in Sources */,
 				E511B85C17F84EE900CF17CB /* to_string.cpp in Sources */,
