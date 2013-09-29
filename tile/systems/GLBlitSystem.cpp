@@ -1,14 +1,14 @@
 #include <tile/stdafx.h>
 #include <SDL_opengl.h>
-#include "BlitSystem.h"
+#include "GLBlitSystem.h"
 using namespace std;
 
-vector<ISystem::ID> BlitSystem::required_systems() const
+vector<ISystem::ID> GLBlitSystem::required_systems() const
 {
 	return require();
 }
 
-BlitSystem::BlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : _tram(1, 1), _surface(nullptr)
+GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : _tram(80, 24), _surface(nullptr)
 {
 	//SDL init
 	int rc;
@@ -40,25 +40,29 @@ BlitSystem::BlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : _tra
 	//setup clipping-space 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-
 }
 
-BlitSystem::~BlitSystem(void)
+GLBlitSystem::~GLBlitSystem(void)
 {
 	SDL_FreeSurface(_surface);
 }
 
-void BlitSystem::on_wake()
+void GLBlitSystem::on_wake()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	SDL_GL_SwapBuffers();
 }
 
-bool BlitSystem::on_event(SDL_Event& event)
+bool GLBlitSystem::on_event(SDL_Event& event)
 {
 	//if (event.type == SDL_VIDEORESIZE)
 		//_renderer->set_viewport(event.resize.w, event.resize.h);
 	
 	return false;
+}
+
+grid* GLBlitSystem::get_tram()
+{
+	return &_tram;
 }

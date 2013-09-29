@@ -2,8 +2,9 @@
 #include <core/framework.h>
 #include <tile/types.h>
 #include <SDL_video.h>
+#include "IBlitter.h"
 
-class BlitSystem : public Identified<ISystem,SYS::Render,ThreadedSystemBase>
+class GLBlitSystem : public Identified<ISystem,SYS::Render,ThreadedSystemBase>, public IBlitter
 {
 private:
 	SDL_Surface* _surface;
@@ -15,7 +16,9 @@ private:
 	bool on_event(SDL_Event&) override;
 
 public:
-	BlitSystem(unsigned int pixelWidth, unsigned int pixelHeight);
-	~BlitSystem();
+	GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight);
+	~GLBlitSystem();
+
+	grid* get_tram() override;
 };
 

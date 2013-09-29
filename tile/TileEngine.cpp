@@ -1,4 +1,5 @@
 #include <tile/stdafx.h>
+#include <core/misc.h>
 #include "TileEngine.h"
 #include "systems.h"
 using namespace std;
@@ -15,8 +16,11 @@ vector<unique_ptr<ISystem>> TileEngine::get_systems(GameSettings settings, share
 {
 	vector<unique_ptr<ISystem>> empty;
 
-	empty.emplace_back(new RenderSystem());
-	empty.emplace_back(new BlitSystem(settings.initial_width, settings.initial_height));
+	auto blit = make_unique<GLBlitSystem>(settings.initial_width, settings.initial_height);
+	auto render = make_unique<RenderSystem>(blit.get());
+
+	empty.push_back(move(render));
+	empty.push_back(move(blit));
 
 	return empty;
 }

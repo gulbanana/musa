@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="systems\BlitSystem.h" />
+    <ClInclude Include="systems\GLBlitSystem.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="components\CInput.h" />
@@ -159,6 +159,7 @@
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
+    <ClInclude Include="systems\IBlitter.h" />
     <ClInclude Include="systems\RenderSystem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TileEngine.h" />
@@ -171,7 +172,7 @@
     <ClInclude Include="types\tile.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="systems\BlitSystem.cpp" />
+    <ClCompile Include="systems\GLBlitSystem.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="TileEngine.cpp" />
     <ClCompile Include="types\colour.cpp" />
