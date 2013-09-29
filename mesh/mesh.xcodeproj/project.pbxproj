@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E511B7D517F84C8600CF17CB /* Camera2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B78917F84C8500CF17CB /* Camera2D.cpp */; };
+		E511B7D617F84C8600CF17CB /* Camera2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B78A17F84C8500CF17CB /* Camera2D.h */; };
+		E511B7D717F84C8600CF17CB /* Camera3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B78B17F84C8500CF17CB /* Camera3D.cpp */; };
+		E511B7D817F84C8600CF17CB /* Camera3D.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B78C17F84C8500CF17CB /* Camera3D.h */; };
+		E511B7D917F84C8600CF17CB /* archetypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B78D17F84C8500CF17CB /* archetypes.h */; };
+		E511B7DA17F84C8600CF17CB /* CAcceleration.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B78F17F84C8500CF17CB /* CAcceleration.h */; };
+		E511B7DB17F84C8600CF17CB /* CInput.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79017F84C8500CF17CB /* CInput.h */; };
+		E511B7DC17F84C8600CF17CB /* CLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79117F84C8500CF17CB /* CLabel.h */; };
+		E511B7DD17F84C8600CF17CB /* CPhysics.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79217F84C8500CF17CB /* CPhysics.h */; };
+		E511B7DE17F84C8600CF17CB /* CRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79317F84C8500CF17CB /* CRenderable.h */; };
+		E511B7DF17F84C8600CF17CB /* CTransform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B79417F84C8500CF17CB /* CTransform.cpp */; };
+		E511B7E017F84C8600CF17CB /* CTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79517F84C8500CF17CB /* CTransform.h */; };
+		E511B7E117F84C8600CF17CB /* CVelocity.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79617F84C8500CF17CB /* CVelocity.h */; };
+		E511B7E217F84C8600CF17CB /* components.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79717F84C8500CF17CB /* components.h */; };
+		E511B7E317F84C8600CF17CB /* FVMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B79917F84C8600CF17CB /* FVMesh.cpp */; };
+		E511B7E417F84C8600CF17CB /* FVMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79A17F84C8600CF17CB /* FVMesh.h */; };
+		E511B7E517F84C8600CF17CB /* IMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79B17F84C8600CF17CB /* IMaterial.h */; };
+		E511B7E617F84C8600CF17CB /* IRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79C17F84C8600CF17CB /* IRenderable.h */; };
+		E511B7E717F84C8600CF17CB /* IRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79D17F84C8600CF17CB /* IRenderer.h */; };
+		E511B7E817F84C8600CF17CB /* OrthographicCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79E17F84C8600CF17CB /* OrthographicCamera.h */; };
+		E511B7E917F84C8600CF17CB /* PerspectiveCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B79F17F84C8600CF17CB /* PerspectiveCamera.h */; };
+		E511B7EA17F84C8600CF17CB /* PrimitiveFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7A017F84C8600CF17CB /* PrimitiveFactory.cpp */; };
+		E511B7EB17F84C8600CF17CB /* PrimitiveFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7A117F84C8600CF17CB /* PrimitiveFactory.h */; };
+		E511B7EC17F84C8600CF17CB /* ScaleMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7A217F84C8600CF17CB /* ScaleMethod.h */; };
+		E511B7ED17F84C8600CF17CB /* SolidColourBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7A317F84C8600CF17CB /* SolidColourBrush.h */; };
+		E511B7EE17F84C8600CF17CB /* SpriteMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7A417F84C8600CF17CB /* SpriteMesh.cpp */; };
+		E511B7EF17F84C8600CF17CB /* SpriteMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7A517F84C8600CF17CB /* SpriteMesh.h */; };
+		E511B7F017F84C8600CF17CB /* geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7A617F84C8600CF17CB /* geometry.h */; };
+		E511B7F117F84C8600CF17CB /* MeshEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7A717F84C8600CF17CB /* MeshEngine.cpp */; };
+		E511B7F217F84C8600CF17CB /* MeshEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7A817F84C8600CF17CB /* MeshEngine.h */; };
+		E511B7F317F84C8600CF17CB /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7A917F84C8600CF17CB /* ResourceManager.cpp */; };
+		E511B7F417F84C8600CF17CB /* ResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7AA17F84C8600CF17CB /* ResourceManager.h */; };
+		E511B7F517F84C8600CF17CB /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7AB17F84C8600CF17CB /* stdafx.cpp */; };
+		E511B7F617F84C8600CF17CB /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7AC17F84C8600CF17CB /* stdafx.h */; };
+		E511B7F717F84C8600CF17CB /* AABBDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7AF17F84C8600CF17CB /* AABBDetector.cpp */; };
+		E511B7F817F84C8600CF17CB /* AABBDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B017F84C8600CF17CB /* AABBDetector.h */; };
+		E511B7F917F84C8600CF17CB /* CollisionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7B117F84C8600CF17CB /* CollisionSystem.cpp */; };
+		E511B7FA17F84C8600CF17CB /* CollisionSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B217F84C8600CF17CB /* CollisionSystem.h */; };
+		E511B7FB17F84C8600CF17CB /* ICollisionDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B317F84C8600CF17CB /* ICollisionDetector.h */; };
+		E511B7FC17F84C8600CF17CB /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7B417F84C8600CF17CB /* RectIntersectionDetector.cpp */; };
+		E511B7FD17F84C8600CF17CB /* RectIntersectionDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B517F84C8600CF17CB /* RectIntersectionDetector.h */; };
+		E511B7FE17F84C8600CF17CB /* FPSController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7B617F84C8600CF17CB /* FPSController.cpp */; };
+		E511B7FF17F84C8600CF17CB /* FPSController.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B717F84C8600CF17CB /* FPSController.h */; };
+		E511B80017F84C8600CF17CB /* MotionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7B817F84C8600CF17CB /* MotionSystem.cpp */; };
+		E511B80117F84C8600CF17CB /* MotionSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B917F84C8600CF17CB /* MotionSystem.h */; };
+		E511B80217F84C8600CF17CB /* GLImmediateRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7BB17F84C8600CF17CB /* GLImmediateRenderer.cpp */; };
+		E511B80317F84C8600CF17CB /* GLImmediateRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7BC17F84C8600CF17CB /* GLImmediateRenderer.h */; };
+		E511B80417F84C8600CF17CB /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7BD17F84C8600CF17CB /* RenderSystem.cpp */; };
+		E511B80517F84C8600CF17CB /* RenderSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7BE17F84C8600CF17CB /* RenderSystem.h */; };
+		E511B80617F84C8600CF17CB /* BranchNode.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C017F84C8600CF17CB /* BranchNode.h */; };
+		E511B80717F84C8600CF17CB /* IGraphNode.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C117F84C8600CF17CB /* IGraphNode.h */; };
+		E511B80817F84C8600CF17CB /* IGraphWalker.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C217F84C8600CF17CB /* IGraphWalker.h */; };
+		E511B80917F84C8600CF17CB /* LambdaWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7C317F84C8600CF17CB /* LambdaWalker.cpp */; };
+		E511B80A17F84C8600CF17CB /* LambdaWalker.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C417F84C8600CF17CB /* LambdaWalker.h */; };
+		E511B80B17F84C8600CF17CB /* LeafNode.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C517F84C8600CF17CB /* LeafNode.h */; };
+		E511B80C17F84C8600CF17CB /* RootNode.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C617F84C8600CF17CB /* RootNode.h */; };
+		E511B80D17F84C8600CF17CB /* SceneGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7C717F84C8600CF17CB /* SceneGraph.cpp */; };
+		E511B80E17F84C8600CF17CB /* SceneGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C817F84C8600CF17CB /* SceneGraph.h */; };
+		E511B80F17F84C8600CF17CB /* scene.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7C917F84C8600CF17CB /* scene.h */; };
+		E511B81017F84C8600CF17CB /* systems.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7CA17F84C8600CF17CB /* systems.h */; };
+		E511B81117F84C8600CF17CB /* box6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7CC17F84C8600CF17CB /* box6.cpp */; };
+		E511B81217F84C8600CF17CB /* box6.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7CD17F84C8600CF17CB /* box6.h */; };
+		E511B81317F84C8600CF17CB /* constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7CE17F84C8600CF17CB /* constants.cpp */; };
+		E511B81417F84C8600CF17CB /* constants.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7CF17F84C8600CF17CB /* constants.h */; };
+		E511B81517F84C8600CF17CB /* rect4.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7D017F84C8600CF17CB /* rect4.h */; };
+		E511B81617F84C8600CF17CB /* to_string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7D117F84C8600CF17CB /* to_string.cpp */; };
+		E511B81717F84C8600CF17CB /* to_string.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7D217F84C8600CF17CB /* to_string.h */; };
+		E511B81817F84C8600CF17CB /* typedefs.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7D317F84C8600CF17CB /* typedefs.h */; };
+		E511B81917F84C8600CF17CB /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7D417F84C8600CF17CB /* types.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E511B77517F84B8E00CF17CB /* libmesh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmesh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E511B78917F84C8500CF17CB /* Camera2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera2D.cpp; sourceTree = "<group>"; };
+		E511B78A17F84C8500CF17CB /* Camera2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera2D.h; sourceTree = "<group>"; };
+		E511B78B17F84C8500CF17CB /* Camera3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera3D.cpp; sourceTree = "<group>"; };
+		E511B78C17F84C8500CF17CB /* Camera3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera3D.h; sourceTree = "<group>"; };
+		E511B78D17F84C8500CF17CB /* archetypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = archetypes.h; sourceTree = "<group>"; };
+		E511B78F17F84C8500CF17CB /* CAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAcceleration.h; sourceTree = "<group>"; };
+		E511B79017F84C8500CF17CB /* CInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CInput.h; sourceTree = "<group>"; };
+		E511B79117F84C8500CF17CB /* CLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLabel.h; sourceTree = "<group>"; };
+		E511B79217F84C8500CF17CB /* CPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPhysics.h; sourceTree = "<group>"; };
+		E511B79317F84C8500CF17CB /* CRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRenderable.h; sourceTree = "<group>"; };
+		E511B79417F84C8500CF17CB /* CTransform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CTransform.cpp; sourceTree = "<group>"; };
+		E511B79517F84C8500CF17CB /* CTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTransform.h; sourceTree = "<group>"; };
+		E511B79617F84C8500CF17CB /* CVelocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVelocity.h; sourceTree = "<group>"; };
+		E511B79717F84C8500CF17CB /* components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = components.h; sourceTree = "<group>"; };
+		E511B79917F84C8600CF17CB /* FVMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FVMesh.cpp; sourceTree = "<group>"; };
+		E511B79A17F84C8600CF17CB /* FVMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVMesh.h; sourceTree = "<group>"; };
+		E511B79B17F84C8600CF17CB /* IMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMaterial.h; sourceTree = "<group>"; };
+		E511B79C17F84C8600CF17CB /* IRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderable.h; sourceTree = "<group>"; };
+		E511B79D17F84C8600CF17CB /* IRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderer.h; sourceTree = "<group>"; };
+		E511B79E17F84C8600CF17CB /* OrthographicCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrthographicCamera.h; sourceTree = "<group>"; };
+		E511B79F17F84C8600CF17CB /* PerspectiveCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerspectiveCamera.h; sourceTree = "<group>"; };
+		E511B7A017F84C8600CF17CB /* PrimitiveFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrimitiveFactory.cpp; sourceTree = "<group>"; };
+		E511B7A117F84C8600CF17CB /* PrimitiveFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveFactory.h; sourceTree = "<group>"; };
+		E511B7A217F84C8600CF17CB /* ScaleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleMethod.h; sourceTree = "<group>"; };
+		E511B7A317F84C8600CF17CB /* SolidColourBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolidColourBrush.h; sourceTree = "<group>"; };
+		E511B7A417F84C8600CF17CB /* SpriteMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteMesh.cpp; sourceTree = "<group>"; };
+		E511B7A517F84C8600CF17CB /* SpriteMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteMesh.h; sourceTree = "<group>"; };
+		E511B7A617F84C8600CF17CB /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
+		E511B7A717F84C8600CF17CB /* MeshEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshEngine.cpp; sourceTree = "<group>"; };
+		E511B7A817F84C8600CF17CB /* MeshEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshEngine.h; sourceTree = "<group>"; };
+		E511B7A917F84C8600CF17CB /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		E511B7AA17F84C8600CF17CB /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
+		E511B7AB17F84C8600CF17CB /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		E511B7AC17F84C8600CF17CB /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		E511B7AF17F84C8600CF17CB /* AABBDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AABBDetector.cpp; sourceTree = "<group>"; };
+		E511B7B017F84C8600CF17CB /* AABBDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABBDetector.h; sourceTree = "<group>"; };
+		E511B7B117F84C8600CF17CB /* CollisionSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionSystem.cpp; sourceTree = "<group>"; };
+		E511B7B217F84C8600CF17CB /* CollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
+		E511B7B317F84C8600CF17CB /* ICollisionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICollisionDetector.h; sourceTree = "<group>"; };
+		E511B7B417F84C8600CF17CB /* RectIntersectionDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectIntersectionDetector.cpp; sourceTree = "<group>"; };
+		E511B7B517F84C8600CF17CB /* RectIntersectionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectIntersectionDetector.h; sourceTree = "<group>"; };
+		E511B7B617F84C8600CF17CB /* FPSController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSController.cpp; sourceTree = "<group>"; };
+		E511B7B717F84C8600CF17CB /* FPSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSController.h; sourceTree = "<group>"; };
+		E511B7B817F84C8600CF17CB /* MotionSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionSystem.cpp; sourceTree = "<group>"; };
+		E511B7B917F84C8600CF17CB /* MotionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSystem.h; sourceTree = "<group>"; };
+		E511B7BB17F84C8600CF17CB /* GLImmediateRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLImmediateRenderer.cpp; sourceTree = "<group>"; };
+		E511B7BC17F84C8600CF17CB /* GLImmediateRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLImmediateRenderer.h; sourceTree = "<group>"; };
+		E511B7BD17F84C8600CF17CB /* RenderSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
+		E511B7BE17F84C8600CF17CB /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		E511B7C017F84C8600CF17CB /* BranchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BranchNode.h; sourceTree = "<group>"; };
+		E511B7C117F84C8600CF17CB /* IGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGraphNode.h; sourceTree = "<group>"; };
+		E511B7C217F84C8600CF17CB /* IGraphWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGraphWalker.h; sourceTree = "<group>"; };
+		E511B7C317F84C8600CF17CB /* LambdaWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LambdaWalker.cpp; sourceTree = "<group>"; };
+		E511B7C417F84C8600CF17CB /* LambdaWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LambdaWalker.h; sourceTree = "<group>"; };
+		E511B7C517F84C8600CF17CB /* LeafNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafNode.h; sourceTree = "<group>"; };
+		E511B7C617F84C8600CF17CB /* RootNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNode.h; sourceTree = "<group>"; };
+		E511B7C717F84C8600CF17CB /* SceneGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraph.cpp; sourceTree = "<group>"; };
+		E511B7C817F84C8600CF17CB /* SceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraph.h; sourceTree = "<group>"; };
+		E511B7C917F84C8600CF17CB /* scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scene.h; sourceTree = "<group>"; };
+		E511B7CA17F84C8600CF17CB /* systems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
+		E511B7CC17F84C8600CF17CB /* box6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = box6.cpp; sourceTree = "<group>"; };
+		E511B7CD17F84C8600CF17CB /* box6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = box6.h; sourceTree = "<group>"; };
+		E511B7CE17F84C8600CF17CB /* constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = constants.cpp; sourceTree = "<group>"; };
+		E511B7CF17F84C8600CF17CB /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		E511B7D017F84C8600CF17CB /* rect4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rect4.h; sourceTree = "<group>"; };
+		E511B7D117F84C8600CF17CB /* to_string.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = to_string.cpp; sourceTree = "<group>"; };
+		E511B7D217F84C8600CF17CB /* to_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = to_string.h; sourceTree = "<group>"; };
+		E511B7D317F84C8600CF17CB /* typedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typedefs.h; sourceTree = "<group>"; };
+		E511B7D417F84C8600CF17CB /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E511B77217F84B8E00CF17CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E511B76C17F84B8E00CF17CB = {
+			isa = PBXGroup;
+			children = (
+				E511B78817F84C8500CF17CB /* archetypes */,
+				E511B78D17F84C8500CF17CB /* archetypes.h */,
+				E511B78E17F84C8500CF17CB /* components */,
+				E511B79717F84C8500CF17CB /* components.h */,
+				E511B79817F84C8600CF17CB /* geometry */,
+				E511B7A617F84C8600CF17CB /* geometry.h */,
+				E511B7A717F84C8600CF17CB /* MeshEngine.cpp */,
+				E511B7A817F84C8600CF17CB /* MeshEngine.h */,
+				E511B7A917F84C8600CF17CB /* ResourceManager.cpp */,
+				E511B7AA17F84C8600CF17CB /* ResourceManager.h */,
+				E511B7AB17F84C8600CF17CB /* stdafx.cpp */,
+				E511B7AC17F84C8600CF17CB /* stdafx.h */,
+				E511B7AD17F84C8600CF17CB /* systems */,
+				E511B7CA17F84C8600CF17CB /* systems.h */,
+				E511B7CB17F84C8600CF17CB /* types */,
+				E511B7D417F84C8600CF17CB /* types.h */,
+				E511B77617F84B8E00CF17CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E511B77617F84B8E00CF17CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E511B77517F84B8E00CF17CB /* libmesh.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E511B78817F84C8500CF17CB /* archetypes */ = {
+			isa = PBXGroup;
+			children = (
+				E511B78917F84C8500CF17CB /* Camera2D.cpp */,
+				E511B78A17F84C8500CF17CB /* Camera2D.h */,
+				E511B78B17F84C8500CF17CB /* Camera3D.cpp */,
+				E511B78C17F84C8500CF17CB /* Camera3D.h */,
+			);
+			path = archetypes;
+			sourceTree = "<group>";
+		};
+		E511B78E17F84C8500CF17CB /* components */ = {
+			isa = PBXGroup;
+			children = (
+				E511B78F17F84C8500CF17CB /* CAcceleration.h */,
+				E511B79017F84C8500CF17CB /* CInput.h */,
+				E511B79117F84C8500CF17CB /* CLabel.h */,
+				E511B79217F84C8500CF17CB /* CPhysics.h */,
+				E511B79317F84C8500CF17CB /* CRenderable.h */,
+				E511B79417F84C8500CF17CB /* CTransform.cpp */,
+				E511B79517F84C8500CF17CB /* CTransform.h */,
+				E511B79617F84C8500CF17CB /* CVelocity.h */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		E511B79817F84C8600CF17CB /* geometry */ = {
+			isa = PBXGroup;
+			children = (
+				E511B79917F84C8600CF17CB /* FVMesh.cpp */,
+				E511B79A17F84C8600CF17CB /* FVMesh.h */,
+				E511B79B17F84C8600CF17CB /* IMaterial.h */,
+				E511B79C17F84C8600CF17CB /* IRenderable.h */,
+				E511B79D17F84C8600CF17CB /* IRenderer.h */,
+				E511B79E17F84C8600CF17CB /* OrthographicCamera.h */,
+				E511B79F17F84C8600CF17CB /* PerspectiveCamera.h */,
+				E511B7A017F84C8600CF17CB /* PrimitiveFactory.cpp */,
+				E511B7A117F84C8600CF17CB /* PrimitiveFactory.h */,
+				E511B7A217F84C8600CF17CB /* ScaleMethod.h */,
+				E511B7A317F84C8600CF17CB /* SolidColourBrush.h */,
+				E511B7A417F84C8600CF17CB /* SpriteMesh.cpp */,
+				E511B7A517F84C8600CF17CB /* SpriteMesh.h */,
+			);
+			path = geometry;
+			sourceTree = "<group>";
+		};
+		E511B7AD17F84C8600CF17CB /* systems */ = {
+			isa = PBXGroup;
+			children = (
+				E511B7AE17F84C8600CF17CB /* collision */,
+				E511B7B617F84C8600CF17CB /* FPSController.cpp */,
+				E511B7B717F84C8600CF17CB /* FPSController.h */,
+				E511B7B817F84C8600CF17CB /* MotionSystem.cpp */,
+				E511B7B917F84C8600CF17CB /* MotionSystem.h */,
+				E511B7BA17F84C8600CF17CB /* render */,
+			);
+			path = systems;
+			sourceTree = "<group>";
+		};
+		E511B7AE17F84C8600CF17CB /* collision */ = {
+			isa = PBXGroup;
+			children = (
+				E511B7AF17F84C8600CF17CB /* AABBDetector.cpp */,
+				E511B7B017F84C8600CF17CB /* AABBDetector.h */,
+				E511B7B117F84C8600CF17CB /* CollisionSystem.cpp */,
+				E511B7B217F84C8600CF17CB /* CollisionSystem.h */,
+				E511B7B317F84C8600CF17CB /* ICollisionDetector.h */,
+				E511B7B417F84C8600CF17CB /* RectIntersectionDetector.cpp */,
+				E511B7B517F84C8600CF17CB /* RectIntersectionDetector.h */,
+			);
+			path = collision;
+			sourceTree = "<group>";
+		};
+		E511B7BA17F84C8600CF17CB /* render */ = {
+			isa = PBXGroup;
+			children = (
+				E511B7BB17F84C8600CF17CB /* GLImmediateRenderer.cpp */,
+				E511B7BC17F84C8600CF17CB /* GLImmediateRenderer.h */,
+				E511B7BD17F84C8600CF17CB /* RenderSystem.cpp */,
+				E511B7BE17F84C8600CF17CB /* RenderSystem.h */,
+				E511B7BF17F84C8600CF17CB /* scene */,
+				E511B7C917F84C8600CF17CB /* scene.h */,
+			);
+			path = render;
+			sourceTree = "<group>";
+		};
+		E511B7BF17F84C8600CF17CB /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				E511B7C017F84C8600CF17CB /* BranchNode.h */,
+				E511B7C117F84C8600CF17CB /* IGraphNode.h */,
+				E511B7C217F84C8600CF17CB /* IGraphWalker.h */,
+				E511B7C317F84C8600CF17CB /* LambdaWalker.cpp */,
+				E511B7C417F84C8600CF17CB /* LambdaWalker.h */,
+				E511B7C517F84C8600CF17CB /* LeafNode.h */,
+				E511B7C617F84C8600CF17CB /* RootNode.h */,
+				E511B7C717F84C8600CF17CB /* SceneGraph.cpp */,
+				E511B7C817F84C8600CF17CB /* SceneGraph.h */,
+			);
+			path = scene;
+			sourceTree = "<group>";
+		};
+		E511B7CB17F84C8600CF17CB /* types */ = {
+			isa = PBXGroup;
+			children = (
+				E511B7CC17F84C8600CF17CB /* box6.cpp */,
+				E511B7CD17F84C8600CF17CB /* box6.h */,
+				E511B7CE17F84C8600CF17CB /* constants.cpp */,
+				E511B7CF17F84C8600CF17CB /* constants.h */,
+				E511B7D017F84C8600CF17CB /* rect4.h */,
+				E511B7D117F84C8600CF17CB /* to_string.cpp */,
+				E511B7D217F84C8600CF17CB /* to_string.h */,
+				E511B7D317F84C8600CF17CB /* typedefs.h */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E511B77317F84B8E00CF17CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E511B7D617F84C8600CF17CB /* Camera2D.h in Headers */,
+				E511B7D817F84C8600CF17CB /* Camera3D.h in Headers */,
+				E511B7D917F84C8600CF17CB /* archetypes.h in Headers */,
+				E511B7DA17F84C8600CF17CB /* CAcceleration.h in Headers */,
+				E511B7DB17F84C8600CF17CB /* CInput.h in Headers */,
+				E511B7DC17F84C8600CF17CB /* CLabel.h in Headers */,
+				E511B7DD17F84C8600CF17CB /* CPhysics.h in Headers */,
+				E511B7DE17F84C8600CF17CB /* CRenderable.h in Headers */,
+				E511B7E017F84C8600CF17CB /* CTransform.h in Headers */,
+				E511B7E117F84C8600CF17CB /* CVelocity.h in Headers */,
+				E511B7E217F84C8600CF17CB /* components.h in Headers */,
+				E511B7E417F84C8600CF17CB /* FVMesh.h in Headers */,
+				E511B7E517F84C8600CF17CB /* IMaterial.h in Headers */,
+				E511B7E617F84C8600CF17CB /* IRenderable.h in Headers */,
+				E511B7E717F84C8600CF17CB /* IRenderer.h in Headers */,
+				E511B7E817F84C8600CF17CB /* OrthographicCamera.h in Headers */,
+				E511B7E917F84C8600CF17CB /* PerspectiveCamera.h in Headers */,
+				E511B7EB17F84C8600CF17CB /* PrimitiveFactory.h in Headers */,
+				E511B7EC17F84C8600CF17CB /* ScaleMethod.h in Headers */,
+				E511B7ED17F84C8600CF17CB /* SolidColourBrush.h in Headers */,
+				E511B7EF17F84C8600CF17CB /* SpriteMesh.h in Headers */,
+				E511B7F017F84C8600CF17CB /* geometry.h in Headers */,
+				E511B7F217F84C8600CF17CB /* MeshEngine.h in Headers */,
+				E511B7F417F84C8600CF17CB /* ResourceManager.h in Headers */,
+				E511B7F617F84C8600CF17CB /* stdafx.h in Headers */,
+				E511B7F817F84C8600CF17CB /* AABBDetector.h in Headers */,
+				E511B7FA17F84C8600CF17CB /* CollisionSystem.h in Headers */,
+				E511B7FB17F84C8600CF17CB /* ICollisionDetector.h in Headers */,
+				E511B7FD17F84C8600CF17CB /* RectIntersectionDetector.h in Headers */,
+				E511B7FF17F84C8600CF17CB /* FPSController.h in Headers */,
+				E511B80117F84C8600CF17CB /* MotionSystem.h in Headers */,
+				E511B80317F84C8600CF17CB /* GLImmediateRenderer.h in Headers */,
+				E511B80517F84C8600CF17CB /* RenderSystem.h in Headers */,
+				E511B80617F84C8600CF17CB /* BranchNode.h in Headers */,
+				E511B80717F84C8600CF17CB /* IGraphNode.h in Headers */,
+				E511B80817F84C8600CF17CB /* IGraphWalker.h in Headers */,
+				E511B80A17F84C8600CF17CB /* LambdaWalker.h in Headers */,
+				E511B80B17F84C8600CF17CB /* LeafNode.h in Headers */,
+				E511B80C17F84C8600CF17CB /* RootNode.h in Headers */,
+				E511B80E17F84C8600CF17CB /* SceneGraph.h in Headers */,
+				E511B80F17F84C8600CF17CB /* scene.h in Headers */,
+				E511B81017F84C8600CF17CB /* systems.h in Headers */,
+				E511B81217F84C8600CF17CB /* box6.h in Headers */,
+				E511B81417F84C8600CF17CB /* constants.h in Headers */,
+				E511B81517F84C8600CF17CB /* rect4.h in Headers */,
+				E511B81717F84C8600CF17CB /* to_string.h in Headers */,
+				E511B81817F84C8600CF17CB /* typedefs.h in Headers */,
+				E511B81917F84C8600CF17CB /* types.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E511B77417F84B8E00CF17CB /* mesh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E511B77917F84B8E00CF17CB /* Build configuration list for PBXNativeTarget "mesh" */;
+			buildPhases = (
+				E511B77117F84B8E00CF17CB /* Sources */,
+				E511B77217F84B8E00CF17CB /* Frameworks */,
+				E511B77317F84B8E00CF17CB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mesh;
+			productName = mesh;
+			productReference = E511B77517F84B8E00CF17CB /* libmesh.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E511B76D17F84B8E00CF17CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Thomas Castiglione";
+			};
+			buildConfigurationList = E511B77017F84B8E00CF17CB /* Build configuration list for PBXProject "mesh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E511B76C17F84B8E00CF17CB;
+			productRefGroup = E511B77617F84B8E00CF17CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E511B77417F84B8E00CF17CB /* mesh */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E511B77117F84B8E00CF17CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E511B7D517F84C8600CF17CB /* Camera2D.cpp in Sources */,
+				E511B7D717F84C8600CF17CB /* Camera3D.cpp in Sources */,
+				E511B7DF17F84C8600CF17CB /* CTransform.cpp in Sources */,
+				E511B7E317F84C8600CF17CB /* FVMesh.cpp in Sources */,
+				E511B7EA17F84C8600CF17CB /* PrimitiveFactory.cpp in Sources */,
+				E511B7EE17F84C8600CF17CB /* SpriteMesh.cpp in Sources */,
+				E511B7F117F84C8600CF17CB /* MeshEngine.cpp in Sources */,
+				E511B7F317F84C8600CF17CB /* ResourceManager.cpp in Sources */,
+				E511B7F517F84C8600CF17CB /* stdafx.cpp in Sources */,
+				E511B7F717F84C8600CF17CB /* AABBDetector.cpp in Sources */,
+				E511B7F917F84C8600CF17CB /* CollisionSystem.cpp in Sources */,
+				E511B7FC17F84C8600CF17CB /* RectIntersectionDetector.cpp in Sources */,
+				E511B7FE17F84C8600CF17CB /* FPSController.cpp in Sources */,
+				E511B80017F84C8600CF17CB /* MotionSystem.cpp in Sources */,
+				E511B80217F84C8600CF17CB /* GLImmediateRenderer.cpp in Sources */,
+				E511B80417F84C8600CF17CB /* RenderSystem.cpp in Sources */,
+				E511B80917F84C8600CF17CB /* LambdaWalker.cpp in Sources */,
+				E511B80D17F84C8600CF17CB /* SceneGraph.cpp in Sources */,
+				E511B81117F84C8600CF17CB /* box6.cpp in Sources */,
+				E511B81317F84C8600CF17CB /* constants.cpp in Sources */,
+				E511B81617F84C8600CF17CB /* to_string.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E511B77717F84B8E00CF17CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E511B77817F84B8E00CF17CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E511B77A17F84B8E00CF17CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					/Library/Frameworks/SDL.framework/Headers,
+					..,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E511B77B17F84B8E00CF17CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					/Library/Frameworks/SDL.framework/Headers,
+					..,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E511B77017F84B8E00CF17CB /* Build configuration list for PBXProject "mesh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E511B77717F84B8E00CF17CB /* Debug */,
+				E511B77817F84B8E00CF17CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E511B77917F84B8E00CF17CB /* Build configuration list for PBXNativeTarget "mesh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E511B77A17F84B8E00CF17CB /* Debug */,
+				E511B77B17F84B8E00CF17CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E511B76D17F84B8E00CF17CB /* Project object */;
+}
