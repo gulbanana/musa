@@ -23,9 +23,18 @@
 		E511B85917F84EE900CF17CB /* location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84617F84EE900CF17CB /* location.cpp */; };
 		E511B85A17F84EE900CF17CB /* location.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84717F84EE900CF17CB /* location.h */; };
 		E511B85B17F84EE900CF17CB /* orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84817F84EE900CF17CB /* orientation.h */; };
-		E511B85C17F84EE900CF17CB /* to_string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84917F84EE900CF17CB /* to_string.cpp */; };
-		E511B85D17F84EE900CF17CB /* to_string.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84A17F84EE900CF17CB /* to_string.h */; };
 		E511B85E17F84EE900CF17CB /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84B17F84EE900CF17CB /* types.h */; };
+		E57339BF17F8B8A500EC9585 /* GLBlitSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339B917F8B8A500EC9585 /* GLBlitSystem.cpp */; };
+		E57339C017F8B8A500EC9585 /* GLBlitSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339BA17F8B8A500EC9585 /* GLBlitSystem.h */; };
+		E57339C117F8B8A500EC9585 /* IBlitter.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339BB17F8B8A500EC9585 /* IBlitter.h */; };
+		E57339C217F8B8A500EC9585 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339BC17F8B8A500EC9585 /* RenderSystem.cpp */; };
+		E57339C317F8B8A500EC9585 /* RenderSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339BD17F8B8A500EC9585 /* RenderSystem.h */; };
+		E57339C417F8B8A500EC9585 /* systems.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339BE17F8B8A500EC9585 /* systems.h */; };
+		E57339CA17F8B8B100EC9585 /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339C517F8B8B100EC9585 /* grid.cpp */; };
+		E57339CB17F8B8B100EC9585 /* grid.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339C617F8B8B100EC9585 /* grid.h */; };
+		E57339CC17F8B8B100EC9585 /* orientation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339C717F8B8B100EC9585 /* orientation.cpp */; };
+		E57339CD17F8B8B100EC9585 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339C817F8B8B100EC9585 /* tile.cpp */; };
+		E57339CE17F8B8B100EC9585 /* tile.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339C917F8B8B100EC9585 /* tile.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,9 +55,18 @@
 		E511B84617F84EE900CF17CB /* location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = location.cpp; sourceTree = "<group>"; };
 		E511B84717F84EE900CF17CB /* location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = location.h; sourceTree = "<group>"; };
 		E511B84817F84EE900CF17CB /* orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orientation.h; sourceTree = "<group>"; };
-		E511B84917F84EE900CF17CB /* to_string.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = to_string.cpp; sourceTree = "<group>"; };
-		E511B84A17F84EE900CF17CB /* to_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = to_string.h; sourceTree = "<group>"; };
 		E511B84B17F84EE900CF17CB /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		E57339B917F8B8A500EC9585 /* GLBlitSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLBlitSystem.cpp; sourceTree = "<group>"; };
+		E57339BA17F8B8A500EC9585 /* GLBlitSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBlitSystem.h; sourceTree = "<group>"; };
+		E57339BB17F8B8A500EC9585 /* IBlitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBlitter.h; sourceTree = "<group>"; };
+		E57339BC17F8B8A500EC9585 /* RenderSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
+		E57339BD17F8B8A500EC9585 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		E57339BE17F8B8A500EC9585 /* systems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
+		E57339C517F8B8B100EC9585 /* grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid.cpp; sourceTree = "<group>"; };
+		E57339C617F8B8B100EC9585 /* grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grid.h; sourceTree = "<group>"; };
+		E57339C717F8B8B100EC9585 /* orientation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = orientation.cpp; sourceTree = "<group>"; };
+		E57339C817F8B8B100EC9585 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tile.cpp; sourceTree = "<group>"; };
+		E57339C917F8B8B100EC9585 /* tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tile.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +83,8 @@
 		E511B82117F84EAF00CF17CB = {
 			isa = PBXGroup;
 			children = (
+				E57339B817F8B8A500EC9585 /* systems */,
+				E57339BE17F8B8A500EC9585 /* systems.h */,
 				E511B83717F84EE900CF17CB /* components */,
 				E511B83E17F84EE900CF17CB /* components.h */,
 				E511B83F17F84EE900CF17CB /* stdafx.cpp */,
@@ -101,15 +121,30 @@
 		E511B84317F84EE900CF17CB /* types */ = {
 			isa = PBXGroup;
 			children = (
+				E57339C517F8B8B100EC9585 /* grid.cpp */,
+				E57339C617F8B8B100EC9585 /* grid.h */,
+				E57339C717F8B8B100EC9585 /* orientation.cpp */,
+				E57339C817F8B8B100EC9585 /* tile.cpp */,
+				E57339C917F8B8B100EC9585 /* tile.h */,
 				E511B84417F84EE900CF17CB /* colour.cpp */,
 				E511B84517F84EE900CF17CB /* colour.h */,
 				E511B84617F84EE900CF17CB /* location.cpp */,
 				E511B84717F84EE900CF17CB /* location.h */,
 				E511B84817F84EE900CF17CB /* orientation.h */,
-				E511B84917F84EE900CF17CB /* to_string.cpp */,
-				E511B84A17F84EE900CF17CB /* to_string.h */,
 			);
 			path = types;
+			sourceTree = "<group>";
+		};
+		E57339B817F8B8A500EC9585 /* systems */ = {
+			isa = PBXGroup;
+			children = (
+				E57339B917F8B8A500EC9585 /* GLBlitSystem.cpp */,
+				E57339BA17F8B8A500EC9585 /* GLBlitSystem.h */,
+				E57339BB17F8B8A500EC9585 /* IBlitter.h */,
+				E57339BC17F8B8A500EC9585 /* RenderSystem.cpp */,
+				E57339BD17F8B8A500EC9585 /* RenderSystem.h */,
+			);
+			path = systems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +166,13 @@
 				E511B85817F84EE900CF17CB /* colour.h in Headers */,
 				E511B85A17F84EE900CF17CB /* location.h in Headers */,
 				E511B85B17F84EE900CF17CB /* orientation.h in Headers */,
-				E511B85D17F84EE900CF17CB /* to_string.h in Headers */,
 				E511B85E17F84EE900CF17CB /* types.h in Headers */,
+				E57339C017F8B8A500EC9585 /* GLBlitSystem.h in Headers */,
+				E57339C117F8B8A500EC9585 /* IBlitter.h in Headers */,
+				E57339C317F8B8A500EC9585 /* RenderSystem.h in Headers */,
+				E57339C417F8B8A500EC9585 /* systems.h in Headers */,
+				E57339CB17F8B8B100EC9585 /* grid.h in Headers */,
+				E57339CE17F8B8B100EC9585 /* tile.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +231,11 @@
 				E511B85517F84EE900CF17CB /* TileEngine.cpp in Sources */,
 				E511B85717F84EE900CF17CB /* colour.cpp in Sources */,
 				E511B85917F84EE900CF17CB /* location.cpp in Sources */,
-				E511B85C17F84EE900CF17CB /* to_string.cpp in Sources */,
+				E57339BF17F8B8A500EC9585 /* GLBlitSystem.cpp in Sources */,
+				E57339C217F8B8A500EC9585 /* RenderSystem.cpp in Sources */,
+				E57339CA17F8B8B100EC9585 /* grid.cpp in Sources */,
+				E57339CC17F8B8B100EC9585 /* orientation.cpp in Sources */,
+				E57339CD17F8B8B100EC9585 /* tile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

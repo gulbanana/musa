@@ -1,4 +1,5 @@
 #include <tile/stdafx.h>
+#include <cstdlib>
 #include "grid.h"
 
 grid::grid(unsigned int x, unsigned int y) : width(x), height(y)
