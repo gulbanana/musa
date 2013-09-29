@@ -17,7 +17,8 @@
     <ClInclude Include="types\tile.h" />
     <ClInclude Include="types\grid.h" />
     <ClInclude Include="systems.h" />
-    <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="systems\RenderSystem.h" />
+    <ClInclude Include="systems\BlitSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
@@ -27,5 +28,7 @@
     <ClCompile Include="types\orientation.cpp" />
     <ClCompile Include="types\grid.cpp" />
     <ClCompile Include="types\tile.cpp" />
+    <ClCompile Include="systems\RenderSystem.cpp" />
+    <ClCompile Include="systems\BlitSystem.cpp" />
   </ItemGroup>
 </Project>
