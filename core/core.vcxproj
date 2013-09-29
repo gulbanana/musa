@@ -216,7 +216,6 @@
     <ClInclude Include="systems.h" />
     <ClInclude Include="systems\ui\UISystem.h" />
     <ClInclude Include="systems\ui\UISystemImpl.h" />
-    <ClInclude Include="time.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="framework\IArchetype.h" />
     <ClInclude Include="framework\IComponentManager.h" />

@@ -104,9 +104,6 @@
     <ClInclude Include="misc.h">
       <Filter>framework</Filter>
     </ClInclude>
-    <ClInclude Include="time.h">
-      <Filter>framework</Filter>
-    </ClInclude>
     <ClInclude Include="systems.h" />
     <ClInclude Include="framework\ArchetypeBase.h">
       <Filter>framework</Filter>
