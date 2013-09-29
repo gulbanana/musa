@@ -1,0 +1,300 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E511B84C17F84EE900CF17CB /* CAcceleration.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83817F84EE900CF17CB /* CAcceleration.h */; };
+		E511B84D17F84EE900CF17CB /* CInput.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83917F84EE900CF17CB /* CInput.h */; };
+		E511B84E17F84EE900CF17CB /* CLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83A17F84EE900CF17CB /* CLabel.h */; };
+		E511B84F17F84EE900CF17CB /* CPhysics.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83B17F84EE900CF17CB /* CPhysics.h */; };
+		E511B85017F84EE900CF17CB /* CTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83C17F84EE900CF17CB /* CTransform.h */; };
+		E511B85117F84EE900CF17CB /* CVelocity.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83D17F84EE900CF17CB /* CVelocity.h */; };
+		E511B85217F84EE900CF17CB /* components.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83E17F84EE900CF17CB /* components.h */; };
+		E511B85317F84EE900CF17CB /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B83F17F84EE900CF17CB /* stdafx.cpp */; };
+		E511B85417F84EE900CF17CB /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84017F84EE900CF17CB /* stdafx.h */; };
+		E511B85517F84EE900CF17CB /* TilesEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84117F84EE900CF17CB /* TilesEngine.cpp */; };
+		E511B85617F84EE900CF17CB /* TilesEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84217F84EE900CF17CB /* TilesEngine.h */; };
+		E511B85717F84EE900CF17CB /* colour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84417F84EE900CF17CB /* colour.cpp */; };
+		E511B85817F84EE900CF17CB /* colour.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84517F84EE900CF17CB /* colour.h */; };
+		E511B85917F84EE900CF17CB /* location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84617F84EE900CF17CB /* location.cpp */; };
+		E511B85A17F84EE900CF17CB /* location.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84717F84EE900CF17CB /* location.h */; };
+		E511B85B17F84EE900CF17CB /* orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84817F84EE900CF17CB /* orientation.h */; };
+		E511B85C17F84EE900CF17CB /* to_string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84917F84EE900CF17CB /* to_string.cpp */; };
+		E511B85D17F84EE900CF17CB /* to_string.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84A17F84EE900CF17CB /* to_string.h */; };
+		E511B85E17F84EE900CF17CB /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84B17F84EE900CF17CB /* types.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E511B82A17F84EAF00CF17CB /* libtile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtile.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E511B83817F84EE900CF17CB /* CAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAcceleration.h; sourceTree = "<group>"; };
+		E511B83917F84EE900CF17CB /* CInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CInput.h; sourceTree = "<group>"; };
+		E511B83A17F84EE900CF17CB /* CLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLabel.h; sourceTree = "<group>"; };
+		E511B83B17F84EE900CF17CB /* CPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPhysics.h; sourceTree = "<group>"; };
+		E511B83C17F84EE900CF17CB /* CTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTransform.h; sourceTree = "<group>"; };
+		E511B83D17F84EE900CF17CB /* CVelocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVelocity.h; sourceTree = "<group>"; };
+		E511B83E17F84EE900CF17CB /* components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = components.h; sourceTree = "<group>"; };
+		E511B83F17F84EE900CF17CB /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		E511B84017F84EE900CF17CB /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		E511B84117F84EE900CF17CB /* TilesEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TilesEngine.cpp; sourceTree = "<group>"; };
+		E511B84217F84EE900CF17CB /* TilesEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilesEngine.h; sourceTree = "<group>"; };
+		E511B84417F84EE900CF17CB /* colour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = colour.cpp; sourceTree = "<group>"; };
+		E511B84517F84EE900CF17CB /* colour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colour.h; sourceTree = "<group>"; };
+		E511B84617F84EE900CF17CB /* location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = location.cpp; sourceTree = "<group>"; };
+		E511B84717F84EE900CF17CB /* location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = location.h; sourceTree = "<group>"; };
+		E511B84817F84EE900CF17CB /* orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orientation.h; sourceTree = "<group>"; };
+		E511B84917F84EE900CF17CB /* to_string.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = to_string.cpp; sourceTree = "<group>"; };
+		E511B84A17F84EE900CF17CB /* to_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = to_string.h; sourceTree = "<group>"; };
+		E511B84B17F84EE900CF17CB /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E511B82717F84EAF00CF17CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E511B82117F84EAF00CF17CB = {
+			isa = PBXGroup;
+			children = (
+				E511B83717F84EE900CF17CB /* components */,
+				E511B83E17F84EE900CF17CB /* components.h */,
+				E511B83F17F84EE900CF17CB /* stdafx.cpp */,
+				E511B84017F84EE900CF17CB /* stdafx.h */,
+				E511B84117F84EE900CF17CB /* TilesEngine.cpp */,
+				E511B84217F84EE900CF17CB /* TilesEngine.h */,
+				E511B84317F84EE900CF17CB /* types */,
+				E511B84B17F84EE900CF17CB /* types.h */,
+				E511B82B17F84EAF00CF17CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E511B82B17F84EAF00CF17CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E511B82A17F84EAF00CF17CB /* libtile.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E511B83717F84EE900CF17CB /* components */ = {
+			isa = PBXGroup;
+			children = (
+				E511B83817F84EE900CF17CB /* CAcceleration.h */,
+				E511B83917F84EE900CF17CB /* CInput.h */,
+				E511B83A17F84EE900CF17CB /* CLabel.h */,
+				E511B83B17F84EE900CF17CB /* CPhysics.h */,
+				E511B83C17F84EE900CF17CB /* CTransform.h */,
+				E511B83D17F84EE900CF17CB /* CVelocity.h */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		E511B84317F84EE900CF17CB /* types */ = {
+			isa = PBXGroup;
+			children = (
+				E511B84417F84EE900CF17CB /* colour.cpp */,
+				E511B84517F84EE900CF17CB /* colour.h */,
+				E511B84617F84EE900CF17CB /* location.cpp */,
+				E511B84717F84EE900CF17CB /* location.h */,
+				E511B84817F84EE900CF17CB /* orientation.h */,
+				E511B84917F84EE900CF17CB /* to_string.cpp */,
+				E511B84A17F84EE900CF17CB /* to_string.h */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E511B82817F84EAF00CF17CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E511B84C17F84EE900CF17CB /* CAcceleration.h in Headers */,
+				E511B84D17F84EE900CF17CB /* CInput.h in Headers */,
+				E511B84E17F84EE900CF17CB /* CLabel.h in Headers */,
+				E511B84F17F84EE900CF17CB /* CPhysics.h in Headers */,
+				E511B85017F84EE900CF17CB /* CTransform.h in Headers */,
+				E511B85117F84EE900CF17CB /* CVelocity.h in Headers */,
+				E511B85217F84EE900CF17CB /* components.h in Headers */,
+				E511B85417F84EE900CF17CB /* stdafx.h in Headers */,
+				E511B85617F84EE900CF17CB /* TilesEngine.h in Headers */,
+				E511B85817F84EE900CF17CB /* colour.h in Headers */,
+				E511B85A17F84EE900CF17CB /* location.h in Headers */,
+				E511B85B17F84EE900CF17CB /* orientation.h in Headers */,
+				E511B85D17F84EE900CF17CB /* to_string.h in Headers */,
+				E511B85E17F84EE900CF17CB /* types.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E511B82917F84EAF00CF17CB /* tile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E511B82E17F84EAF00CF17CB /* Build configuration list for PBXNativeTarget "tile" */;
+			buildPhases = (
+				E511B82617F84EAF00CF17CB /* Sources */,
+				E511B82717F84EAF00CF17CB /* Frameworks */,
+				E511B82817F84EAF00CF17CB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tile;
+			productName = tile;
+			productReference = E511B82A17F84EAF00CF17CB /* libtile.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E511B82217F84EAF00CF17CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Thomas Castiglione";
+			};
+			buildConfigurationList = E511B82517F84EAF00CF17CB /* Build configuration list for PBXProject "tile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E511B82117F84EAF00CF17CB;
+			productRefGroup = E511B82B17F84EAF00CF17CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E511B82917F84EAF00CF17CB /* tile */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E511B82617F84EAF00CF17CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E511B85317F84EE900CF17CB /* stdafx.cpp in Sources */,
+				E511B85517F84EE900CF17CB /* TilesEngine.cpp in Sources */,
+				E511B85717F84EE900CF17CB /* colour.cpp in Sources */,
+				E511B85917F84EE900CF17CB /* location.cpp in Sources */,
+				E511B85C17F84EE900CF17CB /* to_string.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E511B82C17F84EAF00CF17CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E511B82D17F84EAF00CF17CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E511B82F17F84EAF00CF17CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E511B83017F84EAF00CF17CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E511B82517F84EAF00CF17CB /* Build configuration list for PBXProject "tile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E511B82C17F84EAF00CF17CB /* Debug */,
+				E511B82D17F84EAF00CF17CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E511B82E17F84EAF00CF17CB /* Build configuration list for PBXNativeTarget "tile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E511B82F17F84EAF00CF17CB /* Debug */,
+				E511B83017F84EAF00CF17CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E511B82217F84EAF00CF17CB /* Project object */;
+}
