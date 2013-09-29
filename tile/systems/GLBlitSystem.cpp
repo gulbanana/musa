@@ -3,12 +3,14 @@
 #include "GLBlitSystem.h"
 using namespace std;
 
+#define FONT_SIZE 24
+
 vector<ISystem::ID> GLBlitSystem::required_systems() const
 {
 	return require();
 }
 
-GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : _tram(80, 24), _surface(nullptr)
+GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : _tram(pixelWidth/FONT_SIZE, pixelHeight/FONT_SIZE), _surface(nullptr)
 {
 	//SDL init
 	int rc;
@@ -35,6 +37,7 @@ GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);	
 	glClearColor(0.f, 0.f, 0.f, 0.f);			//black background
 	glDisable(GL_TEXTURE_2D);					//just text
+	glDisable(GL_DEPTH_TEST);
 
 	//setup device-space
 	glViewport(0, 0, pixelWidth, pixelHeight);
@@ -46,14 +49,14 @@ GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
 	//setup clipping-space 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0,pixelWidth,0,pixelHeight,-1,1);
+	glOrtho(0, pixelWidth, 0, pixelHeight, -1, 1);
 
 	//load fonts
 	_fonts = sth_create(512,512);
 	if (!_fonts) throw std::runtime_error("failed to init font stash");
-	if (!sth_add_font(_fonts, 0, "DroidSerif-Regular.ttf")) throw std::runtime_error("failed to add font");
-	if (!sth_add_font(_fonts, 1, "DroidSerif-Italic.ttf")) throw std::runtime_error("failed to add font");
-	if (!sth_add_font(_fonts, 2, "DroidSerif-Bold.ttf")) throw std::runtime_error("failed to add font");
+	if (!sth_add_font(_fonts, 0, "consola.ttf")) throw std::runtime_error("failed to add font");
+	if (!sth_add_font(_fonts, 1, "consolai.ttf")) throw std::runtime_error("failed to add font");
+	if (!sth_add_font(_fonts, 2, "consolab.ttf")) throw std::runtime_error("failed to add font");
 }
 
 GLBlitSystem::~GLBlitSystem(void)
@@ -63,18 +66,30 @@ GLBlitSystem::~GLBlitSystem(void)
 
 void GLBlitSystem::on_wake()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glDisable(GL_DEPTH_TEST);
+	glClear(GL_COLOR_BUFFER_BIT);
 	glColor4ub(255,255,255,255);
-	
+		
+	sth_begin_draw(_fonts);
+
+	float linestart = 0;
+	for (unsigned int j = 0; j < _tram.height; j++)
+	{
+		float lineheight = 0;
+		float charstart = 0;
+		for (unsigned int i = 0; i < _tram.width; i++)
+		{
+			sth_draw_text(_fonts, 0, FONT_SIZE, charstart, linestart, ".", &charstart);
+		}
+		sth_vmetrics(_fonts, 0, FONT_SIZE, NULL,NULL, &lineheight);
+		linestart += lineheight;
+	}
+
 	float sx,sy,dx,dy,lh;
 	static float offset = 0.f;
 	
 	sx = 100 + offset; sy = 250 + offset;
 	offset += 1;
-		
-	sth_begin_draw(_fonts);
-		
+
 	dx = sx; dy = sy;
 	sth_draw_text(_fonts, 0,24.0f, dx,dy,"The quick ",&dx);
 	sth_draw_text(_fonts, 1,48.0f, dx,dy,"brown ",&dx);
@@ -98,7 +113,6 @@ void GLBlitSystem::on_wake()
 
 	sth_end_draw(_fonts);
 		
-	glEnable(GL_DEPTH_TEST);
 	SDL_GL_SwapBuffers();
 }
 
