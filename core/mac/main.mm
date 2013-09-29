@@ -1,4 +1,5 @@
-#import <engine/core.h>
+#import <core/stdafx.h>
+#import <core/framework.h>
 #import "ApplePlatform.h"
 #import "ApplicationDelegate.h"
 

@@ -1,15 +1,16 @@
-#import <engine/core.h>
+#import <core/stdafx.h>
+#import <sys/time.h>
 #import "NSApplication_SetAppleMenu.h"
 #import "ApplePlatform.h"
 using namespace std;
 
 static void setupApplicationMenu(void)
 {
-    /* warning: this code is very odd */
+    /* warning: this code is very odd. some of it originated in SDLMain */
     NSMenu *appleMenu;
     NSMenuItem *menuItem;
     NSString *title;
-    NSString *appName;
+    NSString *appName = @"";
     
     const NSDictionary *dict;
     
@@ -83,6 +84,7 @@ static void setupWindowMenu(void)
 
 ApplePlatform::ApplePlatform() : SDLPlatformBase()
 {
+    _tick_offset = _get_ticks_internal();
     set_environment_variable("SDL_VIDEO_WINDOW_POS", "center");
     
     pool = [[NSAutoreleasePool alloc] init];    //manage memory
@@ -120,7 +122,7 @@ string ApplePlatform::get_environment_variable(string cpp_var)
     const char* c_var = cpp_var.c_str();
     NSString* objc_var = [[NSString alloc] initWithCString:c_var encoding:NSUTF8StringEncoding];
     
-    auto objc_val = [[[NSProcessInfo processInfo] environment] valueForKey:objc_var];
+    id objc_val = [[[NSProcessInfo processInfo] environment] valueForKey:objc_var];
     const char* c_val = [objc_val cStringUsingEncoding:NSUTF8StringEncoding];
     string cpp_val(c_val);
     
@@ -130,12 +132,15 @@ string ApplePlatform::get_environment_variable(string cpp_var)
     return cpp_val;
 }
 
-milliseconds MicrosoftPlatform::get_ticks()
+milliseconds _get_ticks_internal()
 {
-    return GetTickCount() - _tick_offset;
+    timeval systemTime;
+    gettimeofday(&systemTime, nullptr);
+    
+    return (milliseconds)(systemTime.tv_sec * 1000 + systemTime.tv_usec / 1000);
 }
 
-void MicrosoftPlatform::sleep_ticks(milliseconds ttw)
+milliseconds ApplePlatform::get_ticks()
 {
-	Sleep(ttw);
+    return _get_ticks_internal() - _tick_offset;
 }

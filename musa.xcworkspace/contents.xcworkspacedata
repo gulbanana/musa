@@ -716,7 +716,7 @@
       location = "group:guichan/guichan.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:engine/engine.xcodeproj">
+      location = "group:core/core.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:balls/balls.xcodeproj">

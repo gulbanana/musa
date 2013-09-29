@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
-#include <core/time.h>
+
+typedef unsigned long microseconds;
+typedef unsigned int milliseconds;
+typedef double seconds;
 
 //provides access to nonportable facilities
 class IPlatform

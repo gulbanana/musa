@@ -1,11 +1,13 @@
-#import <engine/sdl/SDLPlatformBase.h>
+#import <core/sdl/SDLPlatformBase.h>
 #import <Cocoa/Cocoa.h>
 
 class ApplePlatform : public SDLPlatformBase
 {
 private:
+    milliseconds _tick_offset;
     NSAutoreleasePool* pool;
     
+    milliseconds _get_ticks_internal();
 public:
     ApplePlatform();
     ~ApplePlatform();
@@ -16,5 +18,4 @@ public:
     void print(std::string output) final;
 
 	milliseconds get_ticks() final;
-	void sleep_ticks(milliseconds) final;
 };
