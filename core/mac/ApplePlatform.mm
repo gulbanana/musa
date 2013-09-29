@@ -132,7 +132,7 @@ string ApplePlatform::get_environment_variable(string cpp_var)
     return cpp_val;
 }
 
-milliseconds _get_ticks_internal()
+milliseconds ApplePlatform::_get_ticks_internal()
 {
     timeval systemTime;
     gettimeofday(&systemTime, nullptr);
