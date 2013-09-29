@@ -1,5 +1,6 @@
 #pragma once
 #include <mesh/geometry.h>
+#include <SDL_video.h>
 #include "scene.h"
 
 class GLImmediateRenderer : public IRenderer

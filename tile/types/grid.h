@@ -9,8 +9,11 @@ struct grid
 {
 	unsigned int width;
 	unsigned int height;
-	tile** buffer;
+	tile* buffer;
 
 	grid(unsigned int x, unsigned int y); 
 	~grid();
+
+	void zero();
+	void resize(unsigned int x, unsigned int y);
 };

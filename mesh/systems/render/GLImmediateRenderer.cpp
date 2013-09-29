@@ -1,6 +1,5 @@
 #include <mesh/stdafx.h>
 #include <functional>
-#include <SDL_video.h>
 #include <SDL_opengl.h>
 #include "GLImmediateRenderer.h"
 using namespace std;

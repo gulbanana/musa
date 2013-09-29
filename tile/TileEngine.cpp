@@ -16,7 +16,7 @@ vector<unique_ptr<ISystem>> TileEngine::get_systems(GameSettings settings, share
 	vector<unique_ptr<ISystem>> empty;
 
 	empty.emplace_back(new RenderSystem());
-	empty.emplace_back(new BlitSystem());
+	empty.emplace_back(new BlitSystem(settings.initial_width, settings.initial_height));
 
 	return empty;
 }
