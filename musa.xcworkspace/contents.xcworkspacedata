@@ -727,4 +727,7 @@
    <FileRef
       location = "group:tile/tile.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:scape/scape.xcodeproj">
+   </FileRef>
 </Workspace>

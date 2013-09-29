@@ -2,6 +2,7 @@
 #include "orientation.h"
 #include "location.h"
 #include <cmath>
+#include <cstdlib>
 
 angle vec2::direction()
 {
