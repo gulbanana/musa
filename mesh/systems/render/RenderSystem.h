@@ -8,7 +8,7 @@ class RenderSystem final : public Identified<ISystem,SYS::Render,ThreadedSystemB
 	std::shared_ptr<IRenderer> _renderer;
 	SceneGraph _scene;
 
-	void add_entity(std::weak_ptr<IEntity> entity) override;
+	void on_entity(std::weak_ptr<IEntity> entity) override;
 	void on_wake() override;
 	bool on_event(SDL_Event& event) override;
 

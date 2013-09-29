@@ -2,7 +2,7 @@
 #include "EntityManagingSystemBase.h"
 using namespace std;
 
-void EntityManagingSystemBase::add_entity(weak_ptr<IEntity> entity)
+void EntityManagingSystemBase::on_entity(weak_ptr<IEntity> entity)
 { 
 	auto const& comps = required_components();
 	auto owned = entity.lock();

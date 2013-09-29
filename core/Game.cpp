@@ -50,7 +50,7 @@ void GameImpl::load_scene(vector<shared_ptr<IEntity>> entities)
 {
 	for (auto& entity : entities)
 		for (auto& system : _systems)
-			system->add_entity(entity);
+			system->on_entity(entity);
 }
 
 void GameImpl::play()

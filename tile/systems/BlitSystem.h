@@ -4,12 +4,11 @@
 class BlitSystem : public Identified<ISystem,SYS::Render,ThreadedSystemBase>
 {
 private:
-	void on_wake() final;
+	std::vector<ISystem::ID> required_systems() const override;
+	void on_wake() override;
 
 public:
 	BlitSystem(void);
 	~BlitSystem(void);
-
-	std::vector<ISystem::ID> required_systems() const override;
 };
 

@@ -16,12 +16,13 @@ enum class SYS
 class ISystem : public Identifiable<SYS>
 {
 public:
-	//Systems can optionally process frames or SDL events
 	virtual ~ISystem() {}
-	virtual void on_frame() = 0;
-	virtual void on_message() = 0;
-	virtual bool on_event(SDL_Event& event) = 0;
+
+	//Systems can optionally process frames or events
+	virtual void on_frame() {};
+	virtual void on_message() {};
+	virtual bool on_event(SDL_Event& event) { return false; };
 
 	//systems are notified of all entities; subclasses manage requirements
-	virtual void add_entity(std::weak_ptr<IEntity> new_entity) = 0;
+	virtual void on_entity(std::weak_ptr<IEntity> new_entity) {};
 };

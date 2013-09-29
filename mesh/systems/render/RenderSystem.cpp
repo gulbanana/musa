@@ -12,7 +12,7 @@ vector<SYS> RenderSystem::required_systems() const
 
 RenderSystem::RenderSystem(shared_ptr<IRenderer> r) : _renderer(r) {}
 
-void RenderSystem::add_entity(weak_ptr<IEntity> new_entity)
+void RenderSystem::on_entity(weak_ptr<IEntity> new_entity)
 {
 	auto owned = new_entity.lock();
 
