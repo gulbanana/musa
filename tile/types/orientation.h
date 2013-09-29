@@ -25,3 +25,8 @@ enum class dir
 	LEFT      = 270,
 	UPLEFT    = 315
 };
+
+namespace std
+{
+	string to_string(dir);
+}

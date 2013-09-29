@@ -162,9 +162,11 @@
     <ClInclude Include="TileEngine.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="types\colour.h" />
+    <ClInclude Include="types\grid.h" />
     <ClInclude Include="types\location.h" />
     <ClInclude Include="types\orientation.h" />
-    <ClInclude Include="types\to_string.h" />
+    <ClInclude Include="systems.h" />
+    <ClInclude Include="types\tile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TileEngine.cpp" />
@@ -175,8 +177,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="types\grid.cpp" />
     <ClCompile Include="types\location.cpp" />
-    <ClCompile Include="types\to_string.cpp" />
+    <ClCompile Include="types\orientation.cpp" />
+    <ClCompile Include="types\tile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

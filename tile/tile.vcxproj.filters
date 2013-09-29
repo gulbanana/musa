@@ -10,17 +10,22 @@
     <ClInclude Include="types\colour.h" />
     <ClInclude Include="types\location.h" />
     <ClInclude Include="types\orientation.h" />
-    <ClInclude Include="types\to_string.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TileEngine.h" />
+    <ClInclude Include="types\tile.h" />
+    <ClInclude Include="types\grid.h" />
+    <ClInclude Include="systems.h" />
+    <ClInclude Include="RenderSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
     <ClCompile Include="types\location.cpp" />
-    <ClCompile Include="types\to_string.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TileEngine.cpp" />
+    <ClCompile Include="types\orientation.cpp" />
+    <ClCompile Include="types\grid.cpp" />
+    <ClCompile Include="types\tile.cpp" />
   </ItemGroup>
 </Project>

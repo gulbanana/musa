@@ -75,3 +75,8 @@ struct point
 	static const point ORIGIN;
 };
 
+namespace std
+{
+	string to_string(vec2);
+	string to_string(point);
+}
