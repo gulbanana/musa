@@ -4,6 +4,8 @@ tile: controller controller
 
 Milestone: controllable demo
 
+find out what IComponent::clone is
+
 tile: kbm controller
 mesh: textures, brush/mesh distinction SOMEHOW
 mesh: lighting

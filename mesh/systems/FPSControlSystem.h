@@ -1,16 +1,18 @@
 #pragma once
 #include <core/GameState.h>
 #include <core/framework.h>
+#include <core/input.h>
 
 class FPSController : public Identified<FPSController, ISystem, EntityManagingSystemBase>
 {
 private:
 	std::shared_ptr<GameState> _state;
-	bool _firstMouse;
-	std::set<SDLKey> _keys;
-	coord _yclamp;
 
-	bool _key(SDLKey);
+    KeyboardController _keyboard;
+    MouseController _mouse;
+
+    coord _yclamp;
+
 	coord _calc_lr();
 	coord _calc_fb();
 	coord _calc_ud();

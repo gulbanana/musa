@@ -190,6 +190,8 @@
     <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
     <ClCompile Include="framework\ManagedEntityFactory.cpp" />
     <ClCompile Include="CustomEngine.cpp" />
+    <ClCompile Include="input\KeyboardController.cpp" />
+    <ClCompile Include="input\MouseController.cpp" />
     <ClCompile Include="sdl\SDLPlatformBase.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="framework\AutonomousEntity.cpp" />
@@ -215,6 +217,10 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="IGameEngine.h" />
     <ClInclude Include="CustomEngine.h" />
+    <ClInclude Include="input\IController.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="input\KeyboardController.h" />
+    <ClInclude Include="input\MouseController.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="framework\IArchetype.h" />

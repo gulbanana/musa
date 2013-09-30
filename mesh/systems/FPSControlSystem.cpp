@@ -1,7 +1,7 @@
 #include <mesh/stdafx.h>
 #include <mesh/components.h>
 #include <array>
-#include "FPSController.h"
+#include "FPSControlSystem.h"
 using namespace std;
 using namespace glm;
 
@@ -17,30 +17,19 @@ vector<ISystem::ID> FPSController::required_systems() const
 
 FPSController::FPSController()
 {
-	_firstMouse = true;
 	_yclamp = 0;
 }
 
 bool FPSController::on_event(SDL_Event& event)
 {
+    _keyboard.handle(event);
+    _mouse.handle(event);
+
 	switch (event.type)
 	{
 		case SDL_MOUSEMOTION:
 		{
-			//XXX change this to an init message
-			if (_firstMouse)
-			{
-				_firstMouse = false;
-
-				SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
-				SDL_WarpMouse(500, 500);
-				SDL_WM_GrabInput(SDL_GRAB_ON);
-				SDL_EnableKeyRepeat(0, 0);	//disable
-				SDL_ShowCursor(SDL_DISABLE);
-				SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
-
-				return true;
-			}
+            if (_mouse.disabled) return false;
 
 			//convert mouse delta to radians, clamping the y-axis to 180 degrees
 			coord yrads = event.motion.yrel / (coord)120.0;
@@ -64,25 +53,17 @@ bool FPSController::on_event(SDL_Event& event)
 
 			//apply the rotation to any existing movement
 			_set_velocity();
-
-			//move the cursor somewhere it can't bother us
-			SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
-			SDL_WarpMouse(500, 500);
-			SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
-
 			return true;
 		}
 
 		case SDL_KEYDOWN:
 		{
-			_keys.insert(event.key.keysym.sym);
 			_set_velocity();
 			return true;
 		}
 
 		case SDL_KEYUP:
 		{
-			_keys.erase(event.key.keysym.sym);
 			_set_velocity();
 			return true;
 		}
@@ -103,49 +84,10 @@ void FPSController::_set_velocity()
 	auto right = cross(forward, constants::y_axis);
 	auto up = cross(right, forward);
 
-	vec3 direction = _calc_fb() * forward + _calc_lr() * right + _calc_ud() * up;
+	vec3 direction = (coord)_keyboard.get_axis(SDLK_s, SDLK_w) * forward + 
+                     (coord)_keyboard.get_axis(SDLK_a, SDLK_d) * right + 
+                     (coord)_keyboard.get_axis(SDLK_LSHIFT, SDLK_SPACE) * up;
 	if (length(direction) != 0)
 		direction = normalize(direction) * input->speed;
 	velocity->vector = direction;
-}
-
-bool FPSController::_key(SDLKey k)
-{
-	return _keys.find(k) != _keys.end();
-}
-
-coord FPSController::_calc_lr()
-{
-	coord result = 0;
-
-	if (_key(SDLK_a))
-		result -= 1;
-	if (_key(SDLK_d))
-		result += 1;
-
-	return result;
-}
-
-coord FPSController::_calc_fb()
-{
-	coord result = 0;
-
-	if (_key(SDLK_s))
-		result -= 1;
-	if (_key(SDLK_w))
-		result += 1;
-
-	return result;
-}
-
-coord FPSController::_calc_ud()
-{
-	coord result = 0;
-
-	if (_key(SDLK_LSHIFT))
-		result -= 1;
-	if (_key(SDLK_SPACE))
-		result += 1;
-
-	return result;
 }
