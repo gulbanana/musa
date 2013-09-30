@@ -12,7 +12,7 @@ UISystem::UISystem(IBlitter* blitter, shared_ptr<GameState> state) : _state(stat
 {
     memset(&fps_samples, 0, sizeof(fps_samples));
     fps_sample_index = 0;
-    fps_moving_average = 0;
+    fps_moving_average = 0.f;
 }
 
 UISystem::~UISystem() {}
