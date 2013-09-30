@@ -19,6 +19,6 @@ void RenderSystem::on_wake()
 {
 	auto tram = _blitter->get_tram();
 
-	tram->fill('.');
-	tram->draw(tile('@'), 35, 12);
+	tram->fill(tile('.'));
+	tram->draw(tile('@', colour::RED), 35, 12);
 }

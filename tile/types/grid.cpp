@@ -20,11 +20,11 @@ void grid::resize(unsigned int x, unsigned int y)
 	buffer = (tile*)malloc(x * y * sizeof(tile));
 }
 
-void grid::fill(char c)
+void grid::fill(tile t)
 {
 	for (unsigned int i = 0; i < width; i++)
 		for (unsigned int j = 0; j < height; j++)
-			buffer[j*width+i] = tile(c);
+			buffer[j*width+i] = t;
 }
 
 void grid::draw(tile t, unsigned int x, unsigned int y)

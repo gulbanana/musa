@@ -2,14 +2,15 @@
 
 struct colour
 {
-	const float r;
-	const float g;
-	const float b;
-	const float a;
+	float r;
+	float g;
+	float b;
+	float a;
 
 	colour(float _r, float _g, float _b) : r(_r), g(_g), b(_b), a(1.0f) {}
 	colour(float _r, float _g, float _b, float _a) : r(_r), g(_g), b(_b), a(_a) {}
 
+	void operator=(colour const& that) { r = that.r; g = that.g; b = that.b; a = that.a; }
 	bool operator==(colour const& c) const { return r == c.r && g == c.g && b == c.b && a == c.a; }
 	bool operator!=(colour const& c) const { return r != c.r || g != c.g || b != c.b || a != c.a; }
 

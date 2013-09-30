@@ -69,8 +69,9 @@ void GLBlitSystem::on_wake()
 		float pixelX = 0;
 		for (unsigned int i = 0; i < _tram.width; i++)
 		{
-			glColor4ub(255,255,255,255);
-			pixelX = _fonts->draw_character(_current_font, _current_size, pixelX, pixelY, _tram.buffer[_tram.width*j+i].value);
+			auto t = _tram.buffer[_tram.width*j+i];
+			glColor4f(t.shade.r, t.shade.g, t.shade.b, t.shade.a);
+			pixelX = _fonts->draw_character(_current_font, _current_size, pixelX, pixelY, t.value);
 		}
 
 		pixelY -= lineHeight;
