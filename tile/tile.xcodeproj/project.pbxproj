@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E511B84C17F84EE900CF17CB /* CAcceleration.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83817F84EE900CF17CB /* CAcceleration.h */; };
-		E511B84D17F84EE900CF17CB /* CInput.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83917F84EE900CF17CB /* CInput.h */; };
-		E511B84E17F84EE900CF17CB /* CLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83A17F84EE900CF17CB /* CLabel.h */; };
 		E511B84F17F84EE900CF17CB /* CPhysics.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83B17F84EE900CF17CB /* CPhysics.h */; };
 		E511B85017F84EE900CF17CB /* CTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83C17F84EE900CF17CB /* CTransform.h */; };
 		E511B85117F84EE900CF17CB /* CVelocity.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B83D17F84EE900CF17CB /* CVelocity.h */; };
@@ -20,8 +17,8 @@
 		E511B85617F84EE900CF17CB /* TileEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84217F84EE900CF17CB /* TileEngine.h */; };
 		E511B85717F84EE900CF17CB /* colour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84417F84EE900CF17CB /* colour.cpp */; };
 		E511B85817F84EE900CF17CB /* colour.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84517F84EE900CF17CB /* colour.h */; };
-		E511B85917F84EE900CF17CB /* location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84617F84EE900CF17CB /* location.cpp */; };
-		E511B85A17F84EE900CF17CB /* location.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84717F84EE900CF17CB /* location.h */; };
+		E511B85917F84EE900CF17CB /* vec2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B84617F84EE900CF17CB /* vec2.cpp */; };
+		E511B85A17F84EE900CF17CB /* vec2.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84717F84EE900CF17CB /* vec2.h */; };
 		E511B85B17F84EE900CF17CB /* orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84817F84EE900CF17CB /* orientation.h */; };
 		E511B85E17F84EE900CF17CB /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B84B17F84EE900CF17CB /* types.h */; };
 		E57339BF17F8B8A500EC9585 /* GLBlitSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339B917F8B8A500EC9585 /* GLBlitSystem.cpp */; };
@@ -35,13 +32,34 @@
 		E57339CC17F8B8B100EC9585 /* orientation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339C717F8B8B100EC9585 /* orientation.cpp */; };
 		E57339CD17F8B8B100EC9585 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339C817F8B8B100EC9585 /* tile.cpp */; };
 		E57339CE17F8B8B100EC9585 /* tile.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339C917F8B8B100EC9585 /* tile.h */; };
+		E57339FA17F9F21E00EC9585 /* CDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339F117F9F21E00EC9585 /* CDraw.cpp */; };
+		E57339FB17F9F21E00EC9585 /* CDraw.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339F217F9F21E00EC9585 /* CDraw.h */; };
+		E57339FC17F9F21E00EC9585 /* CKBMInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339F317F9F21E00EC9585 /* CKBMInput.cpp */; };
+		E57339FD17F9F21E00EC9585 /* CKBMInput.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339F417F9F21E00EC9585 /* CKBMInput.h */; };
+		E57339FE17F9F21E00EC9585 /* CPadInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339F517F9F21E00EC9585 /* CPadInput.cpp */; };
+		E57339FF17F9F21E00EC9585 /* CPadInput.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339F617F9F21E00EC9585 /* CPadInput.h */; };
+		E5733A0017F9F21E00EC9585 /* CPhysics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339F717F9F21E00EC9585 /* CPhysics.cpp */; };
+		E5733A0117F9F21E00EC9585 /* CTransform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339F817F9F21E00EC9585 /* CTransform.cpp */; };
+		E5733A0217F9F21E00EC9585 /* CVelocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339F917F9F21E00EC9585 /* CVelocity.cpp */; };
+		E5733A0B17F9F22A00EC9585 /* KBMControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5733A0317F9F22A00EC9585 /* KBMControlSystem.cpp */; };
+		E5733A0C17F9F22A00EC9585 /* KBMControlSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A0417F9F22A00EC9585 /* KBMControlSystem.h */; };
+		E5733A0D17F9F22A00EC9585 /* MotionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5733A0517F9F22A00EC9585 /* MotionSystem.cpp */; };
+		E5733A0E17F9F22A00EC9585 /* MotionSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A0617F9F22A00EC9585 /* MotionSystem.h */; };
+		E5733A0F17F9F22A00EC9585 /* PadControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5733A0717F9F22A00EC9585 /* PadControlSystem.cpp */; };
+		E5733A1017F9F22A00EC9585 /* PadControlSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A0817F9F22A00EC9585 /* PadControlSystem.h */; };
+		E5733A1117F9F22A00EC9585 /* UISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5733A0917F9F22A00EC9585 /* UISystem.cpp */; };
+		E5733A1217F9F22A00EC9585 /* UISystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A0A17F9F22A00EC9585 /* UISystem.h */; };
+		E5733A1417F9F27B00EC9585 /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5733A1317F9F27B00EC9585 /* point.cpp */; };
+		E5733A1617F9F29800EC9585 /* point.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A1517F9F29800EC9585 /* point.h */; };
+		E5733A1D17F9F3E100EC9585 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5733A1817F9F3E100EC9585 /* Character.cpp */; };
+		E5733A1E17F9F3E100EC9585 /* Character.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A1917F9F3E100EC9585 /* Character.h */; };
+		E5733A1F17F9F3E100EC9585 /* Protagonist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5733A1A17F9F3E100EC9585 /* Protagonist.cpp */; };
+		E5733A2017F9F3E100EC9585 /* Protagonist.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A1B17F9F3E100EC9585 /* Protagonist.h */; };
+		E5733A2117F9F3E100EC9585 /* archetypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E5733A1C17F9F3E100EC9585 /* archetypes.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E511B82A17F84EAF00CF17CB /* libtile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtile.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E511B83817F84EE900CF17CB /* CAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAcceleration.h; sourceTree = "<group>"; };
-		E511B83917F84EE900CF17CB /* CInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CInput.h; sourceTree = "<group>"; };
-		E511B83A17F84EE900CF17CB /* CLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLabel.h; sourceTree = "<group>"; };
 		E511B83B17F84EE900CF17CB /* CPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPhysics.h; sourceTree = "<group>"; };
 		E511B83C17F84EE900CF17CB /* CTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTransform.h; sourceTree = "<group>"; };
 		E511B83D17F84EE900CF17CB /* CVelocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVelocity.h; sourceTree = "<group>"; };
@@ -52,8 +70,8 @@
 		E511B84217F84EE900CF17CB /* TileEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileEngine.h; sourceTree = "<group>"; };
 		E511B84417F84EE900CF17CB /* colour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = colour.cpp; sourceTree = "<group>"; };
 		E511B84517F84EE900CF17CB /* colour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colour.h; sourceTree = "<group>"; };
-		E511B84617F84EE900CF17CB /* location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = location.cpp; sourceTree = "<group>"; };
-		E511B84717F84EE900CF17CB /* location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = location.h; sourceTree = "<group>"; };
+		E511B84617F84EE900CF17CB /* vec2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vec2.cpp; sourceTree = "<group>"; };
+		E511B84717F84EE900CF17CB /* vec2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vec2.h; sourceTree = "<group>"; };
 		E511B84817F84EE900CF17CB /* orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orientation.h; sourceTree = "<group>"; };
 		E511B84B17F84EE900CF17CB /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
 		E57339B917F8B8A500EC9585 /* GLBlitSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLBlitSystem.cpp; sourceTree = "<group>"; };
@@ -67,6 +85,30 @@
 		E57339C717F8B8B100EC9585 /* orientation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = orientation.cpp; sourceTree = "<group>"; };
 		E57339C817F8B8B100EC9585 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tile.cpp; sourceTree = "<group>"; };
 		E57339C917F8B8B100EC9585 /* tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tile.h; sourceTree = "<group>"; };
+		E57339F117F9F21E00EC9585 /* CDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CDraw.cpp; sourceTree = "<group>"; };
+		E57339F217F9F21E00EC9585 /* CDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDraw.h; sourceTree = "<group>"; };
+		E57339F317F9F21E00EC9585 /* CKBMInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKBMInput.cpp; sourceTree = "<group>"; };
+		E57339F417F9F21E00EC9585 /* CKBMInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBMInput.h; sourceTree = "<group>"; };
+		E57339F517F9F21E00EC9585 /* CPadInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPadInput.cpp; sourceTree = "<group>"; };
+		E57339F617F9F21E00EC9585 /* CPadInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPadInput.h; sourceTree = "<group>"; };
+		E57339F717F9F21E00EC9585 /* CPhysics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPhysics.cpp; sourceTree = "<group>"; };
+		E57339F817F9F21E00EC9585 /* CTransform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CTransform.cpp; sourceTree = "<group>"; };
+		E57339F917F9F21E00EC9585 /* CVelocity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CVelocity.cpp; sourceTree = "<group>"; };
+		E5733A0317F9F22A00EC9585 /* KBMControlSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KBMControlSystem.cpp; sourceTree = "<group>"; };
+		E5733A0417F9F22A00EC9585 /* KBMControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMControlSystem.h; sourceTree = "<group>"; };
+		E5733A0517F9F22A00EC9585 /* MotionSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionSystem.cpp; sourceTree = "<group>"; };
+		E5733A0617F9F22A00EC9585 /* MotionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSystem.h; sourceTree = "<group>"; };
+		E5733A0717F9F22A00EC9585 /* PadControlSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PadControlSystem.cpp; sourceTree = "<group>"; };
+		E5733A0817F9F22A00EC9585 /* PadControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadControlSystem.h; sourceTree = "<group>"; };
+		E5733A0917F9F22A00EC9585 /* UISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UISystem.cpp; sourceTree = "<group>"; };
+		E5733A0A17F9F22A00EC9585 /* UISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISystem.h; sourceTree = "<group>"; };
+		E5733A1317F9F27B00EC9585 /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; };
+		E5733A1517F9F29800EC9585 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
+		E5733A1817F9F3E100EC9585 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
+		E5733A1917F9F3E100EC9585 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		E5733A1A17F9F3E100EC9585 /* Protagonist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Protagonist.cpp; sourceTree = "<group>"; };
+		E5733A1B17F9F3E100EC9585 /* Protagonist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protagonist.h; sourceTree = "<group>"; };
+		E5733A1C17F9F3E100EC9585 /* archetypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = archetypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +125,8 @@
 		E511B82117F84EAF00CF17CB = {
 			isa = PBXGroup;
 			children = (
+				E5733A1717F9F3E100EC9585 /* archetypes */,
+				E5733A1C17F9F3E100EC9585 /* archetypes.h */,
 				E57339B817F8B8A500EC9585 /* systems */,
 				E57339BE17F8B8A500EC9585 /* systems.h */,
 				E511B83717F84EE900CF17CB /* components */,
@@ -108,9 +152,15 @@
 		E511B83717F84EE900CF17CB /* components */ = {
 			isa = PBXGroup;
 			children = (
-				E511B83817F84EE900CF17CB /* CAcceleration.h */,
-				E511B83917F84EE900CF17CB /* CInput.h */,
-				E511B83A17F84EE900CF17CB /* CLabel.h */,
+				E57339F117F9F21E00EC9585 /* CDraw.cpp */,
+				E57339F217F9F21E00EC9585 /* CDraw.h */,
+				E57339F317F9F21E00EC9585 /* CKBMInput.cpp */,
+				E57339F417F9F21E00EC9585 /* CKBMInput.h */,
+				E57339F517F9F21E00EC9585 /* CPadInput.cpp */,
+				E57339F617F9F21E00EC9585 /* CPadInput.h */,
+				E57339F717F9F21E00EC9585 /* CPhysics.cpp */,
+				E57339F817F9F21E00EC9585 /* CTransform.cpp */,
+				E57339F917F9F21E00EC9585 /* CVelocity.cpp */,
 				E511B83B17F84EE900CF17CB /* CPhysics.h */,
 				E511B83C17F84EE900CF17CB /* CTransform.h */,
 				E511B83D17F84EE900CF17CB /* CVelocity.h */,
@@ -128,9 +178,11 @@
 				E57339C917F8B8B100EC9585 /* tile.h */,
 				E511B84417F84EE900CF17CB /* colour.cpp */,
 				E511B84517F84EE900CF17CB /* colour.h */,
-				E511B84617F84EE900CF17CB /* location.cpp */,
-				E511B84717F84EE900CF17CB /* location.h */,
+				E511B84617F84EE900CF17CB /* vec2.cpp */,
+				E511B84717F84EE900CF17CB /* vec2.h */,
 				E511B84817F84EE900CF17CB /* orientation.h */,
+				E5733A1317F9F27B00EC9585 /* point.cpp */,
+				E5733A1517F9F29800EC9585 /* point.h */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -138,6 +190,14 @@
 		E57339B817F8B8A500EC9585 /* systems */ = {
 			isa = PBXGroup;
 			children = (
+				E5733A0317F9F22A00EC9585 /* KBMControlSystem.cpp */,
+				E5733A0417F9F22A00EC9585 /* KBMControlSystem.h */,
+				E5733A0517F9F22A00EC9585 /* MotionSystem.cpp */,
+				E5733A0617F9F22A00EC9585 /* MotionSystem.h */,
+				E5733A0717F9F22A00EC9585 /* PadControlSystem.cpp */,
+				E5733A0817F9F22A00EC9585 /* PadControlSystem.h */,
+				E5733A0917F9F22A00EC9585 /* UISystem.cpp */,
+				E5733A0A17F9F22A00EC9585 /* UISystem.h */,
 				E57339B917F8B8A500EC9585 /* GLBlitSystem.cpp */,
 				E57339BA17F8B8A500EC9585 /* GLBlitSystem.h */,
 				E57339BB17F8B8A500EC9585 /* IBlitter.h */,
@@ -147,6 +207,17 @@
 			path = systems;
 			sourceTree = "<group>";
 		};
+		E5733A1717F9F3E100EC9585 /* archetypes */ = {
+			isa = PBXGroup;
+			children = (
+				E5733A1817F9F3E100EC9585 /* Character.cpp */,
+				E5733A1917F9F3E100EC9585 /* Character.h */,
+				E5733A1A17F9F3E100EC9585 /* Protagonist.cpp */,
+				E5733A1B17F9F3E100EC9585 /* Protagonist.h */,
+			);
+			path = archetypes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -154,9 +225,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E511B84C17F84EE900CF17CB /* CAcceleration.h in Headers */,
-				E511B84D17F84EE900CF17CB /* CInput.h in Headers */,
-				E511B84E17F84EE900CF17CB /* CLabel.h in Headers */,
 				E511B84F17F84EE900CF17CB /* CPhysics.h in Headers */,
 				E511B85017F84EE900CF17CB /* CTransform.h in Headers */,
 				E511B85117F84EE900CF17CB /* CVelocity.h in Headers */,
@@ -164,7 +232,7 @@
 				E511B85417F84EE900CF17CB /* stdafx.h in Headers */,
 				E511B85617F84EE900CF17CB /* TileEngine.h in Headers */,
 				E511B85817F84EE900CF17CB /* colour.h in Headers */,
-				E511B85A17F84EE900CF17CB /* location.h in Headers */,
+				E511B85A17F84EE900CF17CB /* vec2.h in Headers */,
 				E511B85B17F84EE900CF17CB /* orientation.h in Headers */,
 				E511B85E17F84EE900CF17CB /* types.h in Headers */,
 				E57339C017F8B8A500EC9585 /* GLBlitSystem.h in Headers */,
@@ -173,6 +241,17 @@
 				E57339C417F8B8A500EC9585 /* systems.h in Headers */,
 				E57339CB17F8B8B100EC9585 /* grid.h in Headers */,
 				E57339CE17F8B8B100EC9585 /* tile.h in Headers */,
+				E57339FB17F9F21E00EC9585 /* CDraw.h in Headers */,
+				E57339FD17F9F21E00EC9585 /* CKBMInput.h in Headers */,
+				E57339FF17F9F21E00EC9585 /* CPadInput.h in Headers */,
+				E5733A0C17F9F22A00EC9585 /* KBMControlSystem.h in Headers */,
+				E5733A0E17F9F22A00EC9585 /* MotionSystem.h in Headers */,
+				E5733A1017F9F22A00EC9585 /* PadControlSystem.h in Headers */,
+				E5733A1217F9F22A00EC9585 /* UISystem.h in Headers */,
+				E5733A1617F9F29800EC9585 /* point.h in Headers */,
+				E5733A1E17F9F3E100EC9585 /* Character.h in Headers */,
+				E5733A2017F9F3E100EC9585 /* Protagonist.h in Headers */,
+				E5733A2117F9F3E100EC9585 /* archetypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,12 +309,25 @@
 				E511B85317F84EE900CF17CB /* stdafx.cpp in Sources */,
 				E511B85517F84EE900CF17CB /* TileEngine.cpp in Sources */,
 				E511B85717F84EE900CF17CB /* colour.cpp in Sources */,
-				E511B85917F84EE900CF17CB /* location.cpp in Sources */,
+				E511B85917F84EE900CF17CB /* vec2.cpp in Sources */,
 				E57339BF17F8B8A500EC9585 /* GLBlitSystem.cpp in Sources */,
 				E57339C217F8B8A500EC9585 /* RenderSystem.cpp in Sources */,
 				E57339CA17F8B8B100EC9585 /* grid.cpp in Sources */,
 				E57339CC17F8B8B100EC9585 /* orientation.cpp in Sources */,
 				E57339CD17F8B8B100EC9585 /* tile.cpp in Sources */,
+				E57339FA17F9F21E00EC9585 /* CDraw.cpp in Sources */,
+				E57339FC17F9F21E00EC9585 /* CKBMInput.cpp in Sources */,
+				E57339FE17F9F21E00EC9585 /* CPadInput.cpp in Sources */,
+				E5733A0017F9F21E00EC9585 /* CPhysics.cpp in Sources */,
+				E5733A0117F9F21E00EC9585 /* CTransform.cpp in Sources */,
+				E5733A0217F9F21E00EC9585 /* CVelocity.cpp in Sources */,
+				E5733A0B17F9F22A00EC9585 /* KBMControlSystem.cpp in Sources */,
+				E5733A0D17F9F22A00EC9585 /* MotionSystem.cpp in Sources */,
+				E5733A0F17F9F22A00EC9585 /* PadControlSystem.cpp in Sources */,
+				E5733A1117F9F22A00EC9585 /* UISystem.cpp in Sources */,
+				E5733A1417F9F27B00EC9585 /* point.cpp in Sources */,
+				E5733A1D17F9F3E100EC9585 /* Character.cpp in Sources */,
+				E5733A1F17F9F3E100EC9585 /* Protagonist.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
