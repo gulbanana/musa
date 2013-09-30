@@ -20,6 +20,7 @@
     <ClInclude Include="systems\RenderSystem.h" />
     <ClInclude Include="systems\IBlitter.h" />
     <ClInclude Include="systems\GLBlitSystem.h" />
+    <ClInclude Include="systems\UISystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
@@ -31,5 +32,6 @@
     <ClCompile Include="types\tile.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="systems\GLBlitSystem.cpp" />
+    <ClCompile Include="systems\UISystem.cpp" />
   </ItemGroup>
 </Project>

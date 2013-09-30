@@ -14,8 +14,10 @@ vector<unique_ptr<ISystem>> TileEngine::get_systems(GameSettings settings, share
 
 	auto blit = make_unique<GLBlitSystem>(settings.initial_width, settings.initial_height);
 	auto render = make_unique<RenderSystem>(blit.get(), state);
+    auto ui = make_unique<UISystem>(blit.get(), state);
 
 	empty.push_back(move(render));
+    empty.push_back(move(ui));
 	empty.push_back(move(blit));
 
 	return empty;

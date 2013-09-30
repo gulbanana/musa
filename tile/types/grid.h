@@ -20,6 +20,9 @@ struct grid
 
 	void draw(tile t, unsigned int x, unsigned int y);
 	void draw(grid g, unsigned int x, unsigned int y);
+
 	void draw(std::string text, unsigned int x, unsigned int y);
-	void draw(std::string text, unsigned int x, unsigned int y, font_weight weight);
+    void draw(std::string text, unsigned int x, unsigned int y, colour c);
+	void draw(std::string text, unsigned int x, unsigned int y, font_weight w);
+    void draw(std::string text, unsigned int x, unsigned int y, colour c, font_weight w);
 };

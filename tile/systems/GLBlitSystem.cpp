@@ -1,11 +1,13 @@
 #include <tile/stdafx.h>
 #include <SDL_opengl.h>
 #include "GLBlitSystem.h"
+#include "UISystem.h"
+#include "RenderSystem.h"
 using namespace std;
 
 vector<ISystem::ID> GLBlitSystem::required_systems() const
 {
-	return require();
+	return require<RenderSystem,UISystem>();
 }
 
 GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 

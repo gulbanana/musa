@@ -39,11 +39,21 @@ void grid::draw(grid g, unsigned int x, unsigned int y)
 
 void grid::draw(string s, unsigned int x, unsigned int y)
 {
-	draw(s, x, y, font_weight::REGULAR);
+	draw(s, x, y, colour::WHITE, font_weight::REGULAR);
 }
 
-void grid::draw(string s, unsigned int x, unsigned int y, font_weight weight)
+void grid::draw(string s, unsigned int x, unsigned int y, colour c)
+{
+	draw(s, x, y, c, font_weight::REGULAR);
+}
+
+void grid::draw(string s, unsigned int x, unsigned int y, font_weight w)
+{
+	draw(s, x, y, colour::WHITE, w);
+}
+
+void grid::draw(string s, unsigned int x, unsigned int y, colour c, font_weight w)
 {
 	for (int i = 0; i < s.length(); i++)
-		buffer[y*width+x + i] = tile(s[i], weight);
+		buffer[y*width+x + i] = tile(s[i], c, w);
 }

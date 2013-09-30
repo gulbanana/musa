@@ -170,6 +170,7 @@
     <ClInclude Include="types\orientation.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="types\tile.h" />
+    <ClInclude Include="systems\UISystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="systems\GLBlitSystem.cpp" />
@@ -186,6 +187,7 @@
     <ClCompile Include="types\location.cpp" />
     <ClCompile Include="types\orientation.cpp" />
     <ClCompile Include="types\tile.cpp" />
+    <ClCompile Include="systems\UISystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
