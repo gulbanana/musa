@@ -22,5 +22,5 @@ void MotionSystem::on_frame_entity(std::shared_ptr<IEntity> e)
     auto transform = e->get_component<CTransform>();
     auto velocity = e->get_component<CVelocity>();
 
-    transform->translate = transform->translate + velocity->vector;
+    transform->translate = transform->translate + (velocity->vector * _state->last_frame_time / 1000);
 }
