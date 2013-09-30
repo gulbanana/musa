@@ -26,28 +26,6 @@ GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) :
 	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
-    //might be able to avoid this with sdl 2.0..
-    if (_surface != nullptr) SDL_FreeSurface(_surface);
-	_surface = SDL_SetVideoMode(pixelWidth, pixelHeight, 32, SDL_OPENGL | SDL_RESIZABLE);
-	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
-    
-	//GL init
-	glEnable(GL_BLEND);							//rgba translucency
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);	
-	glClearColor(0.f, 0.f, 0.f, 0.f);			//black background
-	glDisable(GL_TEXTURE_2D);					//just text
-	glDisable(GL_DEPTH_TEST);
-
-	//setup world-space
-	glMatrixMode(GL_MODELVIEW);	
-	glLoadIdentity();
-
-	//load fonts
-	_fonts = new FontManager(512, 512);
-	if (!_fonts->add_font(0, "consola.ttf")) throw std::runtime_error("failed to add font");
-	if (!_fonts->add_font(1, "consolai.ttf")) throw std::runtime_error("failed to add font");
-	if (!_fonts->add_font(2, "consolab.ttf")) throw std::runtime_error("failed to add font");
-
 	//load grid
 	resize();
 }
@@ -101,6 +79,22 @@ grid* GLBlitSystem::get_tram()
 
 void GLBlitSystem::resize()
 {
+    //might be able to avoid this with sdl 2.0..
+    if (_surface != nullptr) SDL_FreeSurface(_surface);
+	_surface = SDL_SetVideoMode(_width, _height, 32, SDL_OPENGL | SDL_RESIZABLE);
+	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
+    
+	//GL init
+	glEnable(GL_BLEND);							//rgba translucency
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glClearColor(0.f, 0.f, 0.f, 0.f);			//black background
+	glDisable(GL_TEXTURE_2D);					//just text
+	glDisable(GL_DEPTH_TEST);
+    
+	//setup world-space
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 	//setup device-space
 	glViewport(0, 0, _width, _height);
 
@@ -109,6 +103,12 @@ void GLBlitSystem::resize()
 	glLoadIdentity();
 	glOrtho(0, _width, 0, _height, -1, 1);
 
+    //load fonts - this must be done for every gl init :(
+	_fonts = new FontManager(512, 512);
+	if (!_fonts->add_font(0, "consola.ttf")) throw std::runtime_error("failed to add font");
+	if (!_fonts->add_font(1, "consolai.ttf")) throw std::runtime_error("failed to add font");
+	if (!_fonts->add_font(2, "consolab.ttf")) throw std::runtime_error("failed to add font");
+    
 	//this will only work for a fixedwidth font
 	auto vMetrics = _fonts->get_vertical_metrics(_current_font, _current_size);
 	auto hMetrics = _fonts->get_horizontal_metrics(_current_font, _current_size, '@');	
