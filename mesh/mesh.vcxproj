@@ -161,6 +161,8 @@
     <ClCompile Include="MeshEngine.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="systems\FPSController.cpp" />
+    <ClCompile Include="systems\ui\UISystem.cpp" />
+    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="types\box6.cpp" />
     <ClCompile Include="types\constants.cpp" />
     <ClCompile Include="types\to_string.cpp" />
@@ -197,6 +199,8 @@
     <ClInclude Include="MeshEngine.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="systems\FPSController.h" />
+    <ClInclude Include="systems\ui\UISystem.h" />
+    <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="types\box6.h" />
     <ClInclude Include="types\constants.h" />

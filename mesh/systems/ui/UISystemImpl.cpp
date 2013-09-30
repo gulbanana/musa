@@ -1,4 +1,4 @@
-#include <core/stdafx.h>
+#include <mesh/stdafx.h>
 #include <core/misc.h>
 #include "UISystemImpl.h"
 #include <guichan/sdl/sdlinput.hpp>

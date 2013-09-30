@@ -114,5 +114,5 @@ void GLBlitSystem::resize()
 	//this will only work for a fixedwidth font
 	auto vMetrics = _fonts->get_vertical_metrics(_current_font, _current_size);
 	auto hMetrics = _fonts->get_horizontal_metrics(_current_font, _current_size, '@');	
-	_tram.resize(_width/hMetrics.glyph_width, _height/vMetrics.line_height);
+	_tram.resize(_width/(unsigned)hMetrics.glyph_width, _height/(unsigned)vMetrics.line_height);
 }

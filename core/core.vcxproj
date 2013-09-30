@@ -203,8 +203,6 @@
     <ClCompile Include="systems\ControlSystem.cpp" />
     <ClCompile Include="framework\EntityManagingSystemBase.cpp" />
     <ClCompile Include="framework\ThreadedSystemBase.cpp" />
-    <ClCompile Include="systems\ui\UISystem.cpp" />
-    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="text\FontManager.cpp" />
     <ClCompile Include="text\ManagedFont.cpp" />
     <ClCompile Include="text\stb_truetype.cpp" />
@@ -218,8 +216,6 @@
     <ClInclude Include="IGameEngine.h" />
     <ClInclude Include="CustomEngine.h" />
     <ClInclude Include="systems.h" />
-    <ClInclude Include="systems\ui\UISystem.h" />
-    <ClInclude Include="systems\ui\UISystemImpl.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="framework\IArchetype.h" />
     <ClInclude Include="framework\IComponentManager.h" />

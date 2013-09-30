@@ -22,6 +22,8 @@
     <ClCompile Include="systems\collision\CollisionSystem.cpp" />
     <ClCompile Include="systems\FPSController.cpp" />
     <ClCompile Include="MeshEngine.cpp" />
+    <ClCompile Include="systems\ui\UISystem.cpp" />
+    <ClCompile Include="systems\ui\UISystemImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archetypes\Camera2D.h" />
@@ -72,5 +74,7 @@
     <ClInclude Include="systems\collision\CollisionSystem.h" />
     <ClInclude Include="systems\FPSController.h" />
     <ClInclude Include="MeshEngine.h" />
+    <ClInclude Include="systems\ui\UISystem.h" />
+    <ClInclude Include="systems\ui\UISystemImpl.h" />
   </ItemGroup>
 </Project>

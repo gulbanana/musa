@@ -22,6 +22,7 @@ vector<unique_ptr<ISystem>> MeshEngine::get_systems(GameSettings settings, share
 	meshEngineCore.push_back(make_unique<MotionSystem>(state));
 	meshEngineCore.push_back(make_unique<CollisionSystem>());
 	meshEngineCore.push_back(make_unique<RenderSystem>(renderer));
+	meshEngineCore.push_back(make_unique<UISystem>(state));
 
 	return meshEngineCore;
 }

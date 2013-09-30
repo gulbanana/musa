@@ -37,8 +37,6 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) : _sta
 
 	for (auto& system : _engine->get_systems(settings, _state))
 		add_system(move(system));
-
-	add_system(make_unique<UISystem>(_state));
 }
 
 void GameImpl::add_system(unique_ptr<ISystem> system)
