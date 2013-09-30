@@ -52,10 +52,6 @@
 		E511B75917F8436500CF17CB /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B72517F8436500CF17CB /* stdafx.h */; };
 		E511B75A17F8436500CF17CB /* ControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B72717F8436500CF17CB /* ControlSystem.cpp */; };
 		E511B75B17F8436500CF17CB /* ControlSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B72817F8436500CF17CB /* ControlSystem.h */; };
-		E511B75C17F8436500CF17CB /* UISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B72A17F8436500CF17CB /* UISystem.cpp */; };
-		E511B75D17F8436500CF17CB /* UISystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B72B17F8436500CF17CB /* UISystem.h */; };
-		E511B75E17F8436500CF17CB /* UISystemImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B72C17F8436500CF17CB /* UISystemImpl.cpp */; };
-		E511B75F17F8436500CF17CB /* UISystemImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B72D17F8436500CF17CB /* UISystemImpl.h */; };
 		E511B76217F8438400CF17CB /* misc.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B76117F8438400CF17CB /* misc.h */; };
 		E57339D817F9862900EC9585 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339D017F9862900EC9585 /* FontManager.cpp */; };
 		E57339D917F9862900EC9585 /* FontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339D117F9862900EC9585 /* FontManager.h */; };
@@ -65,6 +61,12 @@
 		E57339DD17F9862900EC9585 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339D517F9862900EC9585 /* stb_truetype.h */; };
 		E57339DE17F9862900EC9585 /* utf8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339D617F9862900EC9585 /* utf8.cpp */; };
 		E57339DF17F9862900EC9585 /* utf8.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339D717F9862900EC9585 /* utf8.h */; };
+		E57339EB17F9F20100EC9585 /* IController.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339E517F9F20100EC9585 /* IController.h */; };
+		E57339EC17F9F20100EC9585 /* KeyboardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339E617F9F20100EC9585 /* KeyboardController.cpp */; };
+		E57339ED17F9F20100EC9585 /* KeyboardController.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339E717F9F20100EC9585 /* KeyboardController.h */; };
+		E57339EE17F9F20100EC9585 /* MouseController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339E817F9F20100EC9585 /* MouseController.cpp */; };
+		E57339EF17F9F20100EC9585 /* MouseController.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339E917F9F20100EC9585 /* MouseController.h */; };
+		E57339F017F9F20100EC9585 /* input.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339EA17F9F20100EC9585 /* input.h */; };
 		E5DDE53A16183230008179BF /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4BB16182B7A008179BF /* GameState.cpp */; };
 /* End PBXBuildFile section */
 
@@ -114,10 +116,6 @@
 		E511B72517F8436500CF17CB /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
 		E511B72717F8436500CF17CB /* ControlSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlSystem.cpp; sourceTree = "<group>"; };
 		E511B72817F8436500CF17CB /* ControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSystem.h; sourceTree = "<group>"; };
-		E511B72A17F8436500CF17CB /* UISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UISystem.cpp; sourceTree = "<group>"; };
-		E511B72B17F8436500CF17CB /* UISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISystem.h; sourceTree = "<group>"; };
-		E511B72C17F8436500CF17CB /* UISystemImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UISystemImpl.cpp; sourceTree = "<group>"; };
-		E511B72D17F8436500CF17CB /* UISystemImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISystemImpl.h; sourceTree = "<group>"; };
 		E511B76117F8438400CF17CB /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
 		E57339D017F9862900EC9585 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
 		E57339D117F9862900EC9585 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
@@ -127,6 +125,12 @@
 		E57339D517F9862900EC9585 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		E57339D617F9862900EC9585 /* utf8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utf8.cpp; sourceTree = "<group>"; };
 		E57339D717F9862900EC9585 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
+		E57339E517F9F20100EC9585 /* IController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IController.h; sourceTree = "<group>"; };
+		E57339E617F9F20100EC9585 /* KeyboardController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardController.cpp; sourceTree = "<group>"; };
+		E57339E717F9F20100EC9585 /* KeyboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardController.h; sourceTree = "<group>"; };
+		E57339E817F9F20100EC9585 /* MouseController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseController.cpp; sourceTree = "<group>"; };
+		E57339E917F9F20100EC9585 /* MouseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseController.h; sourceTree = "<group>"; };
+		E57339EA17F9F20100EC9585 /* input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = input.h; sourceTree = "<group>"; };
 		E5DDE4BB16182B7A008179BF /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
 		E5DDE4BC16182B7A008179BF /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		E5DDE4DE16182B7A008179BF /* systems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
@@ -202,20 +206,8 @@
 			children = (
 				E511B72717F8436500CF17CB /* ControlSystem.cpp */,
 				E511B72817F8436500CF17CB /* ControlSystem.h */,
-				E511B72917F8436500CF17CB /* ui */,
 			);
 			path = systems;
-			sourceTree = "<group>";
-		};
-		E511B72917F8436500CF17CB /* ui */ = {
-			isa = PBXGroup;
-			children = (
-				E511B72A17F8436500CF17CB /* UISystem.cpp */,
-				E511B72B17F8436500CF17CB /* UISystem.h */,
-				E511B72C17F8436500CF17CB /* UISystemImpl.cpp */,
-				E511B72D17F8436500CF17CB /* UISystemImpl.h */,
-			);
-			path = ui;
 			sourceTree = "<group>";
 		};
 		E57339CF17F9862900EC9585 /* text */ = {
@@ -233,9 +225,23 @@
 			path = text;
 			sourceTree = "<group>";
 		};
+		E57339E417F9F20100EC9585 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				E57339E517F9F20100EC9585 /* IController.h */,
+				E57339E617F9F20100EC9585 /* KeyboardController.cpp */,
+				E57339E717F9F20100EC9585 /* KeyboardController.h */,
+				E57339E817F9F20100EC9585 /* MouseController.cpp */,
+				E57339E917F9F20100EC9585 /* MouseController.h */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
 		E5DDE4461618242E008179BF = {
 			isa = PBXGroup;
 			children = (
+				E57339E417F9F20100EC9585 /* input */,
+				E57339EA17F9F20100EC9585 /* input.h */,
 				E57339CF17F9862900EC9585 /* text */,
 				E511B6F817F8436500CF17CB /* AssetManager.cpp */,
 				E511B6FA17F8436500CF17CB /* CustomEngine.cpp */,
@@ -304,13 +310,15 @@
 				E511B75717F8436500CF17CB /* SDLPlatformBase.h in Headers */,
 				E511B75917F8436500CF17CB /* stdafx.h in Headers */,
 				E511B75B17F8436500CF17CB /* ControlSystem.h in Headers */,
-				E511B75D17F8436500CF17CB /* UISystem.h in Headers */,
-				E511B75F17F8436500CF17CB /* UISystemImpl.h in Headers */,
 				E511B76217F8438400CF17CB /* misc.h in Headers */,
 				E57339D917F9862900EC9585 /* FontManager.h in Headers */,
 				E57339DB17F9862900EC9585 /* ManagedFont.h in Headers */,
 				E57339DD17F9862900EC9585 /* stb_truetype.h in Headers */,
 				E57339DF17F9862900EC9585 /* utf8.h in Headers */,
+				E57339EB17F9F20100EC9585 /* IController.h in Headers */,
+				E57339ED17F9F20100EC9585 /* KeyboardController.h in Headers */,
+				E57339EF17F9F20100EC9585 /* MouseController.h in Headers */,
+				E57339F017F9F20100EC9585 /* input.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,12 +390,12 @@
 				E511B75617F8436500CF17CB /* SDLPlatformBase.cpp in Sources */,
 				E511B75817F8436500CF17CB /* stdafx.cpp in Sources */,
 				E511B75A17F8436500CF17CB /* ControlSystem.cpp in Sources */,
-				E511B75C17F8436500CF17CB /* UISystem.cpp in Sources */,
-				E511B75E17F8436500CF17CB /* UISystemImpl.cpp in Sources */,
 				E57339D817F9862900EC9585 /* FontManager.cpp in Sources */,
 				E57339DA17F9862900EC9585 /* ManagedFont.cpp in Sources */,
 				E57339DC17F9862900EC9585 /* stb_truetype.cpp in Sources */,
 				E57339DE17F9862900EC9585 /* utf8.cpp in Sources */,
+				E57339EC17F9F20100EC9585 /* KeyboardController.cpp in Sources */,
+				E57339EE17F9F20100EC9585 /* MouseController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

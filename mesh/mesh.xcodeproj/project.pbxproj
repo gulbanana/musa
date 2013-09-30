@@ -48,8 +48,6 @@
 		E511B7FB17F84C8600CF17CB /* ICollisionDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B317F84C8600CF17CB /* ICollisionDetector.h */; };
 		E511B7FC17F84C8600CF17CB /* RectIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7B417F84C8600CF17CB /* RectIntersectionDetector.cpp */; };
 		E511B7FD17F84C8600CF17CB /* RectIntersectionDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B517F84C8600CF17CB /* RectIntersectionDetector.h */; };
-		E511B7FE17F84C8600CF17CB /* FPSController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7B617F84C8600CF17CB /* FPSController.cpp */; };
-		E511B7FF17F84C8600CF17CB /* FPSController.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B717F84C8600CF17CB /* FPSController.h */; };
 		E511B80017F84C8600CF17CB /* MotionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7B817F84C8600CF17CB /* MotionSystem.cpp */; };
 		E511B80117F84C8600CF17CB /* MotionSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7B917F84C8600CF17CB /* MotionSystem.h */; };
 		E511B80217F84C8600CF17CB /* GLImmediateRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B7BB17F84C8600CF17CB /* GLImmediateRenderer.cpp */; };
@@ -76,6 +74,8 @@
 		E511B81717F84C8600CF17CB /* to_string.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7D217F84C8600CF17CB /* to_string.h */; };
 		E511B81817F84C8600CF17CB /* typedefs.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7D317F84C8600CF17CB /* typedefs.h */; };
 		E511B81917F84C8600CF17CB /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B7D417F84C8600CF17CB /* types.h */; };
+		E57339E217F9F1F300EC9585 /* FPSControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339E017F9F1F300EC9585 /* FPSControlSystem.cpp */; };
+		E57339E317F9F1F300EC9585 /* FPSControlSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339E117F9F1F300EC9585 /* FPSControlSystem.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,8 +121,6 @@
 		E511B7B317F84C8600CF17CB /* ICollisionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICollisionDetector.h; sourceTree = "<group>"; };
 		E511B7B417F84C8600CF17CB /* RectIntersectionDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectIntersectionDetector.cpp; sourceTree = "<group>"; };
 		E511B7B517F84C8600CF17CB /* RectIntersectionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectIntersectionDetector.h; sourceTree = "<group>"; };
-		E511B7B617F84C8600CF17CB /* FPSController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSController.cpp; sourceTree = "<group>"; };
-		E511B7B717F84C8600CF17CB /* FPSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSController.h; sourceTree = "<group>"; };
 		E511B7B817F84C8600CF17CB /* MotionSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionSystem.cpp; sourceTree = "<group>"; };
 		E511B7B917F84C8600CF17CB /* MotionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSystem.h; sourceTree = "<group>"; };
 		E511B7BB17F84C8600CF17CB /* GLImmediateRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLImmediateRenderer.cpp; sourceTree = "<group>"; };
@@ -149,6 +147,8 @@
 		E511B7D217F84C8600CF17CB /* to_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = to_string.h; sourceTree = "<group>"; };
 		E511B7D317F84C8600CF17CB /* typedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typedefs.h; sourceTree = "<group>"; };
 		E511B7D417F84C8600CF17CB /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		E57339E017F9F1F300EC9585 /* FPSControlSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FPSControlSystem.cpp; sourceTree = "<group>"; };
+		E57339E117F9F1F300EC9585 /* FPSControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSControlSystem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,9 +242,9 @@
 		E511B7AD17F84C8600CF17CB /* systems */ = {
 			isa = PBXGroup;
 			children = (
+				E57339E017F9F1F300EC9585 /* FPSControlSystem.cpp */,
+				E57339E117F9F1F300EC9585 /* FPSControlSystem.h */,
 				E511B7AE17F84C8600CF17CB /* collision */,
-				E511B7B617F84C8600CF17CB /* FPSController.cpp */,
-				E511B7B717F84C8600CF17CB /* FPSController.h */,
 				E511B7B817F84C8600CF17CB /* MotionSystem.cpp */,
 				E511B7B917F84C8600CF17CB /* MotionSystem.h */,
 				E511B7BA17F84C8600CF17CB /* render */,
@@ -346,7 +346,6 @@
 				E511B7FA17F84C8600CF17CB /* CollisionSystem.h in Headers */,
 				E511B7FB17F84C8600CF17CB /* ICollisionDetector.h in Headers */,
 				E511B7FD17F84C8600CF17CB /* RectIntersectionDetector.h in Headers */,
-				E511B7FF17F84C8600CF17CB /* FPSController.h in Headers */,
 				E511B80117F84C8600CF17CB /* MotionSystem.h in Headers */,
 				E511B80317F84C8600CF17CB /* GLImmediateRenderer.h in Headers */,
 				E511B80517F84C8600CF17CB /* RenderSystem.h in Headers */,
@@ -365,6 +364,7 @@
 				E511B81717F84C8600CF17CB /* to_string.h in Headers */,
 				E511B81817F84C8600CF17CB /* typedefs.h in Headers */,
 				E511B81917F84C8600CF17CB /* types.h in Headers */,
+				E57339E317F9F1F300EC9585 /* FPSControlSystem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +431,6 @@
 				E511B7F717F84C8600CF17CB /* AABBDetector.cpp in Sources */,
 				E511B7F917F84C8600CF17CB /* CollisionSystem.cpp in Sources */,
 				E511B7FC17F84C8600CF17CB /* RectIntersectionDetector.cpp in Sources */,
-				E511B7FE17F84C8600CF17CB /* FPSController.cpp in Sources */,
 				E511B80017F84C8600CF17CB /* MotionSystem.cpp in Sources */,
 				E511B80217F84C8600CF17CB /* GLImmediateRenderer.cpp in Sources */,
 				E511B80417F84C8600CF17CB /* RenderSystem.cpp in Sources */,
@@ -440,6 +439,7 @@
 				E511B81117F84C8600CF17CB /* box6.cpp in Sources */,
 				E511B81317F84C8600CF17CB /* constants.cpp in Sources */,
 				E511B81617F84C8600CF17CB /* to_string.cpp in Sources */,
+				E57339E217F9F1F300EC9585 /* FPSControlSystem.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

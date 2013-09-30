@@ -5,5 +5,6 @@
 class IController
 {
 public:
+    virtual ~IController() {}
     virtual void handle(SDL_Event& event) = 0;
 };
