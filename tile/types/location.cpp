@@ -4,6 +4,16 @@
 #include <cmath>
 #include <cstdlib>
 
+coord round(dist d)
+{
+    auto fd = (coord)d;
+
+    if ((d - (dist)fd) <= 0.5)
+        return fd;
+    else
+        return fd+1;
+}
+
 angle vec2::direction() const
 {
 	return atan2f(y, x) * 180.f / (float)M_PI;
@@ -38,9 +48,9 @@ namespace std
 	string to_string(point p)
 	{
 		return string("(") 
-			+ to_string(p.x) + ","
-			+ to_string(p.y) + ","
-			+ to_string(p.z) 
+			+ to_string(p.x) + "+" + to_string(p.dx) + ","
+			+ to_string(p.y) + "+" + to_string(p.dy) + ","
+			+ to_string(p.z) + "+" + to_string(p.dz)
 		+ ")";	
 	}
 }

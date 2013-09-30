@@ -17,9 +17,12 @@ vector<unique_ptr<ISystem>> TileEngine::get_systems(GameSettings settings, share
     auto ui = make_unique<UISystem>(blit.get(), state);
     auto keyboard = make_unique<KBMControlSystem>();
     auto gamepad = make_unique<PadControlSystem>();
+    auto motion = make_unique<MotionSystem>(state);
 
     empty.push_back(move(keyboard));
     empty.push_back(move(gamepad));
+
+    empty.push_back(move(motion));
 
 	empty.push_back(move(render));
     empty.push_back(move(ui));

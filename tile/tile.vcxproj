@@ -156,6 +156,7 @@
     <ClInclude Include="components\CDraw.h" />
     <ClInclude Include="components\CPadInput.h" />
     <ClInclude Include="archetypes\Protagonist.h" />
+    <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="systems\PadControlSystem.h" />
     <ClInclude Include="systems\KBMControlSystem.h" />
     <ClInclude Include="systems\GLBlitSystem.h" />
@@ -186,6 +187,7 @@
     <ClCompile Include="components\CTransform.cpp" />
     <ClCompile Include="components\CVelocity.cpp" />
     <ClCompile Include="archetypes\Protagonist.cpp" />
+    <ClCompile Include="systems\MotionSystem.cpp" />
     <ClCompile Include="systems\PadControlSystem.cpp" />
     <ClCompile Include="systems\KBMControlSystem.cpp" />
     <ClCompile Include="systems\GLBlitSystem.cpp" />

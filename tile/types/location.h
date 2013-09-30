@@ -31,6 +31,8 @@ this means that vectors have to be accumulated until they result in an actual ch
 typedef int coord;
 typedef float dist;
 
+coord round(dist);
+
 struct vec2
 {
 	dist x;
@@ -58,19 +60,54 @@ struct vec2
 struct point
 {
 	coord x;
+    dist dx;
 	coord y;
+    dist dy;
 	coord z;
+    dist dz;
 
-	point(coord _x, coord _y) : x(_x), y(_y), z(0) {}
-	point(coord _x, coord _y, coord _z) : x(_x), y(_y), z(_z) {}
+	point(coord _x, coord _y) : x(_x), y(_y), z(0), dx(0), dy(0), dz(0) {}
+	point(coord _x, coord _y, coord _z) : x(_x), y(_y), z(_z), dx(0), dy(0), dz(0) {}
+    point(coord _x, coord _y, coord _z, dist _dx, dist _dy, dist _dz) : x(_x), y(_y), z(_z), dx(_dx), dy(_dy), dz(_dz) {}
 
 	bool operator==(point const& c) const { return x == c.x && y == c.y && z == c.z; }
 	bool operator!=(point const& c) const { return x != c.x || y == c.y || z == c.z; }
 
 	point operator+(point const& c) const { return point(x + c.x, y + c.y, z + c.z); }
 	point operator-(point const& c) const { return point(x - c.x, y - c.y, z - c.z); }
-	point operator+(vec2 const& v) const { return point((coord)((dist)x + v.x), (coord)((dist)y + v.y), z); }
-	point operator-(vec2 const& v) const { return point((coord)((dist)x - v.x), (coord)((dist)y - v.y), z); }
+
+	point operator+(vec2 const& v) const 
+    { 
+        auto xRaw = (dist)x + dx + v.x;
+        auto yRaw = (dist)y + dy + v.y;
+        auto xFloor = round(xRaw);
+        auto yFloor = round(yRaw);
+
+        return point(xFloor, yFloor, z, xRaw - xFloor, yRaw - yFloor, dz); 
+    }
+
+	point operator-(vec2 const& v) const 
+    { 
+        auto xRaw = (dist)x + dx - v.x;
+        auto yRaw = (dist)y + dy - v.y;
+        auto xFloor = round(xRaw);
+        auto yFloor = round(yRaw);
+
+        return point(xFloor, yFloor, z, xRaw - xFloor, yRaw - yFloor, dz); 
+    }
+
+    point operator+(dist modz) const
+    {
+        auto zRaw = (dist)z + dz + modz;
+        auto zFloor = round(zRaw);
+
+        return point(x, y, zFloor, dx, dy, zRaw - zFloor);
+    }
+
+    point operator-(dist modz) const
+    {
+        auto zRaw = (dist)z + dz - modz;
+    }
 
 	bool above(point& c) const { return z > c.z; }
 	bool below(point& c) const { return z < c.z; }

@@ -7,6 +7,7 @@ class CTransform : public Identified<CTransform, IComponent>
 public:
 	//position data
 	point translate;
+    float accumulateX, accumulateY, accumulateZ;
 	angle rotate;
 
 	//constructors

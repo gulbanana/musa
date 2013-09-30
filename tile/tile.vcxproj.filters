@@ -26,6 +26,7 @@
     <ClInclude Include="systems\KBMControlSystem.h" />
     <ClInclude Include="systems\PadControlSystem.h" />
     <ClInclude Include="archetypes\Protagonist.h" />
+    <ClInclude Include="systems\MotionSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
@@ -48,5 +49,6 @@
     <ClCompile Include="systems\KBMControlSystem.cpp" />
     <ClCompile Include="systems\PadControlSystem.cpp" />
     <ClCompile Include="archetypes\Protagonist.cpp" />
+    <ClCompile Include="systems\MotionSystem.cpp" />
   </ItemGroup>
 </Project>

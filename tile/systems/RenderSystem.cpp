@@ -1,14 +1,13 @@
 #include <tile/stdafx.h>
 #include <tile/components.h>
 #include "RenderSystem.h"
-#include "KBMControlSystem.h"
-#include "PadControlSystem.h"
+#include "MotionSystem.h"
 #include <algorithm>
 using namespace std;
 
 vector<ISystem::ID> RenderSystem::required_systems() const
 {
-	return ISystem::require<KBMControlSystem, PadControlSystem>();
+	return ISystem::require<MotionSystem>();
 }
 
 std::vector<IComponent::ID> RenderSystem::required_components() const
