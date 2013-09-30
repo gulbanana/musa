@@ -144,3 +144,8 @@ milliseconds ApplePlatform::get_ticks()
 {
     return _get_ticks_internal() - _tick_offset;
 }
+
+FILE* ApplePlatform::fopen(std::string path, std::string mode)
+{
+    return ::fopen(path.c_str(), mode.c_str());
+}

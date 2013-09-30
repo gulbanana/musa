@@ -18,4 +18,6 @@ public:
     void print(std::string output) final;
 
 	milliseconds get_ticks() final;
+    
+    FILE* fopen(std::string path, std::string mode) final;
 };

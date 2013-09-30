@@ -1,4 +1,5 @@
 #include <core/stdafx.h>
+#include <cstdlib>
 #include "ManagedFont.h"
 
 ManagedFont::ManagedFont()

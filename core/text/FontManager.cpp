@@ -1,7 +1,9 @@
 #include <core/stdafx.h>
+#include <core/framework.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include <SDL_opengl.h>
 #include "FontManager.h"
 #include "ManagedFont.h"
@@ -102,7 +104,6 @@ FontManagerImpl::~FontManagerImpl()
 int FontManager::add_font(int idx, const char* path) { return pimpl->add_font(idx, path); }
 int FontManagerImpl::add_font(int idx, const char* path)
 {
-	FILE* fp = 0;
 	int i, ascent, descent, fh, lineGap;
 	struct ManagedFont* fnt;
 	
@@ -119,8 +120,8 @@ int FontManagerImpl::add_font(int idx, const char* path)
 	for (i = 0; i < HASH_LUT_SIZE; ++i) fnt->lut[i] = -1;
 	
 	// Read in the font data.
-	auto err = fopen_s(&fp, path, "rb");
-	if (err != 0) goto error;
+    auto fp = platform->fopen(path, "rb");
+
 	fseek(fp,0,SEEK_END);
 	fnt->datasize = (int)ftell(fp);
 	fseek(fp,0,SEEK_SET);

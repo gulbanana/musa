@@ -57,6 +57,14 @@
 		E511B75E17F8436500CF17CB /* UISystemImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511B72C17F8436500CF17CB /* UISystemImpl.cpp */; };
 		E511B75F17F8436500CF17CB /* UISystemImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B72D17F8436500CF17CB /* UISystemImpl.h */; };
 		E511B76217F8438400CF17CB /* misc.h in Headers */ = {isa = PBXBuildFile; fileRef = E511B76117F8438400CF17CB /* misc.h */; };
+		E57339D817F9862900EC9585 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339D017F9862900EC9585 /* FontManager.cpp */; };
+		E57339D917F9862900EC9585 /* FontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339D117F9862900EC9585 /* FontManager.h */; };
+		E57339DA17F9862900EC9585 /* ManagedFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339D217F9862900EC9585 /* ManagedFont.cpp */; };
+		E57339DB17F9862900EC9585 /* ManagedFont.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339D317F9862900EC9585 /* ManagedFont.h */; };
+		E57339DC17F9862900EC9585 /* stb_truetype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339D417F9862900EC9585 /* stb_truetype.cpp */; };
+		E57339DD17F9862900EC9585 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339D517F9862900EC9585 /* stb_truetype.h */; };
+		E57339DE17F9862900EC9585 /* utf8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57339D617F9862900EC9585 /* utf8.cpp */; };
+		E57339DF17F9862900EC9585 /* utf8.h in Headers */ = {isa = PBXBuildFile; fileRef = E57339D717F9862900EC9585 /* utf8.h */; };
 		E5DDE53A16183230008179BF /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5DDE4BB16182B7A008179BF /* GameState.cpp */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +119,14 @@
 		E511B72C17F8436500CF17CB /* UISystemImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UISystemImpl.cpp; sourceTree = "<group>"; };
 		E511B72D17F8436500CF17CB /* UISystemImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISystemImpl.h; sourceTree = "<group>"; };
 		E511B76117F8438400CF17CB /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
+		E57339D017F9862900EC9585 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
+		E57339D117F9862900EC9585 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		E57339D217F9862900EC9585 /* ManagedFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ManagedFont.cpp; sourceTree = "<group>"; };
+		E57339D317F9862900EC9585 /* ManagedFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedFont.h; sourceTree = "<group>"; };
+		E57339D417F9862900EC9585 /* stb_truetype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb_truetype.cpp; sourceTree = "<group>"; };
+		E57339D517F9862900EC9585 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
+		E57339D617F9862900EC9585 /* utf8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utf8.cpp; sourceTree = "<group>"; };
+		E57339D717F9862900EC9585 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
 		E5DDE4BB16182B7A008179BF /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
 		E5DDE4BC16182B7A008179BF /* GameState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		E5DDE4DE16182B7A008179BF /* systems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systems.h; sourceTree = "<group>"; };
@@ -202,9 +218,25 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
+		E57339CF17F9862900EC9585 /* text */ = {
+			isa = PBXGroup;
+			children = (
+				E57339D017F9862900EC9585 /* FontManager.cpp */,
+				E57339D117F9862900EC9585 /* FontManager.h */,
+				E57339D217F9862900EC9585 /* ManagedFont.cpp */,
+				E57339D317F9862900EC9585 /* ManagedFont.h */,
+				E57339D417F9862900EC9585 /* stb_truetype.cpp */,
+				E57339D517F9862900EC9585 /* stb_truetype.h */,
+				E57339D617F9862900EC9585 /* utf8.cpp */,
+				E57339D717F9862900EC9585 /* utf8.h */,
+			);
+			path = text;
+			sourceTree = "<group>";
+		};
 		E5DDE4461618242E008179BF = {
 			isa = PBXGroup;
 			children = (
+				E57339CF17F9862900EC9585 /* text */,
 				E511B6F817F8436500CF17CB /* AssetManager.cpp */,
 				E511B6FA17F8436500CF17CB /* CustomEngine.cpp */,
 				E511B71517F8436500CF17CB /* Game.cpp */,
@@ -275,6 +307,10 @@
 				E511B75D17F8436500CF17CB /* UISystem.h in Headers */,
 				E511B75F17F8436500CF17CB /* UISystemImpl.h in Headers */,
 				E511B76217F8438400CF17CB /* misc.h in Headers */,
+				E57339D917F9862900EC9585 /* FontManager.h in Headers */,
+				E57339DB17F9862900EC9585 /* ManagedFont.h in Headers */,
+				E57339DD17F9862900EC9585 /* stb_truetype.h in Headers */,
+				E57339DF17F9862900EC9585 /* utf8.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +384,10 @@
 				E511B75A17F8436500CF17CB /* ControlSystem.cpp in Sources */,
 				E511B75C17F8436500CF17CB /* UISystem.cpp in Sources */,
 				E511B75E17F8436500CF17CB /* UISystemImpl.cpp in Sources */,
+				E57339D817F9862900EC9585 /* FontManager.cpp in Sources */,
+				E57339DA17F9862900EC9585 /* ManagedFont.cpp in Sources */,
+				E57339DC17F9862900EC9585 /* stb_truetype.cpp in Sources */,
+				E57339DE17F9862900EC9585 /* utf8.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +404,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -406,7 +446,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

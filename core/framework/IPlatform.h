@@ -23,6 +23,8 @@ public:
     
     virtual milliseconds get_ticks() = 0;
     virtual void sleep_ticks(milliseconds) = 0;
+    
+    virtual FILE* fopen(std::string path, std::string mode) = 0;
 };
 
 //global platform access and entry point
