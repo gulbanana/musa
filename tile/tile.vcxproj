@@ -172,11 +172,12 @@
     <ClInclude Include="types.h" />
     <ClInclude Include="types\colour.h" />
     <ClInclude Include="types\grid.h" />
-    <ClInclude Include="types\location.h" />
     <ClInclude Include="types\orientation.h" />
     <ClInclude Include="systems.h" />
+    <ClInclude Include="types\point.h" />
     <ClInclude Include="types\tile.h" />
     <ClInclude Include="systems\UISystem.h" />
+    <ClInclude Include="types\vec2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="archetypes\Character.cpp" />
@@ -201,10 +202,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="types\grid.cpp" />
-    <ClCompile Include="types\location.cpp" />
     <ClCompile Include="types\orientation.cpp" />
+    <ClCompile Include="types\point.cpp" />
     <ClCompile Include="types\tile.cpp" />
     <ClCompile Include="systems\UISystem.cpp" />
+    <ClCompile Include="types\vec2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

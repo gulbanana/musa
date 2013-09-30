@@ -5,7 +5,6 @@
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
     <ClInclude Include="types\colour.h" />
-    <ClInclude Include="types\location.h" />
     <ClInclude Include="types\orientation.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="components.h" />
@@ -27,10 +26,11 @@
     <ClInclude Include="systems\PadControlSystem.h" />
     <ClInclude Include="archetypes\Protagonist.h" />
     <ClInclude Include="systems\MotionSystem.h" />
+    <ClInclude Include="types\point.h" />
+    <ClInclude Include="types\vec2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
-    <ClCompile Include="types\location.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TileEngine.cpp" />
     <ClCompile Include="types\orientation.cpp" />
@@ -50,5 +50,7 @@
     <ClCompile Include="systems\PadControlSystem.cpp" />
     <ClCompile Include="archetypes\Protagonist.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp" />
+    <ClCompile Include="types\point.cpp" />
+    <ClCompile Include="types\vec2.cpp" />
   </ItemGroup>
 </Project>
