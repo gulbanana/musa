@@ -35,5 +35,5 @@ void KBMControlSystem::on_frame_entity(shared_ptr<IEntity> e)
     auto sw_ne = vec2(_keyboard.get_axis(SDLK_KP1, SDLK_KP9), _keyboard.get_axis(SDLK_KP1, SDLK_KP9));
     auto nw_se = vec2(_keyboard.get_axis(SDLK_KP7, SDLK_KP3), _keyboard.get_axis(SDLK_KP3, SDLK_KP7));
 
-    velocity->vector = (w_e + s_n + sw_ne + nw_se).normalise()*10;
+    velocity->vector = (w_e + s_n + sw_ne + nw_se).normalise()*15;
 }

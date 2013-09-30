@@ -11,7 +11,7 @@ vector<ISystem::ID> GLBlitSystem::required_systems() const
 }
 
 GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
-	_tram(1, 1), _surface(nullptr), _fonts(nullptr), _width(pixelWidth), _height(pixelHeight), _font_size(24)
+	_tram(1, 1), _surface(nullptr), _fonts(nullptr), _width(pixelWidth), _height(pixelHeight), _font_size(18)
 {
 	//SDL init
 	int rc;
