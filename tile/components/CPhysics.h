@@ -1,7 +1,7 @@
 #pragma once
 #include <core/framework.h>
 
-class CPhysics : public Identified<IComponent, CMP::Physics>
+class CPhysics : public Identified<CPhysics,IComponent>
 {
 public:
 	bool solid;

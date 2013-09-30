@@ -3,7 +3,7 @@
 #include <core/GameState.h>
 #include "IBlitter.h"
 
-class RenderSystem : public Identified<ISystem,SYS::Render,ThreadedSystemBase>
+class RenderSystem : public Identified<RenderSystem, ISystem, ThreadedSystemBase>
 {
 private:
 	IBlitter* _blitter;

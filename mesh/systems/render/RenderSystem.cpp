@@ -1,13 +1,14 @@
 #include <mesh/stdafx.h>
 #include <mesh/components.h>
+#include "../MotionSystem.h"
 #include <iterator>
 #include <SDL_opengl.h>
 #include "RenderSystem.h"
 using namespace std;
 
-vector<SYS> RenderSystem::required_systems() const 
+vector<ISystem::ID> RenderSystem::required_systems() const 
 {
-	return require(SYS::Motion, SYS::Logic);
+	return require<MotionSystem>();
 }
 
 RenderSystem::RenderSystem(shared_ptr<IRenderer> r) : _renderer(r) {}

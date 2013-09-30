@@ -5,7 +5,7 @@
 #include <SDL_video.h>
 #include "IBlitter.h"
 
-class GLBlitSystem : public Identified<ISystem,SYS::Render,ThreadedSystemBase>, public IBlitter
+class GLBlitSystem : public Identified<GLBlitSystem, ISystem, ThreadedSystemBase>, public IBlitter
 {
 private:
 	grid _tram;

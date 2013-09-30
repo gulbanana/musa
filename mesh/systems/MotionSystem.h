@@ -3,7 +3,7 @@
 #include <core/GameState.h>
 
 //provides "realistic" physical motion, no game-specific logic
-class MotionSystem : public Identified<ISystem,SYS::Motion,EntityManagingSystemBase>
+class MotionSystem : public Identified<MotionSystem, ISystem, EntityManagingSystemBase>
 {
 	std::shared_ptr<GameState> _state;
 	seconds elapsedTime;

@@ -3,7 +3,7 @@
 #include <mesh/geometry.h>
 #include "scene.h"
 
-class RenderSystem final : public Identified<ISystem,SYS::Render,ThreadedSystemBase>, public IGraphWalker
+class RenderSystem final : public Identified<RenderSystem,ISystem,ThreadedSystemBase>, public IGraphWalker
 {
 	std::shared_ptr<IRenderer> _renderer;
 	SceneGraph _scene;

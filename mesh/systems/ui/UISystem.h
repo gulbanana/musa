@@ -4,7 +4,7 @@
 
 class UISystemImpl;
 
-class UISystem : public Identified<ISystem,SYS::UI,ThreadedSystemBase>
+class UISystem : public Identified<UISystem,ISystem,ThreadedSystemBase>
 {
 	UISystemImpl* _pimpl;
 public:

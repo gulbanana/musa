@@ -1,19 +1,7 @@
 #pragma once
 #include "Identifiable.h"
 
-enum class CMP
-{
-	Acceleration,
-	Input,
-	Label,
-	Physics,
-    Renderable,
-	Transform,
-	Velocity,
-	COUNT
-};
-
-class IComponent : public Identifiable<CMP>
+class IComponent : public Identifiable<IComponent>
 {
 public:
 	virtual ~IComponent() {}

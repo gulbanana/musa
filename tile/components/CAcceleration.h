@@ -2,7 +2,7 @@
 #include <core/framework.h>
 #include <tile/types.h>
 
-class CAcceleration final : public Identified<IComponent, CMP::Acceleration>
+class CAcceleration final : public Identified<CAcceleration, IComponent>
 {
 public:
 	vec2 vector_change;

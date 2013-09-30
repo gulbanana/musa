@@ -2,18 +2,7 @@
 #include <SDL_events.h>
 #include "IEntity.h"
 
-enum class SYS
-{
-    Collision,
-	Control,
-	Logic,
-    Motion,
-    Render,
-    UI,
-	COUNT
-};
-
-class ISystem : public Identifiable<SYS>
+class ISystem : public Identifiable<ISystem>
 {
 public:
 	virtual ~ISystem() {}

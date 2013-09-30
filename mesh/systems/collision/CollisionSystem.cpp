@@ -5,17 +5,18 @@
 //#include <typeinfo>
 //#include <tuple>
 #include "CollisionSystem.h"
+#include "../MotionSystem.h"
 #include "AABBDetector.h"
 using namespace std;
 
-vector<CMP> CollisionSystem::required_components() const 
+vector<IComponent::ID> CollisionSystem::required_components() const 
 {
-	return IComponent::require(CMP::Transform, CMP::Renderable, CMP::Physics);
+	return IComponent::require<CTransform, CRenderable, CPhysics>();
 }
 
-vector<SYS> CollisionSystem::required_systems() const 
+vector<ISystem::ID> CollisionSystem::required_systems() const 
 {
-	return ISystem::require(SYS::Motion);
+	return ISystem::require<MotionSystem>();
 }
 
 CollisionSystem::CollisionSystem() : targets(), detectors()

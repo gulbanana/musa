@@ -1,6 +1,6 @@
 #pragma once
 
-class CLabel : public Identified<IComponent, CMP::Label>
+class CLabel : public Identified<CLabel,IComponent>
 {
 public:
 	std::string text;

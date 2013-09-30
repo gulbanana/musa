@@ -5,16 +5,14 @@
 using namespace std;
 using namespace glm;
 
-vector<CMP> FPSController::required_components() const 
+vector<IComponent::ID> FPSController::required_components() const 
 {
-	array<CMP,2> compTypes = {CMP::Input, CMP::Transform};
-	return vector<CMP>(compTypes.begin(), compTypes.end());
+	return IComponent::require<CInput, CTransform>();
 }
 
-vector<SYS> FPSController::required_systems() const 
+vector<ISystem::ID> FPSController::required_systems() const 
 {
-	array<SYS,0> sysTypes = {};
-	return vector<SYS>(sysTypes.begin(), sysTypes.end());
+	return ISystem::require();
 }
 
 FPSController::FPSController()

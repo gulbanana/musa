@@ -2,7 +2,7 @@
 #include <core/framework.h>
 #include <core/GameState.h>
 
-class ControlSystem : public Identified<ISystem,SYS::Control,ThreadedSystemBase>
+class ControlSystem : public Identified<ControlSystem, ISystem, ThreadedSystemBase>
 {
 private:
 	std::shared_ptr<GameState> _state;

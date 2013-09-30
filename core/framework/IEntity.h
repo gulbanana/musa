@@ -20,25 +20,25 @@ public:
 	template<typename TComponent>
     void add_component(std::unique_ptr<TComponent> component)
     {
-		add_component(TComponent::static_id(), std::move(component));
+		add_component(TComponent::sid(), std::move(component));
 	}
 
 	template<typename TComponent>
     void remove_component()
     {
-		erase_component(TComponent::static_id());
+		erase_component(TComponent::sid());
 	}
 
 	template<typename TComponent>
 	bool has_component()
 	{
-		return has_component(TComponent::static_id());
+		return has_component(TComponent::sid());
 	}
 
 	template<typename TComponent>
 	TComponent* get_component()
 	{
-		return static_cast<TComponent*>(get_component(TComponent::static_id()));
+		return static_cast<TComponent*>(get_component(TComponent::sid()));
 	}
 };
 

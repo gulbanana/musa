@@ -1,7 +1,7 @@
 #pragma once
 #include <core/framework.h>
 
-class CLabel : public Identified<IComponent, CMP::Label>
+class CLabel : public Identified<CLabel,IComponent>
 {
 public:
 	std::string text;

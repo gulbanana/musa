@@ -1,18 +1,19 @@
 #include <mesh/stdafx.h>
 #include <mesh/components.h>
+#include <core/systems.h>
 #include <cmath>
 #include <list>
 #include "MotionSystem.h"
 using namespace std;
 
-vector<CMP> MotionSystem::required_components() const 
+vector<IComponent::ID> MotionSystem::required_components() const 
 {
-	return IComponent::require(CMP::Transform, CMP::Velocity);
+	return IComponent::require<CTransform, CVelocity>();
 }
 
-vector<SYS> MotionSystem::required_systems() const 
+vector<ISystem::ID> MotionSystem::required_systems() const 
 {
-	return ISystem::require(SYS::Control);
+	return ISystem::require<ControlSystem>();
 }
 
 MotionSystem::MotionSystem(shared_ptr<GameState> s) : _state(s) {}

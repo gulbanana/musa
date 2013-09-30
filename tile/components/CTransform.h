@@ -2,7 +2,7 @@
 #include <core/framework.h>
 #include <tile/types.h>
 
-class CTransform : public Identified<IComponent, CMP::Transform>
+class CTransform : public Identified<CTransform, IComponent>
 {
 public:
 	//position data

@@ -2,9 +2,9 @@
 #include "ControlSystem.h"
 using namespace std;
 
-vector<SYS> ControlSystem::required_systems() const 
+vector<ISystem::ID> ControlSystem::required_systems() const 
 {
-	return vector<SYS>();
+	return require();
 }
 
 ControlSystem::ControlSystem(std::shared_ptr<GameState> s) : _state(s)

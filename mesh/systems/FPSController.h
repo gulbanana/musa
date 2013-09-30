@@ -2,7 +2,7 @@
 #include <core/GameState.h>
 #include <core/framework.h>
 
-class FPSController : public Identified<ISystem,SYS::Control,EntityManagingSystemBase>
+class FPSController : public Identified<FPSController, ISystem, EntityManagingSystemBase>
 {
 private:
 	std::shared_ptr<GameState> _state;

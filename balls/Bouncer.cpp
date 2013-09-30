@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <mesh/components.h>
+#include <mesh/systems.h>
 #include <iostream>
 #include <array>
 #include "Bouncer.h"
@@ -8,14 +9,12 @@ using namespace glm;
 
 vector<IComponent::ID> Bouncer::required_components() const
 {
-	array<CMP,4> compTypes = {CMP::Physics, CMP::Velocity, CMP::Transform, CMP::Renderable};
-	return vector<CMP>(compTypes.begin(), compTypes.end());
+	return IComponent::require<CPhysics, CVelocity, CTransform, CRenderable>();
 }
 
 vector<ISystem::ID> Bouncer::required_systems() const
 {
-	array<SYS,3> compTypes = {SYS::Collision};
-	return vector<SYS>(compTypes.begin(), compTypes.end());
+	return ISystem::require<CollisionSystem>();
 }
 
 Bouncer::Bouncer(int r) : _width((coord)r), _height((coord)r), _depth((coord)r)  {}

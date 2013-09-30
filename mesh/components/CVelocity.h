@@ -2,7 +2,7 @@
 #include <core/framework.h>
 #include <mesh/types.h>
 
-class CVelocity : public Identified<IComponent, CMP::Velocity>
+class CVelocity : public Identified<CVelocity,IComponent>
 {
 public:
 	point vector;

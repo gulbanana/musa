@@ -2,7 +2,7 @@
 #include <core/framework.h>
 #include "ICollisionDetector.h"
 
-class CollisionSystem final : public Identified<ISystem,SYS::Collision,EntityManagingSystemBase>
+class CollisionSystem final : public Identified<CollisionSystem,ISystem,EntityManagingSystemBase>
 {
 	std::vector<std::unique_ptr<ICollisionDetector>> detectors;	//TODO: inject these?
 	std::vector<std::weak_ptr<IEntity>> targets;

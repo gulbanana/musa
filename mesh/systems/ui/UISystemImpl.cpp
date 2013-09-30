@@ -38,5 +38,5 @@ bool UISystemImpl::on_event(SDL_Event& event)
 {
 	//on resize, _graphics->setTargetPlane
 	static_cast<SDLInput*>(_input.get())->pushInput(event);
-	return true;
+	return false;
 }

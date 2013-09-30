@@ -1,11 +1,12 @@
 #include <mesh/stdafx.h>
 #include "UISystem.h"
 #include "UISystemImpl.h"
+#include "../render/RenderSystem.h"
 using namespace std;
 
-vector<SYS> UISystem::required_systems() const 
+vector<ISystem::ID> UISystem::required_systems() const 
 {
-	return require(SYS::Render);
+	return require<RenderSystem>();
 }
 
 UISystem::UISystem(shared_ptr<GameState> s) : _pimpl(new UISystemImpl(s)) {}

@@ -3,7 +3,7 @@
 #include <mesh/geometry.h>
 
 // a modelobject renderer node 
-class CRenderable : public Identified<IComponent, CMP::Renderable>
+class CRenderable : public Identified<CRenderable,IComponent>
 {
 public:
 	IRenderable* geometry;
