@@ -1,4 +1,10 @@
-tile: implement tile mode
+
+core: sdl 2.0
+tile: controller controller
+
+Milestone: controllable demo
+
+tile: kbm controller
 mesh: textures, brush/mesh distinction SOMEHOW
 mesh: lighting
 mesh: restore collision
@@ -11,14 +17,13 @@ mesh: gl3/VBO renderer
 mesh: make collision detection pairwise
 mesh: skybox 
 core: fullscreen
-core: sdl 2.0
 core: system multithreading - dependency semaphores
 core: messages, as a performance optimisation of polling
 core: polling
 core: change entity ownership logic (why are they shared)
 core: double viewport (balls unification)
 core: get rid of sdl? or is it too useful (for input)
-6dof controller
+mesh: 6dof controller
 model loader/better resource loader in general
 linux: port to linux
 windows: if possible, static link to msvcrt
