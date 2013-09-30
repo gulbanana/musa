@@ -151,11 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="archetypes\Character.h" />
+    <ClInclude Include="archetypes.h" />
+    <ClInclude Include="components\CDraw.h" />
+    <ClInclude Include="archetypes\Protagonist.h" />
     <ClInclude Include="systems\GLBlitSystem.h" />
     <ClInclude Include="components.h" />
-    <ClInclude Include="components\CAcceleration.h" />
     <ClInclude Include="components\CInput.h" />
-    <ClInclude Include="components\CLabel.h" />
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
@@ -173,6 +175,12 @@
     <ClInclude Include="systems\UISystem.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="archetypes\Character.cpp" />
+    <ClCompile Include="components\CDraw.cpp" />
+    <ClCompile Include="components\CPhysics.cpp" />
+    <ClCompile Include="components\CTransform.cpp" />
+    <ClCompile Include="components\CVelocity.cpp" />
+    <ClCompile Include="archetypes\Protagonist.cpp" />
     <ClCompile Include="systems\GLBlitSystem.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="TileEngine.cpp" />
