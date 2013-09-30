@@ -38,7 +38,7 @@ void UISystem::measure_fps()
         //accumulate average
         fps_moving_average -= (float)previous_sample / (float)FPS_SAMPLE_PERIOD;
         fps_moving_average += (float)current_sample / (float)FPS_SAMPLE_PERIOD;
-
-		tram->draw(string("FPS: ") + to_string((int)fps_moving_average), 1, tram->height-2, colour::RED, font_weight::BOLD);
 	}
+
+    tram->draw(string("FPS: ") + to_string((int)fps_moving_average), 1, tram->height-2, colour::RED, font_weight::BOLD);
 }
