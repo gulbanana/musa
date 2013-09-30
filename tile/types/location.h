@@ -33,10 +33,12 @@ typedef float dist;
 
 struct vec2
 {
-	const dist x;
-	const dist y;
+	dist x;
+	dist y;
 
 	vec2(dist _x, dist _y) : x(_x), y(_y) {}
+
+    void operator=(vec2 const& that) { x = that.x; y = that.y; }
 
 	bool operator==(vec2 const& v) const { return x == v.x && y == v.y; }
 	bool operator!=(vec2 const& v) const { return x != v.x || y == v.y; }
@@ -46,17 +48,18 @@ struct vec2
 	vec2 operator*(float c) const { return vec2(x * c, y * c); }
 	vec2 operator/(float c) const { return vec2(x / c, y / c); }
 
-	angle direction();
-	dist magnitude();
+	angle direction() const;
+	dist magnitude() const;
+    vec2 normalise() const;
 
 	static const vec2 ZERO;
 };
 
 struct point
 {
-	const coord x;
-	const coord y;
-	const coord z;
+	coord x;
+	coord y;
+	coord z;
 
 	point(coord _x, coord _y) : x(_x), y(_y), z(0) {}
 	point(coord _x, coord _y, coord _z) : x(_x), y(_y), z(_z) {}

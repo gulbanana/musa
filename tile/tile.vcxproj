@@ -154,10 +154,13 @@
     <ClInclude Include="archetypes\Character.h" />
     <ClInclude Include="archetypes.h" />
     <ClInclude Include="components\CDraw.h" />
+    <ClInclude Include="components\CPadInput.h" />
     <ClInclude Include="archetypes\Protagonist.h" />
+    <ClInclude Include="systems\PadControlSystem.h" />
+    <ClInclude Include="systems\KBMControlSystem.h" />
     <ClInclude Include="systems\GLBlitSystem.h" />
     <ClInclude Include="components.h" />
-    <ClInclude Include="components\CInput.h" />
+    <ClInclude Include="components\CKBMInput.h" />
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
@@ -177,10 +180,14 @@
   <ItemGroup>
     <ClCompile Include="archetypes\Character.cpp" />
     <ClCompile Include="components\CDraw.cpp" />
+    <ClCompile Include="components\CKBMInput.cpp" />
+    <ClCompile Include="components\CPadInput.cpp" />
     <ClCompile Include="components\CPhysics.cpp" />
     <ClCompile Include="components\CTransform.cpp" />
     <ClCompile Include="components\CVelocity.cpp" />
     <ClCompile Include="archetypes\Protagonist.cpp" />
+    <ClCompile Include="systems\PadControlSystem.cpp" />
+    <ClCompile Include="systems\KBMControlSystem.cpp" />
     <ClCompile Include="systems\GLBlitSystem.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="TileEngine.cpp" />

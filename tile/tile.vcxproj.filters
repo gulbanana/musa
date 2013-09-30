@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="components\CInput.h" />
     <ClInclude Include="components\CPhysics.h" />
     <ClInclude Include="components\CTransform.h" />
     <ClInclude Include="components\CVelocity.h" />
@@ -22,6 +21,10 @@
     <ClInclude Include="components\CDraw.h" />
     <ClInclude Include="archetypes\Character.h" />
     <ClInclude Include="archetypes.h" />
+    <ClInclude Include="components\CKBMInput.h" />
+    <ClInclude Include="components\CPadInput.h" />
+    <ClInclude Include="systems\KBMControlSystem.h" />
+    <ClInclude Include="systems\PadControlSystem.h" />
     <ClInclude Include="archetypes\Protagonist.h" />
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +43,10 @@
     <ClCompile Include="components\CTransform.cpp" />
     <ClCompile Include="components\CVelocity.cpp" />
     <ClCompile Include="archetypes\Character.cpp" />
+    <ClCompile Include="components\CKBMInput.cpp" />
+    <ClCompile Include="components\CPadInput.cpp" />
+    <ClCompile Include="systems\KBMControlSystem.cpp" />
+    <ClCompile Include="systems\PadControlSystem.cpp" />
     <ClCompile Include="archetypes\Protagonist.cpp" />
   </ItemGroup>
 </Project>
