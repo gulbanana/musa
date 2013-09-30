@@ -60,9 +60,9 @@ GLBlitSystem::~GLBlitSystem(void)
 void GLBlitSystem::on_wake()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	auto lineHeight = _fonts->get_vertical_metrics(_current_font, _current_size).line_height;
+	auto metrics = _fonts->get_vertical_metrics(_current_font, _current_size);
 	
-	float pixelY = (float)_height - lineHeight;
+	float pixelY = metrics.ascender;
 	for (unsigned int j = 0; j < _tram.height; j++)
 	{
 		float pixelX = 0;
@@ -76,10 +76,9 @@ void GLBlitSystem::on_wake()
 			_fonts->end_draw();
 		}
 
-		pixelY -= lineHeight;
+		pixelY += metrics.line_height;
 	}
 
-	
 	SDL_GL_SwapBuffers();
 }
 
