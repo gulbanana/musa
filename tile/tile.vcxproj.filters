@@ -20,8 +20,6 @@
     <ClInclude Include="systems\RenderSystem.h" />
     <ClInclude Include="systems\IBlitter.h" />
     <ClInclude Include="systems\GLBlitSystem.h" />
-    <ClInclude Include="font\stb_truetype.h" />
-    <ClInclude Include="font\fontstash.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
@@ -33,7 +31,5 @@
     <ClCompile Include="types\tile.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="systems\GLBlitSystem.cpp" />
-    <ClCompile Include="font\stb_truetype.cpp" />
-    <ClCompile Include="font\fontstash.cpp" />
   </ItemGroup>
 </Project>

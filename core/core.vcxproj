@@ -205,6 +205,10 @@
     <ClCompile Include="framework\ThreadedSystemBase.cpp" />
     <ClCompile Include="systems\ui\UISystem.cpp" />
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
+    <ClCompile Include="text\FontManager.cpp" />
+    <ClCompile Include="text\ManagedFont.cpp" />
+    <ClCompile Include="text\stb_truetype.cpp" />
+    <ClCompile Include="text\utf8.cpp" />
     <ClCompile Include="windows\main.cpp" />
     <ClCompile Include="windows\MicrosoftPlatform.cpp" />
   </ItemGroup>
@@ -239,6 +243,10 @@
     <ClInclude Include="systems\ControlSystem.h" />
     <ClInclude Include="framework\EntityManagingSystemBase.h" />
     <ClInclude Include="framework\ThreadedSystemBase.h" />
+    <ClInclude Include="text\FontManager.h" />
+    <ClInclude Include="text\ManagedFont.h" />
+    <ClInclude Include="text\stb_truetype.h" />
+    <ClInclude Include="text\utf8.h" />
     <ClInclude Include="windows\MicrosoftPlatform.h" />
     <ClInclude Include="windows\msvc.h" />
   </ItemGroup>

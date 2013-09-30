@@ -151,8 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="font\fontstash.h" />
-    <ClInclude Include="font\stb_truetype.h" />
     <ClInclude Include="systems\GLBlitSystem.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="components\CAcceleration.h" />
@@ -174,8 +172,6 @@
     <ClInclude Include="types\tile.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="font\fontstash.cpp" />
-    <ClCompile Include="font\stb_truetype.cpp" />
     <ClCompile Include="systems\GLBlitSystem.cpp" />
     <ClCompile Include="systems\RenderSystem.cpp" />
     <ClCompile Include="TileEngine.cpp" />

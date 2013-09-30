@@ -1,10 +1,9 @@
 #pragma once
 #include <core/IGameEngine.h>
+#include <core/text/FontManager.h>
 
 class TileEngine : public IGameEngine
 {
-private:
-
 public:
 	TileEngine();
 	~TileEngine();

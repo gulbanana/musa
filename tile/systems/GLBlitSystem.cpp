@@ -3,14 +3,13 @@
 #include "GLBlitSystem.h"
 using namespace std;
 
-#define FONT_SIZE 24
-
 vector<ISystem::ID> GLBlitSystem::required_systems() const
 {
 	return require();
 }
 
-GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : _tram(pixelWidth/FONT_SIZE, pixelHeight/FONT_SIZE), _surface(nullptr)
+GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
+	_tram(1, 1), _surface(nullptr), _width(pixelWidth), _height(pixelHeight), _current_font(0), _current_size(24)
 {
 	//SDL init
 	int rc;
@@ -39,24 +38,18 @@ GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
 	glDisable(GL_TEXTURE_2D);					//just text
 	glDisable(GL_DEPTH_TEST);
 
-	//setup device-space
-	glViewport(0, 0, pixelWidth, pixelHeight);
-
 	//setup world-space
 	glMatrixMode(GL_MODELVIEW);	
 	glLoadIdentity();
 
-	//setup clipping-space 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0, pixelWidth, 0, pixelHeight, -1, 1);
-
 	//load fonts
-	_fonts = sth_create(512,512);
-	if (!_fonts) throw std::runtime_error("failed to init font stash");
-	if (!sth_add_font(_fonts, 0, "consola.ttf")) throw std::runtime_error("failed to add font");
-	if (!sth_add_font(_fonts, 1, "consolai.ttf")) throw std::runtime_error("failed to add font");
-	if (!sth_add_font(_fonts, 2, "consolab.ttf")) throw std::runtime_error("failed to add font");
+	_fonts = new FontManager(512, 512);
+	if (!_fonts->add_font(0, "consola.ttf")) throw std::runtime_error("failed to add font");
+	if (!_fonts->add_font(1, "consolai.ttf")) throw std::runtime_error("failed to add font");
+	if (!_fonts->add_font(2, "consolab.ttf")) throw std::runtime_error("failed to add font");
+
+	//load grid
+	resize();
 }
 
 GLBlitSystem::~GLBlitSystem(void)
@@ -67,59 +60,34 @@ GLBlitSystem::~GLBlitSystem(void)
 void GLBlitSystem::on_wake()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glColor4ub(255,255,255,255);
-		
-	sth_begin_draw(_fonts);
+	auto lineHeight = _fonts->get_vertical_metrics(_current_font, _current_size).line_height;
+	_fonts->begin_draw();
 
-	float linestart = 0;
+	float pixelY = (float)_height - lineHeight;
 	for (unsigned int j = 0; j < _tram.height; j++)
 	{
-		float lineheight = 0;
-		float charstart = 0;
+		float pixelX = 0;
 		for (unsigned int i = 0; i < _tram.width; i++)
 		{
-			sth_draw_text(_fonts, 0, FONT_SIZE, charstart, linestart, ".", &charstart);
+			glColor4ub(255,255,255,255);
+			pixelX = _fonts->draw_character(_current_font, _current_size, pixelX, pixelY, _tram.buffer[_tram.width*j+i].value);
 		}
-		sth_vmetrics(_fonts, 0, FONT_SIZE, NULL,NULL, &lineheight);
-		linestart += lineheight;
+
+		pixelY -= lineHeight;
 	}
 
-	float sx,sy,dx,dy,lh;
-	static float offset = 0.f;
-	
-	sx = 100 + offset; sy = 250 + offset;
-	offset += 1;
-
-	dx = sx; dy = sy;
-	sth_draw_text(_fonts, 0,24.0f, dx,dy,"The quick ",&dx);
-	sth_draw_text(_fonts, 1,48.0f, dx,dy,"brown ",&dx);
-	sth_draw_text(_fonts, 0,24.0f, dx,dy,"fox ",&dx);
-	sth_vmetrics(_fonts, 1,24, NULL,NULL,&lh);
-	dx = sx;
-	dy -= lh*1.2f;
-	sth_draw_text(_fonts, 1,24.0f, dx,dy,"jumps over ",&dx);
-	sth_draw_text(_fonts, 2,24.0f, dx,dy,"the lazy ",&dx);
-	sth_draw_text(_fonts, 0,24.0f, dx,dy,"dog.",&dx);
-	dx = sx;
-	dy -= lh*1.2f;
-	sth_draw_text(_fonts, 0,12.0f, dx,dy,"Now is the time for all good men to come to the aid of the party.",&dx);
-	sth_vmetrics(_fonts, 1,12, NULL,NULL,&lh);
-	dx = sx;
-	dy -= lh*1.2f*2;
-	sth_draw_text(_fonts, 1,18.0f, dx,dy,"Ég get etið gler án þess að meiða mig.",&dx);
-	sth_vmetrics(_fonts, 1,18, NULL,NULL,&lh);
-	dx = sx;
-	dy -= lh*1.2f;
-
-	sth_end_draw(_fonts);
-		
+	_fonts->end_draw();
 	SDL_GL_SwapBuffers();
 }
 
 bool GLBlitSystem::on_event(SDL_Event& event)
 {
-	//if (event.type == SDL_VIDEORESIZE)
-		//_renderer->set_viewport(event.resize.w, event.resize.h);
+	if (event.type == SDL_VIDEORESIZE)
+	{
+		_width = event.resize.w;
+		_height = event.resize.h;
+		resize();
+	}
 	
 	return false;
 }
@@ -127,4 +95,20 @@ bool GLBlitSystem::on_event(SDL_Event& event)
 grid* GLBlitSystem::get_tram()
 {
 	return &_tram;
+}
+
+void GLBlitSystem::resize()
+{
+	//setup device-space
+	glViewport(0, 0, _width, _height);
+
+	//setup clipping-space 
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, _width, 0, _height, -1, 1);
+
+	//this will only work for a fixedwidth font
+	auto vMetrics = _fonts->get_vertical_metrics(_current_font, _current_size);
+	auto hMetrics = _fonts->get_horizontal_metrics(_current_font, _current_size, '@');	
+	_tram.resize(_width/hMetrics.glyph_width, _height/vMetrics.line_height);
 }

@@ -13,6 +13,7 @@ class GameImpl
 
 	vector<unique_ptr<ISystem>> _systems;
 	shared_ptr<GameState> _state;
+	unique_ptr<IGameEngine> _engine;
 	
 public:
 	GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine);
@@ -28,13 +29,13 @@ void Game::load_scene(vector<shared_ptr<IEntity>> level) { _pimpl->load_scene(le
 void Game::play() { _pimpl->play(); }
 #pragma endregion
 
-GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) : _state(make_shared<GameState>()), _systems()
+GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) : _state(make_shared<GameState>()), _systems(), _engine(move(engine))
 {
     platform->set_window_title(settings.window_title);
 
 	add_system(make_unique<ControlSystem>(_state));
 
-	for (auto& system : engine->get_systems(settings, _state))
+	for (auto& system : _engine->get_systems(settings, _state))
 		add_system(move(system));
 
 	add_system(make_unique<UISystem>(_state));

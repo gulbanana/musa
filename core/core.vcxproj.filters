@@ -46,6 +46,10 @@
     <ClCompile Include="systems\ui\UISystemImpl.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="CustomEngine.cpp" />
+    <ClCompile Include="text\stb_truetype.cpp" />
+    <ClCompile Include="text\FontManager.cpp" />
+    <ClCompile Include="text\utf8.cpp" />
+    <ClCompile Include="text\ManagedFont.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
@@ -116,5 +120,9 @@
     <ClInclude Include="IGameEngine.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="CustomEngine.h" />
+    <ClInclude Include="text\stb_truetype.h" />
+    <ClInclude Include="text\FontManager.h" />
+    <ClInclude Include="text\utf8.h" />
+    <ClInclude Include="text\ManagedFont.h" />
   </ItemGroup>
 </Project>

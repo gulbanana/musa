@@ -15,7 +15,7 @@ struct grid
 	~grid();
 
 	void resize(unsigned int x, unsigned int y);
-	void zero();
+	void fill(char c);
 	void draw(tile t, unsigned int x, unsigned int y);
 	void draw(grid g, unsigned int x, unsigned int y);
 };
