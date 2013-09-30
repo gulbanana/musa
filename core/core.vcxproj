@@ -242,6 +242,7 @@
     <ClInclude Include="text\FontManager.h" />
     <ClInclude Include="text\ManagedFont.h" />
     <ClInclude Include="text\stb_truetype.h" />
+    <ClInclude Include="text\types.h" />
     <ClInclude Include="text\utf8.h" />
     <ClInclude Include="windows\MicrosoftPlatform.h" />
     <ClInclude Include="windows\msvc.h" />

@@ -57,7 +57,7 @@ public:
 	FontManagerImpl(int cachew, int cacheh);
 	~FontManagerImpl();
 
-	int add_font(int idx, const char* path);
+	int load_font(int index, const char* path);
 
 	void begin_draw();
 	float draw_cstring(int idx, float size, float x, float y, const char* string);
@@ -101,15 +101,15 @@ FontManagerImpl::~FontManagerImpl()
 	if (_texture) glDeleteTextures(1, &_texture);
 }
 
-int FontManager::add_font(int idx, const char* path) { return pimpl->add_font(idx, path); }
-int FontManagerImpl::add_font(int idx, const char* path)
+int FontManager::load_font(font_weight index, const char* path) { return pimpl->load_font((int)index, path); }
+int FontManagerImpl::load_font(int index, const char* path)
 {
 	int i, ascent, descent, fh, lineGap;
 	struct ManagedFont* fnt;
 	
-	if (idx < 0 || idx >= MAX_FONTS) return 0;
+	if (index < 0 || index >= MAX_FONTS) return 0;
 	
-	fnt = &fonts[idx];
+	fnt = &fonts[index];
 	if (fnt->data)
 		free(fnt->data);
 	if (fnt->glyphs)
@@ -188,9 +188,15 @@ void FontManagerImpl::end_draw()
 	_drawing = false;
 }
 
-float FontManager::draw_string(int fontIndex, float size, float x, float y, std::string s) { return pimpl->draw_cstring(fontIndex, size, x, y, s.c_str()); }
-float FontManager::draw_cstring(int fontIndex, float size, float x, float y, const char* s) { return pimpl->draw_cstring(fontIndex, size, x, y, s); }
-float FontManagerImpl::draw_cstring(int idx, float size, float x, float y, const char* s)
+float FontManager::draw_string(font_weight fontIndex, float size, float x, float y, std::string s) 
+{ 
+	return pimpl->draw_cstring((int)fontIndex, size, x, y, s.c_str()); 
+}
+float FontManager::draw_cstring(font_weight fontIndex, float size, float x, float y, const char* s) 
+{ 
+	return pimpl->draw_cstring((int)fontIndex, size, x, y, s); 
+}
+float FontManagerImpl::draw_cstring(int index, float size, float x, float y, const char* s)
 {
 	unsigned int codepoint;
 	unsigned int state = 0;
@@ -199,8 +205,8 @@ float FontManagerImpl::draw_cstring(int idx, float size, float x, float y, const
 	float* v;
 	struct ManagedFont* fnt;
 	
-	if (idx < 0 || idx >= MAX_FONTS) return x;
-	fnt = &fonts[idx];
+	if (index < 0 || index >= MAX_FONTS) return x;
+	fnt = &fonts[index];
 	if (!fnt->data) return x;
 	
 	for (; *s; ++s)
@@ -228,7 +234,10 @@ float FontManagerImpl::draw_cstring(int idx, float size, float x, float y, const
 	return x;
 }
 
-float FontManager::draw_character(int fontIndex, float size, float x, float y, char c) { return pimpl->draw_character(fontIndex, size, x, y, c); }
+float FontManager::draw_character(font_weight fontIndex, float size, float x, float y, char c) 
+{ 
+	return pimpl->draw_character((int)fontIndex, size, x, y, c); 
+}
 float FontManagerImpl::draw_character(int idx, float size, float x, float y, char c)
 {
 	unsigned int codepoint;
@@ -264,7 +273,10 @@ float FontManagerImpl::draw_character(int idx, float size, float x, float y, cha
 	return x;
 }
 
-dimensions FontManager::get_text_dimensions(int idx, float size, const char* s) { return pimpl->get_text_dimensions(idx, size, s); }
+dimensions FontManager::get_text_dimensions(font_weight weight, float size, const char* s) 
+{ 
+	return pimpl->get_text_dimensions((int)weight, size, s); 
+}
 dimensions FontManagerImpl::get_text_dimensions(int idx, float size, const char* s)
 {
 	unsigned int codepoint;
@@ -295,7 +307,10 @@ dimensions FontManagerImpl::get_text_dimensions(int idx, float size, const char*
 	return dimensions(minx, miny, maxx, maxy);
 }
 
-vmetrics FontManager::get_vertical_metrics(int idx, float size) { return pimpl->get_vertical_metrics(idx, size); }
+vmetrics FontManager::get_vertical_metrics(font_weight index, float size) 
+{ 
+	return pimpl->get_vertical_metrics((int)index, size); 
+}
 vmetrics FontManagerImpl::get_vertical_metrics(int idx, float size)
 {
 	if (idx < 0 || idx >= MAX_FONTS) throw new std::runtime_error("font index out of range");
@@ -304,7 +319,10 @@ vmetrics FontManagerImpl::get_vertical_metrics(int idx, float size)
 	return vmetrics(fonts[idx].ascender*size, fonts[idx].descender*size, fonts[idx].lineh*size);
 }
 
-hmetrics FontManager::get_horizontal_metrics(int idx, float size, char glyph) { return pimpl->get_horizontal_metrics(idx, size, glyph); }
+hmetrics FontManager::get_horizontal_metrics(font_weight index, float size, char glyph) 
+{ 
+	return pimpl->get_horizontal_metrics((int)index, size, glyph); 
+}
 hmetrics FontManagerImpl::get_horizontal_metrics(int idx, float size, char glyph)
 {
 	unsigned int state = 0;

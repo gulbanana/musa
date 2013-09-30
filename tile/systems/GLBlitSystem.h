@@ -8,13 +8,12 @@
 class GLBlitSystem : public Identified<ISystem,SYS::Render,ThreadedSystemBase>, public IBlitter
 {
 private:
-	unsigned int _width;
-	unsigned int _height;
 	grid _tram;
 	SDL_Surface* _surface;
 	FontManager* _fonts;
-	int _current_font;
-	float _current_size;
+	unsigned int _width;
+	unsigned int _height;
+	float _font_size;
 
 	std::vector<ISystem::ID> required_systems() const override;
 	void on_wake() override;

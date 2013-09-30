@@ -120,5 +120,6 @@
     <ClInclude Include="text\FontManager.h" />
     <ClInclude Include="text\utf8.h" />
     <ClInclude Include="text\ManagedFont.h" />
+    <ClInclude Include="text\types.h" />
   </ItemGroup>
 </Project>

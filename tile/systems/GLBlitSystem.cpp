@@ -9,7 +9,7 @@ vector<ISystem::ID> GLBlitSystem::required_systems() const
 }
 
 GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
-	_tram(1, 1), _surface(nullptr), _fonts(nullptr), _width(pixelWidth), _height(pixelHeight), _current_font(0), _current_size(24)
+	_tram(1, 1), _surface(nullptr), _fonts(nullptr), _width(pixelWidth), _height(pixelHeight), _font_size(24)
 {
 	//SDL init
 	int rc;
@@ -39,7 +39,7 @@ GLBlitSystem::~GLBlitSystem(void)
 void GLBlitSystem::on_wake()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	auto metrics = _fonts->get_vertical_metrics(_current_font, _current_size);
+	auto metrics = _fonts->get_vertical_metrics(font_weight::REGULAR, _font_size);
 	
 	float pixelY = metrics.ascender;
 	for (unsigned int j = 0; j < _tram.height; j++)
@@ -51,7 +51,7 @@ void GLBlitSystem::on_wake()
 			glColor4f(t.shade.r, t.shade.g, t.shade.b, t.shade.a);
 			
 			_fonts->begin_draw();	//constantly flushing the text buffer is slow, but required to get colours correct for now
-			pixelX = _fonts->draw_character(_current_font, _current_size, pixelX, pixelY, t.value);
+			pixelX = _fonts->draw_character(t.style, _font_size, pixelX, pixelY, t.value);
 			_fonts->end_draw();
 		}
 
@@ -107,12 +107,13 @@ void GLBlitSystem::resize()
     //load fonts - this must be done for every gl init :(
 	if (_fonts != nullptr) delete _fonts;
 	_fonts = new FontManager(512, 512);
-	if (!_fonts->add_font(0, "consola.ttf")) throw std::runtime_error("failed to add font");
-	if (!_fonts->add_font(1, "consolai.ttf")) throw std::runtime_error("failed to add font");
-	if (!_fonts->add_font(2, "consolab.ttf")) throw std::runtime_error("failed to add font");
+	if (!_fonts->load_font(font_weight::REGULAR,     "data/font/regular.ttf")) throw std::runtime_error("failed to load regular font");
+	if (!_fonts->load_font(font_weight::BOLD,        "data/font/bold.ttf")) throw std::runtime_error("failed to load bold font");
+	if (!_fonts->load_font(font_weight::ITALIC,      "data/font/italic.ttf")) throw std::runtime_error("failed to load italic font");
+	if (!_fonts->load_font(font_weight::BOLD_ITALIC, "data/font/bolditalic.ttf")) throw std::runtime_error("failed to load bold-italic font");
     
 	//this will only work for a fixedwidth font
-	auto vMetrics = _fonts->get_vertical_metrics(_current_font, _current_size);
-	auto hMetrics = _fonts->get_horizontal_metrics(_current_font, _current_size, '@');	
+	auto vMetrics = _fonts->get_vertical_metrics(font_weight::REGULAR, _font_size);
+	auto hMetrics = _fonts->get_horizontal_metrics(font_weight::REGULAR, _font_size, '@');	
 	_tram.resize(_width/(unsigned)hMetrics.glyph_width, _height/(unsigned)vMetrics.line_height);
 }

@@ -27,6 +27,6 @@ void RenderSystem::on_wake()
 		moving_average[current_fps++] = fps;
 		if (current_fps > 4) current_fps = 0;
 		auto average_fps = (moving_average[0] + moving_average[1] + moving_average[2] + moving_average[3] + moving_average[4]) / 5;
-		tram->draw(string("FPS: ") + to_string(average_fps), 1, 1);
+		tram->draw(string("FPS: ") + to_string(average_fps), 1, 1, font_weight::BOLD);
 	}
 }
