@@ -10,7 +10,7 @@
 
 #define MAX_ROWS 128
 #define MAX_FONTS 4
-#define VERT_COUNT (6*128)
+#define VERT_COUNT (6*1)
 #define VERT_STRIDE (sizeof(float)*4)
 
 struct quad8

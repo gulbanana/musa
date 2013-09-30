@@ -14,7 +14,7 @@ private:
 	SDL_Surface* _surface;
 	FontManager* _fonts;
 	int _current_font;
-	int _current_size;
+	float _current_size;
 
 	std::vector<ISystem::ID> required_systems() const override;
 	void on_wake() override;

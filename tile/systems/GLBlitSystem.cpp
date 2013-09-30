@@ -61,8 +61,7 @@ void GLBlitSystem::on_wake()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	auto lineHeight = _fonts->get_vertical_metrics(_current_font, _current_size).line_height;
-	_fonts->begin_draw();
-
+	
 	float pixelY = (float)_height - lineHeight;
 	for (unsigned int j = 0; j < _tram.height; j++)
 	{
@@ -71,13 +70,16 @@ void GLBlitSystem::on_wake()
 		{
 			auto t = _tram.buffer[_tram.width*j+i];
 			glColor4f(t.shade.r, t.shade.g, t.shade.b, t.shade.a);
+			
+			_fonts->begin_draw();	//constantly flushing the text buffer is slow, but required to get colours correct for now
 			pixelX = _fonts->draw_character(_current_font, _current_size, pixelX, pixelY, t.value);
+			_fonts->end_draw();
 		}
 
 		pixelY -= lineHeight;
 	}
 
-	_fonts->end_draw();
+	
 	SDL_GL_SwapBuffers();
 }
 
