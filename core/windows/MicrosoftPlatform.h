@@ -17,4 +17,6 @@ public:
 
 	milliseconds get_ticks() final;
 	void sleep_ticks(milliseconds) final;
+
+	FILE* fopen(std::string path, std::string mode) final;
 };

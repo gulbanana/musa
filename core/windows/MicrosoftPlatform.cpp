@@ -45,3 +45,13 @@ void MicrosoftPlatform::sleep_ticks(milliseconds ttw)
 {
 	Sleep(ttw);
 }
+
+FILE* MicrosoftPlatform::fopen(std::string path, std::string mode)
+{
+	FILE* f;
+
+	auto err = fopen_s(&f, path.c_str(), mode.c_str());
+	if (err != 0) throw new runtime_error("fopen failed");
+
+	return f;
+}

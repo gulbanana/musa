@@ -9,7 +9,7 @@ vector<ISystem::ID> GLBlitSystem::required_systems() const
 }
 
 GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
-	_tram(1, 1), _surface(nullptr), _width(pixelWidth), _height(pixelHeight), _current_font(0), _current_size(24)
+	_tram(1, 1), _surface(nullptr), _fonts(nullptr), _width(pixelWidth), _height(pixelHeight), _current_font(0), _current_size(24)
 {
 	//SDL init
 	int rc;
@@ -32,6 +32,7 @@ GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) :
 
 GLBlitSystem::~GLBlitSystem(void)
 {
+	delete _fonts;
 	SDL_FreeSurface(_surface);
 }
 
@@ -104,6 +105,7 @@ void GLBlitSystem::resize()
 	glOrtho(0, _width, 0, _height, -1, 1);
 
     //load fonts - this must be done for every gl init :(
+	if (_fonts != nullptr) delete _fonts;
 	_fonts = new FontManager(512, 512);
 	if (!_fonts->add_font(0, "consola.ttf")) throw std::runtime_error("failed to add font");
 	if (!_fonts->add_font(1, "consolai.ttf")) throw std::runtime_error("failed to add font");
