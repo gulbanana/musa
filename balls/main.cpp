@@ -18,7 +18,7 @@ int _main(int argc, char *argv[])
 
 	auto settings = GameSettings("balls!", WIDTH, 800);
 	auto engine = make_unique<CustomEngine>(make_unique<MeshEngine>(false));
-	engine->add_system(make_unique<ResizingBouncer>(scene.cameraEntity, WIDTH, HEIGHT, DEPTH));
+    engine->add_system([&]{ return new ResizingBouncer(scene.cameraEntity, WIDTH, HEIGHT, DEPTH); });
 
 	Game game(settings, move(engine));
 	

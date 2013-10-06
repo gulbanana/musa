@@ -50,6 +50,7 @@
     <ClCompile Include="text\ManagedFont.cpp" />
     <ClCompile Include="input\KeyboardController.cpp" />
     <ClCompile Include="input\MouseController.cpp" />
+    <ClCompile Include="GLEngineBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
@@ -127,5 +128,6 @@
     <ClInclude Include="input\MouseController.h" />
     <ClInclude Include="input\IController.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="GLEngineBase.h" />
   </ItemGroup>
 </Project>

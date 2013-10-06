@@ -4,20 +4,21 @@ using namespace std;
 
 MouseController::MouseController() : _inited(false), disabled(false)
 {
+    SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
 void MouseController::handle(SDL_Event& event)
 {
-    switch (event.type)
+    /*switch (event.type)
     {
     	case SDL_MOUSEMOTION:
         {
 			//XXX change this to an init message
-            //XXX2 what does that mean?
+            //XXX2 what does that mean? message as in "sent by the engine to the system?"
 			if (!_inited)
 			{
 				_inited = true;
-
+                
 				SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
 				SDL_WarpMouse(500, 500);
 				SDL_WM_GrabInput(SDL_GRAB_ON);
@@ -36,5 +37,5 @@ void MouseController::handle(SDL_Event& event)
 			SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
             disabled = false;
         }
-    }
+    }*/
 }

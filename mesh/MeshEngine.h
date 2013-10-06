@@ -1,15 +1,14 @@
 #pragma once
 #include <core/IGameEngine.h>
+#include <core/GLEngineBase.h>
 
-class MeshEngine : public IGameEngine
+class MeshEngine : public GLEngineBase
 {
 private:
-	bool _wireframe;
+    bool _wireframe;
 
 public:
 	MeshEngine(bool wireframe);
-	~MeshEngine();
-
-	std::vector<std::unique_ptr<ISystem>> get_systems(GameSettings settings, std::shared_ptr<GameState> state) override;
+	std::vector<std::unique_ptr<ISystem>> create_systems() override final;
 };
 

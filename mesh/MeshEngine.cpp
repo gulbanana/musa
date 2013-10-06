@@ -5,24 +5,19 @@
 #include "MeshEngine.h"
 using namespace std;
 
-MeshEngine::MeshEngine(bool wireframe) : _wireframe(wireframe)
-{
-}
+MeshEngine::MeshEngine(bool wireframe) : _wireframe(wireframe) {}
 
-MeshEngine::~MeshEngine()
+vector<unique_ptr<ISystem>> MeshEngine::create_systems()
 {
-}
+    vector<unique_ptr<ISystem>> meshEngineCore;
 
-vector<unique_ptr<ISystem>> MeshEngine::get_systems(GameSettings settings, shared_ptr<GameState> state)
-{
-	shared_ptr<IRenderer> renderer = make_unique<GLImmediateRenderer>(_wireframe);	//wireframe mode
-	renderer->set_viewport(settings.initial_width, settings.initial_height);
-
-	vector<unique_ptr<ISystem>> meshEngineCore;
-	meshEngineCore.push_back(make_unique<MotionSystem>(state));
+	shared_ptr<IRenderer> renderer = make_unique<GLImmediateRenderer>(_surface, _wireframe);	//wireframe mode
+	renderer->set_viewport(_settings->initial_width, _settings->initial_height);
+	
+	meshEngineCore.push_back(make_unique<MotionSystem>(_state));
 	meshEngineCore.push_back(make_unique<CollisionSystem>());
 	meshEngineCore.push_back(make_unique<RenderSystem>(renderer));
-	meshEngineCore.push_back(make_unique<UISystem>(state));
+	meshEngineCore.push_back(make_unique<UISystem>(_state));
 
 	return meshEngineCore;
 }

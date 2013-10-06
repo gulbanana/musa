@@ -4,30 +4,26 @@
 #include "systems.h"
 using namespace std;
 
-TileEngine::TileEngine() {}
-
-TileEngine::~TileEngine() {}
-
-vector<unique_ptr<ISystem>> TileEngine::get_systems(GameSettings settings, shared_ptr<GameState> state)
+vector<unique_ptr<ISystem>> TileEngine::create_systems()
 {
-	vector<unique_ptr<ISystem>> empty;
+    vector<unique_ptr<ISystem>> tileCore;
 
-	auto blit = make_unique<GLBlitSystem>(settings.initial_width, settings.initial_height);
-	auto render = make_unique<RenderSystem>(blit.get(), state);
-    auto ui = make_unique<UISystem>(blit.get(), state);
+	auto blit = make_unique<GLBlitSystem>(_surface);
+	auto render = make_unique<RenderSystem>(_state, blit.get());
+    auto ui = make_unique<UISystem>(_state, blit.get());
     auto keyboard = make_unique<KBMControlSystem>();
     auto gamepad = make_unique<PadControlSystem>();
-    auto motion = make_unique<MotionSystem>(state);
+    auto motion = make_unique<MotionSystem>(_state);
 
-    empty.push_back(move(keyboard));
-    empty.push_back(move(gamepad));
+    tileCore.push_back(move(keyboard));
+    tileCore.push_back(move(gamepad));
 
-    empty.push_back(move(motion));
+    tileCore.push_back(move(motion));
 
-	empty.push_back(move(render));
-    empty.push_back(move(ui));
+	tileCore.push_back(move(render));
+    tileCore.push_back(move(ui));
 
-	empty.push_back(move(blit));
+	tileCore.push_back(move(blit));
 
-	return empty;
+	return tileCore;
 }

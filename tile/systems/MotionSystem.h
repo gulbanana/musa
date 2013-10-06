@@ -5,7 +5,7 @@
 class MotionSystem : public Identified<MotionSystem, ISystem, EntityManagingSystemBase>
 {
 private:
-	std::shared_ptr<GameState> _state;
+	GameState* _state;
 
 private:
 	std::vector<ISystem::ID> required_systems() const override;
@@ -13,6 +13,6 @@ private:
     void on_frame_entity(std::shared_ptr<IEntity>) override;
 
 public:
-	MotionSystem(std::shared_ptr<GameState>);
+	MotionSystem(GameState*);
 };
 

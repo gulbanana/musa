@@ -1,5 +1,6 @@
 #include <mesh/stdafx.h>
 #include <functional>
+#include <SDL_video.h>
 #include <SDL_opengl.h>
 #include "GLImmediateRenderer.h"
 using namespace std;
@@ -11,7 +12,7 @@ using namespace glm;
 #pragma endregion
 
 #pragma region lifecycle
-GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe), _surface(nullptr)
+GLImmediateRenderer::GLImmediateRenderer(SDL_Window* window, bool wireframe) : _window(window), _wireframe(wireframe)
 {
 	//SDL init
 	int rc;
@@ -24,13 +25,14 @@ GLImmediateRenderer::GLImmediateRenderer(bool wireframe) : _wireframe(wireframe)
 	rc = SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16); 
 	if (rc != 0) throw runtime_error("failed to init depth buffer");
 
+    _context = SDL_GL_CreateContext(_window);
+    if (_context == 0) throw runtime_error("failed to create gl context");
 	//glLoadMatrixfv = (glLoadMatrixfv_t)SDL_GL_GetProcAddress("glLoadMatrixfv");
 }
 
-
 GLImmediateRenderer::~GLImmediateRenderer()
 {
-    SDL_FreeSurface(_surface);
+    SDL_GL_DeleteContext(_context);
 }
 #pragma endregion
 
@@ -39,11 +41,6 @@ void GLImmediateRenderer::set_viewport(int width, int height)
 {
 	_viewport_width = width;
 	_viewport_height = height;
-
-    //might be able to avoid this with sdl 2.0..
-    if (_surface != nullptr) SDL_FreeSurface(_surface);
-	_surface = SDL_SetVideoMode(_viewport_width, _viewport_height, 32, SDL_OPENGL | SDL_RESIZABLE);
-	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
     
 	//alpha blending, depth testing
 	
@@ -87,7 +84,7 @@ void GLImmediateRenderer::begin_frame()
 
 void GLImmediateRenderer::end_frame()
 {
-	SDL_GL_SwapBuffers();
+	SDL_GL_SwapWindow(_window);
 	//glGetError()
 }
 

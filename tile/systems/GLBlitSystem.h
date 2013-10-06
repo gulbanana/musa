@@ -8,11 +8,14 @@
 class GLBlitSystem : public Identified<GLBlitSystem, ISystem, ThreadedSystemBase>, public IBlitter
 {
 private:
-	grid _tram;
-	SDL_Surface* _surface;
+	SDL_Window* _window;
+    SDL_GLContext _context;
+
+    grid _tram;
 	FontManager* _fonts;
-	unsigned int _width;
-	unsigned int _height;
+
+	int _width;
+	int _height;
 	float _font_size;
 
 	std::vector<ISystem::ID> required_systems() const override;
@@ -22,7 +25,7 @@ private:
 	void resize();
 
 public:
-	GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight);
+	GLBlitSystem(SDL_Window* window);
 	~GLBlitSystem();
 
 	grid* get_tram() override;

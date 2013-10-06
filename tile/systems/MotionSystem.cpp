@@ -15,7 +15,7 @@ vector<IComponent::ID> MotionSystem::required_components() const
     return IComponent::require<CTransform, CVelocity>();
 }
 
-MotionSystem::MotionSystem(shared_ptr<GameState> state) : _state(state) {}
+MotionSystem::MotionSystem(GameState* state) : _state(state) {}
 
 void MotionSystem::on_frame_entity(std::shared_ptr<IEntity> e)
 {

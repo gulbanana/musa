@@ -15,7 +15,7 @@ std::vector<IComponent::ID> RenderSystem::required_components() const
     return IComponent::require<CDraw, CTransform>();
 }
 
-RenderSystem::RenderSystem(IBlitter* blitter, shared_ptr<GameState> state) : _blitter(blitter), _state(state) 
+RenderSystem::RenderSystem(GameState* state, IBlitter* blitter) : _state(state), _blitter(blitter)
 {
     _cam_centre_x = 0;
     _cam_centre_y = 0;

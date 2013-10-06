@@ -5,7 +5,8 @@ using namespace std;
 
 MicrosoftPlatform::MicrosoftPlatform() : SDLPlatformBase()
 {
-    set_environment_variable("SDL_VIDEO_WINDOW_POS", "center");
+    //obsolete with SDL2
+    //set_environment_variable("SDL_VIDEO_WINDOW_POS", "center");
 	_tick_offset = GetTickCount();
 }
 

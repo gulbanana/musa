@@ -2,23 +2,26 @@
 #include "CustomEngine.h"
 using namespace std;
 
-CustomEngine::CustomEngine(unique_ptr<IGameEngine> inner) : _inner(move(inner)), _extras() {}
+CustomEngine::CustomEngine(unique_ptr<IGameEngine> inner) : _inner(move(inner)), _factories() {}
 
-CustomEngine::~CustomEngine() {}
-
-vector<unique_ptr<ISystem>> CustomEngine::get_systems(GameSettings settings, shared_ptr<GameState> state)
+void CustomEngine::init(unique_ptr<GameSettings> settings, GameState* state)
 {
-	auto combinedSystems = _inner->get_systems(settings, state);
+    _inner->init(move(settings), state);
+}
 
-	for (auto& extraSystem : _extras)
+vector<unique_ptr<ISystem>> CustomEngine::create_systems()
+{
+	auto combinedSystems = _inner->create_systems();
+
+	for (auto extraSystemBuilder : _factories)
 	{
-		combinedSystems.push_back(move(extraSystem));
+		combinedSystems.emplace_back(extraSystemBuilder());
 	}
 	
 	return combinedSystems;
 }
 
-void CustomEngine::add_system(unique_ptr<ISystem> system)
+void CustomEngine::add_system(function<ISystem*()> systemFactory)
 {
-	_extras.push_back(move(system));
+	_factories.push_back(systemFactory);
 }

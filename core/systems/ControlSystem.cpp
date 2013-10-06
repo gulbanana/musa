@@ -7,9 +7,7 @@ vector<ISystem::ID> ControlSystem::required_systems() const
 	return require();
 }
 
-ControlSystem::ControlSystem(std::shared_ptr<GameState> s) : _state(s)
-{
-}
+ControlSystem::ControlSystem(GameState* state) : _state(state) {}
 
 bool ControlSystem::on_event(SDL_Event& event)
 {

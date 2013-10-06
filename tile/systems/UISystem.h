@@ -8,8 +8,8 @@
 class UISystem : public Identified<UISystem,ISystem,ThreadedSystemBase>
 {
 private:
+    GameState* _state;
     IBlitter* _blitter;
-	std::shared_ptr<GameState> _state;
 
     int fps_samples[FPS_SAMPLE_PERIOD];
     int fps_sample_index;
@@ -21,7 +21,7 @@ private:
     void measure_fps();
 
 public:
-	UISystem(IBlitter*, std::shared_ptr<GameState>);
+	UISystem(GameState*, IBlitter*);
     ~UISystem();
 };
 

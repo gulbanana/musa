@@ -8,7 +8,7 @@ vector<ISystem::ID> UISystem::required_systems() const
     return require<RenderSystem>();
 }
 
-UISystem::UISystem(IBlitter* blitter, shared_ptr<GameState> state) : _state(state), _blitter(blitter) 
+UISystem::UISystem(GameState* state, IBlitter* blitter) : _state(state), _blitter(blitter) 
 {
     memset(&fps_samples, 0, sizeof(fps_samples));
     fps_sample_index = 0;

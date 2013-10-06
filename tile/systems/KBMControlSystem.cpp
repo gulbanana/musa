@@ -30,10 +30,10 @@ void KBMControlSystem::on_frame_entity(shared_ptr<IEntity> e)
 {
     auto velocity = e->get_component<CVelocity>();
 
-    auto w_e = vec2(_keyboard.get_axis(SDLK_KP4, SDLK_KP6), 0) + vec2(_keyboard.get_axis(SDLK_a, SDLK_d), 0);
-    auto s_n = vec2(0, _keyboard.get_axis(SDLK_KP2, SDLK_KP8)) + vec2(0, _keyboard.get_axis(SDLK_s, SDLK_w));
-    auto sw_ne = vec2(_keyboard.get_axis(SDLK_KP1, SDLK_KP9), _keyboard.get_axis(SDLK_KP1, SDLK_KP9));
-    auto nw_se = vec2(_keyboard.get_axis(SDLK_KP7, SDLK_KP3), _keyboard.get_axis(SDLK_KP3, SDLK_KP7));
+    auto w_e = vec2(_keyboard.get_axis(SDLK_KP_4, SDLK_KP_6), 0) + vec2(_keyboard.get_axis(SDLK_a, SDLK_d), 0);
+    auto s_n = vec2(0, _keyboard.get_axis(SDLK_KP_2, SDLK_KP_8)) + vec2(0, _keyboard.get_axis(SDLK_s, SDLK_w));
+    auto sw_ne = vec2(_keyboard.get_axis(SDLK_KP_1, SDLK_KP_9), _keyboard.get_axis(SDLK_KP_1, SDLK_KP_9));
+    auto nw_se = vec2(_keyboard.get_axis(SDLK_KP_7, SDLK_KP_3), _keyboard.get_axis(SDLK_KP_3, SDLK_KP_7));
 
     velocity->vector = (w_e + s_n + sw_ne + nw_se).normalise()*15;
 }

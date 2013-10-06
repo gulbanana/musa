@@ -5,7 +5,7 @@
 
 class UISystemImpl
 {
-	std::shared_ptr<GameState> _state;
+	GameState* _state;
 
 	//guichan objects
 	std::unique_ptr<gcn::Gui> _gui;
@@ -17,7 +17,7 @@ class UISystemImpl
 
 	//pimpl passthrough
 public:
-	UISystemImpl(std::shared_ptr<GameState> s);
+	UISystemImpl(GameState* s);
 	void on_frame();
 	bool on_event(SDL_Event& event);
 };

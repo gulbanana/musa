@@ -8,7 +8,7 @@ class UISystem : public Identified<UISystem,ISystem,ThreadedSystemBase>
 {
 	UISystemImpl* _pimpl;
 public:
-	UISystem(std::shared_ptr<GameState> s);
+	UISystem(GameState* s);
 
 	std::vector<ISystem::ID> required_systems() const final;
 

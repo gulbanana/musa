@@ -1,11 +1,13 @@
 #pragma once
+#include <core/GameState.h>
 #include <mesh/geometry.h>
-#include <SDL_video.h>
 #include "scene.h"
 
 class GLImmediateRenderer : public IRenderer
 {
-	SDL_Surface* _surface;
+	SDL_Window* _window;
+    SDL_GLContext _context;
+
 	bool _wireframe;	
 	int _viewport_width;
 	int _viewport_height;
@@ -16,7 +18,7 @@ class GLImmediateRenderer : public IRenderer
 	lnseg _scale;
 
 public:
-	GLImmediateRenderer(bool wireframe);
+	GLImmediateRenderer(SDL_Window* window, bool wireframe);
 	~GLImmediateRenderer();
 
 	void set_viewport(int width, int height) final;

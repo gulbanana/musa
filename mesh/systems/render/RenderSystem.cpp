@@ -29,8 +29,21 @@ void RenderSystem::on_entity(weak_ptr<IEntity> new_entity)
 
 bool RenderSystem::on_event(SDL_Event& event)
 {
-	if (event.type == SDL_VIDEORESIZE)
-		_renderer->set_viewport(event.resize.w, event.resize.h);
+    switch(event.type)
+    {
+        //internal size tracking
+        case SDL_WINDOWEVENT_SIZE_CHANGED:
+        {
+            return false;
+        }
+
+        //externally-initiated resize
+        case SDL_WINDOWEVENT_RESIZED:
+        {
+            _renderer->set_viewport(event.window.data1, event.window.data2);
+            return true;
+        }
+    }
 	
 	return false;
 }

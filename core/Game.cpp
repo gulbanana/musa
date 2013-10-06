@@ -8,19 +8,22 @@ using namespace std;
 #pragma region pimpl
 class GameImpl
 {
+private:
 	static const unsigned maxFPS = 60;
 	static const unsigned minFPS = 15;
 
-	vector<unique_ptr<ISystem>> _systems;
-	shared_ptr<GameState> _state;
+    //the Game owns all these objects and will take care of destroying them in the correct order
+    //resources like the state and entities are provided to them as non-owning references
+	unique_ptr<GameState> _state;
 	unique_ptr<IGameEngine> _engine;
-	
+	vector<unique_ptr<ISystem>> _systems;
+
+    void frame();
+
 public:
 	GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine);
 	void load_scene(vector<shared_ptr<IEntity>> levelEntities);
 	void play();
-	void frame();
-	void add_system(unique_ptr<ISystem> system);
 };
 
 Game::Game(GameSettings settings, unique_ptr<IGameEngine> engine) : _pimpl(new GameImpl(settings, move(engine))) {}
@@ -29,24 +32,23 @@ void Game::load_scene(vector<shared_ptr<IEntity>> level) { _pimpl->load_scene(le
 void Game::play() { _pimpl->play(); }
 #pragma endregion
 
-GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) : _state(make_shared<GameState>()), _systems(), _engine(move(engine))
+GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) : 
+    _state(make_unique<GameState>()), _engine(move(engine)), _systems()
 {
-    platform->set_window_title(settings.window_title);
+    _engine->init(make_unique<GameSettings>(settings), _state.get());
 
-	add_system(make_unique<ControlSystem>(_state));
+	_systems.push_back(make_unique<ControlSystem>(_state.get()));
+	for (auto& system : _engine->create_systems())
+		_systems.push_back(move(system));
 
-	for (auto& system : _engine->get_systems(settings, _state))
-		add_system(move(system));
-}
-
-void GameImpl::add_system(unique_ptr<ISystem> system)
-{
-	_systems.push_back(move(system));
-	//sort(begin(systems), end(systems));
+    //todo: create system dependency graph
 }
 
 void GameImpl::load_scene(vector<shared_ptr<IEntity>> entities)
 {
+    //todo: have these things owned by a manager or something
+    //for now they are shared_ptrs
+
 	for (auto& entity : entities)
 		for (auto& system : _systems)
 			system->on_entity(entity);

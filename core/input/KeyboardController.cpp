@@ -20,12 +20,12 @@ void KeyboardController::handle(SDL_Event& event)
     }
 }
 
-bool KeyboardController::get_key(SDLKey k)
+bool KeyboardController::get_key(SDL_Keycode k)
 {
 	return _keys.find(k) != _keys.end();
 }
 
-int KeyboardController::get_axis(SDLKey negative, SDLKey positive)
+int KeyboardController::get_axis(SDL_Keycode negative, SDL_Keycode positive)
 {
     int result = 0;
 

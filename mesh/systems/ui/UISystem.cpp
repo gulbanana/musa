@@ -9,7 +9,7 @@ vector<ISystem::ID> UISystem::required_systems() const
 	return require<RenderSystem>();
 }
 
-UISystem::UISystem(shared_ptr<GameState> s) : _pimpl(new UISystemImpl(s)) {}
+UISystem::UISystem(GameState* s) : _pimpl(new UISystemImpl(s)) {}
 
 void UISystem::on_wake()
 {

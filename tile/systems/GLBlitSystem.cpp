@@ -10,8 +10,7 @@ vector<ISystem::ID> GLBlitSystem::required_systems() const
 	return require<RenderSystem,UISystem>();
 }
 
-GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) : 
-	_tram(1, 1), _surface(nullptr), _fonts(nullptr), _width(pixelWidth), _height(pixelHeight), _font_size(18)
+GLBlitSystem::GLBlitSystem(SDL_Window* window) : _tram(1, 1), _window(window), _fonts(nullptr), _context(nullptr), _font_size(24)
 {
 	//SDL init
 	int rc;
@@ -28,14 +27,16 @@ GLBlitSystem::GLBlitSystem(unsigned int pixelWidth, unsigned int pixelHeight) :
 	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
+    SDL_GetWindowSize(_window, &_width, &_height);
+
 	//load grid
 	resize();
 }
 
 GLBlitSystem::~GLBlitSystem(void)
 {
+    SDL_GL_DeleteContext(_context);
 	delete _fonts;
-	SDL_FreeSurface(_surface);
 }
 
 void GLBlitSystem::on_wake()
@@ -60,17 +61,28 @@ void GLBlitSystem::on_wake()
 		pixelY += metrics.line_height;
 	}
 
-	SDL_GL_SwapBuffers();
+	SDL_GL_SwapWindow(_window);
 }
 
 bool GLBlitSystem::on_event(SDL_Event& event)
 {
-	if (event.type == SDL_VIDEORESIZE)
-	{
-		_width = event.resize.w;
-		_height = event.resize.h;
-		resize();
-	}
+    switch(event.type)
+    {
+        //internal size tracking
+        case SDL_WINDOWEVENT_SIZE_CHANGED:
+        {
+            _width = event.window.data1;
+            _height = event.window.data2;
+            return true;
+        }
+
+        //externally-initiated resize
+        case SDL_WINDOWEVENT_RESIZED:
+        {
+            resize();
+            return true;
+        }
+    }
 	
 	return false;
 }
@@ -82,11 +94,9 @@ grid* GLBlitSystem::get_tram()
 
 void GLBlitSystem::resize()
 {
-    //might be able to avoid this with sdl 2.0..
-    if (_surface != nullptr) SDL_FreeSurface(_surface);
-	_surface = SDL_SetVideoMode(_width, _height, 32, SDL_OPENGL | SDL_RESIZABLE);
-	if (_surface == nullptr) throw std::runtime_error("failed to init gl context");
-    
+        _context = SDL_GL_CreateContext(_window);
+
+
 	//GL init
 	glEnable(GL_BLEND);							//rgba translucency
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

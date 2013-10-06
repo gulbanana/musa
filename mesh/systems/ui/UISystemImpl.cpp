@@ -6,11 +6,9 @@
 using namespace std;
 using namespace gcn;
 
-UISystemImpl::UISystemImpl(shared_ptr<GameState> s)
+UISystemImpl::UISystemImpl(GameState* s) : _state(s)
 {
-	_state = s;
-	
-	//dependency injection
+	//inject dependencies
 	_gui = make_unique<Gui>();
 
 	_graphics = make_unique<OpenGLGraphics>(800,600);

@@ -15,14 +15,10 @@ using namespace std;
 extern "C"
 int _main(int argc, char *argv[])
 {
-	vector<unique_ptr<ISystem>> customs;
-	customs.push_back(make_unique<Bouncer>(WIDTH, HEIGHT, DEPTH));
-	customs.push_back(make_unique<FPSController>());
-
 	auto settings = GameSettings("balls 3d!", 1200, 675);
 	auto engine = make_unique<CustomEngine>(make_unique<MeshEngine>(true));
-	engine->add_system(make_unique<Bouncer>(WIDTH, HEIGHT, DEPTH));
-	engine->add_system(make_unique<FPSController>());
+    engine->add_system([]{ return new Bouncer(WIDTH, HEIGHT, DEPTH); });
+    engine->add_system([]{ return new FPSController(); });
 
 	Game game(settings, move(engine));
 	

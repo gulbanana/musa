@@ -6,8 +6,8 @@
 class RenderSystem : public Identified<RenderSystem, ISystem, EntityManagingSystemBase>
 {
 private:
+	GameState* _state;
 	IBlitter* _blitter;
-	std::shared_ptr<GameState> _state;
     grid* _tram;
 
     int _cam_centre_x;
@@ -28,7 +28,7 @@ private:
     void on_frame_entity(std::shared_ptr<IEntity>) override;
 
 public:
-	RenderSystem(IBlitter*, std::shared_ptr<GameState>);
+	RenderSystem(GameState*, IBlitter*);
 	~RenderSystem();
 };
 

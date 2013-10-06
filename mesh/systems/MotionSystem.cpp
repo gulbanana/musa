@@ -16,7 +16,7 @@ vector<ISystem::ID> MotionSystem::required_systems() const
 	return ISystem::require<ControlSystem>();
 }
 
-MotionSystem::MotionSystem(shared_ptr<GameState> s) : _state(s) {}
+MotionSystem::MotionSystem(GameState* s) : _state(s) {}
 
 void MotionSystem::on_frame_start()
 {

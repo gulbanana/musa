@@ -7,5 +7,6 @@ class IGameEngine
 {
 public:
 	virtual ~IGameEngine() {}
-	virtual std::vector<std::unique_ptr<ISystem>> get_systems(GameSettings settings, std::shared_ptr<GameState> state) = 0;
+    virtual void init(std::unique_ptr<GameSettings> settings, GameState* state) = 0;
+	virtual std::vector<std::unique_ptr<ISystem>> create_systems() = 0;
 };
