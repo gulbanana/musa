@@ -31,18 +31,20 @@ bool RenderSystem::on_event(SDL_Event& event)
 {
     switch(event.type)
     {
-        //internal size tracking
-        case SDL_WINDOWEVENT_SIZE_CHANGED:
+        case SDL_WINDOWEVENT:
         {
-            return false;
+            switch (event.window.event)
+            {
+                //externally-initiated resize
+                case SDL_WINDOWEVENT_SIZE_CHANGED:
+                {
+                    _renderer->set_viewport(event.window.data1, event.window.data2);
+                    break;
+                }
+            }
+            break;
         }
 
-        //externally-initiated resize
-        case SDL_WINDOWEVENT_RESIZED:
-        {
-            _renderer->set_viewport(event.window.data1, event.window.data2);
-            return true;
-        }
     }
 	
 	return false;

@@ -49,8 +49,8 @@
     <ClCompile Include="text\utf8.cpp" />
     <ClCompile Include="text\ManagedFont.cpp" />
     <ClCompile Include="input\KeyboardController.cpp" />
-    <ClCompile Include="input\MouseController.cpp" />
     <ClCompile Include="GLEngineBase.cpp" />
+    <ClCompile Include="input\MouseController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
