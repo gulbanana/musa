@@ -37,7 +37,6 @@ GLBlitSystem::GLBlitSystem(SDL_Window* window) : _tram(1, 1), _window(window), _
 	glDisable(GL_DEPTH_TEST);
     
     //TTF init
-    if (_fonts != nullptr) delete _fonts;
 	_fonts = new FontManager(512, 512);
 	if (!_fonts->load_font(font_weight::REGULAR,     "data/font/regular.ttf")) throw std::runtime_error("failed to load regular font");
 	if (!_fonts->load_font(font_weight::BOLD,        "data/font/bold.ttf")) throw std::runtime_error("failed to load bold font");
