@@ -22,7 +22,7 @@ public:
 	float draw_character(font_weight weight, float size, float x, float y, char character);
 	void end_draw();
 	
-	dimensions get_text_dimensions(font_weight weight, float size, const char* string);
+	dimensions get_text_dimensions(font_weight weight, float size, std::string string);
 	vmetrics get_vertical_metrics(font_weight weight, float size);
 	hmetrics get_horizontal_metrics(font_weight weight, float size, char glyph);
 };

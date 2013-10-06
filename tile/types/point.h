@@ -32,7 +32,10 @@ struct point
 	static const point ORIGIN;
 };
 
-coord roundPoint(dist);
+
+coord roundHalf(dist);
+coord roundUp(dist);
+coord roundDown(dist);
 
 namespace std
 {

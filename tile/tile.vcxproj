@@ -175,6 +175,7 @@
     <ClInclude Include="types\orientation.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="types\point.h" />
+    <ClInclude Include="types\RoundingMode.h" />
     <ClInclude Include="types\tile.h" />
     <ClInclude Include="systems\UISystem.h" />
     <ClInclude Include="types\vec2.h" />

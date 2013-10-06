@@ -9,6 +9,12 @@
 #define DEFAULT_FONT 24.f
 #define MAX_FONT 32.f
 
+struct GridDimensions
+{
+    int x;
+    int y;
+};
+
 class GLBlitSystem : public Identified<GLBlitSystem, ISystem, ThreadedSystemBase>, public IBlitter
 {
 private:
@@ -21,12 +27,13 @@ private:
 	int _width;
 	int _height;
 	float _font_size;
+    bool _is_fullscreen;
 
 	std::vector<ISystem::ID> required_systems() const override;
 	void on_wake() override;
 	bool on_event(SDL_Event&) override;
 
-	void resize();
+	void resizeGrid(RoundingMode mode);
 
 public:
 	GLBlitSystem(SDL_Window* window);

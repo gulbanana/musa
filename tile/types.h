@@ -6,3 +6,4 @@
 #include "types/orientation.h"
 #include "types/tile.h"
 #include "types/grid.h"
+#include "types/RoundingMode.h"

@@ -45,7 +45,8 @@ GLBlitSystem::GLBlitSystem(SDL_Window* window) : _tram(1, 1), _window(window), _
 	if (!_fonts->load_font(font_weight::BOLD_ITALIC, "data/font/bolditalic.ttf")) throw std::runtime_error("failed to load bold-italic font");
 
     //load grid
-	resize();
+    _is_fullscreen = false;
+	resizeGrid(RoundingMode::HALF);
 }
 
 GLBlitSystem::~GLBlitSystem(void)
@@ -55,24 +56,57 @@ GLBlitSystem::~GLBlitSystem(void)
 }
 
 //called at startup and whenever the font size or screen size changes
-void GLBlitSystem::resize()
-{
-    //setup world-space
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+void GLBlitSystem::resizeGrid(RoundingMode mode)
+{   
+	//algorithm to make the screen size 'perfect'. might not work so well if fullscreen
+    //step 1: estimate pixel cost
+	auto vPixelEstimate = _fonts->get_vertical_metrics(font_weight::REGULAR, _font_size).line_height;
+	auto hPixelEstimate = _fonts->get_text_dimensions(font_weight::REGULAR, _font_size, "@@@").maxX/3.f;
 
-	//setup device-space
-	glViewport(0, 0, _width, _height);
+    //step 2: determine grid size 
+    int hChars, vChars;
+    switch (mode)
+    {
+    case RoundingMode::UP:
+        hChars = roundUp((dist)_width / hPixelEstimate);
+        vChars = roundUp((dist)_height / vPixelEstimate);
+        break;
+    case RoundingMode::DOWN:
+        hChars = roundDown((dist)_width / hPixelEstimate);
+        vChars = roundDown((dist)_height / vPixelEstimate);        
+        break;
+    case RoundingMode::HALF:
+        hChars = roundHalf((dist)_width / hPixelEstimate);
+        vChars = roundHalf((dist)_height / vPixelEstimate);        
+        break;
+    }
 
-	//setup clipping-space 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0, _width, 0, _height, -1, 1);
-    
-	//this will only work for a fixedwidth font
-	auto vMetrics = _fonts->get_vertical_metrics(font_weight::REGULAR, _font_size);
-	auto hMetrics = _fonts->get_horizontal_metrics(font_weight::REGULAR, _font_size, '@');	
-	_tram.resize(_width/(unsigned)hMetrics.glyph_width, _height/(unsigned)vMetrics.line_height);
+    //step 3: calculate actual pixel cost using a faux grid
+    float hPixels, vPixels = vPixelEstimate * vChars;
+    switch (mode)
+    {
+    case RoundingMode::UP:
+        for (; (hPixels = _fonts->get_text_dimensions(font_weight::REGULAR, _font_size, string(hChars, '@')).maxX) < _width; hChars++);
+        break;
+    case RoundingMode::DOWN:
+        for (; (hPixels = _fonts->get_text_dimensions(font_weight::REGULAR, _font_size, string(hChars, '@')).maxX) > _width; hChars--);
+        break;
+    case RoundingMode::HALF:
+        hPixels = _fonts->get_text_dimensions(font_weight::REGULAR, _font_size, string(hChars, '@').c_str()).maxX;
+        break;
+    }    
+
+    //step 4: resize the real grid and the viewport
+	_tram.resize(hChars, vChars);
+    if (_is_fullscreen)
+    {
+        //set up an offset for the camera, since we can't actually change the screen size
+        //XXX no way to go fullscreen yet so it doesn't matter
+    } 
+    else 
+    {
+        SDL_SetWindowSize(_window, hPixels, vPixels);
+    }
 }
 
 //take care of keeping the window surface updated
@@ -89,25 +123,52 @@ bool GLBlitSystem::on_event(SDL_Event& event)
                 {
                     _width = event.window.data1;
                     _height = event.window.data2;
+
+                    //setup world-space
+	                glMatrixMode(GL_MODELVIEW);
+	                glLoadIdentity();
+
+	                //setup device-space
+	                glViewport(0, 0, _width, _height);
+
+	                //setup clipping-space 
+	                glMatrixMode(GL_PROJECTION);
+	                glLoadIdentity();
+	                glOrtho(0, _width, 0, _height, -1, 1);
+
                     return true;
                 }
 
                 //externally-initiated resize
                 case SDL_WINDOWEVENT_RESIZED:
                 {
-                    resize();
+                    resizeGrid(RoundingMode::HALF);
                     return true;
                 }
+
+                //XXX these events don't seem to be occurring
+                //case SDL_WINDOWEVENT_MAXIMIZED:
+                //{
+                //    _is_fullscreen = true;
+                //    return true;
+                //}
+                //case SDL_WINDOWEVENT_RESTORED:
+                //{
+                //    _is_fullscreen = false;
+                //    return true;
+                //}
+
             }
             break;
         }
 
         case SDL_MOUSEWHEEL:
         {
+            auto oldSize = _font_size;
             auto newSize = _font_size + event.wheel.y * 0.5f;
             _font_size = max(min(newSize, MAX_FONT), MIN_FONT);
 
-            resize();
+            resizeGrid((newSize > oldSize) ? RoundingMode::UP : RoundingMode::DOWN);
             break;
         }
     }
@@ -127,7 +188,7 @@ void GLBlitSystem::on_wake()
 	glClear(GL_COLOR_BUFFER_BIT);
 	auto metrics = _fonts->get_vertical_metrics(font_weight::REGULAR, _font_size);
 	
-	float pixelY = metrics.ascender;
+	float pixelY = -metrics.descender;
 	for (unsigned int j = 0; j < _tram.height; j++)
 	{
 		float pixelX = 0;

@@ -273,10 +273,11 @@ float FontManagerImpl::draw_character(int idx, float size, float x, float y, cha
 	return x;
 }
 
-dimensions FontManager::get_text_dimensions(font_weight weight, float size, const char* s) 
+dimensions FontManager::get_text_dimensions(font_weight weight, float size, std::string s) 
 { 
-	return pimpl->get_text_dimensions((int)weight, size, s); 
+	return pimpl->get_text_dimensions((int)weight, size, s.c_str()); 
 }
+
 dimensions FontManagerImpl::get_text_dimensions(int idx, float size, const char* s)
 {
 	unsigned int codepoint;

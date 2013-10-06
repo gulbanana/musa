@@ -25,8 +25,8 @@ point point::operator+(vec2 const& v) const
 {
     auto xRaw = (dist)x + dx + v.x;
     auto yRaw = (dist)y + dy + v.y;
-    auto xFloor = roundPoint(xRaw);
-    auto yFloor = roundPoint(yRaw);
+    auto xFloor = roundHalf(xRaw);
+    auto yFloor = roundHalf(yRaw);
     
     return point(xFloor, yFloor, z, xRaw - xFloor, yRaw - yFloor, dz);
 }
@@ -35,8 +35,8 @@ point point::operator-(vec2 const& v) const
 {
     auto xRaw = (dist)x + dx - v.x;
     auto yRaw = (dist)y + dy - v.y;
-    auto xFloor = roundPoint(xRaw);
-    auto yFloor = roundPoint(yRaw);
+    auto xFloor = roundHalf(xRaw);
+    auto yFloor = roundHalf(yRaw);
     
     return point(xFloor, yFloor, z, xRaw - xFloor, yRaw - yFloor, dz);
 }
@@ -44,7 +44,7 @@ point point::operator-(vec2 const& v) const
 point point::operator+(dist modz) const
 {
     auto zRaw = (dist)z + dz + modz;
-    auto zFloor = roundPoint(zRaw);
+    auto zFloor = roundHalf(zRaw);
     
     return point(x, y, zFloor, dx, dy, zRaw - zFloor);
 }
@@ -52,7 +52,7 @@ point point::operator+(dist modz) const
 point point::operator-(dist modz) const
 {
     auto zRaw = (dist)z + dz - modz;
-    auto zFloor = roundPoint(zRaw);
+    auto zFloor = roundHalf(zRaw);
     
     return point(x, y, zFloor, dx, dy, zRaw - zFloor);
 }
@@ -67,7 +67,7 @@ bool point::below(point& c) const
     return z < c.z;
 }
 
-coord roundPoint(dist d)
+coord roundHalf(dist d)
 {
     auto fd = (coord)d;
     
@@ -75,6 +75,22 @@ coord roundPoint(dist d)
         return fd;
     else
         return fd+1;
+}
+
+coord roundDown(dist d)
+{
+    auto fd = (coord)d;
+    return fd;
+}
+
+coord roundUp(dist d)
+{
+    auto fd = (coord)d;
+    
+    if ((d > (dist)fd))
+        return fd + 1;
+    else
+        return fd;
 }
 
 const point point::ORIGIN = point(0, 0, 0);

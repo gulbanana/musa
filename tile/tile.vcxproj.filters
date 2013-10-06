@@ -28,6 +28,7 @@
     <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="types\point.h" />
     <ClInclude Include="types\vec2.h" />
+    <ClInclude Include="types\RoundingMode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="types\colour.cpp" />
