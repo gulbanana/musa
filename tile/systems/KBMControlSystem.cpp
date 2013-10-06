@@ -21,7 +21,6 @@ KBMControlSystem::~KBMControlSystem() {}
 bool KBMControlSystem::on_event(SDL_Event& event)
 {
     _keyboard.handle(event);
-    _mouse.handle(event);
 
     return false;
 }

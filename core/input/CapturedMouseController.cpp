@@ -1,13 +1,13 @@
 #include <core/stdafx.h>
-#include "MouseController.h"
+#include "CapturedMouseController.h"
 using namespace std;
 
-MouseController::MouseController() : _inited(false), disabled(false)
+CapturedMouseController::CapturedMouseController()
 {
     SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
-void MouseController::handle(SDL_Event& event)
+void CapturedMouseController::handle(SDL_Event& event)
 {
     /*switch (event.type)
     {

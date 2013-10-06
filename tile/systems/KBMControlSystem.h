@@ -6,7 +6,6 @@ class KBMControlSystem : public Identified<KBMControlSystem, ISystem, EntityMana
 {
 private:
    	KeyboardController _keyboard;
-    MouseController _mouse;
 
 public:
 	std::vector<ISystem::ID> required_systems() const override;

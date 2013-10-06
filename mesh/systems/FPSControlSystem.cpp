@@ -29,8 +29,6 @@ bool FPSController::on_event(SDL_Event& event)
 	{
 		case SDL_MOUSEMOTION:
 		{
-            if (_mouse.disabled) return false;
-
 			//convert mouse delta to radians, clamping the y-axis to 180 degrees
 			coord yrads = event.motion.yrel / (coord)120.0;
 			coord xrads = event.motion.xrel / (coord)120.0;

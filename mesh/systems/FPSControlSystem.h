@@ -9,7 +9,7 @@ private:
 	std::shared_ptr<GameState> _state;
 
     KeyboardController _keyboard;
-    MouseController _mouse;
+    CapturedMouseController _mouse;
 
     coord _yclamp;
 
