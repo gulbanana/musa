@@ -5,6 +5,10 @@
 #include <SDL_video.h>
 #include "IBlitter.h"
 
+#define MIN_FONT 8.f
+#define DEFAULT_FONT 24.f
+#define MAX_FONT 32.f
+
 class GLBlitSystem : public Identified<GLBlitSystem, ISystem, ThreadedSystemBase>, public IBlitter
 {
 private:
