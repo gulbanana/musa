@@ -20,6 +20,8 @@ RenderSystem::RenderSystem(GameState* state, IBlitter* blitter) : _state(state),
     _cam_centre_x = 0;
     _cam_centre_y = 0;
     _cam_z = 0;
+
+    _fill = '.';
 }
 
 RenderSystem::~RenderSystem() {}
@@ -28,7 +30,7 @@ void RenderSystem::on_frame_start()
 {
 	_tram = _blitter->get_tram();
 
-	_tram->fill(tile('.'));
+	_tram->fill(_fill);
 
     _cam_left = _cam_centre_x - _tram->width/2;
     _cam_bottom = _cam_centre_y - _tram->height/2;
@@ -50,4 +52,18 @@ bool RenderSystem::within_camera_bounds(point p)
 {
     return p.x >= _cam_left && p.y >= _cam_bottom &&
            p.x <= _cam_right && p.y <= _cam_top;
+}
+
+bool RenderSystem::on_event(SDL_Event& event)
+{
+    switch (event.type)
+    {
+        case SDL_TEXTINPUT:
+        {
+            _fill = event.text.text[0];
+            break;
+        }
+    }
+
+    return false;
 }

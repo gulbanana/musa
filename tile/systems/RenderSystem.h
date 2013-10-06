@@ -19,6 +19,8 @@ private:
     int _cam_left;
     int _cam_right;
 
+    char _fill;
+
     bool within_camera_bounds(point);
 
 private:
@@ -26,6 +28,7 @@ private:
     std::vector<IComponent::ID> required_components() const override;
     void on_frame_start() override;
     void on_frame_entity(std::shared_ptr<IEntity>) override;
+    bool on_event(SDL_Event&) override;
 
 public:
 	RenderSystem(GameState*, IBlitter*);
