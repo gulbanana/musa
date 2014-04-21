@@ -35,10 +35,12 @@ void Game::play() { _pimpl->play(); }
 GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) : 
     _state(make_unique<GameState>()), _engine(move(engine)), _orderedSystems()
 {
+    platform->println("Initialise engine");
     _engine->init(make_unique<GameSettings>(settings), _state.get());
 
     auto unorderedSystems = _engine->create_systems();
 
+    platform->println("Initialise systems");
     //linearise the set of systems based on the expressed dependencies of each system
     while (unorderedSystems.size() > 0)
     {
@@ -58,6 +60,7 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
 
             if (canMove)
             {
+                platform->println("Init " + to_string(*system));
                 _orderedSystems.push_back(*system);
                 system = unorderedSystems.erase(system);
             }
@@ -81,6 +84,7 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
 
 void GameImpl::load_scene(vector<shared_ptr<IEntity>> entities)
 {
+    platform->println("Load scene");
     //todo: have these things owned by a manager or something
     //for now they are shared_ptrs
 
@@ -91,6 +95,7 @@ void GameImpl::load_scene(vector<shared_ptr<IEntity>> entities)
 
 void GameImpl::play()
 {
+    platform->println("Begin main loop");
 	milliseconds now, mspf, clamp;
 	mspf = 1000 / maxFPS;
 	clamp = 1000 / minFPS;
@@ -109,6 +114,8 @@ void GameImpl::play()
         if (_state->last_frame_time < mspf)
             platform->sleep_ticks(mspf - _state->last_frame_time);
 	}
+
+    platform->println("End main loop");
 }
 
 void GameImpl::frame()

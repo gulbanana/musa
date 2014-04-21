@@ -14,7 +14,7 @@ public:
     virtual std::string get_environment_variable(std::string variable) = 0;
     virtual void set_environment_variable(std::string variable, std::string value) = 0;
     
-    virtual void print(std::string output) = 0;
+    virtual void println(std::string output) = 0;
     
     virtual void quit() = 0;    //XXX replace this with a message or clarify its name
     

@@ -101,9 +101,9 @@ ApplePlatform::~ApplePlatform()
     [pool drain];
 }
 
-void ApplePlatform::print(string output)
+void ApplePlatform::println(string output)
 {
-    NSLog(@"%s", output.c_str());
+    NSLog(@"%s\n", output.c_str());
 }
 
 void ApplePlatform::set_environment_variable(string variable, string value)

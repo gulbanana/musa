@@ -15,9 +15,9 @@ MicrosoftPlatform::~MicrosoftPlatform()
 	
 }
 
-void MicrosoftPlatform::print(string output)
+void MicrosoftPlatform::println(string output)
 {
-    OutputDebugStringA(output.c_str());
+    OutputDebugStringA((output + "\n").c_str());
 }
 
 void MicrosoftPlatform::set_environment_variable(string variable, string value)
