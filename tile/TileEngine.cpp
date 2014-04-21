@@ -1,24 +1,29 @@
 #include <tile/stdafx.h>
 #include <core/misc.h>
+#include <core/systems.h>
 #include "TileEngine.h"
 #include "systems.h"
 using namespace std;
 
-vector<unique_ptr<ISystem>> TileEngine::create_systems()
+void TileEngine::init(std::unique_ptr<GameSettings> settings, GameState* state)
 {
-    vector<unique_ptr<ISystem>> tileCore;
+    GLEngineBase::init(move(settings), state);
 
-	auto blit = make_unique<GLBlitSystem>(_surface);
-	auto render = make_unique<RenderSystem>(_state, blit.get());
-    auto ui = make_unique<UISystem>(_state, blit.get());
-    auto motion = make_unique<MotionSystem>(_state);
+    auto blit = make_unique<GLBlitSystem>(_surface);
 
-    tileCore.push_back(move(motion));
+    _ownedSystems.emplace(new ControlSystem(_state));
+    _ownedSystems.emplace(new RenderSystem(_state, blit.get()));
+    _ownedSystems.emplace(new UISystem(_state, blit.get()));
+    _ownedSystems.emplace(new MotionSystem(_state));
+    _ownedSystems.insert(move(blit));
+}
 
-	tileCore.push_back(move(render));
-    tileCore.push_back(move(ui));
+set<ISystem*> TileEngine::create_systems()
+{
+    set<ISystem*> tileCore;
 
-	tileCore.push_back(move(blit));
+    for (auto& system : _ownedSystems)
+        tileCore.insert(system.get());
 
 	return tileCore;
 }

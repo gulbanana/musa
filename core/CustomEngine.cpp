@@ -9,13 +9,15 @@ void CustomEngine::init(unique_ptr<GameSettings> settings, GameState* state)
     _inner->init(move(settings), state);
 }
 
-vector<unique_ptr<ISystem>> CustomEngine::create_systems()
+set<ISystem*> CustomEngine::create_systems()
 {
 	auto combinedSystems = _inner->create_systems();
 
 	for (auto extraSystemBuilder : _factories)
 	{
-		combinedSystems.emplace_back(extraSystemBuilder());
+        auto system = extraSystemBuilder();
+		_systems.emplace(system);
+        combinedSystems.insert(system);
 	}
 	
 	return combinedSystems;

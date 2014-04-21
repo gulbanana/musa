@@ -16,7 +16,7 @@ private:
     //resources like the state and entities are provided to them as non-owning references
 	unique_ptr<GameState> _state;
 	unique_ptr<IGameEngine> _engine;
-	vector<unique_ptr<ISystem>> _systems;
+	vector<ISystem*> _orderedSystems;
 
     void frame();
 
@@ -33,11 +33,9 @@ void Game::play() { _pimpl->play(); }
 #pragma endregion
 
 GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) : 
-    _state(make_unique<GameState>()), _engine(move(engine)), _systems()
+    _state(make_unique<GameState>()), _engine(move(engine)), _orderedSystems()
 {
     _engine->init(make_unique<GameSettings>(settings), _state.get());
-
-	_systems.push_back(make_unique<ControlSystem>(_state.get()));
 
     auto unorderedSystems = _engine->create_systems();
 
@@ -50,7 +48,7 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
             auto requirements = (**system).required_systems();
             for (auto requirement = begin(requirements); canMove && requirement != end(requirements); requirement++)
             {
-                if (!any_of(begin(_systems), end(_systems), [=](unique_ptr<ISystem>& s){return s->id() == *requirement; }))
+                if (!any_of(begin(_orderedSystems), end(_orderedSystems), [=](ISystem* s){return s->id() == *requirement; }))
                 {
                     canMove = false;
                 }
@@ -58,8 +56,9 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
 
             if (canMove)
             {
-                _systems.push_back(move(*system));
+                
                 system = unorderedSystems.erase(system);
+                _orderedSystems.push_back(*system);
             }
         }
     }
@@ -71,7 +70,7 @@ void GameImpl::load_scene(vector<shared_ptr<IEntity>> entities)
     //for now they are shared_ptrs
 
 	for (auto& entity : entities)
-		for (auto& system : _systems)
+        for (auto& system : _orderedSystems)
 			system->on_entity(entity);
 }
 
@@ -102,10 +101,10 @@ void GameImpl::frame()
 	SDL_Event event;
 
 	while (SDL_PollEvent(&event))
-		for(auto& system : _systems)
+        for (auto& system : _orderedSystems)
 			if (system->on_event(event)) 
 				break;
 
-	for(auto& system : _systems)
+    for (auto& system : _orderedSystems)
 		system->on_frame();
 }

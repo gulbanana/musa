@@ -4,7 +4,10 @@
 
 class TileEngine : public GLEngineBase
 {
+    std::set<std::unique_ptr<ISystem>> _ownedSystems;
+
 public:
-	std::vector<std::unique_ptr<ISystem>> create_systems() override final;
+    void init(std::unique_ptr<GameSettings> settings, GameState* state) override;
+	std::set<ISystem*> create_systems() override final;
 };
 
