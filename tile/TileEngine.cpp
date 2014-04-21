@@ -11,12 +11,7 @@ vector<unique_ptr<ISystem>> TileEngine::create_systems()
 	auto blit = make_unique<GLBlitSystem>(_surface);
 	auto render = make_unique<RenderSystem>(_state, blit.get());
     auto ui = make_unique<UISystem>(_state, blit.get());
-    auto keyboard = make_unique<KBMControlSystem>();
-    auto gamepad = make_unique<PadControlSystem>();
     auto motion = make_unique<MotionSystem>(_state);
-
-    tileCore.push_back(move(keyboard));
-    tileCore.push_back(move(gamepad));
 
     tileCore.push_back(move(motion));
 

@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>..;C:\Users\banana\Documents\code\SDL2-2.0.0\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>scape/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -102,6 +103,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>..;C:\Users\banana\Documents\code\SDL2-2.0.0\include</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderFile>scape/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -121,6 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>..;C:\Users\banana\Documents\code\SDL2-2.0.0\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>scape/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -139,6 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>..;C:\Users\banana\Documents\code\SDL2-2.0.0\include</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>scape/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -149,7 +153,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="systems\KBMControlSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="systems\PadControlSystem.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -158,7 +164,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="systems\KBMControlSystem.h" />
+    <ClInclude Include="systems\PadControlSystem.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="systems.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

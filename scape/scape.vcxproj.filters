@@ -3,8 +3,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="systems\PadControlSystem.cpp" />
+    <ClCompile Include="systems\KBMControlSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="systems.h" />
+    <ClInclude Include="systems\PadControlSystem.h" />
+    <ClInclude Include="systems\KBMControlSystem.h" />
   </ItemGroup>
 </Project>
