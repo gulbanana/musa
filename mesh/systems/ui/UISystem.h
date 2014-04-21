@@ -7,7 +7,9 @@ class UISystemImpl;
 class UISystem : public Identified<UISystem,ISystem>
 {
 	UISystemImpl* _pimpl;
+
 public:
+    std::string description() const final;
 	UISystem(GameState* s);
 
 	std::vector<ISystem::ID> required_systems() const final;

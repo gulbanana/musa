@@ -14,13 +14,14 @@ private:
     int fps_samples[FPS_SAMPLE_PERIOD];
     int fps_sample_index;
     float fps_moving_average;
-
-	std::vector<ISystem::ID> required_systems() const override;
+	
 	void on_frame() override;
 
     void measure_fps();
 
 public:
+    std::string description() const final;
+    std::vector<ISystem::ID> required_systems() const override;
 	UISystem(GameState*, IBlitter*);
     ~UISystem();
 };

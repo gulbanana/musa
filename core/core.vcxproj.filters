@@ -50,6 +50,7 @@
     <ClCompile Include="input\KeyboardController.cpp" />
     <ClCompile Include="GLEngineBase.cpp" />
     <ClCompile Include="input\CapturedMouseController.cpp" />
+    <ClCompile Include="framework\ISystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />

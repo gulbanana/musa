@@ -1,7 +1,7 @@
 #include <mesh/stdafx.h>
 #include <mesh/components.h>
 #include <array>
-#include "FPSControlSystem.h"
+#include "FPSController.h"
 using namespace std;
 using namespace glm;
 

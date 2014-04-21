@@ -184,6 +184,7 @@
   <ItemGroup>
     <ClCompile Include="framework\ArchetypeBase.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="framework\ISystem.cpp" />
     <ClCompile Include="framework\ManagedEntity.cpp" />
     <ClCompile Include="framework\AutonomousEntityFactory.cpp" />
     <ClCompile Include="framework\ManagedEntityFactory.cpp" />

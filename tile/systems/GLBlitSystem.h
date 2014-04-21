@@ -29,15 +29,17 @@ private:
 	float _font_size;
     bool _is_fullscreen;
 
-	std::vector<ISystem::ID> required_systems() const override;
-	void on_frame() override;
-	bool on_event(SDL_Event&) override;
-
 	void resizeGrid(RoundingMode mode);
 
 public:
+    std::string description() const final;
+    std::vector<ISystem::ID> required_systems() const override;
+
 	GLBlitSystem(SDL_Window* window);
 	~GLBlitSystem();
+
+    void on_frame() override;
+    bool on_event(SDL_Event&) override;
 
 	grid* get_tram() override;
 };

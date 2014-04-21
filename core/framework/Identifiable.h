@@ -20,10 +20,13 @@ public:
     bool operator<(const Identification& that) const { return value < that.value; }
 };
 
-template<typename T>
-std::string to_string(Identification<T> id)
+namespace std
 {
-    return "<" + id.value + ">";
+    template<typename T>
+    std::string to_string(Identification<T> id)
+    {
+        return "<" + id.value + ">";
+    }
 }
 
 //a base type T is Identifiable<T>

@@ -8,11 +8,12 @@ private:
 	GameState* _state;
 
 private:
-	std::vector<ISystem::ID> required_systems() const override;
-    std::vector<IComponent::ID> required_components() const override;
     void on_frame_entity(std::shared_ptr<IEntity>) override;
 
 public:
+    std::string description() const final;
+    std::vector<ISystem::ID> required_systems() const override;
+    std::vector<IComponent::ID> required_components() const override;
 	MotionSystem(GameState*);
 };
 

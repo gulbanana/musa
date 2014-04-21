@@ -13,9 +13,10 @@ class RenderSystem final : public Identified<RenderSystem,ISystem>, public IGrap
 	bool on_event(SDL_Event& event) override;
 
 public:
-	RenderSystem(std::shared_ptr<IRenderer>);
-
-	virtual std::vector<ISystem::ID> required_systems() const override;
+    std::string description() const final;
+    virtual std::vector<ISystem::ID> required_systems() const override;
+    
+    RenderSystem(std::shared_ptr<IRenderer>);
 
 	void visit(RootNode*) override;
 	void visit(BranchNode*) override;

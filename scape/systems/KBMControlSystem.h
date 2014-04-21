@@ -8,6 +8,7 @@ private:
    	KeyboardController _keyboard;
 
 public:
+    std::string description() const final;
 	std::vector<ISystem::ID> required_systems() const override;
     std::vector<IComponent::ID> required_components() const override;
 

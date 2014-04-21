@@ -19,9 +19,12 @@ private:
 	void _set_velocity();
 
 public:
+    std::string description() const final;
 	std::vector<IComponent::ID> required_components() const override;
 	std::vector<ISystem::ID> required_systems() const override;
+
 	FPSController();
+
 	bool on_event(SDL_Event& event) override;
 };
 

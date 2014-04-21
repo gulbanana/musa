@@ -8,13 +8,13 @@ class MotionSystem : public Identified<MotionSystem, ISystem, EntityManagingSyst
 	GameState* _state;
 	seconds elapsedTime;
 
-	std::vector<IComponent::ID> required_components() const override;
-	virtual std::vector<ISystem::ID> required_systems() const override;
-
 	void on_frame_start() override;
 	void on_frame_entity(std::shared_ptr<IEntity> entity) override;
 
 public:
+    std::string description() const final;
+    std::vector<IComponent::ID> required_components() const override;
+    virtual std::vector<ISystem::ID> required_systems() const override;
 	MotionSystem(GameState* state);
 };
 

@@ -9,6 +9,7 @@ private:
 	virtual void on_frame() final;
 
 public:
+    std::string description() const final;
 	std::vector<ISystem::ID> required_systems() const final;
 	ControlSystem(GameState* state);
 	bool on_event(SDL_Event& event) override;

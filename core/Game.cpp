@@ -72,9 +72,9 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
             auto error = string("System init error: unable to satisfy prereqs for ");
             for (auto system : unorderedSystems)
             {
-                error = error + to_string(system->id()) + " ";
-                throw error;
+                error = error + to_string(system) + ",";
             }
+            throw runtime_error(error);
         }
     }
 }
