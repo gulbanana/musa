@@ -5,6 +5,11 @@
 using namespace std;
 using namespace glm;
 
+string FPSController::description() const
+{
+    return "Player input";
+}
+
 vector<IComponent::ID> FPSController::required_components() const 
 {
 	return IComponent::require<CInput, CTransform>();

@@ -4,6 +4,11 @@
 #include "PadControlSystem.h"
 using namespace std;
 
+string PadControlSystem::description() const
+{
+    return "Gamepad input manager";
+}
+
 vector<ISystem::ID> PadControlSystem::required_systems() const
 {
 	return ISystem::require();

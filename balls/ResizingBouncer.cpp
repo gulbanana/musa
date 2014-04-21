@@ -4,6 +4,11 @@
 #include <windows.h>
 using namespace std;
 
+string ResizingBouncer::description() const
+{
+    return "Ball physics system + skybox resize detector";
+}
+
 ResizingBouncer::ResizingBouncer(std::shared_ptr<IEntity> camera, int x, int y, int z) : Bouncer(x, y, z), _camera(camera)
 {
     do_resize(x, y);

@@ -5,6 +5,11 @@
 #include <algorithm>
 using namespace std;
 
+string RenderSystem::description() const
+{
+    return "2D renderer";
+}
+
 vector<ISystem::ID> RenderSystem::required_systems() const
 {
 	return ISystem::require<MotionSystem>();

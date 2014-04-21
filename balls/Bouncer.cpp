@@ -7,6 +7,11 @@
 using namespace std;
 using namespace glm;
 
+string Bouncer::description() const
+{
+    return "Ball physics system";
+}
+
 vector<IComponent::ID> Bouncer::required_components() const
 {
 	return IComponent::require<CPhysics, CVelocity, CTransform, CRenderable>();

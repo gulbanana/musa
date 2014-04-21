@@ -2,6 +2,11 @@
 #include "ControlSystem.h"
 using namespace std;
 
+string ControlSystem::description() const
+{
+    return "Core window management";
+}
+
 vector<ISystem::ID> ControlSystem::required_systems() const 
 {
 	return require();

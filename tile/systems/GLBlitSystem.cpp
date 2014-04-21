@@ -6,6 +6,11 @@
 #include "RenderSystem.h"
 using namespace std;
 
+string GLBlitSystem::description() const
+{
+    return "OpenGL tile blitter";
+}
+
 vector<ISystem::ID> GLBlitSystem::required_systems() const
 {
 	return require<RenderSystem,UISystem>();

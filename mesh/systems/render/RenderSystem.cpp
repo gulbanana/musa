@@ -6,6 +6,11 @@
 #include "RenderSystem.h"
 using namespace std;
 
+string RenderSystem::description() const
+{
+    return "3D renderer";
+}
+
 vector<ISystem::ID> RenderSystem::required_systems() const 
 {
 	return require<MotionSystem>();

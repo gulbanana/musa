@@ -9,6 +9,11 @@
 #include "AABBDetector.h"
 using namespace std;
 
+string CollisionSystem::description() const
+{
+    return "Collision detector";
+}
+
 vector<IComponent::ID> CollisionSystem::required_components() const 
 {
 	return IComponent::require<CTransform, CRenderable, CPhysics>();

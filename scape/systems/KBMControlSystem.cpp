@@ -5,6 +5,11 @@
 #include <iostream>
 using namespace std;
 
+string KBMControlSystem::description() const
+{
+    return "Keyboard+mouse input manager";
+}
+
 vector<ISystem::ID> KBMControlSystem::required_systems() const
 {
 	return ISystem::require();

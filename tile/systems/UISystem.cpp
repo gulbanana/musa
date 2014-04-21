@@ -4,6 +4,11 @@
 #include "RenderSystem.h"
 using namespace std;
 
+string UISystem::description() const
+{
+    return "UI manager";
+}
+
 vector<ISystem::ID> UISystem::required_systems() const
 {
     return require<RenderSystem>();

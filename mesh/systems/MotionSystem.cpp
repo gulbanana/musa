@@ -6,6 +6,11 @@
 #include "MotionSystem.h"
 using namespace std;
 
+string MotionSystem::description() const
+{
+    return "Physics";
+}
+
 vector<IComponent::ID> MotionSystem::required_components() const 
 {
 	return IComponent::require<CTransform, CVelocity>();

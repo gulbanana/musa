@@ -4,6 +4,11 @@
 #include "MotionSystem.h"
 using namespace std;
 
+string MotionSystem::description() const
+{
+    return "2D physics engine";
+}
+
 vector<ISystem::ID> MotionSystem::required_systems() const
 {
     return require<ControlSystem>();
