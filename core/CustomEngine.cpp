@@ -6,6 +6,7 @@ CustomEngine::CustomEngine(unique_ptr<IGameEngine> inner) : _inner(move(inner)),
 
 void CustomEngine::init(unique_ptr<GameSettings> settings, GameState* state)
 {
+    _state = state;
     _inner->init(move(settings), state);
 }
 
@@ -15,7 +16,7 @@ set<ISystem*> CustomEngine::create_systems()
 
 	for (auto extraSystemBuilder : _factories)
 	{
-        auto system = extraSystemBuilder();
+        auto system = extraSystemBuilder(_state);
 		_systems.emplace(system);
         combinedSystems.insert(system);
 	}
@@ -23,7 +24,7 @@ set<ISystem*> CustomEngine::create_systems()
 	return combinedSystems;
 }
 
-void CustomEngine::add_system(function<ISystem*()> systemFactory)
+void CustomEngine::add_system(std::function<ISystem*(GameState*)> systemFactory)
 {
 	_factories.push_back(systemFactory);
 }

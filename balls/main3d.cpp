@@ -17,8 +17,8 @@ int _main(int argc, char *argv[])
 {
 	auto settings = GameSettings("balls 3d!", 1200, 675);
 	auto engine = make_unique<CustomEngine>(make_unique<MeshEngine>(true));
-    engine->add_system([]{ return new Bouncer(WIDTH, HEIGHT, DEPTH); });
-    engine->add_system([]{ return new FPSController(); });
+    engine->add_system([](GameState*){ return new Bouncer(WIDTH, HEIGHT, DEPTH); });
+    engine->add_system([](GameState*){ return new FPSController(); });
 
 	Game game(settings, move(engine));
 	

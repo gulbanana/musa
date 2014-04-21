@@ -15,8 +15,8 @@ int _main(int argc, char *argv[])
     auto scene = vector<shared_ptr<IEntity>>();
 
     auto engine = make_unique<CustomEngine>(make_unique<TileEngine>());
-    engine->add_system([]{ return new KBMControlSystem(); });
-    engine->add_system([]{ return new PadControlSystem(); });
+    engine->add_system([](GameState*){ return new KBMControlSystem(); });
+    engine->add_system([](GameState* s){ return new PadControlSystem(s); });
     
     scene.push_back(factory.create(new Protagonist()));
 
