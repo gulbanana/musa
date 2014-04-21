@@ -11,7 +11,6 @@
 #include <core/framework/ISystem.h>
 //layer 3 - factories and concrete
 #include <core/framework/ArchetypeBase.h>
-#include <core/framework/ThreadedSystemBase.h>
 #include <core/framework/EntityManagingSystemBase.h>
 #include <core/framework/AutonomousEntity.h>
 #include <core/framework/AutonomousEntityFactory.h>

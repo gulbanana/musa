@@ -13,6 +13,9 @@ public:
     Identification(const char* base, const char* sub) : value(std::string(base) + std::string(sub)) {}
     Identification(const Identification& that) : value(that.value) {}
 
+    //allows comparison
+    bool operator==(const Identification& that) const { return value == that.value; }
+
     //allows use as a map key
     bool operator<(const Identification& that) const { return value < that.value; }
 };

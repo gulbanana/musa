@@ -3,13 +3,13 @@
 #include <mesh/geometry.h>
 #include "scene.h"
 
-class RenderSystem final : public Identified<RenderSystem,ISystem,ThreadedSystemBase>, public IGraphWalker
+class RenderSystem final : public Identified<RenderSystem,ISystem>, public IGraphWalker
 {
 	std::shared_ptr<IRenderer> _renderer;
 	SceneGraph _scene;
 
 	void on_entity(std::weak_ptr<IEntity> entity) override;
-	void on_wake() override;
+    void on_frame() override;
 	bool on_event(SDL_Event& event) override;
 
 public:

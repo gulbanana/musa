@@ -50,7 +50,7 @@ bool RenderSystem::on_event(SDL_Event& event)
 	return false;
 }
 
-void RenderSystem::on_wake()
+void RenderSystem::on_frame()
 {
 	_renderer->begin_frame();
 	_scene.node_tree()->accept(this);

@@ -5,7 +5,7 @@
 
 #define FPS_SAMPLE_PERIOD 60
 
-class UISystem : public Identified<UISystem,ISystem,ThreadedSystemBase>
+class UISystem : public Identified<UISystem,ISystem>
 {
 private:
     GameState* _state;
@@ -16,7 +16,7 @@ private:
     float fps_moving_average;
 
 	std::vector<ISystem::ID> required_systems() const override;
-	void on_wake() override;
+	void on_frame() override;
 
     void measure_fps();
 

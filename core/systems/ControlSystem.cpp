@@ -30,6 +30,6 @@ bool ControlSystem::on_event(SDL_Event& event)
 	}
 }
 
-void ControlSystem::on_wake() 
+void ControlSystem::on_frame() 
 {
 }

@@ -1,11 +1,12 @@
 #include <tile/stdafx.h>
 #include <tile/components.h>
+#include <core/systems.h>
 #include "MotionSystem.h"
 using namespace std;
 
 vector<ISystem::ID> MotionSystem::required_systems() const
 {
-    return require();
+    return require<ControlSystem>();
 }
 
 vector<IComponent::ID> MotionSystem::required_components() const 

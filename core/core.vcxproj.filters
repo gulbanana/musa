@@ -41,7 +41,6 @@
       <Filter>framework</Filter>
     </ClCompile>
     <ClCompile Include="framework\EntityManagingSystemBase.cpp" />
-    <ClCompile Include="framework\ThreadedSystemBase.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="CustomEngine.cpp" />
     <ClCompile Include="text\stb_truetype.cpp" />
@@ -113,7 +112,6 @@
     <ClInclude Include="framework\ArchetypeBase.h">
       <Filter>framework</Filter>
     </ClInclude>
-    <ClInclude Include="framework\ThreadedSystemBase.h" />
     <ClInclude Include="framework\EntityManagingSystemBase.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IGameEngine.h" />

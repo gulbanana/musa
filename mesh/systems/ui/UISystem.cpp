@@ -11,7 +11,7 @@ vector<ISystem::ID> UISystem::required_systems() const
 
 UISystem::UISystem(GameState* s) : _pimpl(new UISystemImpl(s)) {}
 
-void UISystem::on_wake()
+void UISystem::on_frame()
 {
 	_pimpl->on_frame();
 }

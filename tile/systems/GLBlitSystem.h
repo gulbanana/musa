@@ -15,7 +15,7 @@ struct GridDimensions
     int y;
 };
 
-class GLBlitSystem : public Identified<GLBlitSystem, ISystem, ThreadedSystemBase>, public IBlitter
+class GLBlitSystem : public Identified<GLBlitSystem, ISystem>, public IBlitter
 {
 private:
 	SDL_Window* _window;
@@ -30,7 +30,7 @@ private:
     bool _is_fullscreen;
 
 	std::vector<ISystem::ID> required_systems() const override;
-	void on_wake() override;
+	void on_frame() override;
 	bool on_event(SDL_Event&) override;
 
 	void resizeGrid(RoundingMode mode);

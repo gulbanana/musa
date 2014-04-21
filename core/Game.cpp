@@ -38,10 +38,31 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
     _engine->init(make_unique<GameSettings>(settings), _state.get());
 
 	_systems.push_back(make_unique<ControlSystem>(_state.get()));
-	for (auto& system : _engine->create_systems())
-		_systems.push_back(move(system));
 
-    //todo: create system dependency graph
+    auto unorderedSystems = _engine->create_systems();
+
+    //linearise the set of systems based on the expressed dependencies of each system
+    while (unorderedSystems.size() > 0)
+    {
+        for (auto system = begin(unorderedSystems); system != end(unorderedSystems);)
+        {
+            auto canMove = true;
+            auto requirements = (**system).required_systems();
+            for (auto requirement = begin(requirements); canMove && requirement != end(requirements); requirement++)
+            {
+                if (!any_of(begin(_systems), end(_systems), [=](unique_ptr<ISystem>& s){return s->id() == *requirement; }))
+                {
+                    canMove = false;
+                }
+            }
+
+            if (canMove)
+            {
+                _systems.push_back(move(*system));
+                system = unorderedSystems.erase(system);
+            }
+        }
+    }
 }
 
 void GameImpl::load_scene(vector<shared_ptr<IEntity>> entities)

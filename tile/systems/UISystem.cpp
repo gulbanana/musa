@@ -19,7 +19,7 @@ UISystem::UISystem(GameState* state, IBlitter* blitter) : _state(state), _blitte
 UISystem::~UISystem() {}
 
 
-void UISystem::on_wake()
+void UISystem::on_frame()
 {
     measure_fps();
 }

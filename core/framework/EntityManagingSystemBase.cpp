@@ -16,7 +16,7 @@ void EntityManagingSystemBase::on_entity(weak_ptr<IEntity> entity)
 		entities.push_back(entity); 
 }
 
-void EntityManagingSystemBase::on_wake()
+void EntityManagingSystemBase::on_frame()
 {
 	remove_if(begin(entities), end(entities), [](weak_ptr<IEntity> entity)
 	{

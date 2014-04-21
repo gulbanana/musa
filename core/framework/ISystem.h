@@ -7,7 +7,10 @@ class ISystem : public Identifiable<ISystem>
 public:
 	virtual ~ISystem() {}
 
-	//Systems can optionally process frames or events
+    //systems can express ordering requirements
+    virtual std::vector<ISystem::ID> required_systems() const = 0;
+
+	//systems can optionally process frames or events
 	virtual void on_frame() {};
 	virtual void on_message() {};
 	virtual bool on_event(SDL_Event& event) { return false; };

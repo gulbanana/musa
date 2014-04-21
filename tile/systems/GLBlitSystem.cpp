@@ -183,7 +183,7 @@ grid* GLBlitSystem::get_tram()
 }
 
 //do blitting
-void GLBlitSystem::on_wake()
+void GLBlitSystem::on_frame()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	auto metrics = _fonts->get_vertical_metrics(font_weight::REGULAR, _font_size);
