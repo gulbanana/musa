@@ -1,12 +1,24 @@
-
-core: sdl 2.0
 tile: controller controller
 
 Milestone: controllable demo
 
-find out what IComponent::clone is
-
-tile: kbm controller
+tile: expand kbm controller
+core: fullscreen
+core: system multithreading - dependency semaphores
+core: messages, as a performance optimisation of polling
+core: polling
+core: change entity ownership logic (why are they shared)
+core: double viewport (balls unification)
+core: get rid of sdl? or is it too useful (for input). if so at least abstract its events
+core: model loader/better resource loader in general
+linux: port to linux
+win: if possible, static link to msvcrt
+core: expiring entities
+core: state - controllable game clock
+core: wrangle gl extensions (glew/etc), and use this to get rid of more SDL dependencies
+wizards game
+tile: other blitters? directx? software?
+win/mesh: directx renderer
 mesh: textures, brush/mesh distinction SOMEHOW
 mesh: lighting
 mesh: restore collision
@@ -18,22 +30,7 @@ mesh: better bounce physics - forces? or just go straight to Bullet
 mesh: gl3/VBO renderer
 mesh: make collision detection pairwise
 mesh: skybox 
-core: fullscreen
-core: system multithreading - dependency semaphores
-core: messages, as a performance optimisation of polling
-core: polling
-core: change entity ownership logic (why are they shared)
-core: double viewport (balls unification)
-core: get rid of sdl? or is it too useful (for input)
 mesh: 6dof controller
-model loader/better resource loader in general
-linux: port to linux
-windows: if possible, static link to msvcrt
-windows: directx renderer
-gui - get fonts in
-gui/renderer - labels 
-gui / control - add/subtract ball (this will involve safely destroying entities)
-expiring entities
-state - controllable game clock
-wizards game
-wrangle gl extensions (glew/etc), and use this to get rid of more SDL dependencies
+gui: get fonts in
+gui: labels 
+gui: add/subtract ball (this will involve safely destroying entities)
