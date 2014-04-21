@@ -1,6 +1,7 @@
-#include <tile/stdafx.h>
-#include <tile/components.h>
+#include <scape/stdafx.h>
 #include <core/misc.h>
+#include <tile/components.h>
+#include <scape/components.h>
 #include "Protagonist.h"
 using namespace std;
 

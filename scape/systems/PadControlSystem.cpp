@@ -1,5 +1,6 @@
 #include <scape/stdafx.h>
 #include <tile/components.h>
+#include <scape/components.h>
 #include "PadControlSystem.h"
 using namespace std;
 

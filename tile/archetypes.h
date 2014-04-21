@@ -1,1 +1,1 @@
-#include "archetypes/Protagonist.h"
+#include "archetypes/Character.h"

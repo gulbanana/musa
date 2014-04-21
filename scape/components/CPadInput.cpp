@@ -1,4 +1,4 @@
-#include <tile/stdafx.h>
+#include <scape/stdafx.h>
 #include "CPadInput.h"
 
 namespace std

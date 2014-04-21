@@ -5,6 +5,7 @@
 #include <tile/archetypes.h>
 #include <tile/TileEngine.h>
 #include "systems.h"
+#include "archetypes.h"
 using namespace std;
 
 extern "C"

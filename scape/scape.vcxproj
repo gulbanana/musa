@@ -153,6 +153,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="archetypes\Protagonist.cpp" />
+    <ClCompile Include="components\CKBMInput.cpp" />
+    <ClCompile Include="components\CPadInput.cpp" />
     <ClCompile Include="systems\KBMControlSystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="systems\PadControlSystem.cpp" />
@@ -164,6 +167,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="archetypes.h" />
+    <ClInclude Include="archetypes\Protagonist.h" />
+    <ClInclude Include="components.h" />
+    <ClInclude Include="components\CKBMInput.h" />
+    <ClInclude Include="components\CPadInput.h" />
     <ClInclude Include="systems\KBMControlSystem.h" />
     <ClInclude Include="systems\PadControlSystem.h" />
     <ClInclude Include="stdafx.h" />

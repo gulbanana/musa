@@ -1,5 +1,5 @@
 #pragma once
-#include "Character.h"
+#include <tile/archetypes.h>
 
 class Protagonist : public Character
 {

@@ -5,11 +5,19 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="systems\PadControlSystem.cpp" />
     <ClCompile Include="systems\KBMControlSystem.cpp" />
+    <ClCompile Include="components\CKBMInput.cpp" />
+    <ClCompile Include="components\CPadInput.cpp" />
+    <ClCompile Include="archetypes\Protagonist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="systems.h" />
     <ClInclude Include="systems\PadControlSystem.h" />
     <ClInclude Include="systems\KBMControlSystem.h" />
+    <ClInclude Include="components\CKBMInput.h" />
+    <ClInclude Include="components\CPadInput.h" />
+    <ClInclude Include="components.h" />
+    <ClInclude Include="archetypes\Protagonist.h" />
+    <ClInclude Include="archetypes.h" />
   </ItemGroup>
 </Project>

@@ -20,9 +20,6 @@
     <ClInclude Include="components\CDraw.h" />
     <ClInclude Include="archetypes\Character.h" />
     <ClInclude Include="archetypes.h" />
-    <ClInclude Include="components\CKBMInput.h" />
-    <ClInclude Include="components\CPadInput.h" />
-    <ClInclude Include="archetypes\Protagonist.h" />
     <ClInclude Include="systems\MotionSystem.h" />
     <ClInclude Include="types\point.h" />
     <ClInclude Include="types\vec2.h" />
@@ -43,9 +40,6 @@
     <ClCompile Include="components\CTransform.cpp" />
     <ClCompile Include="components\CVelocity.cpp" />
     <ClCompile Include="archetypes\Character.cpp" />
-    <ClCompile Include="components\CKBMInput.cpp" />
-    <ClCompile Include="components\CPadInput.cpp" />
-    <ClCompile Include="archetypes\Protagonist.cpp" />
     <ClCompile Include="systems\MotionSystem.cpp" />
     <ClCompile Include="types\point.cpp" />
     <ClCompile Include="types\vec2.cpp" />

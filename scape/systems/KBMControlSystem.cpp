@@ -1,5 +1,6 @@
 #include <scape/stdafx.h>
 #include <tile/components.h>
+#include <scape/components.h>
 #include "KBMControlSystem.h"
 #include <iostream>
 using namespace std;
