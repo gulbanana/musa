@@ -42,10 +42,12 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
     //linearise the set of systems based on the expressed dependencies of each system
     while (unorderedSystems.size() > 0)
     {
+        auto currentSize = unorderedSystems.size();
+
         for (auto system = begin(unorderedSystems); system != end(unorderedSystems);)
         {
             auto canMove = true;
-            auto requirements = (**system).required_systems();
+            auto requirements = (*system)->required_systems();
             for (auto requirement = begin(requirements); canMove && requirement != end(requirements); requirement++)
             {
                 if (!any_of(begin(_orderedSystems), end(_orderedSystems), [=](ISystem* s){return s->id() == *requirement; }))
@@ -56,9 +58,22 @@ GameImpl::GameImpl(GameSettings settings, unique_ptr<IGameEngine> engine) :
 
             if (canMove)
             {
-                
-                system = unorderedSystems.erase(system);
                 _orderedSystems.push_back(*system);
+                system = unorderedSystems.erase(system);
+            }
+            else
+            {
+                system++;
+            }
+        }
+
+        if (currentSize == unorderedSystems.size())
+        {
+            auto error = string("System init error: unable to satisfy prereqs for ");
+            for (auto system : unorderedSystems)
+            {
+                error = error + to_string(system->id()) + " ";
+                throw error;
             }
         }
     }
