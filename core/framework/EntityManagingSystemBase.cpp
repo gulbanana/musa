@@ -18,7 +18,7 @@ void EntityManagingSystemBase::on_entity(weak_ptr<IEntity> entity)
 
 void EntityManagingSystemBase::on_wake()
 {
-	remove_if(begin(entities), end(entities), [this](weak_ptr<IEntity> entity)	//not sure why "this" is required here- maybe vc++ bug
+	remove_if(begin(entities), end(entities), [](weak_ptr<IEntity> entity)
 	{
 		return entity.expired();
 	});
