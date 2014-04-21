@@ -1,4 +1,5 @@
 #include <tile/stdafx.h>
+#include <algorithm>
 #include <SDL_opengl.h>
 #include "GLBlitSystem.h"
 #include "UISystem.h"
@@ -104,7 +105,7 @@ void GLBlitSystem::resizeGrid(RoundingMode mode)
     } 
     else 
     {
-        SDL_SetWindowSize(_window, hPixels, vPixels);
+        SDL_SetWindowSize(_window, (int)hPixels, (int)vPixels);
     }
 }
 

@@ -1,4 +1,5 @@
-#include "tile/stdafx.h"
+#include <tile/stdafx.h>
+#include <algorithm>
 #include "UISystem.h"
 #include "RenderSystem.h"
 using namespace std;
